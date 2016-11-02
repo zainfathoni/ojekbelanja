@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'Lato';
+  font-weight: 400;
+  font-style: normal;
+  src: url('./fonts/Lato-regular/Lato-regular.eot');
+  src: url('./fonts/Lato-regular/Lato-regular.eot?#iefix') format('embedded-opentype'),
+       local('Lato Regular'),
+       local('Lato-regular'),
+       url('./fonts/Lato-regular/Lato-regular.woff2') format('woff2'),
+       url('./fonts/Lato-regular/Lato-regular.woff') format('woff'),
+       url('./fonts/Lato-regular/Lato-regular.ttf') format('truetype'),
+       url('./fonts/Lato-regular/Lato-regular.svg#Lato') format('svg');
+}
+
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-weight: 400;
+  font-style: normal;
+  src: url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.eot');
+  src: url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.eot?#iefix') format('embedded-opentype'),
+       local('Ubuntu Mono'),
+       local('Ubuntu-Mono-regular'),
+       url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.woff2') format('woff2'),
+       url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.woff') format('woff'),
+       url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.ttf') format('truetype'),
+       url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.svg#UbuntuMono') format('svg');
+}
+
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./fonts/MaterialIcons-Regular/MaterialIcons-Regular.eot'); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       url('./fonts/MaterialIcons-Regular/MaterialIcons-Regular.woff2') format('woff2'),
+       url('./fonts/MaterialIcons-Regular/MaterialIcons-Regular.woff') format('woff'),
+       url('./fonts/MaterialIcons-Regular/MaterialIcons-Regular.ttf') format('truetype'),
+       url('./fonts/MaterialIcons-Regular/MaterialIcons-Regular.svg#MaterialIcons') format('svg');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
