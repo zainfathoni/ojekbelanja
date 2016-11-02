@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'Lato';
+  font-weight: 400;
+  font-style: normal;
+  src: url('./fonts/Lato-regular/Lato-regular.eot');
+  src: url('./fonts/Lato-regular/Lato-regular.eot?#iefix') format('embedded-opentype'),
+       local('Lato Regular'),
+       local('Lato-regular'),
+       url('./fonts/Lato-regular/Lato-regular.woff2') format('woff2'),
+       url('./fonts/Lato-regular/Lato-regular.woff') format('woff'),
+       url('./fonts/Lato-regular/Lato-regular.ttf') format('truetype'),
+       url('./fonts/Lato-regular/Lato-regular.svg#Lato') format('svg');
+}
+
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-weight: 400;
+  font-style: normal;
+  src: url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.eot');
+  src: url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.eot?#iefix') format('embedded-opentype'),
+       local('Ubuntu Mono'),
+       local('Ubuntu-Mono-regular'),
+       url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.woff2') format('woff2'),
+       url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.woff') format('woff'),
+       url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.ttf') format('truetype'),
+       url('./fonts/Ubuntu-Mono-regular/Ubuntu-Mono-regular.svg#UbuntuMono') format('svg');
+}
+
