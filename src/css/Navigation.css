@@ -18,3 +18,7 @@ nav a.active {
   color: #e55b36;
   background-color: #fff;
 }
+
+nav a.home {
+  font-size: 1.2rem;
+}
