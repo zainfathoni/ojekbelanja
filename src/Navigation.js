@@ -12,6 +12,7 @@ class Navigation extends Component {
           <Link to="/cara-kerja" activeClassName="active">Cara Kerja</Link>
           <Link to="/faq" activeClassName="active">FAQ</Link>
           <Link to="/tentang-kami" activeClassName="active">Tentang Kami</Link>
+          <Link to="/login" activeClassName="active"><i className="material-icons">exit_to_app</i> Login</Link>
         </nav>
       </header>
     );

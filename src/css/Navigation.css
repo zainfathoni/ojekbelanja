@@ -28,3 +28,8 @@ nav a.active {
 nav a.home {
   font-size: 1.2rem;
 }
+
+nav a:last-of-type {
+  font-size: 1rem;
+  float: right;
+}
