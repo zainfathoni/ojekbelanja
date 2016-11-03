@@ -4,13 +4,6 @@
   line-height: 3rem;
 }
 
-.l-filter-result {
-  padding: 0;
-  margin: auto;
-  max-width: 60em;
-  list-style-type: none;
-}
-
 /* Module */
 
 .filter-input {

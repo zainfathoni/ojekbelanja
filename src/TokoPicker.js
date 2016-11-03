@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import TokoList from './TokoList';
 import { tokos } from './models';
 import './css/TokoPicker.css';
 
@@ -44,13 +45,10 @@ export default class TokoPicker extends Component {
             <i className="material-icons">search</i>
           </button>
         </div>
-        <ul className="l-filter-result">
-          <li>
-            <button onClick={(e) => this.goToToko('Jejen')}>
-              {'Jejen'} →
-            </button>
-          </li>
-        </ul>
+        <TokoList
+          {...this.state}
+          goToToko={this.goToToko}
+        />
       </main>
     );
   }
