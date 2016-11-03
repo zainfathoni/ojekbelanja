@@ -23,5 +23,8 @@ class Header extends Component {
   }
 }
 
+Header.propTypes = {
+  is404: React.PropTypes.bool
+}
 
 export default Header;
