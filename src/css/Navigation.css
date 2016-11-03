@@ -1,5 +1,11 @@
-nav {
+header {
   background-color: #FFF8E1;
+}
+
+nav {
+  text-align: left;
+  margin: auto;
+  max-width: 60em;
 }
 
 nav a {
