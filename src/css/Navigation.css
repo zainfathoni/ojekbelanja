@@ -1,5 +1,19 @@
+nav {
+  background-color: #FFF8E1;
+}
+
 nav a {
+  display: inline-block;
   line-height: 3rem;
   padding: 0 0.5rem;
   font-weight: 700;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #606060;
+  transition: 0.25s;
+}
+
+nav a:hover {
+  color: #e55b36;
+  background-color: #fff;
 }
