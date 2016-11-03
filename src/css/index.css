@@ -7,3 +7,13 @@ body {
 code {
   font-family: 'Ubuntu Mono', monospace;
 }
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
