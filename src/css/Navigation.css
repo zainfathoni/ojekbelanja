@@ -1,15 +1,21 @@
-header {
+.nav-container {
   background-color: #DCEDC8;
 }
 
-nav {
-  text-align: left;
+.nav-wrap {
   margin: auto;
   max-width: 60em;
 }
 
-nav > a {
-  display: inline-block;
+.nav-wrap:after {
+  display:table;
+  clear: both;
+  content: '';
+}
+
+.nav {
+  display: block;
+  float: left;
   line-height: 3rem;
   padding: 0 0.5rem;
   font-weight: 700;
@@ -19,17 +25,17 @@ nav > a {
   transition: 0.25s;
 }
 
-nav > a:hover,
-nav > a.active {
+.nav:hover,
+.nav.is-active {
   color: #FF5722;
   background-color: #fff;
 }
 
-nav > a.home {
+.nav-home {
   font-size: 1.2rem;
 }
 
-nav > a:last-of-type {
+.nav-login {
   font-size: 1rem;
   float: right;
 }
