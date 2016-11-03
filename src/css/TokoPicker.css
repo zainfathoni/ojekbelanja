@@ -16,6 +16,7 @@
   vertical-align: middle;
   padding: 0.125rem 0.5rem;
   border-style: solid;
+  transition: 0.25s;
 }
 
 .filter-input-txt {
@@ -23,16 +24,16 @@
   font-size: 0.9rem;
   border-top-left-radius: 0.75rem;
   border-bottom-left-radius: 0.75rem;
-  border-color: #9E9E9E;
+  border-color: #BDBDBD;
 }
 
 .filter-input-btn {
   width: 2.25rem;
   border-top-right-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
-  border-color: #8BC34A;
-  background-color: #8BC34A;
-  
+  border-color: #673AB7;
+  background-color: #673AB7;
+  color: #FFFFFF
 }
 
 .filter-input-btn i.material-icons {
@@ -42,7 +43,7 @@
 /* State */
 
 .filter-input:focus {
-  border: 2px solid #8BC34A;
+  border: 2px solid #673AB7;
   outline: 0;
 }
 

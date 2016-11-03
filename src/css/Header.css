@@ -2,12 +2,12 @@
 
 header {
   text-align: center;
-  background-color: #8BC34A;
+  background-color: #673AB7;
   height: 10.5rem;
   padding: 1.5rem;
-  color: white;
+  color: #FFFFFF;
 }
 
 .header-error {
-  color: #FF3D00;
+  color: #FF9800;
 }

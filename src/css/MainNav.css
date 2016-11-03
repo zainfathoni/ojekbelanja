@@ -1,7 +1,7 @@
 /* Layout */
 
 .l-fullwidth-mainnav{
-  background-color: #DCEDC8;
+  background-color: #D1C4E9;
 }
 
 /* Module */
@@ -44,6 +44,6 @@
 
 .mainnav-item:hover,
 .is-mainnav-active {
-  color: #FF5722;
-  background-color: #fff;
+  color: #FF6D00;
+  background-color: #EDE7F6;
 }
