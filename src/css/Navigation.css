@@ -5,6 +5,10 @@
 .nav-wrap {
   margin: auto;
   max-width: 60em;
+  display: block;
+  line-height: 3rem;
+  font-weight: 700;
+  font-size: 0.9rem;  
 }
 
 .nav-wrap:after {
@@ -14,12 +18,8 @@
 }
 
 .nav {
-  display: block;
   float: left;
-  line-height: 3rem;
   padding: 0 0.5rem;
-  font-weight: 700;
-  font-size: 0.9rem;
   text-decoration: none;
   color: #212121;
   transition: 0.25s;
