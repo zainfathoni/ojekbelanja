@@ -30,7 +30,6 @@ export default class TokoPicker extends Component {
   /*** Render ***/
 
   render() {
-    console.log(this.state);
     return (
       <main>
         <div className="l-filter-input">

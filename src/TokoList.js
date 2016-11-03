@@ -28,8 +28,8 @@ export default class TokoList extends Component {
       <ul className="l-filter-result">
         {Object.keys(filteredTokos)
           .map(key =>
-            <li>
-              <button key={key} onClick={(e) => this.props.goToToko(key)}>
+            <li key={key}>
+              <button onClick={(e) => this.props.goToToko(key)}>
                 {filteredTokos[key]} →
               </button>
             </li>
