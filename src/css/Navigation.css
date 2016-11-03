@@ -1,5 +1,5 @@
 header {
-  background-color: #FFF8E1;
+  background-color: #DCEDC8;
 }
 
 nav {
@@ -15,13 +15,13 @@ nav a {
   font-weight: 700;
   font-size: 0.9rem;
   text-decoration: none;
-  color: #606060;
+  color: #212121;
   transition: 0.25s;
 }
 
 nav a:hover,
 nav a.active {
-  color: #e55b36;
+  color: #FF5722;
   background-color: #fff;
 }
 
