@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 import './css/MainNav.css';
 
-class MainNav extends Component {
+export default class MainNav extends Component {
   render() {
     return (
       <div className="l-fullwidth-mainnav">
@@ -18,5 +18,3 @@ class MainNav extends Component {
     );
   }
 }
-
-export default MainNav;

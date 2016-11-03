@@ -4,7 +4,7 @@ import Header from './Header';
 import MainNav from './MainNav';
 import './css/Home.css';
 
-class Toko extends Component {
+export default class Toko extends Component {
   render() {
     return (
       <div className="app">
@@ -17,5 +17,3 @@ class Toko extends Component {
     );
   }
 }
-
-export default Toko;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './css/TokoPicker.css';
 
-class TokoPicker extends Component {
+export default class TokoPicker extends Component {
   goToToko = (tokoId) => {
     console.log(`Going to ${tokoId}`);
     console.log(this.context);
@@ -29,5 +29,3 @@ class TokoPicker extends Component {
 TokoPicker.contextTypes = {
   router: React.PropTypes.object
 }
-
-export default TokoPicker;

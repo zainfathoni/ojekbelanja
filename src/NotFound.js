@@ -5,7 +5,7 @@ import MainNav from './MainNav';
 import Header from './Header';
 import './css/NotFound.css';
 
-class NotFound extends Component {
+export default class NotFound extends Component {
   render() {
     return (
       <div className="app">
@@ -21,5 +21,3 @@ class NotFound extends Component {
     );
   }
 }
-
-export default NotFound;

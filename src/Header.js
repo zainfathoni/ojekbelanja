@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './css/Header.css';
 
-class Header extends Component {
+export default class Header extends Component {
   render() {
     if (!this.props.is404) {
       return (
@@ -26,5 +26,3 @@ class Header extends Component {
 Header.propTypes = {
   is404: React.PropTypes.bool
 }
-
-export default Header;
