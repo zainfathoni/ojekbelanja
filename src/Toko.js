@@ -6,12 +6,12 @@ import './css/App.css';
 class Toko extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Navigation />
-        <div className="App-header">
+        <div className="app-header">
           <h2>Ojek <i className="material-icons">motorcycle</i><i className="material-icons">shopping_basket</i> Belanja</h2>
         </div>
-        <p className="App-intro">
+        <p className="app-intro">
           Selamat datang di toko <code>{this.props.params.tokoId}</code>.
         </p>
       </div>

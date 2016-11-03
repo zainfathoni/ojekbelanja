@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 
 import Navigation from './Navigation';
+import TokoPicker from './TokoPicker';
 import './css/App.css';
 
 class App extends Component {
-  goToToko = (tokoId) => {
-    console.log(`Going to ${tokoId}`);
-    console.log(this.context);
-    this.context.router.transitionTo(`/toko/${tokoId}`);
-  }
-
   render() {
     return (
       <div className="app">
@@ -19,18 +14,12 @@ class App extends Component {
           <h3>Asisten Belanja Anda</h3>
         </div>
         <p className="app-intro">
-          Silakan pilih toko.
+          Pilih Toko <strong>Ojek Belanja</strong> Anda
         </p>
-        <button onClick={(e) => this.goToToko('Jejen')}>
-          {'Jejen'} →
-        </button>
+        <TokoPicker />
       </div>
     );
   }
-}
-
-App.contextTypes = {
-  router: React.PropTypes.object
 }
 
 export default App;
