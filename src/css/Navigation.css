@@ -13,7 +13,8 @@ nav a {
   transition: 0.25s;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
   color: #e55b36;
   background-color: #fff;
 }
