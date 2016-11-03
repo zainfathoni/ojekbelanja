@@ -1,3 +1,51 @@
-.input-group {
-  font-size: large;
+/* Layout */
+
+.l-filter-input {
+  line-height: 3rem;
+}
+
+/* Module */
+
+.filter-input {
+  line-height: 1.5rem;
+  vertical-align: middle;
+  padding: 0.125rem 0.5rem;
+  border-style: solid;
+}
+
+.filter-input-txt {
+  width: 18rem;
+  font-size: 0.9rem;
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+  border-color: #9E9E9E;
+}
+
+.filter-input-btn {
+  width: 2.25rem;
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  border-color: #8BC34A;
+  background-color: #8BC34A;
+  
+}
+
+.filter-input-btn i.material-icons {
+  font-size: 1rem;
+}
+
+/* State */
+.filter-input:focus {
+  border: 2px solid #8BC34A;
+  outline: 0;
+}
+
+.filter-input-txt,
+.filter-input-txt:focus {
+  border-right: 0;
+}
+
+.filter-input-btn,
+.filter-input-btn:focus {
+  border-left: 0;
 }

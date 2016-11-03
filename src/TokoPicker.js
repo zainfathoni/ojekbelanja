@@ -31,22 +31,26 @@ export default class TokoPicker extends Component {
   render() {
     console.log(this.state);
     return (
-      <main className="input-group input-group-rounded">
-        <input
-          type="text"
-          className="input-text"
-          placeholder="Nama Toko"
-          value={this.state.keyword}
-          onChange={(e) => this.updateKeyword(e.target.value)}
-          />
-        <span className="input-group-btn">
-          <a className="btn btn-primary btn-block">
+      <main>
+        <div className="l-filter-input">
+          <input
+            type="text"
+            className="filter-input filter-input-txt"
+            placeholder="Nama Toko"
+            value={this.state.keyword}
+            onChange={(e) => this.updateKeyword(e.target.value)}
+            />
+          <button className="filter-input filter-input-btn">
             <i className="material-icons">search</i>
-          </a>
-        </span>
-        <button onClick={(e) => this.goToToko('Jejen')}>
-          {'Jejen'} →
-        </button>
+          </button>
+        </div>
+        <ul className="l-filter-result">
+          <li>
+            <button onClick={(e) => this.goToToko('Jejen')}>
+              {'Jejen'} →
+            </button>
+          </li>
+        </ul>
       </main>
     );
   }
