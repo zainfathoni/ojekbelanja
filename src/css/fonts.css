@@ -13,6 +13,20 @@
 }
 
 @font-face {
+  font-family: 'Lato';
+  font-weight: 700;
+  font-style: normal;
+  src: url('./fonts/Lato-700/Lato-700.eot');
+  src: url('./fonts/Lato-700/Lato-700.eot?#iefix') format('embedded-opentype'),
+       local('Lato Bold'),
+       local('Lato-700'),
+       url('./fonts/Lato-700/Lato-700.woff2') format('woff2'),
+       url('./fonts/Lato-700/Lato-700.woff') format('woff'),
+       url('./fonts/Lato-700/Lato-700.ttf') format('truetype'),
+       url('./fonts/Lato-700/Lato-700.svg#Lato') format('svg');
+}
+
+@font-face {
   font-family: 'Ubuntu Mono';
   font-weight: 400;
   font-style: normal;
@@ -51,6 +65,7 @@
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr;
+  vertical-align: middle;
 
   /* Support for all WebKit browsers. */
   -webkit-font-smoothing: antialiased;
