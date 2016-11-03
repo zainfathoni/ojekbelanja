@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Navigation from './Navigation';
 import './css/TokoPicker.css';
 
 class TokoPicker extends Component {

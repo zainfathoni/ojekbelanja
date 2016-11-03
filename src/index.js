@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router';
 
-import App from './App';
+import Home from './Home';
 import Toko from './Toko';
 import NotFound from './NotFound';
 import './css/index.css';
@@ -12,9 +12,9 @@ const Root = () => {
   return (
     <BrowserRouter>
       <div>
-        <Match exactly pattern="/" component={App} />
+        <Match exactly pattern="/" component={Home} />
         <Match pattern="/toko/:tokoId" component={Toko} />
-        <Miss component={NotFound} />        
+        <Miss component={NotFound} />
       </div>
     </BrowserRouter>
   )

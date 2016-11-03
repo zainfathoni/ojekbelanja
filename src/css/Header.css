@@ -1,14 +1,13 @@
-.app {
-  text-align: center;
-}
+/* Module */
 
-.app-header {
+header {
+  text-align: center;
   background-color: #8BC34A;
   height: 10.5rem;
   padding: 1.5rem;
   color: white;
 }
 
-.app-intro {
-  font-size: large;
+.header-error {
+  color: #FF3D00;
 }

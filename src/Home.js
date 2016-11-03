@@ -1,21 +1,23 @@
 import React, { Component } from 'react';
 
-import Header from './Header';
 import MainNav from './MainNav';
+import Header from './Header';
+import TokoPicker from './TokoPicker';
 import './css/Home.css';
 
-class Toko extends Component {
+class Home extends Component {
   render() {
     return (
       <div className="app">
         <MainNav />
         <Header />
         <p>
-          Selamat datang di toko <code>{this.props.params.tokoId}</code>.
+          Pilih Toko <strong>Ojek Belanja</strong> Anda
         </p>
+        <TokoPicker />
       </div>
     );
   }
 }
 
-export default Toko;
+export default Home;

@@ -1,8 +1,12 @@
-.nav-container {
+/* Layout */
+
+.l-fullwidth-mainnav{
   background-color: #DCEDC8;
 }
 
-.nav-wrap {
+/* Module */
+
+.mainnav {
   margin: auto;
   max-width: 60em;
   display: block;
@@ -11,13 +15,13 @@
   font-size: 0.9rem;  
 }
 
-.nav-wrap:after {
+.mainnav:after {
   display: table;
   clear: both;
   content: '';
 }
 
-.nav {
+.mainnav-item {
   float: left;
   padding: 0 0.75rem;
   text-decoration: none;
@@ -25,17 +29,19 @@
   transition: 0.25s;
 }
 
-.nav:hover,
-.nav.is-active {
-  color: #FF5722;
-  background-color: #fff;
-}
-
-.nav-home {
+.mainnav-home {
   font-size: 1.2rem;
 }
 
-.nav-login {
+.mainnav-login {
   font-size: 1rem;
   float: right;
+}
+
+/* State */
+
+.mainnav-item:hover,
+.is-mainnav-active {
+  color: #FF5722;
+  background-color: #fff;
 }
