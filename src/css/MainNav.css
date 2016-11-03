@@ -47,3 +47,7 @@
   color: #FF6D00;
   background-color: #EDE7F6;
 }
+
+.mainnav-item:focus {
+  outline: 2px solid #673AB7;
+}
