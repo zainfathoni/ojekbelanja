@@ -4,6 +4,11 @@
   line-height: 3rem;
 }
 
+.l-filter-result {
+  margin: auto;
+  max-width: 60em;
+}
+
 /* Module */
 
 .filter-input {
@@ -35,6 +40,7 @@
 }
 
 /* State */
+
 .filter-input:focus {
   border: 2px solid #8BC34A;
   outline: 0;
