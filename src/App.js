@@ -12,12 +12,13 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="app">
         <Navigation />
-        <div className="App-header">
-          <h2>Ojek <i className="material-icons">motorcycle</i><i className="material-icons">shopping_basket</i> Belanja</h2>
+        <div className="app-header">
+          <h1>Ojek <i className="material-icons">motorcycle</i><i className="material-icons">shopping_basket</i> Belanja</h1>
+          <h3>Asisten Belanja Anda</h3>
         </div>
-        <p className="App-intro">
+        <p className="app-intro">
           Silakan pilih toko.
         </p>
         <button onClick={(e) => this.goToToko('Jejen')}>

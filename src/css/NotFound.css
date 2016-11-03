@@ -9,6 +9,10 @@
   color: white;
 }
 
+.app-header-error {
+  color: #FF3D00;
+}
+
 .app-intro {
   font-size: large;
 }

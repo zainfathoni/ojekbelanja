@@ -1,35 +1,41 @@
-header {
-  background-color: #FFF8E1;
+.nav-container {
+  background-color: #DCEDC8;
 }
 
-nav {
-  text-align: left;
+.nav-wrap {
   margin: auto;
   max-width: 60em;
+  display: block;
+  line-height: 3rem;
+  font-weight: 700;
+  font-size: 0.9rem;  
 }
 
-nav a {
-  display: inline-block;
-  line-height: 3rem;
-  padding: 0 0.5rem;
-  font-weight: 700;
-  font-size: 0.9rem;
+.nav-wrap:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+.nav {
+  float: left;
+  padding: 0 0.75rem;
   text-decoration: none;
-  color: #606060;
+  color: #212121;
   transition: 0.25s;
 }
 
-nav a:hover,
-nav a.active {
-  color: #e55b36;
+.nav:hover,
+.nav.is-active {
+  color: #FF5722;
   background-color: #fff;
 }
 
-nav a.home {
+.nav-home {
   font-size: 1.2rem;
 }
 
-nav a:last-of-type {
+.nav-login {
   font-size: 1rem;
   float: right;
 }
