@@ -10,16 +10,8 @@ class NotFound extends Component {
       <div className="App">
         <Navigation />
         <div className="App-header">
-          <h2>
-            <span className="header-404">
-              404 Error
-            </span>
-            <br />
-            <span className="header-ojek">
-              Ojek <i className="material-icons">motorcycle</i>
-              <i className="material-icons">loop</i> Nyasar
-            </span>
-          </h2>
+          <h1>Ojek <i className="material-icons">motorcycle</i><i className="material-icons">loop</i> Nyasar</h1>
+          <h3 className="header-error">404 | Page Not Found</h3>
         </div>
         <p className="App-intro">
           Maaf, halaman yang Anda tuju tidak ditemukan.

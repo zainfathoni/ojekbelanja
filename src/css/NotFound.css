@@ -4,8 +4,8 @@
 
 .App-header {
   background-color: #8BC34A;
-  height: 150px;
-  padding: 20px;
+  height: 10.5rem;
+  padding: 1.5rem;
   color: white;
 }
 
@@ -13,10 +13,6 @@
   font-size: large;
 }
 
-.header-404 {
-  color: black;
-}
-
-.header-ojek {
+.header-error {
   color: #FF3D00;
 }

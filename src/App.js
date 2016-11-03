@@ -15,7 +15,8 @@ class App extends Component {
       <div className="App">
         <Navigation />
         <div className="App-header">
-          <h2>Ojek <i className="material-icons">motorcycle</i><i className="material-icons">shopping_basket</i> Belanja</h2>
+          <h1>Ojek <i className="material-icons">motorcycle</i><i className="material-icons">shopping_basket</i> Belanja</h1>
+          <h3>Asisten Belanja Anda</h3>
         </div>
         <p className="App-intro">
           Silakan pilih toko.

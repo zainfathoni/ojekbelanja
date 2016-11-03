@@ -12,14 +12,14 @@
 }
 
 .nav-wrap:after {
-  display:table;
+  display: table;
   clear: both;
   content: '';
 }
 
 .nav {
   float: left;
-  padding: 0 0.5rem;
+  padding: 0 0.75rem;
   text-decoration: none;
   color: #212121;
   transition: 0.25s;
