@@ -8,7 +8,7 @@ nav {
   max-width: 60em;
 }
 
-nav a {
+nav > a {
   display: inline-block;
   line-height: 3rem;
   padding: 0 0.5rem;
@@ -19,17 +19,17 @@ nav a {
   transition: 0.25s;
 }
 
-nav a:hover,
-nav a.active {
+nav > a:hover,
+nav > a.active {
   color: #FF5722;
   background-color: #fff;
 }
 
-nav a.home {
+nav > a.home {
   font-size: 1.2rem;
 }
 
-nav a:last-of-type {
+nav > a:last-of-type {
   font-size: 1rem;
   float: right;
 }
