@@ -23,6 +23,7 @@
 
 .mainnav-item {
   float: left;
+  border-right: 1px solid #BDBDBD;
   padding: 0 0.75rem;
   text-decoration: none;
   color: #212121;
@@ -36,6 +37,7 @@
 .mainnav-login {
   font-size: 1rem;
   float: right;
+  border-right: none;
 }
 
 /* State */
