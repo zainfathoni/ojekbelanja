@@ -1,4 +1,4 @@
-var stores = {
+var tokos = {
   jejen: {
     name: 'Jejen',
     phone: '081234567890'
@@ -9,4 +9,4 @@ var stores = {
   }
 }
 
-export { stores };
+export { tokos };

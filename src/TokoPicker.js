@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { stores } from './models';
+import { tokos } from './models';
 import './css/TokoPicker.css';
 
 export default class TokoPicker extends Component {
@@ -8,9 +8,17 @@ export default class TokoPicker extends Component {
     super();
 
     this.state = {
-      stores,
+      tokos,
       keyword: ''
     }
+  }
+
+  /*** Methods ***/
+
+  updateKeyword = (keyword) => {
+    this.setState({
+      keyword
+    })
   }
 
   goToToko = (tokoId) => {
@@ -18,11 +26,19 @@ export default class TokoPicker extends Component {
     this.context.router.transitionTo(`/toko/${tokoId}`);
   }
 
+  /*** Render ***/
+
   render() {
     console.log(this.state);
     return (
       <main className="input-group input-group-rounded">
-        <input type="text" className="input-text" placeholder="Nama Toko" value="" />
+        <input
+          type="text"
+          className="input-text"
+          placeholder="Nama Toko"
+          value={this.state.keyword}
+          onChange={(e) => this.updateKeyword(e.target.value)}
+          />
         <span className="input-group-btn">
           <a className="btn btn-primary btn-block">
             <i className="material-icons">search</i>
