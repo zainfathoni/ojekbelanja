@@ -1,18 +1,18 @@
-.App {
+.app {
   text-align: center;
 }
 
-.App-header {
+.app-header {
   background-color: #8BC34A;
   height: 10.5rem;
   padding: 1.5rem;
   color: white;
 }
 
-.App-intro {
-  font-size: large;
+.app-header-error {
+  color: #FF3D00;
 }
 
-.header-error {
-  color: #FF3D00;
+.app-intro {
+  font-size: large;
 }
