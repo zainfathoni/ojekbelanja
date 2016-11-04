@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import TokoCard from './TokoCard';
+import Card from './Card';
 import tokoProfile from './css/images/placeholder-224x224.png';
 import './css/TokoList.css';
 
@@ -31,14 +31,13 @@ export default class TokoList extends Component {
         <ul className="l-grid">
           {Object.keys(filteredTokos)
             .map(key =>
-              <TokoCard
+              <Card
                 key={key}
-                tokoId={key}
-                tokoName={filteredTokos[key].name}
-                tokoPhone={filteredTokos[key].phone}
-                tokoArea={filteredTokos[key].area}
-                tokoProfile={tokoProfile}
-                goToToko={this.props.goToToko}
+                id={key}
+                title={filteredTokos[key].name}
+                description={filteredTokos[key].area}
+                image={tokoProfile}
+                action={this.props.goToToko}
                 />
             )
           }
