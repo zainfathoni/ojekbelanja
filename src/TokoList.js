@@ -24,7 +24,7 @@ export default class TokoList extends Component {
         .indexOf(keyword.toLowerCase()) !== -1)
       .reduce((res, key) =>
         Object.assign(res,
-        { [key]: {name: tokos[key].name, area: tokos[key].area} }), {});
+        { [key]: tokos[key] }), {});
 
     return (
       <div className="l-filter-result">
@@ -35,6 +35,7 @@ export default class TokoList extends Component {
                 key={key}
                 tokoId={key}
                 tokoName={filteredTokos[key].name}
+                tokoPhone={filteredTokos[key].phone}
                 tokoArea={filteredTokos[key].area}
                 tokoProfile={tokoProfile}
                 goToToko={this.props.goToToko}
