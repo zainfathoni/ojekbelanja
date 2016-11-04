@@ -15,7 +15,7 @@ export default class Header extends Component {
       return (
         <header>
           <h1>Ojek <i className="material-icons">motorcycle</i><i className="material-icons">loop</i> Nyasar</h1>
-          <h3 className="header-error">404 | Page Not Found</h3>
+          <h3 className="header-is-error">404 | Page Not Found</h3>
         </header>
       )
     }
