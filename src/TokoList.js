@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import tokoProfPic from './css/images/placeholder-300x300.png'
+import tokoProfile from './css/images/placeholder-300x300.png'
 import './css/TokoList.css';
 
 export default class TokoList extends Component {
@@ -33,7 +33,7 @@ export default class TokoList extends Component {
               <li key={key}>
                 <div className="card">
                   <div className="card-image">
-                    <img src={tokoProfPic} alt="Toko Profile Picture" />
+                    <img src={tokoProfile} alt="Toko Profile" />
                   </div>
                   <button onClick={(e) => this.props.goToToko(key)}>
                     {filteredTokos[key]} →
