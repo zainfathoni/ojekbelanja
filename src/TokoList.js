@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import Card from './Card';
-import tokoProfile from './css/images/placeholder-224x224.png';
 import './css/TokoList.css';
 
 export default class TokoList extends Component {
@@ -36,7 +35,7 @@ export default class TokoList extends Component {
                 id={key}
                 title={filteredTokos[key].name}
                 description={filteredTokos[key].area}
-                image={tokoProfile}
+                image={require(`./css/images/${filteredTokos[key].image}`)}
                 action={this.props.goToToko}
                 />
             )
