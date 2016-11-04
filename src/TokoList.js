@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import tokoProfPic from './css/images/placeholder-300x300.png'
 import './css/TokoList.css';
 
 export default class TokoList extends Component {
@@ -25,17 +26,24 @@ export default class TokoList extends Component {
         { [key]: tokos[key].name }), {});
 
     return (
-      <ul className="l-filter-result">
-        {Object.keys(filteredTokos)
-          .map(key =>
-            <li key={key}>
-              <button onClick={(e) => this.props.goToToko(key)}>
-                {filteredTokos[key]} →
-              </button>
-            </li>
-          )
-        }
-      </ul>
+      <div className="l-filter-result">
+        <ul className="l-grid">
+          {Object.keys(filteredTokos)
+            .map(key =>
+              <li key={key}>
+                <div className="card">
+                  <div className="card-image">
+                    <img src={tokoProfPic} alt="Toko Profile Picture" />
+                  </div>
+                  <button onClick={(e) => this.props.goToToko(key)}>
+                    {filteredTokos[key]} →
+                  </button>
+                </div>
+              </li>
+            )
+          }
+        </ul>
+      </div>
     )
   }
 }

@@ -3,6 +3,51 @@
 .l-filter-result {
   padding: 0;
   margin: auto;
+}
+
+.l-grid {
+  /* Grid */
   max-width: 60em;
+  margin-right: auto;
+  margin-left: auto;
+  /* ul reset */
+  padding: 0;
   list-style-type: none;
+}
+
+.l-grid > li {
+  display: block;
+  /* Grid */
+  width: 25%;
+  float: left;
+  /* Gutter */
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.l-grid:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+/* Module */
+.card {
+  margin-top: 15px;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+  overflow: hidden;
+}
+
+.card-image {
+  background-color: #a9a9a9;
+}
+
+.card-image > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  min-height: 200px;
+  z-index: -1;
 }
