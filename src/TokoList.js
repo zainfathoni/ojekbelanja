@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import tokoProfile from './css/images/placeholder-300x300.png'
+import tokoProfile from './css/images/placeholder-224x224.png'
 import './css/TokoList.css';
 
 export default class TokoList extends Component {
