@@ -18,10 +18,10 @@ export default function Card(props) {
           </div>
         </div>
         <div className="card-action">
+          <button className="card-action-btn" onClick={(e) => props.action(props.id)}>
+            Mulai Belanja <i className="material-icons">shopping_cart</i>
+          </button>
         </div>
-        <button onClick={(e) => props.action(props.id)}>
-          {props.title} →
-        </button>
       </div>
     </li>
   )
