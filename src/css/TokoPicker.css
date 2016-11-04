@@ -39,7 +39,7 @@
 
 .filter-input:focus {
   border: 2px solid #673AB7;
-  outline: 0;
+  outline: none;
 }
 
 .filter-input-txt,
