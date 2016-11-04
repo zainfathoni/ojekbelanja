@@ -6,6 +6,14 @@ var tokos = {
   zaenal: {
     name: 'Zaenal',
     phone: '089876543210'
+  },
+  joni: {
+    name: 'Joni',
+    phone: '081234567890'
+  },
+  agus: {
+    name: 'Agus',
+    phone: '089876543210'
   }
 }
 
