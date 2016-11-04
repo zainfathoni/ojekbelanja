@@ -1,0 +1,13 @@
+/* Module */
+
+header {
+  text-align: center;
+  background-color: #673AB7;
+  height: 10.5rem;
+  padding: 1.5rem;
+  color: #FFFFFF;
+}
+
+.header-is-error {
+  color: #FF9800;
+}

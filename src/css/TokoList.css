@@ -1,0 +1,54 @@
+/* Layout */
+
+.l-filter-result {
+  padding: 0;
+  margin: auto;
+}
+
+.l-grid {
+  /* Grid */
+  max-width: 60em;
+  margin-right: auto;
+  margin-left: auto;
+  /* ul reset */
+  padding: 0;
+  list-style-type: none;
+}
+
+.l-grid > li {
+  display: block;
+  /* Grid */
+  width: 25%;
+  float: left;
+  /* Gutter */
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.l-grid:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+/* TODO: Center & crop images vertically & horizontally */
+
+/* 3 Columns Grid */
+
+@media (max-width: 45rem) {
+  .l-grid > li {
+    width: 33.333333%;
+  }
+
+  .card-image > img {
+    min-height: 9rem;
+  }
+}
+
+/* 2 Columns Grid */
+
+@media (max-width: 30rem) {
+  .l-grid > li {
+    width: 50%;
+  }
+}

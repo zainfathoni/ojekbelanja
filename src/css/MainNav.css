@@ -1,0 +1,54 @@
+/* Layout */
+
+.l-fullwidth-mainnav{
+  background-color: #D1C4E9;
+}
+
+/* Module */
+
+.mainnav {
+  margin: auto;
+  max-width: 60em;
+  display: block;
+  line-height: 3rem;
+  font-weight: 700;
+  font-size: 0.9rem;  
+}
+
+.mainnav:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+.mainnav-item {
+  float: left;
+  border-right: 1px solid #BDBDBD;
+  padding: 0 0.75rem;
+  text-decoration: none;
+  color: #212121;
+  transition: 0.25s;
+}
+
+.mainnav-home {
+  font-size: 1.2rem;
+}
+
+.mainnav-login {
+  font-size: 1rem;
+  float: right;
+  border-right: none;
+}
+
+/* State */
+
+.mainnav-item:hover,
+.is-mainnav-active {
+  color: #FF6D00;
+  background-color: #EDE7F6;
+}
+
+.mainnav-item:focus {
+  outline: 2px solid #673AB7;
+  transition: none;
+}

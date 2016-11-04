@@ -1,0 +1,74 @@
+/* Module */
+
+.card {
+  margin-top: 15px;
+  border-radius: 0.25rem;
+  background-color: #fff;
+  box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.16), 0 .125rem .25rem 0 rgba(0,0,0,.12);
+  overflow: hidden;
+}
+
+/* Card Image */
+
+.card-image {
+  background-color: #a9a9a9;
+}
+
+.card-image > img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  min-height: 10.25rem;
+}
+
+/* Card Content */
+
+.card-content {
+  padding: .25rem .5rem;
+}
+
+.card-content-title {
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.card-content-description {
+  font-size: .8em;
+  font-weight: 300;
+  color: #888;
+}
+
+/* Card Action */
+
+.card-action {
+  border-top: 1px solid rgba(160,160,160,.2);
+  padding: .25rem .5rem;
+}
+
+.card-action-btn {
+  border-style: solid;
+  border-radius: .25rem;
+  border-color: #673AB7;
+  background-color: #673AB7;
+  color: #FFFFFF;
+  padding: .625rem 1rem;
+  width: 100%;
+  transition: 0.1s;
+  font-size: 1rem;
+}
+
+.card-action-btn i.material-icons {
+  font-size: 1.25rem;
+}
+
+/* Card Action State */
+
+.card-action-btn:active,
+.card-action-btn:focus {
+  border-color: #FF6D00;
+  outline: none;
+}
+
+.card-action-btn:active {
+  background-color: #FF6D00;
+}
