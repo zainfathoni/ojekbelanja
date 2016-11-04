@@ -48,6 +48,27 @@
   display: block;
   max-width: 100%;
   height: auto;
-  min-height: 200px;
-  z-index: -1;
+  min-height: 10.25rem;
+}
+
+/* TODO: Center & crop images vertically & horizontally */
+
+/* 3 Columns Grid */
+
+@media (max-width: 45rem) {
+  .l-grid > li {
+    width: 33.333333%;
+  }
+
+  .card-image > img {
+    min-height: 9rem;
+  }
+}
+
+/* 2 Columns Grid */
+
+@media (max-width: 30rem) {
+  .l-grid > li {
+    width: 50%;
+  }
 }
