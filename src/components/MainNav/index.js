@@ -9,6 +9,7 @@ export default class MainNav extends Component {
       <div className="l-fullwidth-mainnav">
         <nav className="mainnav">
           <Link to="/" className="mainnav-item mainnav-home">Ojek <i className="material-icons">motorcycle</i><i className="material-icons">shopping_basket</i> Belanja</Link>
+          <Link to="/styleguide" className="mainnav-item" activeClassName="is-mainnav-active">Style Guide</Link>
           <Link to="/cara-kerja" className="mainnav-item" activeClassName="is-mainnav-active">Cara Kerja</Link>
           <Link to="/faq" className="mainnav-item" activeClassName="is-mainnav-active">FAQ</Link>
           <Link to="/tentang-kami" className="mainnav-item" activeClassName="is-mainnav-active">Tentang Kami</Link>
