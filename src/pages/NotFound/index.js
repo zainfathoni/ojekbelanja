@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import MainNav from '../../components/MainNav/MainNav';
-import Header from '../../components/Header/Header';
+import MainNav from '../../components/MainNav';
+import Header from '../../components/Header';
 import './NotFound.css';
 
 export default class NotFound extends Component {

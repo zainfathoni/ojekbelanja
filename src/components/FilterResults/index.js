@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Card from '../Card/Card';
+import Card from '../Card';
 import './FilterResults.css';
 
 export default class FilterResults extends Component {

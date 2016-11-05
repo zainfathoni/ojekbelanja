@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import MainNav from '../../components/MainNav/MainNav';
-import Header from '../../components/Header/Header';
+import MainNav from '../../components/MainNav';
+import Header from '../../components/Header';
 import '../Home/Home.css';
 
 export default class Toko extends Component {

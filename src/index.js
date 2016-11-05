@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router';
 
-import Home from './pages/Home/Home';
-import Toko from './pages/Toko/Toko';
-import NotFound from './pages/NotFound/NotFound';
+import Home from './pages/Home';
+import Toko from './pages/Toko';
+import NotFound from './pages/NotFound';
 import './css/index.css';
 import './css/fonts.css';
 

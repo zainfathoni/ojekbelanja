@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import MainNav from '../../components/MainNav/MainNav';
-import Header from '../../components/Header/Header';
-import TokoPicker from '../../components/TokoPicker/TokoPicker';
+import MainNav from '../../components/MainNav';
+import Header from '../../components/Header';
+import TokoPicker from '../../components/TokoPicker';
 import './Home.css';
 
 export default class Home extends Component {
