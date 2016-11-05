@@ -8,7 +8,7 @@ export default function FilterInput(props) {
       <input
         type="text"
         className="filter-input filter-input-txt"
-        placeholder="Nama Toko"
+        placeholder={props.placeholder}
         value={props.keyword}
         onChange={(e) => props.action(e.target.value)}
         />
@@ -20,6 +20,7 @@ export default function FilterInput(props) {
 }
 
 FilterInput.propTypes = {
+  placeholder: React.PropTypes.string.isRequired,
   keyword: React.PropTypes.string.isRequired,
   action: React.PropTypes.func.isRequired
 }

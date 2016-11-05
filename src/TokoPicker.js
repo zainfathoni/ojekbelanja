@@ -33,6 +33,7 @@ export default class TokoPicker extends Component {
     return (
       <main>
         <FilterInput
+          placeholder="Cari Nama atau Area Layanan"
           keyword={this.state.keyword}
           action={this.updateKeyword}
           />
