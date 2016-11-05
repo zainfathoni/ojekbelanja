@@ -6,7 +6,6 @@ import Home from './pages/Home';
 import Toko from './pages/Toko';
 import NotFound from './pages/NotFound';
 import './css/index.css';
-import './css/fonts.css';
 
 const Root = () => {
   return (
