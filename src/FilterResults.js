@@ -28,22 +28,8 @@ export default class FilterResults extends Component {
       .filter(key =>
         items[key][titleField].toLowerCase()
           .indexOf(keyword.toLowerCase()) !== -1)
-      .reduce((res, key) => {
-        const title = items[key][titleField];
-        // Mark matching characters
-        const index = title.toLowerCase().indexOf(keyword.toLowerCase());
-        const markedTitle = title.slice(0, index) + '<mark>' + title.slice(index, index + keyword.length) + '</mark>' + title.slice(index + keyword.length);
-        console.log(markedTitle);
-
-        return Object.assign(res, {
-          [key]: {
-            title: items[key][titleField],
-            titleIndex: index,
-            description: items[key][descriptionField],
-            image: items[key][imageField]
-          }
-        })
-      },
+      .reduce((res, key) =>
+        Object.assign(res, { [key]: items[key] }),
       {}
       );
 
@@ -56,10 +42,9 @@ export default class FilterResults extends Component {
                 key={key}
                 id={key}
                 keyword={keyword}
-                title={filteredItems[key].title}
-                titleIndex={filteredItems[key].titleIndex}
-                description={filteredItems[key].description}
-                image={require(`./css/images/${filteredItems[key].image}`)}
+                title={filteredItems[key][titleField]}
+                description={filteredItems[key][descriptionField]}
+                image={require(`./css/images/${filteredItems[key][imageField]}`)}
                 action={action}
                 />
             )

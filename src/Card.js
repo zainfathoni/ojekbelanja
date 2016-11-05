@@ -3,7 +3,8 @@ import React from 'react';
 import './css/Card.css';
 
 export default function Card(props) {
-  const { keyword, title, titleIndex: index } = props;
+  const { keyword, title } = props;
+  const index = title.toLowerCase().indexOf(keyword.toLowerCase());
   return (
     <li>
       <div className="card">
@@ -13,7 +14,7 @@ export default function Card(props) {
         <div className="card-content">
           <div className="card-content-title">
             {title.slice(0, index)}
-            {React.createElement('mark', {}, title.slice(index, index + keyword.length))}
+            <mark>{title.slice(index, index + keyword.length)}</mark>
             {title.slice(index + keyword.length)}
           </div>
           <div className="card-content-description">
@@ -34,7 +35,6 @@ Card.propTypes = {
   id: React.PropTypes.string.isRequired,
   keyword: React.PropTypes.string.isRequired,
   title: React.PropTypes.string.isRequired,
-  titleIndex: React.PropTypes.number,
   description: React.PropTypes.string.isRequired,
   image: React.PropTypes.string.isRequired,
   action: React.PropTypes.func.isRequired
