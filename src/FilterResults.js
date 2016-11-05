@@ -5,7 +5,14 @@ import './css/FilterResults.css';
 
 export default class FilterResults extends Component {
   render() {
-    const { keyword, items } = this.props
+    const {
+      keyword,
+      items,
+      titleField,
+      descriptionField,
+      imageField,
+      action
+    } = this.props
     const ids = Object.keys(items);
 
     // Render Loading Bars
@@ -16,14 +23,29 @@ export default class FilterResults extends Component {
         </div>
       )
     }
-    
+
     const filteredItems = ids
-      .filter(key => 
-        items[key][this.props.titleField].toLowerCase()
-        .indexOf(keyword.toLowerCase()) !== -1)
-      .reduce((res, key) =>
-        Object.assign(res,
-        { [key]: items[key] }), {});
+      .filter(key =>
+        items[key][titleField].toLowerCase()
+          .indexOf(keyword.toLowerCase()) !== -1)
+      .reduce((res, key) => {
+        const title = items[key][titleField];
+        // Mark matching characters
+        const index = title.toLowerCase().indexOf(keyword.toLowerCase());
+        const markedTitle = title.slice(0, index) + '<mark>' + title.slice(index, index + keyword.length) + '</mark>' + title.slice(index + keyword.length);
+        console.log(markedTitle);
+
+        return Object.assign(res, {
+          [key]: {
+            title: items[key][titleField],
+            titleIndex: index,
+            description: items[key][descriptionField],
+            image: items[key][imageField]
+          }
+        })
+      },
+      {}
+      );
 
     return (
       <div className="l-filter-result">
@@ -33,10 +55,12 @@ export default class FilterResults extends Component {
               <Card
                 key={key}
                 id={key}
-                title={filteredItems[key][this.props.titleField]}
-                description={filteredItems[key][this.props.descriptionField]}
-                image={require(`./css/images/${filteredItems[key][this.props.imageField]}`)}
-                action={this.props.action}
+                keyword={keyword}
+                title={filteredItems[key].title}
+                titleIndex={filteredItems[key].titleIndex}
+                description={filteredItems[key].description}
+                image={require(`./css/images/${filteredItems[key].image}`)}
+                action={action}
                 />
             )
           }
