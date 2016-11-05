@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Card from './Card';
-import './css/FilterResults.css';
+import Card from '../Card/Card';
+import './FilterResults.css';
 
 export default class FilterResults extends Component {
   render() {
@@ -46,7 +46,7 @@ export default class FilterResults extends Component {
                 keyword={keyword}
                 title={filteredItems[key][titleField]}
                 description={filteredItems[key][descriptionField]}
-                image={require(`./css/images/${filteredItems[key][imageField]}`)}
+                image={require(`../../css/images/${filteredItems[key][imageField]}`)}
                 action={action}
                 />
             )

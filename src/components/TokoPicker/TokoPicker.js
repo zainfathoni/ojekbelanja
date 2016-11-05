@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import FilterInput from'./FilterInput';
-import FilterResults from './FilterResults';
-import { tokos } from './models';
+import FilterInput from'../FilterInput/FilterInput';
+import FilterResults from '../FilterResults/FilterResults';
+import { tokos } from '../../models';
 
 export default class TokoPicker extends Component {
   constructor() {

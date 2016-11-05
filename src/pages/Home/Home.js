@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import MainNav from './MainNav';
-import Header from './Header';
-import TokoPicker from './TokoPicker';
-import './css/Home.css';
+import MainNav from '../../components/MainNav/MainNav';
+import Header from '../../components/Header/Header';
+import TokoPicker from '../../components/TokoPicker/TokoPicker';
+import './Home.css';
 
 export default class Home extends Component {
   render() {

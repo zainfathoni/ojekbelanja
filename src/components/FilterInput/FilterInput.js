@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './css/FilterInput.css';
+import './FilterInput.css';
 
 export default function FilterInput(props) {
   return (

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import './css/MainNav.css';
+import './MainNav.css';
 
 export default class MainNav extends Component {
   render() {
