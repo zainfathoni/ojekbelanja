@@ -3,6 +3,11 @@ import React from 'react';
 import './css/Card.css';
 
 export default function Card(props) {
+  const { keyword, title } = props;
+  const index = title.toLowerCase().indexOf(keyword.toLowerCase());
+  // TODO: Find multiple matches in a single string
+  // TODO: Display multiple matches
+  // TODO: Modularize display matches
   return (
     <li>
       <div className="card">
@@ -11,7 +16,9 @@ export default function Card(props) {
         </div>
         <div className="card-content">
           <div className="card-content-title">
-            {props.title}
+            {title.slice(0, index)}
+            <mark>{title.slice(index, index + keyword.length)}</mark>
+            {title.slice(index + keyword.length)}
           </div>
           <div className="card-content-description">
             {props.description}
@@ -29,6 +36,7 @@ export default function Card(props) {
 
 Card.propTypes = {
   id: React.PropTypes.string.isRequired,
+  keyword: React.PropTypes.string.isRequired,
   title: React.PropTypes.string.isRequired,
   description: React.PropTypes.string.isRequired,
   image: React.PropTypes.string.isRequired,

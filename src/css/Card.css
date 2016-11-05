@@ -28,12 +28,12 @@
 }
 
 .card-content-title {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .card-content-description {
-  font-size: .8em;
+  font-size: .8rem;
   font-weight: 300;
   color: #888;
 }
@@ -54,11 +54,7 @@
   padding: .625rem 1rem;
   width: 100%;
   transition: 0.1s;
-  font-size: 1rem;
-}
-
-.card-action-btn i.material-icons {
-  font-size: 1.25rem;
+  font-size: .875rem;
 }
 
 /* Card Action State */

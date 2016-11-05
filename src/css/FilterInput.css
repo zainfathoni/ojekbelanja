@@ -16,6 +16,7 @@
 
 .filter-input-txt {
   width: 18rem;
+  font-family: 'Lato', sans-serif;
   font-size: 0.9rem;
   border-top-left-radius: 0.75rem;
   border-bottom-left-radius: 0.75rem;
@@ -29,10 +30,6 @@
   border-color: #673AB7;
   background-color: #673AB7;
   color: #FFFFFF
-}
-
-.filter-input-btn i.material-icons {
-  font-size: 1.1rem;
 }
 
 /* State */

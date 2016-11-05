@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import TokoList from './TokoList';
+import FilterInput from'./FilterInput';
+import FilterResults from './FilterResults';
 import { tokos } from './models';
-import './css/TokoPicker.css';
 
 export default class TokoPicker extends Component {
   constructor() {
@@ -32,22 +32,19 @@ export default class TokoPicker extends Component {
   render() {
     return (
       <main>
-        <div className="l-filter-input">
-          <input
-            type="text"
-            className="filter-input filter-input-txt"
-            placeholder="Nama Toko"
-            value={this.state.keyword}
-            onChange={(e) => this.updateKeyword(e.target.value)}
-            />
-          <button className="filter-input filter-input-btn">
-            <i className="material-icons">search</i>
-          </button>
-        </div>
-        <TokoList
-          {...this.state}
-          goToToko={this.goToToko}
-        />
+        <FilterInput
+          placeholder="Cari Nama atau Area Layanan"
+          keyword={this.state.keyword}
+          action={this.updateKeyword}
+          />
+        <FilterResults
+          keyword={this.state.keyword}
+          items={this.state.tokos}
+          titleField="name"
+          descriptionField="area"
+          imageField="image"
+          action={this.goToToko}
+          />
       </main>
     );
   }
