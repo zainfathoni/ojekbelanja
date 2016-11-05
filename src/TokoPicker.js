@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Filter from'./Filter';
-import TokoList from './TokoList';
+import FilterInput from'./FilterInput';
+import FilterResults from './FilterResults';
 import { tokos } from './models';
 
 export default class TokoPicker extends Component {
@@ -32,13 +32,17 @@ export default class TokoPicker extends Component {
   render() {
     return (
       <main>
-        <Filter
+        <FilterInput
           keyword={this.state.keyword}
           action={this.updateKeyword}
           />
-        <TokoList
-          {...this.state}
-          goToToko={this.goToToko}
+        <FilterResults
+          keyword={this.state.keyword}
+          items={this.state.tokos}
+          titleField="name"
+          descriptionField="area"
+          imageField="image"
+          action={this.goToToko}
           />
       </main>
     );

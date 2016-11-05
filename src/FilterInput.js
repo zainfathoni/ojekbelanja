@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './css/Filter.css';
+import './css/FilterInput.css';
 
-export default function Filter(props) {
+export default function FilterInput(props) {
   return (
     <div className="l-filter-input">
       <input
@@ -19,7 +19,7 @@ export default function Filter(props) {
   )
 }
 
-Filter.propTypes = {
+FilterInput.propTypes = {
   keyword: React.PropTypes.string.isRequired,
   action: React.PropTypes.func.isRequired
 }
