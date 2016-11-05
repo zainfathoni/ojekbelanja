@@ -28,12 +28,12 @@
 }
 
 .card-content-title {
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .card-content-description {
-  font-size: .8em;
+  font-size: .8rem;
   font-weight: 300;
   color: #888;
 }
