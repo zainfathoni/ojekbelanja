@@ -92,3 +92,7 @@
   /* Support for IE. */
   font-feature-settings: 'liga';
 }
+
+button > .material-icons {
+  font-size: 1.125rem;
+}
