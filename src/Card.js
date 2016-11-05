@@ -5,6 +5,9 @@ import './css/Card.css';
 export default function Card(props) {
   const { keyword, title } = props;
   const index = title.toLowerCase().indexOf(keyword.toLowerCase());
+  // TODO: Find multiple matches in a single string
+  // TODO: Display multiple matches
+  // TODO: Modularize display matches
   return (
     <li>
       <div className="card">
