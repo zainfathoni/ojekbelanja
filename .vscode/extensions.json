@@ -3,16 +3,18 @@
 	// for the documentation about the extensions.json format
 	"recommendations": [
 		// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
-		"EditorConfig.EditorConfig",
-    "TwentyChung.jsx",
     "andischerer.theme-atom-one-dark",
-    "christian-kohler.path-intellisense",
-    "dbaeumer.vscode-eslint",
-    "donjayamanne.githistory",
     "dzannotti.vscode-babel-coloring",
     "msjsdiag.debugger-for-chrome",
+		"EditorConfig.EditorConfig",
+    "dbaeumer.vscode-eslint",
+    "donjayamanne.githistory",
+    "abusaidm.html-snippets",
+    "TwentyChung.jsx",
+    "christian-kohler.path-intellisense",
+    "donjayamanne.githistory",
+    "vsmobile.vscode-react-native",
     "robertohuertasm.vscode-icons",
-    "sysoev.language-stylus",
-    "vsmobile.vscode-react-native"
+    "MattiasPernhult.vscode-todo"
 	]
 }
