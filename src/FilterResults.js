@@ -26,7 +26,7 @@ export default class FilterResults extends Component {
 
     const filteredItems = ids
       .filter(key =>
-        // TODO: Expand search to description <fieldset>
+        // TODO: Expand search to description field
         // TODO: Modularize Search
         items[key][titleField].toLowerCase()
           .indexOf(keyword.toLowerCase()) !== -1)
