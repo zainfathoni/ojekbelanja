@@ -6,6 +6,7 @@
 
 .l-grid {
   /* ul reset */
+  /* TODO: Consider putting this reset style into Base Rules in index.css */
   padding: 0;
   list-style-type: none;
 }
