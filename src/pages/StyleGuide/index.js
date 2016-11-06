@@ -9,6 +9,24 @@ import { tokos } from '../../models';
 import '../Home/Home.css';
 
 export default class StyleGuide extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      keyword: ''
+    }
+  }
+
+  /*** Methods ***/
+
+  updateKeyword = (keyword) => {
+    this.setState({
+      keyword
+    })
+  }
+
+  /*** Render ***/
+
   render() {
     return (
       <div className="app">
@@ -27,9 +45,15 @@ export default class StyleGuide extends Component {
         <Header is404 />
         <h1>Filter Input</h1>
         <FilterInput
-          placeholder="Sample Placeholder"
-          keyword=""
-          action={() => true}
+          placeholder="Without Button"
+          keyword={this.state.keyword}
+          action={this.updateKeyword}
+          />
+        <FilterInput
+          placeholder="With Button"
+          keyword={this.state.keyword}
+          action={this.updateKeyword}
+          withButton
           />
         <h1>Filter Cards</h1>
         <FilterCards

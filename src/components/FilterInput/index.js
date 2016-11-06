@@ -3,18 +3,28 @@ import React from 'react';
 import './FilterInput.css';
 
 export default function FilterInput(props) {
+  const searchIcon = <i className="material-icons">search</i>;
+
   return (
-    <div className="l-filter-input">
+    <div className={"l-filter-input" +
+      (props.withButton ? "" : " l-filter-input-no-btn")}>
       <input
         type="text"
-        className="filter-input filter-input-txt"
+        className={"filter-input filter-input-txt" +
+          (props.withButton ? "" : " filter-input-txt-no-btn")}
         placeholder={props.placeholder}
         value={props.keyword}
         onChange={(e) => props.action(e.target.value)}
         />
-      <button className="filter-input filter-input-btn">
-        <i className="material-icons">search</i>
-      </button>
+      {props.withButton ?
+        <button className="filter-input filter-input-btn">
+          {searchIcon}
+        </button>
+        :
+        <span className="filter-input-txt-search-icon">
+          {searchIcon}
+        </span>
+      }
     </div>
   )
 }
@@ -22,5 +32,6 @@ export default function FilterInput(props) {
 FilterInput.propTypes = {
   placeholder: React.PropTypes.string.isRequired,
   keyword: React.PropTypes.string.isRequired,
-  action: React.PropTypes.func.isRequired
+  action: React.PropTypes.func.isRequired,
+  withButton: React.PropTypes.bool
 }
