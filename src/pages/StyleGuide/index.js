@@ -45,27 +45,29 @@ export default class StyleGuide extends Component {
         <hr />
         <h1>Header Not Found</h1>
         <Header is404 />
-        <h1>Filter Input</h1>
-        <FilterInput
-          placeholder="Without Button"
-          keyword={this.state.keyword}
-          action={this.updateKeyword}
-          />
-        <FilterInput
-          placeholder="With Button"
-          keyword={this.state.keyword}
-          action={this.updateKeyword}
-          withButton
-          />
-        <h1>Filter Cards</h1>
-        <FilterCards
-          keyword=""
-          items={tokos}
-          titleField="name"
-          descriptionField="area"
-          imageField="image"
-          action={() => true}
-          />
+        <div className="l-tokopicker">
+          <h1>Filter Input</h1>
+          <FilterInput
+            placeholder="Without Button"
+            keyword={this.state.keyword}
+            action={this.updateKeyword}
+            />
+          <FilterInput
+            placeholder="With Button"
+            keyword={this.state.keyword}
+            action={this.updateKeyword}
+            withButton
+            />
+          <h1>Filter Cards</h1>
+          <FilterCards
+            keyword=""
+            items={tokos}
+            titleField="name"
+            descriptionField="area"
+            imageField="image"
+            action={() => true}
+            />
+        </div>
       </div>
     );
   }
