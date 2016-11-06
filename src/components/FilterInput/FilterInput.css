@@ -1,8 +1,8 @@
 /* Layout */
 
 .l-filter-input {
-  line-height: 3rem;
-  width: 21rem;
+  line-height: 3.5rem;
+  width: 30rem;
   margin: auto;
 }
 
@@ -13,42 +13,42 @@
 /* Module */
 
 .filter-input {
-  line-height: 1.5rem;
+  line-height: 2.5rem;
   vertical-align: middle;
-  padding: 0.125rem 0.5rem;
   border-style: solid;
   transition: 0.25s;
 }
 
 .filter-input-txt {
-  width: 18.75rem;
+  width: 27rem;
+  padding: 0.125rem 1rem;
   font-family: 'Lato', sans-serif;
-  font-size: 0.9rem;
-  border-top-left-radius: 0.75rem;
-  border-bottom-left-radius: 0.75rem;
+  font-size: 1rem;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
   border-color: #BDBDBD;
 }
 
 .filter-input-txt.filter-input-txt-no-btn {
-  width: 21rem;
-  border-top-right-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
+  width: 30rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
   border-right: 2px solid #BDBDBD;
 }
 
 .filter-input-txt-search-icon {
   color: #BDBDBD;
   position: absolute;
-  right: 1.75rem;
+  right: 2.3rem;
   width: 0;
   transition: 0.25s;
 }
 
 .l-filter-input-no-btn .material-icons {
-  font-size: 1.125rem;
+  font-size: 1.5rem;
 }
 
-@media (max-width: 24rem) {
+@media (max-width: 33rem) {
 
   .l-filter-input {
     width: 90%;
@@ -56,7 +56,7 @@
 
   .filter-input-txt {
     width: 75%; /* fallback for UC Browser */
-    width: calc(100% - 2.25rem);
+    width: calc(100% - 3.5rem);
   }
 
   .filter-input-txt.filter-input-txt-no-btn {
@@ -65,10 +65,11 @@
 }
 
 .filter-input-btn {
-  width: 2.25rem;
-  border-top-right-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
+  width: 3rem;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
   border-color: #673AB7;
+  padding: 0.125rem 0.625rem;
   background-color: #673AB7;
   color: #FFFFFF
 }
