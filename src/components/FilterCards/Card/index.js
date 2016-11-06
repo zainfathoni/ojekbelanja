@@ -1,13 +1,13 @@
 import React from 'react';
 
-import './css/Card.css';
+import './Card.css';
 
 export default function Card(props) {
   const { keyword, title } = props;
   const index = title.toLowerCase().indexOf(keyword.toLowerCase());
-  // TODO: Find multiple matches in a single string
-  // TODO: Display multiple matches
-  // TODO: Modularize display matches
+  // TODO: @rekysenjaya Find multiple matches in a single string
+  // TODO: @rekysenjaya Display multiple matches
+  // TODO: @rekysenjaya Modularize display matches
   return (
     <li>
       <div className="card">

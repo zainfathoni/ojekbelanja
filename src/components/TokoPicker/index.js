@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import FilterInput from'./FilterInput';
-import FilterResults from './FilterResults';
-import { tokos } from './models';
+import FilterInput from'../FilterInput';
+import FilterCards from '../FilterCards';
+import { tokos } from '../../models';
 
 export default class TokoPicker extends Component {
   constructor() {
@@ -37,7 +37,7 @@ export default class TokoPicker extends Component {
           keyword={this.state.keyword}
           action={this.updateKeyword}
           />
-        <FilterResults
+        <FilterCards
           keyword={this.state.keyword}
           items={this.state.tokos}
           titleField="name"

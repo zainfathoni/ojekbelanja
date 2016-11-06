@@ -51,4 +51,5 @@
 .mainnav-item:focus {
   outline: 2px solid #673AB7;
   transition: none;
+  /* TODO: outline-right is missing if the adjacent-right item is active */
 }

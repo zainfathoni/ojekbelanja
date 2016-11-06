@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
 import Card from './Card';
-import './css/FilterResults.css';
+import './FilterCards.css';
 
-export default class FilterResults extends Component {
+export default class FilterCards extends Component {
   render() {
     const {
       keyword,
@@ -26,8 +26,8 @@ export default class FilterResults extends Component {
 
     const filteredItems = ids
       .filter(key =>
-        // TODO: Expand search to description <fieldset>
-        // TODO: Modularize Search
+        // TODO: @rekysenjaya Expand search to description field
+        // TODO: @rekysenjaya Modularize Search
         items[key][titleField].toLowerCase()
           .indexOf(keyword.toLowerCase()) !== -1)
       .reduce((res, key) =>
@@ -46,7 +46,7 @@ export default class FilterResults extends Component {
                 keyword={keyword}
                 title={filteredItems[key][titleField]}
                 description={filteredItems[key][descriptionField]}
-                image={require(`./css/images/${filteredItems[key][imageField]}`)}
+                image={require(`../../css/images/${filteredItems[key][imageField]}`)}
                 action={action}
                 />
             )
@@ -57,7 +57,7 @@ export default class FilterResults extends Component {
   }
 }
 
-FilterResults.propTypes = {
+FilterCards.propTypes = {
   keyword: React.PropTypes.string.isRequired,
   items: React.PropTypes.object.isRequired,
   titleField: React.PropTypes.string.isRequired,
