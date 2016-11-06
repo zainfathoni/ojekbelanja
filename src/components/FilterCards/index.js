@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import Card from '../Card';
-import './FilterResults.css';
+import Card from './Card';
+import './FilterCards.css';
 
-export default class FilterResults extends Component {
+export default class FilterCards extends Component {
   render() {
     const {
       keyword,
@@ -57,7 +57,7 @@ export default class FilterResults extends Component {
   }
 }
 
-FilterResults.propTypes = {
+FilterCards.propTypes = {
   keyword: React.PropTypes.string.isRequired,
   items: React.PropTypes.object.isRequired,
   titleField: React.PropTypes.string.isRequired,
