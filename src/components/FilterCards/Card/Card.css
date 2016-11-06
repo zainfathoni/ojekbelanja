@@ -25,6 +25,7 @@
 
 .card-content {
   padding: .25rem .5rem;
+  line-height: 1rem;
 }
 
 .card-content-title {
