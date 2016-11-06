@@ -23,6 +23,12 @@
   border-color: #BDBDBD;
 }
 
+.filter-input-txt.filter-input-txt-no-btn {
+  border-top-right-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  border-right: 2px solid #BDBDBD;
+}
+
 .filter-input-btn {
   width: 2.25rem;
   border-top-right-radius: 0.75rem;
@@ -42,6 +48,10 @@
 .filter-input-txt,
 .filter-input-txt:focus {
   border-right: 0;
+}
+
+.filter-input-txt.filter-input-txt-no-btn:focus {
+  border-right: 2px solid #673AB7;
 }
 
 .filter-input-btn,

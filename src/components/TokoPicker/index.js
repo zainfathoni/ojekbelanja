@@ -36,7 +36,6 @@ export default class TokoPicker extends Component {
           placeholder="Cari Nama atau Area Layanan"
           keyword={this.state.keyword}
           action={this.updateKeyword}
-          withButton
           />
         <FilterCards
           keyword={this.state.keyword}
