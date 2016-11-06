@@ -7,6 +7,7 @@ import FilterInput from '../../components/FilterInput';
 import FilterCards from '../../components/FilterCards';
 import { tokos } from '../../models';
 import '../pages.css';
+import './StyleGuide.css';
 
 export default class StyleGuide extends Component {
   constructor() {
@@ -29,45 +30,68 @@ export default class StyleGuide extends Component {
 
   render() {
     return (
-      <div className="l-fullwidth">
-        <h1>Main Navigation</h1>
-        <div className="l-wrapper-mainnav">
-          <MainNav />
-        </div>
-        <h1>Header</h1>
-        <Header />
-        <h1>Paragraph</h1>
-        <p>
-          Pilih Toko <strong>Ojek Belanja</strong> Anda
+      <div className="l-styleguide">
+
+        <section>
+          <label>Main Navigation</label>
+          <div className="l-wrapper-mainnav">
+            <MainNav />
+          </div>
+        </section>
+
+        <section>
+          <label>Header</label>
+          <Header />
+        </section>
+
+        <section>
+          <label>Header Not Found</label>
+          <Header is404 />
+        </section>
+        
+        <section>
+          <label>Paragraph</label>
+          <p>
+            Pilih Toko <strong>Ojek Belanja</strong> Anda
         </p>
-        <h1>Toko Picker</h1>
-        <TokoPicker />
-        <hr />
-        <h1>Header Not Found</h1>
-        <Header is404 />
-        <div className="l-tokopicker">
-          <h1>Filter Input</h1>
-          <FilterInput
-            placeholder="Without Button"
-            keyword={this.state.keyword}
-            action={this.updateKeyword}
-            />
-          <FilterInput
-            placeholder="With Button"
-            keyword={this.state.keyword}
-            action={this.updateKeyword}
-            withButton
-            />
-          <h1>Filter Cards</h1>
-          <FilterCards
-            keyword=""
-            items={tokos}
-            titleField="name"
-            descriptionField="area"
-            imageField="image"
-            action={() => true}
-            />
-        </div>
+        </section>
+
+        <section>
+          <label>Filter Input</label>
+          <div className="l-tokopicker">
+            <FilterInput
+              placeholder="Without Button"
+              keyword={this.state.keyword}
+              action={this.updateKeyword}
+              />
+            <FilterInput
+              placeholder="With Button"
+              keyword={this.state.keyword}
+              action={this.updateKeyword}
+              withButton
+              />
+          </div>
+        </section>
+
+        <section>
+          <label>Filter Cards</label>
+          <div className="l-tokopicker">
+            <FilterCards
+              keyword=""
+              items={tokos}
+              titleField="name"
+              descriptionField="area"
+              imageField="image"
+              action={() => true}
+              />
+          </div>
+        </section>
+        
+        <section>
+          <label>Toko Picker</label>
+          <TokoPicker />
+        </section>
+
       </div>
     );
   }

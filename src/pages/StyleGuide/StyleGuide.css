@@ -1,0 +1,26 @@
+/* Layout */
+
+.l-styleguide {
+  max-width: 82rem;
+  margin: auto;
+}
+
+/* Module */
+
+section {
+  margin: 1rem;
+  border: .125rem groove #673AB7;
+  padding: 1rem;
+  text-align: center;
+  position: relative;
+}
+
+section > label {
+  /* Positioning */
+  position: absolute;
+  top: -1rem;
+  left: 1rem;
+  /* Styling */
+  background-color: #EDE7F6;
+  padding: .25rem;
+}
