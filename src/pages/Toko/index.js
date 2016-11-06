@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import '../Home/Home.css';
+import '../pages.css';
 
 export default class Toko extends Component {
   render() {
     return (
-      <div className="app">
+      <div className="l-app">
         <MainNav />
         <Header />
         <p>

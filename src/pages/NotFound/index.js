@@ -3,12 +3,12 @@ import { Link } from 'react-router';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import './NotFound.css';
+import '../pages.css';
 
 export default class NotFound extends Component {
   render() {
     return (
-      <div className="app">
+      <div className="l-app">
         <MainNav />
         <Header is404={true} />
         <p>

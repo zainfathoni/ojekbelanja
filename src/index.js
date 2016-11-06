@@ -7,6 +7,7 @@ import Toko from './pages/Toko';
 import StyleGuide from './pages/StyleGuide';
 import NotFound from './pages/NotFound';
 import './css/index.css';
+import './css/fonts.css';
 
 const Root = () => {
   return (

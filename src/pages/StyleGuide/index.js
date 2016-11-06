@@ -6,7 +6,7 @@ import TokoPicker from '../../components/TokoPicker';
 import FilterInput from '../../components/FilterInput';
 import FilterCards from '../../components/FilterCards';
 import { tokos } from '../../models';
-import '../Home/Home.css';
+import '../pages.css';
 
 export default class StyleGuide extends Component {
   constructor() {
@@ -29,7 +29,7 @@ export default class StyleGuide extends Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="l-app">
         <h1>Main Navigation</h1>
         <MainNav />
         <h1>Header</h1>
