@@ -1,15 +1,10 @@
 /* Layout */
 
-.l-filter-result {
-  padding: 0;
-  margin: auto;
+.l-filter-cards {
+  width: 100%;
 }
 
 .l-grid {
-  /* Grid */
-  max-width: 60rem;
-  margin-right: auto;
-  margin-left: auto;
   /* ul reset */
   padding: 0;
   list-style-type: none;

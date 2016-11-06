@@ -36,7 +36,7 @@ export default class FilterCards extends Component {
       );
 
     return (
-      <div className="l-filter-result">
+      <div className="l-filter-cards">
         <ul className="l-grid">
           {Object.keys(filteredItems)
             .map(key =>

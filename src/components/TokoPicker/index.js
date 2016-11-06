@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import FilterInput from'../FilterInput';
 import FilterCards from '../FilterCards';
 import { tokos } from '../../models';
+import './TokoPicker.css';
 
 export default class TokoPicker extends Component {
   constructor() {
@@ -31,7 +32,7 @@ export default class TokoPicker extends Component {
 
   render() {
     return (
-      <main>
+      <main className="l-tokopicker">
         <FilterInput
           placeholder="Cari Nama atau Area Layanan"
           keyword={this.state.keyword}

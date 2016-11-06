@@ -6,7 +6,7 @@ import TokoPicker from '../../components/TokoPicker';
 import FilterInput from '../../components/FilterInput';
 import FilterCards from '../../components/FilterCards';
 import { tokos } from '../../models';
-import '../Home/Home.css';
+import '../pages.css';
 
 export default class StyleGuide extends Component {
   constructor() {
@@ -29,9 +29,11 @@ export default class StyleGuide extends Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="l-fullwidth">
         <h1>Main Navigation</h1>
-        <MainNav />
+        <div className="l-wrapper-mainnav">
+          <MainNav />
+        </div>
         <h1>Header</h1>
         <Header />
         <h1>Paragraph</h1>
@@ -43,27 +45,29 @@ export default class StyleGuide extends Component {
         <hr />
         <h1>Header Not Found</h1>
         <Header is404 />
-        <h1>Filter Input</h1>
-        <FilterInput
-          placeholder="Without Button"
-          keyword={this.state.keyword}
-          action={this.updateKeyword}
-          />
-        <FilterInput
-          placeholder="With Button"
-          keyword={this.state.keyword}
-          action={this.updateKeyword}
-          withButton
-          />
-        <h1>Filter Cards</h1>
-        <FilterCards
-          keyword=""
-          items={tokos}
-          titleField="name"
-          descriptionField="area"
-          imageField="image"
-          action={() => true}
-          />
+        <div className="l-tokopicker">
+          <h1>Filter Input</h1>
+          <FilterInput
+            placeholder="Without Button"
+            keyword={this.state.keyword}
+            action={this.updateKeyword}
+            />
+          <FilterInput
+            placeholder="With Button"
+            keyword={this.state.keyword}
+            action={this.updateKeyword}
+            withButton
+            />
+          <h1>Filter Cards</h1>
+          <FilterCards
+            keyword=""
+            items={tokos}
+            titleField="name"
+            descriptionField="area"
+            imageField="image"
+            action={() => true}
+            />
+        </div>
       </div>
     );
   }

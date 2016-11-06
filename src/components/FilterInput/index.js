@@ -5,6 +5,8 @@ import './FilterInput.css';
 export default function FilterInput(props) {
   const searchIcon = <i className="material-icons">search</i>;
 
+  // TODO: @rekysenjaya If withButton, search will be done onClick instead of onChange
+
   return (
     <div className={"l-filter-input" +
       (props.withButton ? "" : " l-filter-input-no-btn")}>

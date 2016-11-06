@@ -1,0 +1,10 @@
+/* Layout */
+
+.l-fullwidth {
+  width: 100%;
+  text-align: center;
+}
+
+.l-wrapper-mainnav {
+  background-color: #D1C4E9;
+}
