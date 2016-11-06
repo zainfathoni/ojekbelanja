@@ -7,7 +7,8 @@ export default function FilterInput(props) {
     <div className="l-filter-input">
       <input
         type="text"
-        className="filter-input filter-input-txt"
+        className={"filter-input filter-input-txt" +
+          (props.withButton ? "" : " filter-input-txt-no-button")}
         placeholder={props.placeholder}
         value={props.keyword}
         onChange={(e) => props.action(e.target.value)}
@@ -22,5 +23,6 @@ export default function FilterInput(props) {
 FilterInput.propTypes = {
   placeholder: React.PropTypes.string.isRequired,
   keyword: React.PropTypes.string.isRequired,
-  action: React.PropTypes.func.isRequired
+  action: React.PropTypes.func.isRequired,
+  withButton: React.PropTypes.bool
 }
