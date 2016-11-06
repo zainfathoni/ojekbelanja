@@ -8,8 +8,10 @@ import '../pages.css';
 export default class NotFound extends Component {
   render() {
     return (
-      <div className="l-app">
-        <MainNav />
+      <div className="l-fullwidth">
+        <div className="l-wrapper-mainnav">
+          <MainNav />
+        </div>
         <Header is404={true} />
         <p>
           Maaf, halaman yang Anda tuju tidak ditemukan.

@@ -29,9 +29,11 @@ export default class StyleGuide extends Component {
 
   render() {
     return (
-      <div className="l-app">
+      <div className="l-fullwidth">
         <h1>Main Navigation</h1>
-        <MainNav />
+        <div className="l-wrapper-mainnav">
+          <MainNav />
+        </div>
         <h1>Header</h1>
         <Header />
         <h1>Paragraph</h1>

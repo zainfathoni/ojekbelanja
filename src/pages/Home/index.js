@@ -8,8 +8,10 @@ import '../pages.css';
 export default class Home extends Component {
   render() {
     return (
-      <div className="l-app">
-        <MainNav />
+      <div className="l-fullwidth">
+        <div className="l-wrapper-mainnav">
+          <MainNav />
+        </div>
         <Header />
         <p>
           Pilih Toko <strong>Ojek Belanja</strong> Anda
