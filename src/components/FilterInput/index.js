@@ -3,8 +3,11 @@ import React from 'react';
 import './FilterInput.css';
 
 export default function FilterInput(props) {
+  const searchIcon = <i className="material-icons">search</i>;
+
   return (
-    <div className="l-filter-input">
+    <div className={"l-filter-input" +
+      (props.withButton ? "" : " l-filter-input-no-btn")}>
       <input
         type="text"
         className={"filter-input filter-input-txt" +
@@ -13,10 +16,14 @@ export default function FilterInput(props) {
         value={props.keyword}
         onChange={(e) => props.action(e.target.value)}
         />
-      {props.withButton &&
+      {props.withButton ?
         <button className="filter-input filter-input-btn">
-          <i className="material-icons">search</i>
+          {searchIcon}
         </button>
+        :
+        <span className="filter-input-txt-search-icon">
+          {searchIcon}
+        </span>
       }
     </div>
   )
