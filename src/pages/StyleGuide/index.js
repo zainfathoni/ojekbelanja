@@ -27,9 +27,15 @@ export default class StyleGuide extends Component {
         <Header is404 />
         <h1>Filter Input</h1>
         <FilterInput
-          placeholder="Sample Placeholder"
+          placeholder="Without Button"
           keyword=""
           action={() => true}
+          />
+        <FilterInput
+          placeholder="With Button"
+          keyword=""
+          action={() => true}
+          withButton
           />
         <h1>Filter Cards</h1>
         <FilterCards

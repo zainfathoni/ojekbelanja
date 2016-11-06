@@ -15,7 +15,7 @@
 }
 
 .filter-input-txt {
-  width: 18rem;
+  width: 18.75rem;
   font-family: 'Lato', sans-serif;
   font-size: 0.9rem;
   border-top-left-radius: 0.75rem;
@@ -24,9 +24,21 @@
 }
 
 .filter-input-txt.filter-input-txt-no-btn {
+  width: 21rem;
   border-top-right-radius: 0.75rem;
   border-bottom-right-radius: 0.75rem;
   border-right: 2px solid #BDBDBD;
+}
+
+@media (max-width: 24rem) {
+  .filter-input-txt {
+    width: 75%; /* fallback for UC Browser */
+    width: calc(90% - 2.25rem);
+  }
+
+  .filter-input-txt.filter-input-txt-no-btn {
+    width: 90%;
+  }
 }
 
 .filter-input-btn {
