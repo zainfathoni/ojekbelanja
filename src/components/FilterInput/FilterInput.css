@@ -71,12 +71,12 @@
   border-color: #673AB7;
   padding: 0.125rem 0.625rem;
   background-color: #673AB7;
-  color: #FFFFFF
+  color: #FFFFFF;
 }
 
 /* State */
 
-.filter-input:focus {
+.filter-input-txt:focus {
   border: 2px solid #673AB7;
 }
 
@@ -89,7 +89,11 @@
   border-right: 2px solid #673AB7;
 }
 
-.filter-input-btn,
+.filter-input-btn:active,
 .filter-input-btn:focus {
-  border-left: 0;
+  border-color: #FF6D00;
+}
+
+.filter-input-btn:active {
+  background-color: #FF6D00;
 }
