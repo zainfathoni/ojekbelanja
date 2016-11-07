@@ -87,11 +87,6 @@ export default class StyleGuide extends Component {
           </div>
         </section>
         
-        <section>
-          <label>Toko Picker</label>
-          <TokoPicker />
-        </section>
-
       </div>
     );
   }
