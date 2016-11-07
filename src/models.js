@@ -1,4 +1,4 @@
-var tokos = {
+export var tokos = {
   jejen: {
     name: 'Jejen',
     phone: '081234567890',
@@ -25,4 +25,33 @@ var tokos = {
   }
 }
 
-export { tokos };
+export var products = {
+  pisang: {
+    name: 'Pisang Ambon',
+    desc: 'Pisang lezat dari Ambon',
+    image: 'placeholder-224x224.png',
+    unit: 'buah',
+    price: '3000'
+  },
+  kecap: {
+    name: 'Kecap Ambon',
+    desc: 'Kecap lezat dari Ambon',
+    image: 'placeholder-224x224.png',
+    unit: 'buah',
+    price: '3000'
+  },
+  ikan: {
+    name: 'Ikan Ambon',
+    desc: 'Ikan lezat dari Ambon',
+    image: 'placeholder-224x224.png',
+    unit: 'buah',
+    price: '3000'
+  },
+  ayam: {
+    name: 'Ayam Ambon',
+    desc: 'Ayam lezat dari Ambon',
+    image: 'placeholder-224x224.png',
+    unit: 'buah',
+    price: '3000'
+  }
+}

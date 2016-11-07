@@ -8,6 +8,9 @@ body {
 
 code {
   font-family: 'Ubuntu Mono', monospace;
+  background-color: #D1C4E9;
+  padding: .25rem;
+  border-radius: .25rem;
 }
 
 html {
