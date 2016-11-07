@@ -1,9 +1,4 @@
+/*** Toko.css ***/
+
 /* Layout */
 
-.l-tokopicker{
-  display: block;
-  /* Center Horizontally on 60rem x 3rem */
-  max-width: 60rem;
-  margin: auto;
-  line-height: 3rem;
-}
