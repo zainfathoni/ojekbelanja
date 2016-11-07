@@ -12,7 +12,7 @@ export default function Header(props) {
       {!props.is404 ?
         <header>
           <h1>Ojek {ojekIcon}{belanjaIcon} Belanja</h1>
-          <h3>Asisten Belanja Anda</h3>
+          <h3>{props.heading ? props.heading : "Asisten Belanja Anda"}</h3>
         </header>
       :
         <header>
@@ -25,5 +25,6 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
+  heading: React.PropTypes.string,
   is404: React.PropTypes.bool
 }

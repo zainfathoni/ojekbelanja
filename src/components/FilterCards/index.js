@@ -35,6 +35,7 @@ export default class FilterCards extends Component {
       {}
       );
 
+    // TODO: Separate cards into sections, e.g.: separate products based on their categories
     return (
       <div className="l-filter-cards">
         <ul className="l-grid">
