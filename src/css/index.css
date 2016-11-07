@@ -25,3 +25,7 @@ button {
   cursor: pointer;
   font-family: 'Lato', 'Open Sans', sans-serif;
 }
+
+:focus {
+  outline: 0;
+}

@@ -63,7 +63,6 @@
 .card-action-btn:active,
 .card-action-btn:focus {
   border-color: #FF6D00;
-  outline: none;
 }
 
 .card-action-btn:active {
