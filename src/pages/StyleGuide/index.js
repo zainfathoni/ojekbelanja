@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import TokoPicker from '../../components/TokoPicker';
 import FilterInput from '../../components/FilterInput';
 import FilterCards from '../../components/FilterCards';
 import { tokos } from '../../models';
