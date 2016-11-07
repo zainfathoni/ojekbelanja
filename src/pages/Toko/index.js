@@ -60,6 +60,7 @@ export default class Toko extends Component {
             imageField="image"
             action={this.buy}
             />
+          {/* TODO: Add Order State */}
         </main>
       </div>
     );

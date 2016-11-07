@@ -8,6 +8,8 @@ export default function Card(props) {
   // TODO: @rekysenjaya Find multiple matches in a single string
   // TODO: @rekysenjaya Display multiple matches
   // TODO: @rekysenjaya Modularize display matches
+  // TODO: Add Price / Unit section
+  // TODO: Add Plus (+) & Minus (-) Action Buttons based on defined Step
   return (
     <li>
       <div className="card">
