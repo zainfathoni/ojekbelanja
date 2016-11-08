@@ -40,7 +40,6 @@ export default class FilterCards extends Component {
       {}
       );
 
-    // TODO: Separate cards into sections, e.g.: separate products based on their categories
     const sectionedItems = Object.keys(filteredItems)
       .reduce(
       (res, key) => {
@@ -65,25 +64,32 @@ export default class FilterCards extends Component {
     return (
       <div className="l-filter-cards">
         {sectionField ?
-          <section className="filter-cards-section">
-            <label htmlFor="category" className="filter-cards-section-label">Category</label>
-            <hr className="filter-cards-section-separator" />
-            <ul id="category" className="l-grid">
-              {Object.keys(filteredItems)
-                .map(key =>
-                  <Card
-                    key={key}
-                    id={key}
-                    keyword={keyword}
-                    title={filteredItems[key][titleField]}
-                    description={filteredItems[key][descriptionField]}
-                    image={require(`../../css/images/${filteredItems[key][imageField]}`)}
-                    action={action}
-                    />
-                )
-              }
-            </ul>
-          </section>
+          <div>
+            {Object.keys(sectionedItems)
+              .map(section =>
+                <section key={section} className="filter-cards-section">
+                  <label htmlFor={section} className="filter-cards-section-label">{section}</label>
+                  <hr className="filter-cards-section-separator" />
+                  <ul id={section} className="l-grid">
+                    {
+                      Object.keys(sectionedItems[section])
+                        .map(key =>
+                          <Card
+                            key={key}
+                            id={key}
+                            keyword={keyword}
+                            title={sectionedItems[section][key][titleField]}
+                            description={sectionedItems[section][key][descriptionField]}
+                            image={require(`../../css/images/${sectionedItems[section][key][imageField]}`)}
+                            action={action}
+                            />
+                        )
+                    }
+                  </ul>
+                </section>
+              )
+            }
+          </div>
           :
           <ul id="category" className="l-grid">
             {Object.keys(filteredItems)
