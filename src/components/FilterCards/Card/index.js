@@ -1,12 +1,35 @@
 import React from 'react';
 
 import './Card.css';
-import {markHelper} from '../../../helpers/matches.js'
+
+const mark = (first, body, keyword) => {
+  const index = body.toLowerCase().indexOf(keyword.toLowerCase());
+  let awal = `${body.slice(0, index)}`;
+  let newAwal = (first.length === 0) ? [{data: awal, isMarked: false}] : [...first, {data: awal, isMarked: false}]
+  if(index > -1 && keyword){
+    let tengah = body.slice(index, index + keyword.length)
+    let akhir = `${body.slice(index + keyword.length)}`
+    return mark([...newAwal, {data: tengah, isMarked: true}], akhir, keyword)
+  }else{
+    return [...newAwal, {data: body, isMarked: false}]
+  }
+}
+
+const jsxMark = (first, body, keyword) => {
+  const marked = mark(first, body, keyword);
+  return marked.map(function(d){
+    console.log(d);
+    if(d.isMarked){
+      return(<mark>{d.data}</mark>)
+    }else{
+      return(d.data)
+    }
+  })
+}
 
 export default function Card(props) {
-  const { keyword, title, description } = props;
-  const titleMarked = markHelper(title, keyword)
-  const descMarked = markHelper(description, keyword)
+  const { keyword, title } = props;
+  const marked = jsxMark([], title, keyword)
   // TODO: @rekysenjaya Find multiple matches in a single string
   // TODO: @rekysenjaya Display multiple matches
   // TODO: @rekysenjaya Modularize display matches
@@ -18,10 +41,10 @@ export default function Card(props) {
         </div>
         <div className="card-content">
           <div className="card-content-title">
-            {titleMarked}
+            {marked}
           </div>
           <div className="card-content-description">
-            {descMarked}
+            {props.description}
           </div>
         </div>
         <div className="card-action">
