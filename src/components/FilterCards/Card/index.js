@@ -1,10 +1,12 @@
 import React from 'react';
 
 import './Card.css';
+import {markHelper} from '../../../helpers/matches.js'
 
 export default function Card(props) {
-  const { keyword, title } = props;
-  const index = title.toLowerCase().indexOf(keyword.toLowerCase());
+  const { keyword, title, description } = props;
+  const titleMarked = markHelper(title, keyword)
+  const descMarked = markHelper(description, keyword)
   // TODO: @rekysenjaya Find multiple matches in a single string
   // TODO: @rekysenjaya Display multiple matches
   // TODO: @rekysenjaya Modularize display matches
@@ -18,12 +20,10 @@ export default function Card(props) {
         </div>
         <div className="card-content">
           <div className="card-content-title">
-            {title.slice(0, index)}
-            <mark>{title.slice(index, index + keyword.length)}</mark>
-            {title.slice(index + keyword.length)}
+            {titleMarked}
           </div>
           <div className="card-content-description">
-            {props.description}
+            {descMarked}
           </div>
         </div>
         <div className="card-action">
