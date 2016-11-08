@@ -11,7 +11,7 @@ function signMark(first, body, keyword) {
   }else{
     return [...first, {data: body, isMarked: false}]
   }
-}
+} 
 
 export function markHelper(body, keyword, first=[]) {
   const marked = signMark(first, body, keyword);
