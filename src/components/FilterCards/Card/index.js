@@ -28,8 +28,9 @@ const jsxMark = (first, body, keyword) => {
 }
 
 export default function Card(props) {
-  const { keyword, title } = props;
+  const { keyword, title ,description } = props;
   const marked = jsxMark([], title, keyword)
+  const markeds = jsxMark([], description, keyword)
   // TODO: @rekysenjaya Find multiple matches in a single string
   // TODO: @rekysenjaya Display multiple matches
   // TODO: @rekysenjaya Modularize display matches
@@ -44,7 +45,7 @@ export default function Card(props) {
             {marked}
           </div>
           <div className="card-content-description">
-            {props.description}
+            {markeds}
           </div>
         </div>
         <div className="card-action">
