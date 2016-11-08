@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './Card.css';
-import {markHelper} from '../../../helpers'
+import {markHelper} from '../../helpers/matches.js'
 
 export default function Card(props) {
   const { keyword, title, description } = props;
