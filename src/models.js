@@ -144,8 +144,8 @@ export var products = {
     category: 'ayam'
   },
   usus_ayam: {
-    desc: 'Usus Ayam',
     name: 'Usus Ayam',
+    desc: 'Usus Ayam',
     image: 'placeholder-224x224.png',
     unit: 'kg',
     step: .25,
@@ -153,8 +153,8 @@ export var products = {
     category: 'ayam'
   },
   ceker_ayam: {
-    desc: 'Ceker Ayam',
     name: 'Ceker Ayam',
+    desc: 'Ceker Ayam',
     image: 'placeholder-224x224.png',
     unit: 'kg',
     step: .25,
@@ -162,8 +162,8 @@ export var products = {
     category: 'ayam'
   },
   sayap_ayam: {
-    desc: 'Sayap Ayam',
     name: 'Sayap Ayam',
+    desc: 'Sayap Ayam',
     image: 'placeholder-224x224.png',
     unit: 'kg',
     step: .25,
@@ -171,8 +171,8 @@ export var products = {
     category: 'ayam'
   },
   ati_ampela: {
-    desc: 'Ati Ampela',
-    name: 'Ati Ampela 10 Pasang',
+    name: 'Ati Ampela',
+    desc: 'Ati Ampela 10 Pasang',
     image: 'placeholder-224x224.png',
     unit: 'pasang',
     step: 10,
@@ -180,8 +180,8 @@ export var products = {
     category: 'ayam'
   },
   telur_ayam: {
-    desc: 'Telur Ayam',
     name: 'Telur Ayam',
+    desc: 'Telur Ayam',
     image: 'placeholder-224x224.png',
     unit: 'kg',
     step: .25,
