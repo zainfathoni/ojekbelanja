@@ -57,6 +57,7 @@ export default class Toko extends Component {
             items={this.state.products}
             titleField="name"
             descriptionField="desc"
+            sectionField="category"
             imageField="image"
             action={this.buy}
             />

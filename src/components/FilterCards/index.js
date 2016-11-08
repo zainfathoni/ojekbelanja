@@ -10,6 +10,7 @@ export default class FilterCards extends Component {
       items,
       titleField,
       descriptionField,
+      sectionField,
       imageField,
       action
     } = this.props
@@ -38,8 +39,26 @@ export default class FilterCards extends Component {
     // TODO: Separate cards into sections, e.g.: separate products based on their categories
     return (
       <div className="l-filter-cards">
-        <section>
-          <label htmlFor="category" className="section-label">Category</label>
+        {sectionField ?
+          <section>
+            <label htmlFor="category" className="section-label">Category</label>
+            <ul id="category" className="l-grid">
+              {Object.keys(filteredItems)
+                .map(key =>
+                  <Card
+                    key={key}
+                    id={key}
+                    keyword={keyword}
+                    title={filteredItems[key][titleField]}
+                    description={filteredItems[key][descriptionField]}
+                    image={require(`../../css/images/${filteredItems[key][imageField]}`)}
+                    action={action}
+                    />
+                )
+              }
+            </ul>
+          </section>
+          :
           <ul id="category" className="l-grid">
             {Object.keys(filteredItems)
               .map(key =>
@@ -55,7 +74,8 @@ export default class FilterCards extends Component {
               )
             }
           </ul>
-        </section>
+        }
+
       </div>
     )
   }
@@ -66,6 +86,7 @@ FilterCards.propTypes = {
   items: React.PropTypes.object.isRequired,
   titleField: React.PropTypes.string.isRequired,
   descriptionField: React.PropTypes.string.isRequired,
+  sectionField: React.PropTypes.string,
   imageField: React.PropTypes.string.isRequired,
-  action: React.PropTypes.func.isRequired
+  action: React.PropTypes.func.isRequired,
 }
