@@ -38,21 +38,24 @@ export default class FilterCards extends Component {
     // TODO: Separate cards into sections, e.g.: separate products based on their categories
     return (
       <div className="l-filter-cards">
-        <ul className="l-grid">
-          {Object.keys(filteredItems)
-            .map(key =>
-              <Card
-                key={key}
-                id={key}
-                keyword={keyword}
-                title={filteredItems[key][titleField]}
-                description={filteredItems[key][descriptionField]}
-                image={require(`../../css/images/${filteredItems[key][imageField]}`)}
-                action={action}
-                />
-            )
-          }
-        </ul>
+        <section>
+          <label htmlFor="category" className="section-label">Category</label>
+          <ul id="category" className="l-grid">
+            {Object.keys(filteredItems)
+              .map(key =>
+                <Card
+                  key={key}
+                  id={key}
+                  keyword={keyword}
+                  title={filteredItems[key][titleField]}
+                  description={filteredItems[key][descriptionField]}
+                  image={require(`../../css/images/${filteredItems[key][imageField]}`)}
+                  action={action}
+                  />
+              )
+            }
+          </ul>
+        </section>
       </div>
     )
   }
