@@ -8,6 +8,7 @@ export default class FilterCards extends Component {
     const {
       keyword,
       items,
+      sections,
       titleField,
       descriptionField,
       sectionField,
@@ -68,7 +69,7 @@ export default class FilterCards extends Component {
             {Object.keys(sectionedItems)
               .map(section =>
                 <section key={section} className="filter-cards-section">
-                  <label htmlFor={section} className="filter-cards-section-label">{section}</label>
+                  <label htmlFor={section} className="filter-cards-section-label">{sections[section]}</label>
                   <hr className="filter-cards-section-separator" />
                   <ul id={section} className="l-grid">
                     {
@@ -116,6 +117,7 @@ export default class FilterCards extends Component {
 FilterCards.propTypes = {
   keyword: React.PropTypes.string.isRequired,
   items: React.PropTypes.object.isRequired,
+  sections: React.PropTypes.object,
   titleField: React.PropTypes.string.isRequired,
   descriptionField: React.PropTypes.string.isRequired,
   sectionField: React.PropTypes.string,

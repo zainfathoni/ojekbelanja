@@ -4,7 +4,7 @@ import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import FilterInput from'../../components/FilterInput';
 import FilterCards from '../../components/FilterCards';
-import { tokos, products } from '../../models';
+import { tokos, products, categories } from '../../models';
 import '../pages.css';
 import './Toko.css';
 
@@ -55,6 +55,7 @@ export default class Toko extends Component {
           <FilterCards
             keyword={this.state.keyword}
             items={this.state.products}
+            sections={categories}
             titleField="name"
             descriptionField="desc"
             sectionField="category"
