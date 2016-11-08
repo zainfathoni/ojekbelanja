@@ -31,12 +31,37 @@ export default class FilterCards extends Component {
         // TODO: @rekysenjaya Modularize Search
         items[key][titleField].toLowerCase()
           .indexOf(keyword.toLowerCase()) !== -1)
-      .reduce((res, key) =>
-        Object.assign(res, { [key]: items[key] }),
+      .reduce(
+      (res, key) =>
+        Object.assign(
+          {},
+          res,
+          { [key]: items[key] }),
       {}
       );
 
     // TODO: Separate cards into sections, e.g.: separate products based on their categories
+    const sectionedItems = Object.keys(filteredItems)
+      .reduce(
+      (res, key) => {
+        const section = items[key][sectionField];
+        return Object.assign(
+          {},
+          res,
+          {
+            [section]: Object.assign(
+              {},
+              res[section],
+              { [key]: items[key] }
+            )
+          }
+        )
+      },
+      {}
+      );
+
+    console.log(sectionedItems);
+
     return (
       <div className="l-filter-cards">
         {sectionField ?
