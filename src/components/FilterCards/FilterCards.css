@@ -54,10 +54,26 @@
 
 /* Module */
 
-.section-label {
+.filter-cards-section {
+  border: 0;
+  padding: 0;
+}
+
+.filter-cards-section-label {
   font-size: 1.5rem;
   font-weight: 700;
   padding: .5rem;
-  top: -1.5rem;
-  left: 1.5rem;
+  position: static;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.filter-cards-section-separator {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  border-top: .125rem solid #673AB7;
+  border-bottom: none;
 }

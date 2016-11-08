@@ -40,8 +40,9 @@ export default class FilterCards extends Component {
     return (
       <div className="l-filter-cards">
         {sectionField ?
-          <section>
-            <label htmlFor="category" className="section-label">Category</label>
+          <section className="filter-cards-section">
+            <label htmlFor="category" className="filter-cards-section-label">Category</label>
+            <hr className="filter-cards-section-separator" />
             <ul id="category" className="l-grid">
               {Object.keys(filteredItems)
                 .map(key =>
