@@ -14,7 +14,7 @@ export default class FilterCards extends Component {
       action
     } = this.props
     const ids = Object.keys(items);
-    
+
     // Render Loading Bars
     if (ids.length === 0) {
       return (
@@ -28,8 +28,8 @@ export default class FilterCards extends Component {
       .filter(key =>
         // TODO: @rekysenjaya Expand search to description field
         // TODO: @rekysenjaya Modularize Search
-        items[key][titleField].toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
-        items[key][descriptionField].toLowerCase().indexOf(keyword.toLowerCase()) !== -1)
+        items[key][titleField].toLowerCase()
+          .indexOf(keyword.toLowerCase()) !== -1)
       .reduce((res, key) =>
         Object.assign(res, { [key]: items[key] }),
       {}
