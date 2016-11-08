@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Card from './Card';
+import Section from './Section';
 import './FilterCards.css';
 
 export default class FilterCards extends Component {
@@ -30,6 +31,7 @@ export default class FilterCards extends Component {
       .filter(key =>
         // TODO: @rekysenjaya Expand search to description field
         // TODO: @rekysenjaya Modularize Search
+        // TODO: Expand search to section field
         items[key][titleField].toLowerCase()
           .indexOf(keyword.toLowerCase()) !== -1)
       .reduce(
@@ -68,26 +70,17 @@ export default class FilterCards extends Component {
           <div>
             {Object.keys(sectionedItems)
               .map(section =>
-                <section key={section} className="filter-cards-section">
-                  <label htmlFor={section} className="filter-cards-section-label">{sections[section]}</label>
-                  <hr className="filter-cards-section-separator" />
-                  <ul id={section} className="l-grid">
-                    {
-                      Object.keys(sectionedItems[section])
-                        .map(key =>
-                          <Card
-                            key={key}
-                            id={key}
-                            keyword={keyword}
-                            title={sectionedItems[section][key][titleField]}
-                            description={sectionedItems[section][key][descriptionField]}
-                            image={require(`../../css/images/${sectionedItems[section][key][imageField]}`)}
-                            action={action}
-                            />
-                        )
-                    }
-                  </ul>
-                </section>
+                <Section
+                  key={section}
+                  id={section}
+                  label={sections[section]}
+                  items={sectionedItems[section]}
+                  keyword={keyword}
+                  titleField={titleField}
+                  descriptionField={descriptionField}
+                  imageField={imageField}
+                  action={action}
+                  />
               )
             }
           </div>
