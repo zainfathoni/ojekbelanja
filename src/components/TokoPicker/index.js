@@ -11,9 +11,18 @@ export default class TokoPicker extends Component {
 
     this.state = {
       tokos,
-      keyword: ''
+      keyword: '',
+      search: ''
     }
   }
+
+  handleSearchChange = (search) => {
+    this.setState({search: search})
+  }
+
+    handleClick = (click) => {
+      this.setState({keyword:this.state.search,search:''})
+    }
 
   /*** Methods ***/
 
@@ -37,6 +46,9 @@ export default class TokoPicker extends Component {
           placeholder="Cari Nama atau Area Layanan"
           keyword={this.state.keyword}
           action={this.updateKeyword}
+          click={this.handleClick}
+          search={this.handleSearchChange}
+          withButton
           />
         <FilterCards
           keyword={this.state.keyword}
