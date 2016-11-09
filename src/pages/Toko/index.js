@@ -21,6 +21,13 @@ export default class Toko extends Component {
   componentWillMount() {
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    // Save to Local Storage
+    localStorage.setItem(
+      `order-${this.props.params.tokoId}`,
+      JSON.stringify(nextState.order));
+  }
+
   /*** Methods ***/
 
   plus = (productId) => {
