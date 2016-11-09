@@ -5,3 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Live Demo
 
 https://ojekbelanja.id/
+
+## GitHub Page
+
+https://zainfathoni.github.io/ojekbelanja/
