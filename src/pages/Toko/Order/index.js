@@ -31,7 +31,10 @@ export default function Order(props) {
           {`Rp ${totalPrice.toLocaleString('id')}`}
         </div>
         <div className="order-delivery-fee">
-          {`Ongkos Kirim Rp ${deliveryFee.toLocaleString('id')}`}
+          <span className="order-delivery-fee-label">
+            Ongkos Kirim
+          </span>
+          {` Rp ${deliveryFee.toLocaleString('id')}`}
         </div>
       </div>
       <div className="order-action-wrapper">
