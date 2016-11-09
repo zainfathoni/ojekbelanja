@@ -77,7 +77,7 @@ export default class Toko extends Component {
             actionReverse={this.minus}
             />
         </main>
-        <footer className="l-wrapper-order">
+        <footer className="l-wrapper-footer">
           <Order
             order={this.state.order}
             products={products}

@@ -1,21 +1,38 @@
 import React from 'react';
 
 import '../../pages.css';
+import './Order.css';
 
 export default function Order(props) {
+  const {
+    order,
+    products,
+    deliveryCost
+  } = props;
+
   // Calculate Price
   const totalPrice =
-    Object.keys(props.order)
+    Object.keys(order)
       .reduce(
       (sum, key) =>
-        sum + (props.products[key].price * props.products[key].step * props.order[key])
+        sum + (products[key].price * products[key].step * order[key])
       ,
       0
       );
 
   return (
-    <div>
-      {`Total Pembayaran: Rp ${(totalPrice + props.deliveryCost).toLocaleString('id')}`}
+    <div className="l-order">
+      <div className="order-price-wrapper">
+        <div className="order-product-count" title="Banyaknya Jenis Produk">
+          {Object.keys(order).length}
+        </div>
+        <div className="order-price">
+          {`Rp ${totalPrice.toLocaleString('id')}`}
+        </div>
+        <div className="order-delivery-cost">
+          {`Ongkos Kirim Rp ${deliveryCost.toLocaleString('id')}`}
+        </div>
+      </div>
     </div>
   )
 }

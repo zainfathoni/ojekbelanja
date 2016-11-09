@@ -27,7 +27,7 @@ export default class Products extends Component {
   
   render() {
     return (
-      <main className="l-wrapper-filter">
+      <div>
         <FilterInput
           placeholder="Cari Produk"
           keyword={this.state.keyword}
@@ -46,7 +46,7 @@ export default class Products extends Component {
           actionReverse={this.props.actionReverse}
           collection={this.props.order}
           />
-      </main>
+      </div>
     )
   }
 }

@@ -5,6 +5,8 @@
 .filter-cards-section {
   border: 0;
   padding: 0;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .filter-cards-section-label {
