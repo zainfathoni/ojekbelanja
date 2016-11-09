@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import FilterInput from '../../../components/FilterInput';
 import FilterCards from '../../../components/FilterCards';
 import { products, categories } from '../../../models';
-import './Products.css';
+import '../../pages.css';
 
 export default class Products extends Component {
   constructor() {
@@ -31,7 +31,7 @@ export default class Products extends Component {
   
   render() {
     return (
-      <main className="l-tokopicker">
+      <main className="l-wrapper-filter">
         <FilterInput
           placeholder="Cari Produk"
           keyword={this.state.keyword}

@@ -5,7 +5,6 @@ import Header from '../../components/Header';
 import Products from './Products';
 import { tokos } from '../../models';
 import '../pages.css';
-import './Toko.css';
 
 export default class Toko extends Component {
   /*** Render ***/
@@ -20,7 +19,7 @@ export default class Toko extends Component {
           <MainNav />
         </div>
         <Header heading={toko.name} />
-        <main className="l-tokopicker">
+        <main className="l-wrapper-filter">
           <p>
             Selamat datang di toko <code>{tokoId}</code>.
           </p>
