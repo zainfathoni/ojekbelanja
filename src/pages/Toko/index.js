@@ -54,6 +54,17 @@ export default class Toko extends Component {
     })
   }
 
+  clear = () => {
+    this.setState({
+      order: {}
+    })
+  }
+
+  checkout = () => {
+    console.log(`Checking Out:`);
+    console.log(this.state.order);
+  }
+
   /*** Render ***/
   
   render() {
@@ -76,12 +87,17 @@ export default class Toko extends Component {
             action={this.plus}
             actionReverse={this.minus}
             />
+          <div className="footer-buffer">
+
+          </div>
         </main>
         <footer className="l-wrapper-footer">
           <Order
             order={this.state.order}
             products={products}
             deliveryCost={this.state.deliveryCost}
+            clear={this.clear}
+            checkout={this.checkout}
             />
         </footer>
       </div>

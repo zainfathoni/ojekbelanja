@@ -20,7 +20,7 @@ export default function Card(props) {
     (step < 1 && unit === "kg") ?
       `${steps * 1000} gram`
       :
-      `${steps} {unit}`
+      `${steps} ${unit}`
 
   // TODO: @rekysenjaya Find multiple matches in a single string
   // TODO: @rekysenjaya Display multiple matches
