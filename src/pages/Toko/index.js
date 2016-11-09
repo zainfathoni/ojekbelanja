@@ -19,10 +19,17 @@ export default class Toko extends Component {
 
   /*** Lifecycle ***/
   componentWillMount() {
+    // Fetch 'order' from Local Storage
+    const localStorageRef = localStorage.getItem(`order-${this.props.params.tokoId}`);
+    if (localStorageRef) {
+      this.setState({
+        order: JSON.parse(localStorageRef)
+      })
+    }
   }
 
   componentWillUpdate(nextProps, nextState) {
-    // Save to Local Storage
+    // Save 'order' to Local Storage
     localStorage.setItem(
       `order-${this.props.params.tokoId}`,
       JSON.stringify(nextState.order));
