@@ -16,7 +16,6 @@ export default class Home extends Component {
         <p>
           Pilih Toko <strong>Ojek Belanja</strong> Anda
         </p>
-        {/* TODO: Move TokoPicker component under Home page, because it is only used here */}
         <TokoPicker />
       </div>
     );
