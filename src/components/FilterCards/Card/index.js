@@ -13,6 +13,7 @@ export default function Card(props) {
   // TODO: @rekysenjaya Modularize display matches
   // TODO: Add Price / Unit section
   // TODO: Add Plus (+) & Minus (-) Action Buttons based on defined Step
+  const price = 25000;
   return (
     <li>
       <div className="card">
@@ -36,6 +37,14 @@ export default function Card(props) {
             </button>
             :
             <div>
+              <div className="card-action-price-parent">
+                <span className="card-action-price">
+                  {`Rp ${price.toLocaleString('id')}`}
+                </span>
+                <span className="card-action-unit">
+                  {" / buah"}
+                </span>
+              </div>
               <button className="card-action-btn minus" onClick={(e) => props.actionReverse(props.id)}>
                 <i className="material-icons">remove</i>
               </button>
