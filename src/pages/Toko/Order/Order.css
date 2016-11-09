@@ -8,6 +8,10 @@
   margin: auto;
 }
 
+.footer-buffer {
+  height: 4.5rem;
+}
+
 /* Module */
 
 .order-price-wrapper {
@@ -32,6 +36,7 @@
 
 .order-price {
   display: inline-block;
+  margin-right: .5rem;
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -39,7 +44,13 @@
 .order-delivery-fee {
   display: table;
   font-size: .75rem;
+  font-weight: 700;
   font-style: italic;
+}
+
+.order-delivery-fee-label {
+  font-weight: 300;
+  color: #673AB7;
 }
 
 .order-action-wrapper {
@@ -69,6 +80,41 @@
 
 .order-action-checkout {
   margin-left: .375rem;
+}
+
+/* 2 Columns Grid */
+
+@media (max-width: 30rem) {
+
+  .order-price-wrapper {
+    display: block;
+    width: 100%;
+    margin: .5rem auto;
+    text-align: center;
+  }
+
+  .order-product-count {
+    margin-bottom: 0;
+  }
+
+  .order-delivery-fee {
+    display: inline-block;
+  }
+
+  .order-action-wrapper {
+    display: block;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+  }
+
+  .order-action {
+    margin: .375rem
+  }
+
+  .footer-buffer {
+    height: 7.25rem;
+  }
 }
 
 /* State */
