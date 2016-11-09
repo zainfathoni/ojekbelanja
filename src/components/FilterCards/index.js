@@ -62,8 +62,6 @@ export default class FilterCards extends Component {
       {}
       );
 
-    console.log(sectionedItems);
-
     return (
       <div className="l-filter-cards">
         {sectionField ?
