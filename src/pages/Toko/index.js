@@ -8,20 +8,32 @@ import { tokos, products } from '../../models';
 import '../pages.css';
 
 export default class Toko extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       order: {},
-      deliveryCost: 0
+      deliveryCost: tokos[this.props.params.tokoId].cost
     }
   }
 
   /*** Lifecycle ***/
+  
   componentWillMount() {
-    this.setState({
-      deliveryCost: tokos[this.props.params.tokoId].cost
-    })
+    // Fetch 'order' from Local Storage
+    const localStorageRef = localStorage.getItem(`order-${this.props.params.tokoId}`);
+    if (localStorageRef) {
+      this.setState({
+        order: JSON.parse(localStorageRef)
+      })
+    }
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    // Save 'order' to Local Storage
+    localStorage.setItem(
+      `order-${this.props.params.tokoId}`,
+      JSON.stringify(nextState.order));
   }
 
   /*** Methods ***/
@@ -60,9 +72,9 @@ export default class Toko extends Component {
     })
   }
 
-  checkout = () => {
-    console.log(`Checking Out:`);
-    console.log(this.state.order);
+  checkout = (tokoId) => {
+    console.log(`Checkout ${tokoId} Order`);
+    this.context.router.transitionTo(`/pesan/${tokoId}`);
   }
 
   /*** Render ***/
@@ -76,7 +88,7 @@ export default class Toko extends Component {
         <div className="l-wrapper-mainnav">
           <MainNav />
         </div>
-        <Header heading={toko.name} />
+        <Header heading={"Toko " + toko.name} />
         <main className="l-wrapper-filter">
           <p>
             Selamat datang di toko <code>{tokoId}</code>.
@@ -93,9 +105,10 @@ export default class Toko extends Component {
         </main>
         <footer className="l-wrapper-footer">
           <Order
+            tokoId={this.props.params.tokoId}
             order={this.state.order}
             products={products}
-            deliveryCost={this.state.deliveryCost}
+            deliveryFee={this.state.deliveryCost}
             clear={this.clear}
             checkout={this.checkout}
             />
@@ -103,4 +116,8 @@ export default class Toko extends Component {
       </div>
     );
   }
+}
+
+Toko.contextTypes = {
+  router: React.PropTypes.object
 }

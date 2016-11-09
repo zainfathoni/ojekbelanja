@@ -5,9 +5,10 @@ import './Order.css';
 
 export default function Order(props) {
   const {
+    tokoId,
     order,
     products,
-    deliveryCost
+    deliveryFee
   } = props;
 
   // Calculate Price
@@ -29,20 +30,22 @@ export default function Order(props) {
         <div className="order-price">
           {`Rp ${totalPrice.toLocaleString('id')}`}
         </div>
-        <div className="order-delivery-cost">
-          {`Ongkos Kirim Rp ${deliveryCost.toLocaleString('id')}`}
+        <div className="order-delivery-fee">
+          {`Ongkos Kirim Rp ${deliveryFee.toLocaleString('id')}`}
         </div>
       </div>
       <div className="order-action-wrapper">
         <button
           className="order-action order-action-clear"
           onClick={(e) => props.clear()}>
-          Clear
+          Kosongkan
+          <i className="material-icons">remove_shopping_cart</i>
         </button>
         <button
           className="order-action order-action-checkout"
-          onClick={(e) => props.checkout()}>
-          Checkout
+          onClick={(e) => props.checkout(tokoId)}>
+          Pesan
+          <i className="material-icons">shopping_cart</i>
         </button>
       </div>
     </div>
@@ -50,9 +53,10 @@ export default function Order(props) {
 }
 
 Order.propTypes = {
+  tokoId: React.PropTypes.string.isRequired,
   order: React.PropTypes.object.isRequired,
   products: React.PropTypes.object.isRequired,
-  deliveryCost: React.PropTypes.number.isRequired,
+  deliveryFee: React.PropTypes.number.isRequired,
   clear: React.PropTypes.func.isRequired,
   checkout: React.PropTypes.func.isRequired
 }
