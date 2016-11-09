@@ -33,6 +33,18 @@ export default function Order(props) {
           {`Ongkos Kirim Rp ${deliveryCost.toLocaleString('id')}`}
         </div>
       </div>
+      <div className="order-action-wrapper">
+        <button
+          className="order-action order-action-clear"
+          onClick={(e) => props.clear()}>
+          Clear
+        </button>
+        <button
+          className="order-action order-action-checkout"
+          onClick={(e) => props.checkout()}>
+          Checkout
+        </button>
+      </div>
     </div>
   )
 }
@@ -40,5 +52,7 @@ export default function Order(props) {
 Order.propTypes = {
   order: React.PropTypes.object.isRequired,
   products: React.PropTypes.object.isRequired,
-  deliveryCost: React.PropTypes.number.isRequired
+  deliveryCost: React.PropTypes.number.isRequired,
+  clear: React.PropTypes.func.isRequired,
+  checkout: React.PropTypes.func.isRequired
 }
