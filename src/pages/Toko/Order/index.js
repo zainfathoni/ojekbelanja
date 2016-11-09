@@ -5,9 +5,10 @@ import './Order.css';
 
 export default function Order(props) {
   const {
+    tokoId,
     order,
     products,
-    deliveryCost
+    deliveryFee
   } = props;
 
   // Calculate Price
@@ -29,8 +30,8 @@ export default function Order(props) {
         <div className="order-price">
           {`Rp ${totalPrice.toLocaleString('id')}`}
         </div>
-        <div className="order-delivery-cost">
-          {`Ongkos Kirim Rp ${deliveryCost.toLocaleString('id')}`}
+        <div className="order-delivery-fee">
+          {`Ongkos Kirim Rp ${deliveryFee.toLocaleString('id')}`}
         </div>
       </div>
       <div className="order-action-wrapper">
@@ -42,7 +43,7 @@ export default function Order(props) {
         </button>
         <button
           className="order-action order-action-checkout"
-          onClick={(e) => props.checkout()}>
+          onClick={(e) => props.checkout(tokoId)}>
           Pesan
           <i className="material-icons">shopping_cart</i>
         </button>
@@ -52,9 +53,10 @@ export default function Order(props) {
 }
 
 Order.propTypes = {
+  tokoId: React.PropTypes.string.isRequired,
   order: React.PropTypes.object.isRequired,
   products: React.PropTypes.object.isRequired,
-  deliveryCost: React.PropTypes.number.isRequired,
+  deliveryFee: React.PropTypes.number.isRequired,
   clear: React.PropTypes.func.isRequired,
   checkout: React.PropTypes.func.isRequired
 }

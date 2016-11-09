@@ -18,6 +18,7 @@ export default class Toko extends Component {
   }
 
   /*** Lifecycle ***/
+  
   componentWillMount() {
     // Fetch 'order' from Local Storage
     const localStorageRef = localStorage.getItem(`order-${this.props.params.tokoId}`);
@@ -71,9 +72,9 @@ export default class Toko extends Component {
     })
   }
 
-  checkout = () => {
-    console.log(`Checking Out:`);
-    console.log(this.state.order);
+  checkout = (tokoId) => {
+    console.log(`Checkout ${tokoId} Order`);
+    this.context.router.transitionTo(`/pesan/${tokoId}`);
   }
 
   /*** Render ***/
@@ -87,7 +88,7 @@ export default class Toko extends Component {
         <div className="l-wrapper-mainnav">
           <MainNav />
         </div>
-        <Header heading={toko.name} />
+        <Header heading={"Toko " + toko.name} />
         <main className="l-wrapper-filter">
           <p>
             Selamat datang di toko <code>{tokoId}</code>.
@@ -104,9 +105,10 @@ export default class Toko extends Component {
         </main>
         <footer className="l-wrapper-footer">
           <Order
+            tokoId={this.props.params.tokoId}
             order={this.state.order}
             products={products}
-            deliveryCost={this.state.deliveryCost}
+            deliveryFee={this.state.deliveryCost}
             clear={this.clear}
             checkout={this.checkout}
             />
@@ -114,4 +116,8 @@ export default class Toko extends Component {
       </div>
     );
   }
+}
+
+Toko.contextTypes = {
+  router: React.PropTypes.object
 }
