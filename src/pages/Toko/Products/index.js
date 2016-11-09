@@ -23,14 +23,6 @@ export default class Products extends Component {
     })
   }
 
-  plus = (productId) => {
-    console.log(`Adding 1 ${products[productId].unit} of ${products[productId].name} to Order`);
-  }
-
-  minus = (productId) => {
-    console.log(`Removing 1 ${products[productId].unit} of ${products[productId].name} from Order`);
-  }
-
   /*** Render ***/
   
   render() {
@@ -50,8 +42,8 @@ export default class Products extends Component {
           descriptionField="desc"
           sectionField="category"
           imageField="image"
-          action={this.plus}
-          actionReverse={this.minus}
+          action={this.props.action}
+          actionReverse={this.props.actionReverse}
           />
       </main>
     )
@@ -59,5 +51,7 @@ export default class Products extends Component {
 }
 
 Products.propTypes = {
-  toko: React.PropTypes.object.isRequired
+  toko: React.PropTypes.object.isRequired,
+  action: React.PropTypes.func.isRequired,
+  actionReverse: React.PropTypes.func.isRequired
 }

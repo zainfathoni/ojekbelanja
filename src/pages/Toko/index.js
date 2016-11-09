@@ -3,10 +3,38 @@ import React, { Component } from 'react';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Products from './Products';
-import { tokos } from '../../models';
+import Order from './Order';
+import { tokos, products } from '../../models';
 import '../pages.css';
 
 export default class Toko extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      order: {},
+      totalPrice: 0,
+      deliveryCost: 0
+    }
+  }
+
+  /*** Lifecycle ***/
+  componentWillMount() {
+    this.setState({
+      deliveryCost: tokos[this.props.params.tokoId].cost
+    })
+  }
+
+  /*** Methods ***/
+
+  plus = (productId) => {
+    console.log(`Adding ${products[productId].step} ${products[productId].unit} of ${products[productId].name} to Order`);
+  }
+
+  minus = (productId) => {
+    console.log(`Removing ${products[productId].step} ${products[productId].unit} of ${products[productId].name} from Order`);
+  }
+
   /*** Render ***/
   
   render() {
@@ -25,9 +53,16 @@ export default class Toko extends Component {
           </p>
           <Products
             toko={toko}
+            action={this.plus}
+            actionReverse={this.minus}
             />
-          {/* TODO: Add Order State */}
         </main>
+        <footer className="l-wrapper-order">
+          <Order
+            totalPrice={this.state.totalPrice}
+            deliveryCost={this.state.deliveryCost}
+            />
+        </footer>
       </div>
     );
   }

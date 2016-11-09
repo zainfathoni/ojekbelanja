@@ -71,7 +71,7 @@ Card.propTypes = {
   title: React.PropTypes.string.isRequired,
   description: React.PropTypes.string.isRequired,
   image: React.PropTypes.string.isRequired,
-  unit: React.PropTypes.number,
+  unit: React.PropTypes.string,
   step: React.PropTypes.number,
   price: React.PropTypes.number,
   action: React.PropTypes.func.isRequired,

@@ -109,3 +109,12 @@
 .card-action-btn:active {
   background-color: #FF6D00;
 }
+
+.minus:active,
+.minus:focus {
+  border-color: #673AB7;
+}
+
+.minus:active {
+  background-color: #673AB7;
+}
