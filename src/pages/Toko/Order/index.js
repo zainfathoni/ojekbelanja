@@ -37,12 +37,14 @@ export default function Order(props) {
         <button
           className="order-action order-action-clear"
           onClick={(e) => props.clear()}>
-          Clear
+          Kosongkan
+          <i className="material-icons">remove_shopping_cart</i>
         </button>
         <button
           className="order-action order-action-checkout"
           onClick={(e) => props.checkout()}>
-          Checkout
+          Pesan
+          <i className="material-icons">shopping_cart</i>
         </button>
       </div>
     </div>

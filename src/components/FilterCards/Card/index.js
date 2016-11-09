@@ -17,7 +17,7 @@ export default function Card(props) {
   // Display Quantity
   const steps = Math.round(count * step * 100) / 100; // Avoid Floating Point Problem
   const qty =
-    (step < 1 && unit === "kg") ?
+    (steps < 1 && unit === "kg") ?
       `${steps * 1000} gram`
       :
       `${steps} ${unit}`
