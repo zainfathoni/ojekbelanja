@@ -11,7 +11,8 @@ export default class TokoPicker extends Component {
 
     this.state = {
       tokos,
-      keyword: ''
+      keyword: '',
+      tempKeyword: ''
     }
   }
 
@@ -20,6 +21,12 @@ export default class TokoPicker extends Component {
   updateKeyword = (keyword) => {
     this.setState({
       keyword
+    })
+  }
+
+  updateTempKeyword = (tempKeyword) => {
+    this.setState({
+      tempKeyword
     })
   }
 
@@ -37,6 +44,9 @@ export default class TokoPicker extends Component {
           placeholder="Cari Nama atau Area Layanan"
           keyword={this.state.keyword}
           action={this.updateKeyword}
+          tempKeyword={this.state.tempKeyword}
+          updateTempKeyword={this.updateTempKeyword}
+          withButton
           />
         <FilterCards
           keyword={this.state.keyword}
