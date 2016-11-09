@@ -10,3 +10,10 @@
 .l-wrapper-mainnav {
   background-color: #D1C4E9;
 }
+
+.l-wrapper-filter{
+  display: block;
+  /* Center Horizontally on 60rem x 3rem */
+  max-width: 60rem;
+  margin: auto;
+}

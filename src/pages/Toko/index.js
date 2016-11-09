@@ -2,34 +2,11 @@ import React, { Component } from 'react';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import FilterInput from'../../components/FilterInput';
-import FilterCards from '../../components/FilterCards';
-import { tokos, products, categories } from '../../models';
+import Products from './Products';
+import { tokos } from '../../models';
 import '../pages.css';
-import './Toko.css';
 
 export default class Toko extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      products,
-      keyword: ''
-    }
-  }
-
-  /*** Methods ***/
-
-  updateKeyword = (keyword) => {
-    this.setState({
-      keyword
-    })
-  }
-
-  buy = (productId) => {
-    console.log(`Buying ${productId}`);
-  }
-
   /*** Render ***/
   
   render() {
@@ -42,25 +19,12 @@ export default class Toko extends Component {
           <MainNav />
         </div>
         <Header heading={toko.name} />
-        <main className="l-tokopicker">
+        <main className="l-wrapper-filter">
           <p>
             Selamat datang di toko <code>{tokoId}</code>.
           </p>
-          <FilterInput
-            placeholder="Cari Produk"
-            keyword={this.state.keyword}
-            action={this.updateKeyword}
-            withButton
-            />
-          <FilterCards
-            keyword={this.state.keyword}
-            items={this.state.products}
-            sections={categories}
-            titleField="name"
-            descriptionField="desc"
-            sectionField="category"
-            imageField="image"
-            action={this.buy}
+          <Products
+            toko={toko}
             />
           {/* TODO: Add Order State */}
         </main>

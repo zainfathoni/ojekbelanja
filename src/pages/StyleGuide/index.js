@@ -57,7 +57,7 @@ export default class StyleGuide extends Component {
 
         <section>
           <label>Filter Input</label>
-          <div className="l-tokopicker">
+          <div className="l-wrapper-filter">
             <FilterInput
               placeholder="Without Button"
               keyword={this.state.keyword}
@@ -74,7 +74,7 @@ export default class StyleGuide extends Component {
 
         <section>
           <label>Filter Cards</label>
-          <div className="l-tokopicker">
+          <div className="l-wrapper-filter">
             <FilterCards
               keyword=""
               items={tokos}
