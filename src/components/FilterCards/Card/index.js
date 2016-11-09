@@ -11,8 +11,6 @@ export default function Card(props) {
   // TODO: @rekysenjaya Find multiple matches in a single string
   // TODO: @rekysenjaya Display multiple matches
   // TODO: @rekysenjaya Modularize display matches
-  // TODO: Add Price / Unit section
-  // TODO: Add Plus (+) & Minus (-) Action Buttons based on defined Step
   return (
     <li>
       <div className="card">
@@ -51,7 +49,7 @@ export default function Card(props) {
                   }
                 </span>
               </div>
-              {props.collection[props.id] ?
+              {props.isInCollection ?
                 <div>
                   <button className="card-action-btn minus" onClick={(e) => props.actionReverse(props.id)}>
                     <i className="material-icons">remove</i>
@@ -84,5 +82,5 @@ Card.propTypes = {
   price: React.PropTypes.number,
   action: React.PropTypes.func.isRequired,
   actionReverse: React.PropTypes.func,
-  collection: React.PropTypes.object
+  isInCollection: React.PropTypes.bool
 }
