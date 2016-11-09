@@ -44,6 +44,7 @@ export default class Products extends Component {
           imageField="image"
           action={this.props.action}
           actionReverse={this.props.actionReverse}
+          collection={this.props.order}
           />
       </main>
     )
@@ -52,6 +53,7 @@ export default class Products extends Component {
 
 Products.propTypes = {
   toko: React.PropTypes.object.isRequired,
+  order: React.PropTypes.object.isRequired,
   action: React.PropTypes.func.isRequired,
   actionReverse: React.PropTypes.func.isRequired
 }

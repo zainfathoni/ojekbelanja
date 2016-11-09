@@ -15,7 +15,8 @@ export default class FilterCards extends Component {
       sectionField,
       imageField,
       action,
-      actionReverse
+      actionReverse,
+      collection
     } = this.props
     const ids = Object.keys(items);
 
@@ -80,6 +81,7 @@ export default class FilterCards extends Component {
                   imageField={imageField}
                   action={action}
                   actionReverse={actionReverse}
+                  collection={collection}
                   />
               )
             }
@@ -117,5 +119,6 @@ FilterCards.propTypes = {
   sectionField: React.PropTypes.string,
   imageField: React.PropTypes.string.isRequired,
   action: React.PropTypes.func.isRequired,
-  actionReverse: React.PropTypes.func
+  actionReverse: React.PropTypes.func,
+  collection: React.PropTypes.object
 }

@@ -72,6 +72,7 @@ export default class Toko extends Component {
           </p>
           <Products
             toko={toko}
+            order={this.state.order}
             action={this.plus}
             actionReverse={this.minus}
             />

@@ -44,19 +44,27 @@ export default function Card(props) {
                   {` / ${props.unit}`}
                 </span>
                 <span className="card-action-step">
-                  {(props.step < 1 && props.unit === "kg")?
+                  {(props.step < 1 && props.unit === "kg") ?
                     `(${props.step * 1000} gram)`
-                  :
+                    :
                     `(${props.step})`
                   }
                 </span>
               </div>
-              <button className="card-action-btn minus" onClick={(e) => props.actionReverse(props.id)}>
-                <i className="material-icons">remove</i>
-              </button>
-              <button className="card-action-btn plus" onClick={(e) => props.action(props.id)}>
-                <i className="material-icons">add</i>
-              </button>
+              {props.collection[props.id] ?
+                <div>
+                  <button className="card-action-btn minus" onClick={(e) => props.actionReverse(props.id)}>
+                    <i className="material-icons">remove</i>
+                  </button>
+                  <button className="card-action-btn plus" onClick={(e) => props.action(props.id)}>
+                    <i className="material-icons">add</i>
+                  </button>
+                </div>
+                :
+                <button className="card-action-btn" onClick={(e) => props.action(props.id)}>
+                  Beli <i className="material-icons">add_shopping_cart</i>
+                </button>
+              }
             </div>
           }
         </div>
@@ -75,5 +83,6 @@ Card.propTypes = {
   step: React.PropTypes.number,
   price: React.PropTypes.number,
   action: React.PropTypes.func.isRequired,
-  actionReverse: React.PropTypes.func
+  actionReverse: React.PropTypes.func,
+  collection: React.PropTypes.object
 }

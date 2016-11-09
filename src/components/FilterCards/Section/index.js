@@ -13,7 +13,8 @@ export default function Section(props) {
     descriptionField,
     imageField,
     action,
-    actionReverse
+    actionReverse,
+    collection
   } = props;
 
   return (
@@ -36,6 +37,7 @@ export default function Section(props) {
                 price={items[key].price}
                 action={action}
                 actionReverse={actionReverse}
+                collection={collection}
                 />
             )
         }
@@ -53,5 +55,6 @@ Section.propTypes = {
   descriptionField: React.PropTypes.string.isRequired,
   imageField: React.PropTypes.string.isRequired,
   action: React.PropTypes.func.isRequired,
-  actionReverse: React.PropTypes.func
+  actionReverse: React.PropTypes.func,
+  collection: React.PropTypes.object
 }
