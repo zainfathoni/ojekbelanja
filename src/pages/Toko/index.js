@@ -76,6 +76,9 @@ export default class Toko extends Component {
             action={this.plus}
             actionReverse={this.minus}
             />
+          <div className="footer-buffer">
+
+          </div>
         </main>
         <footer className="l-wrapper-footer">
           <Order

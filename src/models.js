@@ -178,9 +178,9 @@ export var products = {
     name: 'Ati Ampela',
     desc: 'Ati Ampela 10 Pasang',
     image: 'placeholder-224x224.png',
-    unit: '10 pasang',
-    step: 1,
-    price: 22000,
+    unit: 'pasang',
+    step: 10,
+    price: 2000,
     category: 'ayam'
   },
   telur_ayam: {
