@@ -23,8 +23,12 @@ export default class Products extends Component {
     })
   }
 
-  buy = (productId) => {
-    console.log(`Buying ${productId}`);
+  plus = (productId) => {
+    console.log(`Adding 1 ${products[productId].unit} of ${products[productId].name} to Order`);
+  }
+
+  minus = (productId) => {
+    console.log(`Removing 1 ${products[productId].unit} of ${products[productId].name} from Order`);
   }
 
   /*** Render ***/
@@ -46,7 +50,8 @@ export default class Products extends Component {
           descriptionField="desc"
           sectionField="category"
           imageField="image"
-          action={this.buy}
+          action={this.plus}
+          actionReverse={this.minus}
           />
       </main>
     )

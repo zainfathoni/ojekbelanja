@@ -60,6 +60,21 @@
   font-size: 1rem;
 }
 
+.plus,
+.minus {
+  width: 47.5%
+}
+
+.plus {
+  margin-left: 2.5%;
+}
+
+.minus {
+  margin-right: 2.5%;
+  border-color: #FF6D00;
+  background-color: #FF6D00;
+}
+
 /* Card Action State */
 
 .card-action-btn:active,

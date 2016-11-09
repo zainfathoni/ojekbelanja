@@ -3,7 +3,10 @@ import React from 'react';
 import './Card.css';
 
 export default function Card(props) {
-  const { keyword, title } = props;
+  const {
+    keyword,
+    title,
+  } = props;
   const index = title.toLowerCase().indexOf(keyword.toLowerCase());
   // TODO: @rekysenjaya Find multiple matches in a single string
   // TODO: @rekysenjaya Display multiple matches
@@ -27,9 +30,20 @@ export default function Card(props) {
           </div>
         </div>
         <div className="card-action">
-          <button className="card-action-btn" onClick={(e) => props.action(props.id)}>
-            Mulai Belanja <i className="material-icons">shopping_cart</i>
-          </button>
+          {!props.actionReverse ?
+            <button className="card-action-btn" onClick={(e) => props.action(props.id)}>
+              Mulai Belanja <i className="material-icons">shopping_cart</i>
+            </button>
+            :
+            <div>
+              <button className="card-action-btn minus" onClick={(e) => props.actionReverse(props.id)}>
+                <i className="material-icons">remove</i>
+              </button>
+              <button className="card-action-btn plus" onClick={(e) => props.action(props.id)}>
+                <i className="material-icons">add</i>
+              </button>
+            </div>
+          }
         </div>
       </div>
     </li>
@@ -37,10 +51,11 @@ export default function Card(props) {
 }
 
 Card.propTypes = {
-  id: React.PropTypes.string.isRequired,
   keyword: React.PropTypes.string.isRequired,
+  id: React.PropTypes.string.isRequired,
   title: React.PropTypes.string.isRequired,
   description: React.PropTypes.string.isRequired,
   image: React.PropTypes.string.isRequired,
-  action: React.PropTypes.func.isRequired
+  action: React.PropTypes.func.isRequired,
+  actionReverse: React.PropTypes.func
 }
