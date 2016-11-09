@@ -13,7 +13,6 @@ export default class Toko extends Component {
 
     this.state = {
       order: {},
-      totalPrice: 0,
       deliveryCost: 0
     }
   }
@@ -28,11 +27,31 @@ export default class Toko extends Component {
   /*** Methods ***/
 
   plus = (productId) => {
-    console.log(`Adding ${products[productId].step} ${products[productId].unit} of ${products[productId].name} to Order`);
+    const newOrder = this.state.order;
+
+    if (newOrder[productId]) {
+      newOrder[productId]++;
+    } else {
+      newOrder[productId] = 1;
+    }
+
+    this.setState({
+      order: newOrder
+    })
   }
 
   minus = (productId) => {
-    console.log(`Removing ${products[productId].step} ${products[productId].unit} of ${products[productId].name} from Order`);
+    const newOrder = this.state.order;
+
+    if (newOrder[productId] > 1) {
+      newOrder[productId]--;
+    } else {
+      delete newOrder[productId];
+    }
+
+    this.setState({
+      order: newOrder
+    })
   }
 
   /*** Render ***/
@@ -59,7 +78,8 @@ export default class Toko extends Component {
         </main>
         <footer className="l-wrapper-order">
           <Order
-            totalPrice={this.state.totalPrice}
+            order={this.state.order}
+            products={products}
             deliveryCost={this.state.deliveryCost}
             />
         </footer>
