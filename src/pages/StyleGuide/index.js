@@ -9,8 +9,8 @@ import '../pages.css';
 import './StyleGuide.css';
 
 export default class StyleGuide extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       keyword: ''

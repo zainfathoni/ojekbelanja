@@ -8,20 +8,17 @@ import { tokos, products } from '../../models';
 import '../pages.css';
 
 export default class Toko extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       order: {},
-      deliveryCost: 0
+      deliveryCost: tokos[this.props.params.tokoId].cost
     }
   }
 
   /*** Lifecycle ***/
   componentWillMount() {
-    this.setState({
-      deliveryCost: tokos[this.props.params.tokoId].cost
-    })
   }
 
   /*** Methods ***/

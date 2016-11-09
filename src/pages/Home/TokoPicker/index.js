@@ -6,8 +6,8 @@ import { tokos } from '../../../models';
 import '../../pages.css';
 
 export default class TokoPicker extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       keyword: ''
