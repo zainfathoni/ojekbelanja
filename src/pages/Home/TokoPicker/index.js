@@ -10,7 +10,6 @@ export default class TokoPicker extends Component {
     super();
 
     this.state = {
-      tokos,
       keyword: ''
     }
   }
@@ -40,7 +39,7 @@ export default class TokoPicker extends Component {
           />
         <FilterCards
           keyword={this.state.keyword}
-          items={this.state.tokos}
+          items={tokos}
           titleField="name"
           descriptionField="area"
           imageField="image"

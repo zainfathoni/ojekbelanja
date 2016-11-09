@@ -3,10 +3,57 @@ import React, { Component } from 'react';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Products from './Products';
-import { tokos } from '../../models';
+import Order from './Order';
+import { tokos, products } from '../../models';
 import '../pages.css';
 
 export default class Toko extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      order: {},
+      deliveryCost: 0
+    }
+  }
+
+  /*** Lifecycle ***/
+  componentWillMount() {
+    this.setState({
+      deliveryCost: tokos[this.props.params.tokoId].cost
+    })
+  }
+
+  /*** Methods ***/
+
+  plus = (productId) => {
+    const newOrder = this.state.order;
+
+    if (newOrder[productId]) {
+      newOrder[productId]++;
+    } else {
+      newOrder[productId] = 1;
+    }
+
+    this.setState({
+      order: newOrder
+    })
+  }
+
+  minus = (productId) => {
+    const newOrder = this.state.order;
+
+    if (newOrder[productId] > 1) {
+      newOrder[productId]--;
+    } else {
+      delete newOrder[productId];
+    }
+
+    this.setState({
+      order: newOrder
+    })
+  }
+
   /*** Render ***/
   
   render() {
@@ -25,9 +72,18 @@ export default class Toko extends Component {
           </p>
           <Products
             toko={toko}
+            order={this.state.order}
+            action={this.plus}
+            actionReverse={this.minus}
             />
-          {/* TODO: Add Order State */}
         </main>
+        <footer className="l-wrapper-footer">
+          <Order
+            order={this.state.order}
+            products={products}
+            deliveryCost={this.state.deliveryCost}
+            />
+        </footer>
       </div>
     );
   }

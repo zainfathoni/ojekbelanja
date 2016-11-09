@@ -12,7 +12,9 @@ export default function Section(props) {
     titleField,
     descriptionField,
     imageField,
-    action
+    action,
+    actionReverse,
+    collection
   } = props;
 
   return (
@@ -30,7 +32,12 @@ export default function Section(props) {
                 title={items[key][titleField]}
                 description={items[key][descriptionField]}
                 image={require(`../../../css/images/${items[key][imageField]}`)}
+                unit={items[key].unit}
+                step={items[key].step}
+                price={items[key].price}
                 action={action}
+                actionReverse={actionReverse}
+                count={collection[key]}
                 />
             )
         }
@@ -48,4 +55,6 @@ Section.propTypes = {
   descriptionField: React.PropTypes.string.isRequired,
   imageField: React.PropTypes.string.isRequired,
   action: React.PropTypes.func.isRequired,
+  actionReverse: React.PropTypes.func,
+  collection: React.PropTypes.object
 }

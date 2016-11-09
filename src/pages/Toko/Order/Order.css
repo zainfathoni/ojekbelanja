@@ -1,0 +1,43 @@
+/* Order.css */
+
+/* Layout */
+
+.l-order {
+  /* Center Horizontally on 60rem x 3rem */
+  max-width: 60rem;
+  margin: auto;
+}
+
+/* Module */
+
+.order-price-wrapper {
+  float: left;
+  margin: .5rem;
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+.order-product-count {
+  display: inline-block;
+  background-color: #673AB7;
+  color: #FFF;
+  width: 2.25rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+  border-radius: .125rem;
+  text-align: center;
+}
+
+.order-price {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.order-delivery-cost {
+  display: table;
+  font-size: .75rem;
+  font-style: italic;
+}

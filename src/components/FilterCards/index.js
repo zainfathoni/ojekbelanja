@@ -14,7 +14,9 @@ export default class FilterCards extends Component {
       descriptionField,
       sectionField,
       imageField,
-      action
+      action,
+      actionReverse,
+      collection
     } = this.props
     const ids = Object.keys(items);
 
@@ -78,12 +80,14 @@ export default class FilterCards extends Component {
                   descriptionField={descriptionField}
                   imageField={imageField}
                   action={action}
+                  actionReverse={actionReverse}
+                  collection={collection}
                   />
               )
             }
           </div>
           :
-          <ul id="category" className="l-grid">
+          <ul className="l-grid">
             {Object.keys(filteredItems)
               .map(key =>
                 <Card
@@ -94,6 +98,7 @@ export default class FilterCards extends Component {
                   description={filteredItems[key][descriptionField]}
                   image={require(`../../css/images/${filteredItems[key][imageField]}`)}
                   action={action}
+                  actionReverse={actionReverse}
                   />
               )
             }
@@ -114,4 +119,6 @@ FilterCards.propTypes = {
   sectionField: React.PropTypes.string,
   imageField: React.PropTypes.string.isRequired,
   action: React.PropTypes.func.isRequired,
+  actionReverse: React.PropTypes.func,
+  collection: React.PropTypes.object
 }

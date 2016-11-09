@@ -3,25 +3,29 @@ export var tokos = {
     name: 'Jejen',
     phone: '081234567890',
     area: 'Sadang Serang & sekitarnya',
-    image: 'placeholder-224x224.png'
+    image: 'placeholder-224x224.png',
+    cost: 2000
   },
   zaenal: {
     name: 'Zaenal',
     phone: '089876543210',
     area: 'Sadang Tengah & sekitarnya',
-    image: 'placeholder-224x224.png'
+    image: 'placeholder-224x224.png',
+    cost: 3000
   },
   joni: {
     name: 'Joni',
     phone: '081234567890',
     area: 'Sadang Luhur & sekitarnya',
-    image: 'placeholder-224x224.png'
+    image: 'placeholder-224x224.png',
+    cost: 4000
   },
   agus: {
     name: 'Agus',
     phone: '089876543210',
     area: 'Jatihandap & sekitarnya',
-    image: 'placeholder-224x224.png'
+    image: 'placeholder-224x224.png',
+    cost: 5000
   }
 }
 
@@ -31,7 +35,7 @@ export var products = {
     desc: 'Bawang Putih',
     image: 'placeholder-224x224.png',
     unit: 'kg',
-    step: .25,
+    step: .1,
     price: 35000,
     category: 'bumbu'
   },
@@ -40,7 +44,7 @@ export var products = {
     name: 'Bawang Merah',
     image: 'placeholder-224x224.png',
     unit: 'kg',
-    step: .25,
+    step: .1,
     price: 40000,
     category: 'bumbu'
   },
@@ -49,7 +53,7 @@ export var products = {
     name: 'Bawang Bombay',
     image: 'placeholder-224x224.png',
     unit: 'kg',
-    step: .25,
+    step: .1,
     price: 22000,
     category: 'bumbu'
   },
@@ -58,7 +62,7 @@ export var products = {
     name: 'Cabe Gendot',
     image: 'placeholder-224x224.png',
     unit: 'kg',
-    step: .25,
+    step: .1,
     price: 35000,
     category: 'bumbu'
   },
@@ -174,8 +178,8 @@ export var products = {
     name: 'Ati Ampela',
     desc: 'Ati Ampela 10 Pasang',
     image: 'placeholder-224x224.png',
-    unit: 'pasang',
-    step: 10,
+    unit: '10 pasang',
+    step: 1,
     price: 22000,
     category: 'ayam'
   },

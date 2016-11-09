@@ -23,15 +23,11 @@ export default class Products extends Component {
     })
   }
 
-  buy = (productId) => {
-    console.log(`Buying ${productId}`);
-  }
-
   /*** Render ***/
   
   render() {
     return (
-      <main className="l-wrapper-filter">
+      <div>
         <FilterInput
           placeholder="Cari Produk"
           keyword={this.state.keyword}
@@ -46,13 +42,18 @@ export default class Products extends Component {
           descriptionField="desc"
           sectionField="category"
           imageField="image"
-          action={this.buy}
+          action={this.props.action}
+          actionReverse={this.props.actionReverse}
+          collection={this.props.order}
           />
-      </main>
+      </div>
     )
   }
 }
 
 Products.propTypes = {
-  toko: React.PropTypes.object.isRequired
+  toko: React.PropTypes.object.isRequired,
+  order: React.PropTypes.object.isRequired,
+  action: React.PropTypes.func.isRequired,
+  actionReverse: React.PropTypes.func.isRequired
 }
