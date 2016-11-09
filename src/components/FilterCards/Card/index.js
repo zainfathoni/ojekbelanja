@@ -6,16 +6,37 @@ export default function Card(props) {
   const {
     keyword,
     title,
+    count,
+    unit,
+    step
   } = props;
+
+  // Index for marking String Matches
   const index = title.toLowerCase().indexOf(keyword.toLowerCase());
+
+  // Display Quantity
+  const steps = Math.round(count * step * 100) / 100; // Avoid Floating Point Problem
+  const qty =
+    (step < 1 && unit === "kg") ?
+      `${steps * 1000} gram`
+      :
+      `${steps} {unit}`
+
   // TODO: @rekysenjaya Find multiple matches in a single string
   // TODO: @rekysenjaya Display multiple matches
   // TODO: @rekysenjaya Modularize display matches
   return (
     <li>
-      <div className="card">
+      <div className={"card" + (count ? " card-is-selected" : "")}>
         <div className="card-image">
           <img src={props.image} alt="Toko Profile" />
+          {count &&
+            <div className="card-image-overlay">
+              <div className="card-image-overlay-qty">
+                {qty}
+              </div>
+            </div>
+          }
         </div>
         <div className="card-content">
           <div className="card-content-title">
@@ -41,15 +62,8 @@ export default function Card(props) {
                 <span className="card-action-unit">
                   {` / ${props.unit}`}
                 </span>
-                <span className="card-action-step">
-                  {(props.step < 1 && props.unit === "kg") ?
-                    `(${props.step * 1000} gram)`
-                    :
-                    `(${props.step})`
-                  }
-                </span>
               </div>
-              {props.isInCollection ?
+              {count ?
                 <div>
                   <button className="card-action-btn minus" onClick={(e) => props.actionReverse(props.id)}>
                     <i className="material-icons">remove</i>
@@ -82,5 +96,5 @@ Card.propTypes = {
   price: React.PropTypes.number,
   action: React.PropTypes.func.isRequired,
   actionReverse: React.PropTypes.func,
-  isInCollection: React.PropTypes.bool
+  count: React.PropTypes.number
 }

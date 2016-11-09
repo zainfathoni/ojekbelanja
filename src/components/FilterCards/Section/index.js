@@ -37,7 +37,7 @@ export default function Section(props) {
                 price={items[key].price}
                 action={action}
                 actionReverse={actionReverse}
-                isInCollection={collection[key] ? true : false}
+                count={collection[key]}
                 />
             )
         }
