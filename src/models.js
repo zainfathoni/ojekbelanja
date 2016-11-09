@@ -31,7 +31,7 @@ export var products = {
     desc: 'Bawang Putih',
     image: 'placeholder-224x224.png',
     unit: 'kg',
-    step: .25,
+    step: .1,
     price: 35000,
     category: 'bumbu'
   },
@@ -40,7 +40,7 @@ export var products = {
     name: 'Bawang Merah',
     image: 'placeholder-224x224.png',
     unit: 'kg',
-    step: .25,
+    step: .1,
     price: 40000,
     category: 'bumbu'
   },
@@ -49,7 +49,7 @@ export var products = {
     name: 'Bawang Bombay',
     image: 'placeholder-224x224.png',
     unit: 'kg',
-    step: .25,
+    step: .1,
     price: 22000,
     category: 'bumbu'
   },
@@ -58,7 +58,7 @@ export var products = {
     name: 'Cabe Gendot',
     image: 'placeholder-224x224.png',
     unit: 'kg',
-    step: .25,
+    step: .1,
     price: 35000,
     category: 'bumbu'
   },

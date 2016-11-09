@@ -31,6 +31,9 @@ export default function Section(props) {
                 title={items[key][titleField]}
                 description={items[key][descriptionField]}
                 image={require(`../../../css/images/${items[key][imageField]}`)}
+                unit={items[key].unit}
+                step={items[key].step}
+                price={items[key].price}
                 action={action}
                 actionReverse={actionReverse}
                 />

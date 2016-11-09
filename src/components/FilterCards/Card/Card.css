@@ -51,6 +51,7 @@
 .card-action-price-parent {
   margin-bottom: .25rem;
   text-align: left;
+  position: relative;
 }
 
 .card-action-price {
@@ -59,9 +60,16 @@
   font-size: 1.125rem;
 }
 
-.card-action-unit {
+.card-action-unit,
+.card-action-step {
   font-size: .75rem;
   color: #888;
+}
+
+.card-action-step {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .card-action-btn {

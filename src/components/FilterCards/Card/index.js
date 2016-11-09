@@ -13,7 +13,6 @@ export default function Card(props) {
   // TODO: @rekysenjaya Modularize display matches
   // TODO: Add Price / Unit section
   // TODO: Add Plus (+) & Minus (-) Action Buttons based on defined Step
-  const price = 25000;
   return (
     <li>
       <div className="card">
@@ -39,10 +38,17 @@ export default function Card(props) {
             <div>
               <div className="card-action-price-parent">
                 <span className="card-action-price">
-                  {`Rp ${price.toLocaleString('id')}`}
+                  {`Rp ${props.price.toLocaleString('id')}`}
                 </span>
                 <span className="card-action-unit">
-                  {" / buah"}
+                  {` / ${props.unit}`}
+                </span>
+                <span className="card-action-step">
+                  {(props.step < 1 && props.unit === "kg")?
+                    `(${props.step * 1000} gram)`
+                  :
+                    `(${props.step})`
+                  }
                 </span>
               </div>
               <button className="card-action-btn minus" onClick={(e) => props.actionReverse(props.id)}>
@@ -65,6 +71,9 @@ Card.propTypes = {
   title: React.PropTypes.string.isRequired,
   description: React.PropTypes.string.isRequired,
   image: React.PropTypes.string.isRequired,
+  unit: React.PropTypes.number,
+  step: React.PropTypes.number,
+  price: React.PropTypes.number,
   action: React.PropTypes.func.isRequired,
   actionReverse: React.PropTypes.func
 }

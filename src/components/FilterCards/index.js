@@ -85,7 +85,7 @@ export default class FilterCards extends Component {
             }
           </div>
           :
-          <ul id="category" className="l-grid">
+          <ul className="l-grid">
             {Object.keys(filteredItems)
               .map(key =>
                 <Card
