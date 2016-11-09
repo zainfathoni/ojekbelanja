@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { quantify } from '../../../services/Product';
 import './Card.css';
 
 export default function Card(props) {
@@ -14,14 +15,6 @@ export default function Card(props) {
   // Index for marking String Matches
   const index = title.toLowerCase().indexOf(keyword.toLowerCase());
 
-  // Display Quantity
-  const steps = Math.round(count * step * 100) / 100; // Avoid Floating Point Problem
-  const qty =
-    (steps < 1 && unit === "kg") ?
-      `${steps * 1000} gram`
-      :
-      `${steps} ${unit}`
-
   // TODO: @rekysenjaya Find multiple matches in a single string
   // TODO: @rekysenjaya Display multiple matches
   // TODO: @rekysenjaya Modularize display matches
@@ -33,7 +26,7 @@ export default function Card(props) {
           {count &&
             <div className="card-image-overlay">
               <div className="card-image-overlay-qty">
-                {qty}
+                {quantify(count, step, unit)}
               </div>
             </div>
           }
