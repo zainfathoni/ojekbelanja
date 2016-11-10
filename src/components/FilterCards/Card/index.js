@@ -1,18 +1,21 @@
 import React from 'react';
 
 import './Card.css';
+import {markHelper} from '../../helpers/matches.js'
 
 export default function Card(props) {
   const {
     keyword,
     title,
+    description,
     count,
     unit,
     step
   } = props;
 
-  // Index for marking String Matches
-  const index = title.toLowerCase().indexOf(keyword.toLowerCase());
+  // Mark Helper Cals
+  const titleMarked = markHelper(title, keyword)
+  const descMarked = markHelper(description, keyword)
 
   // Display Quantity
   const steps = Math.round(count * step * 100) / 100; // Avoid Floating Point Problem
@@ -40,12 +43,10 @@ export default function Card(props) {
         </div>
         <div className="card-content">
           <div className="card-content-title">
-            {title.slice(0, index)}
-            <mark>{title.slice(index, index + keyword.length)}</mark>
-            {title.slice(index + keyword.length)}
+            {titleMarked}
           </div>
           <div className="card-content-description">
-            {props.description}
+            {descMarked}
           </div>
         </div>
         <div className="card-action">

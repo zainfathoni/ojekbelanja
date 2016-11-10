@@ -11,7 +11,8 @@ export default class Products extends Component {
 
     this.state = {
       products,
-      keyword: ''
+      keyword: '',
+      tempKeyword: ''
     }
   }
 
@@ -23,6 +24,12 @@ export default class Products extends Component {
     })
   }
 
+  updateTempKeyword = (tempKeyword) => {
+    this.setState({
+      tempKeyword
+    })
+  }
+
   /*** Render ***/
   
   render() {
@@ -31,7 +38,9 @@ export default class Products extends Component {
         <FilterInput
           placeholder="Cari Produk"
           keyword={this.state.keyword}
+          tempKeyword={this.state.tempKeyword}
           action={this.updateKeyword}
+          updateTempKeyword={this.updateTempKeyword}
           withButton
           />
         <FilterCards

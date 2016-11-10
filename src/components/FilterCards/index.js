@@ -34,8 +34,8 @@ export default class FilterCards extends Component {
         // TODO: @rekysenjaya Expand search to description field
         // TODO: @rekysenjaya Modularize Search
         // TODO: Expand search to section field
-        items[key][titleField].toLowerCase()
-          .indexOf(keyword.toLowerCase()) !== -1)
+        items[key][titleField].toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
+        items[key][descriptionField].toLowerCase().indexOf(keyword.toLowerCase()) !== -1)
       .reduce(
       (res, key) =>
         Object.assign(

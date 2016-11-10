@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import { tokos, products } from '../../models';
+import { tokos } from '../../models';
 import '../pages.css';
 
 export default class Pesan extends Component {
