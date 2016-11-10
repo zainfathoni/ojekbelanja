@@ -18,9 +18,6 @@ export default function Card(props) {
   const titleMarked = markHelper(title, keyword)
   const descMarked = markHelper(description, keyword)
 
-  // TODO: @rekysenjaya Find multiple matches in a single string
-  // TODO: @rekysenjaya Display multiple matches
-  // TODO: @rekysenjaya Modularize display matches
   return (
     <li>
       <div className={"card" + (count ? " card-is-selected" : "")}>

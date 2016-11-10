@@ -5,7 +5,6 @@ import './FilterInput.css';
 export default function FilterInput(props) {
   const searchIcon = <i className="material-icons">search</i>;
 
-  // TODO: @rekysenjaya If withButton, search will be done onClick instead of onChange
   if (props.withButton) {
     return (
       <form onSubmit={(e) => {
