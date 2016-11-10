@@ -1,0 +1,138 @@
+/* Order.css */
+
+/* Layout */
+
+.l-order {
+  /* Center Horizontally on 60rem x 3rem */
+  max-width: 60rem;
+  margin: auto;
+}
+
+.footer-buffer {
+  height: 4.5rem;
+}
+
+/* Module */
+
+.order-price-wrapper {
+  float: left;
+  margin: .5rem;
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+.order-product-count {
+  display: inline-block;
+  background-color: #673AB7;
+  color: #FFF;
+  width: 2.25rem;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  margin-right: .5rem;
+  margin-bottom: .5rem;
+  border-radius: .125rem;
+  text-align: center;
+}
+
+.order-price {
+  display: inline-block;
+  margin-right: .5rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.order-delivery-fee {
+  display: table;
+  font-size: .75rem;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.order-delivery-fee-label {
+  font-weight: 300;
+  color: #673AB7;
+}
+
+.order-action-wrapper {
+  float: right;
+  margin: .5rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+}
+
+.order-action {
+  border-style: solid;
+  border-radius: .25rem;
+  border-color: #673AB7;
+  background-color: #673AB7;
+  color: #FFFFFF;
+  padding: .625rem 1rem;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  font-size: 1rem;
+}
+
+.order-action-clear {
+  margin-right: .375rem;
+  border-color: #FF6D00;
+  background-color: #FF6D00;
+}
+
+.order-action-checkout {
+  margin-left: .375rem;
+}
+
+/* 2 Columns Grid */
+
+@media (max-width: 30rem) {
+
+  .order-price-wrapper {
+    display: block;
+    width: 100%;
+    margin: .5rem auto;
+    text-align: center;
+  }
+
+  .order-product-count {
+    margin-bottom: 0;
+  }
+
+  .order-delivery-fee {
+    display: inline-block;
+  }
+
+  .order-action-wrapper {
+    display: block;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+  }
+
+  .order-action {
+    margin: .375rem
+  }
+
+  .footer-buffer {
+    height: 7.25rem;
+  }
+}
+
+/* State */
+
+.order-action-clear:active,
+.order-action-clear:focus {
+  border-color: #673AB7;
+}
+
+.order-action-clear:active {
+  background-color: #673AB7;
+}
+
+.order-action-checkout:active,
+.order-action-checkout:focus {
+  border-color: #FF6D00;
+}
+
+.order-action-checkout:active {
+  background-color: #FF6D00;
+}

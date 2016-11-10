@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import TokoPicker from '../../components/TokoPicker';
+import TokoPicker from './TokoPicker';
 import '../pages.css';
 
 export default class Home extends Component {

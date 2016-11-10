@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 
-import FilterInput from'../FilterInput';
-import FilterCards from '../FilterCards';
-import { tokos } from '../../models';
-import './TokoPicker.css';
+import FilterInput from'../../../components/FilterInput';
+import FilterCards from '../../../components/FilterCards';
+import { tokos } from '../../../models';
+import '../../pages.css';
 
 export default class TokoPicker extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      tokos,
       keyword: '',
       tempKeyword: ''
     }
@@ -39,7 +38,7 @@ export default class TokoPicker extends Component {
 
   render() {
     return (
-      <main className="l-tokopicker">
+      <main className="l-wrapper-filter">
         <FilterInput
           placeholder="Cari Nama atau Area Layanan"
           keyword={this.state.keyword}
@@ -50,7 +49,7 @@ export default class TokoPicker extends Component {
           />
         <FilterCards
           keyword={this.state.keyword}
-          items={this.state.tokos}
+          items={tokos}
           titleField="name"
           descriptionField="area"
           imageField="image"

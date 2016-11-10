@@ -1,3 +1,5 @@
+/*** MainNav.css ***/
+
 /* Layout */
 
 .l-mainnav{
@@ -23,7 +25,8 @@
 
 .mainnav-item {
   float: left;
-  border-right: 1px solid #BDBDBD;
+  border: 1px solid #D1C4E9;
+  border-right-color: #BDBDBD;
   padding: 0 0.75rem;
   text-decoration: none;
   color: #212121;
@@ -37,7 +40,7 @@
 .mainnav-login {
   font-size: 1rem;
   float: right;
-  border-right: none;
+  border-right-color: #D1C4E9;
 }
 
 /* State */
@@ -46,10 +49,11 @@
 .is-mainnav-active {
   color: #FF6D00;
   background-color: #EDE7F6;
+  border-color: #EDE7F6;
+  border-right-color: #BDBDBD;
 }
 
 .mainnav-item:focus {
-  outline: 2px solid #673AB7;
+  border: 1px solid #673AB7;
   transition: none;
-  /* TODO: outline-right is missing if the adjacent-right item is active */
 }

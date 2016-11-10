@@ -1,3 +1,5 @@
+/*** FilterInput.css ***/
+
 /* Layout */
 
 .l-filter-input {
@@ -48,7 +50,7 @@
   font-size: 1.5rem;
 }
 
-@media (max-width: 33rem) {
+@media (max-width: 36rem) {
 
   .l-filter-input {
     width: 90%;
@@ -56,7 +58,7 @@
 
   .filter-input-txt {
     width: 75%; /* fallback for UC Browser */
-    width: calc(100% - 3.5rem);
+    width: calc(100% - 3rem);
   }
 
   .filter-input-txt.filter-input-txt-no-btn {
@@ -71,14 +73,13 @@
   border-color: #673AB7;
   padding: 0.125rem 0.625rem;
   background-color: #673AB7;
-  color: #FFFFFF
+  color: #FFFFFF;
 }
 
 /* State */
 
-.filter-input:focus {
+.filter-input-txt:focus {
   border: 2px solid #673AB7;
-  outline: none;
 }
 
 .filter-input-txt,
@@ -90,7 +91,11 @@
   border-right: 2px solid #673AB7;
 }
 
-.filter-input-btn,
+.filter-input-btn:active,
 .filter-input-btn:focus {
-  border-left: 0;
+  border-color: #FF6D00;
+}
+
+.filter-input-btn:active {
+  background-color: #FF6D00;
 }

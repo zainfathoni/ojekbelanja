@@ -1,3 +1,5 @@
+/*** pages.css ***/
+
 /* Layout */
 
 .l-fullwidth {
@@ -7,4 +9,25 @@
 
 .l-wrapper-mainnav {
   background-color: #D1C4E9;
+}
+
+.l-wrapper-filter {
+  display: block;
+  /* Center Horizontally on 60rem x 3rem */
+  max-width: 60rem;
+  margin: auto;
+}
+
+.l-wrapper-footer {
+  display: block;
+  /* Stick to the bottom of the page */
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  /* Color & Shadow */
+  background-color: #EDE7F6;
+  box-shadow: 0 0 .625rem rgba(0,0,0,.8);
+  color: #FF6D00;
 }
