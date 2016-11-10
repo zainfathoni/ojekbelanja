@@ -39,8 +39,8 @@ export default class Pesan extends Component {
   render() {
     const { tokoId } = this.props.params;
     const { order } = this.state;
-    
-    return(
+
+    return (
       <div className="l-fullwidth">
         <div className="l-wrapper-mainnav">
           <MainNav />
@@ -50,15 +50,21 @@ export default class Pesan extends Component {
           <p>
             Berikut daftar pesanan Anda di toko <code>{tokoId}</code>.
           </p>
-          <ul>
-            {Object.keys(order)
-              .map(key =>
-                <li key={key}>
-                  {`${products[key].name} : ${quantify(order[key], products[key].step, products[key].unit)}`}
-                </li>
-              )
-            }
-          </ul>
+          <div className="l-pesan">
+            <ul>
+              {Object.keys(order)
+                .map(key =>
+                  <li key={key}>
+                    {`${products[key].name} : ${quantify(order[key], products[key].step, products[key].unit)}`}
+                  </li>
+                )
+              }
+            </ul>
+          </div>
+          <div className="l-pesan">
+
+          </div>
+
         </main>
       </div>
     )

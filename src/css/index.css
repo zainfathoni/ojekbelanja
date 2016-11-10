@@ -26,6 +26,8 @@ html {
   box-sizing: inherit;
 }
 
+/* CSS Reset */
+
 button {
   cursor: pointer;
   font-family: 'Lato', 'Open Sans', sans-serif;
@@ -33,4 +35,10 @@ button {
 
 :focus {
   outline: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
 }
