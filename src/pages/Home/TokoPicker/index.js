@@ -45,7 +45,6 @@ export default class TokoPicker extends Component {
           action={this.updateKeyword}
           tempKeyword={this.state.tempKeyword}
           updateTempKeyword={this.updateTempKeyword}
-          withButton
           />
         <FilterCards
           keyword={this.state.keyword}
