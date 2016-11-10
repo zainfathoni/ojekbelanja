@@ -38,7 +38,7 @@ export default function Card(props) {
         <div className="card-action">
           {!props.actionReverse ?
             <button className="card-action-btn" onClick={(e) => props.action(props.id)}>
-              Mulai Belanja <i className="material-icons">shopping_cart</i>
+              Mulai Belanja <i className="material-icons">&#xE8CC;</i>
             </button>
             :
             <div>
@@ -53,15 +53,15 @@ export default function Card(props) {
               {count ?
                 <div>
                   <button className="card-action-btn minus" onClick={(e) => props.actionReverse(props.id)}>
-                    <i className="material-icons">remove</i>
+                    <i className="material-icons">&#xE15B;</i>
                   </button>
                   <button className="card-action-btn plus" onClick={(e) => props.action(props.id)}>
-                    <i className="material-icons">add</i>
+                    <i className="material-icons">&#xE145;</i>
                   </button>
                 </div>
                 :
                 <button className="card-action-btn" onClick={(e) => props.action(props.id)}>
-                  Beli <i className="material-icons">add_shopping_cart</i>
+                  Beli <i className="material-icons">&#xE854;</i>
                 </button>
               }
             </div>
