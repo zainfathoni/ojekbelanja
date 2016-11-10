@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { quantify } from '../../../services/Product';
+import { quantify } from '../../../services/product';
+import { markHelper } from '../../../services/matches.js'
 import './Card.css';
-import {markHelper} from '../../helpers/matches.js'
 
 export default function Card(props) {
   const {
@@ -14,13 +14,6 @@ export default function Card(props) {
     step
   } = props;
 
-  // Mark Helper Cals
-  const titleMarked = markHelper(title, keyword)
-  const descMarked = markHelper(description, keyword)
-
-  // TODO: @rekysenjaya Find multiple matches in a single string
-  // TODO: @rekysenjaya Display multiple matches
-  // TODO: @rekysenjaya Modularize display matches
   return (
     <li>
       <div className={"card" + (count ? " card-is-selected" : "")}>
@@ -36,10 +29,10 @@ export default function Card(props) {
         </div>
         <div className="card-content">
           <div className="card-content-title">
-            {titleMarked}
+            {markHelper(title, keyword)}
           </div>
           <div className="card-content-description">
-            {descMarked}
+            {markHelper(description, keyword)}
           </div>
         </div>
         <div className="card-action">

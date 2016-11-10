@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import { quantify } from '../../services/Product';
+import { quantify } from '../../services/product';
 import { tokos, products } from '../../models';
 import '../pages.css';
 

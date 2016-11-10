@@ -24,7 +24,7 @@ export default class Products extends Component {
     })
   }
 
-  updateTempKeyword = (tempKeyword) => {
+  actionTemp = (tempKeyword) => {
     this.setState({
       tempKeyword
     })
@@ -40,7 +40,7 @@ export default class Products extends Component {
           keyword={this.state.keyword}
           tempKeyword={this.state.tempKeyword}
           action={this.updateKeyword}
-          updateTempKeyword={this.updateTempKeyword}
+          actionTemp={this.actionTemp}
           withButton
           />
         <FilterCards

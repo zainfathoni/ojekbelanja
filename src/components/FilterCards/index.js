@@ -31,9 +31,6 @@ export default class FilterCards extends Component {
 
     const filteredItems = ids
       .filter(key =>
-        // TODO: @rekysenjaya Expand search to description field
-        // TODO: @rekysenjaya Modularize Search
-        // TODO: Expand search to section field
         items[key][titleField].toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
         items[key][descriptionField].toLowerCase().indexOf(keyword.toLowerCase()) !== -1)
       .reduce(
