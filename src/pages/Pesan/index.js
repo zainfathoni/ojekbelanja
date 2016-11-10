@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import { tokos } from '../../models';
+import { quantify } from '../../services/Product';
+import { tokos, products } from '../../models';
 import '../pages.css';
 
 export default class Pesan extends Component {
@@ -36,16 +37,28 @@ export default class Pesan extends Component {
   /*** Render ***/
 
   render() {
+    const { tokoId } = this.props.params;
+    const { order } = this.state;
+    
     return(
       <div className="l-fullwidth">
         <div className="l-wrapper-mainnav">
           <MainNav />
         </div>
-        <Header heading={"Toko " + tokos[this.props.params.tokoId].name} />
+        <Header heading={"Toko " + tokos[tokoId].name} />
         <main className="l-wrapper-filter">
           <p>
-            Berikut daftar pesanan Anda di toko <code>{this.props.params.tokoId}</code>.
+            Berikut daftar pesanan Anda di toko <code>{tokoId}</code>.
           </p>
+          <ul>
+            {Object.keys(order)
+              .map(key =>
+                <li key={key}>
+                  {`${products[key].name} : ${quantify(order[key], products[key].step, products[key].unit)}`}
+                </li>
+              )
+            }
+          </ul>
         </main>
       </div>
     )
