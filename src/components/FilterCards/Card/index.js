@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { quantify } from '../../../services/Product';
+import { quantify } from '../../../services/product';
+import { markHelper } from '../../../services/matches.js'
 import './Card.css';
-import {markHelper} from '../../helpers/matches.js'
 
 export default function Card(props) {
   const {
