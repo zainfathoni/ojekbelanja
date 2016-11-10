@@ -1,7 +1,8 @@
 import React from 'react';
 
+import { quantify } from '../../../services/product';
+import { markHelper } from '../../../services/matches.js'
 import './Card.css';
-import {markHelper} from '../../helpers/matches.js'
 
 export default function Card(props) {
   const {
@@ -13,21 +14,6 @@ export default function Card(props) {
     step
   } = props;
 
-  // Mark Helper Cals
-  const titleMarked = markHelper(title, keyword)
-  const descMarked = markHelper(description, keyword)
-
-  // Display Quantity
-  const steps = Math.round(count * step * 100) / 100; // Avoid Floating Point Problem
-  const qty =
-    (steps < 1 && unit === "kg") ?
-      `${steps * 1000} gram`
-      :
-      `${steps} ${unit}`
-
-  // TODO: @rekysenjaya Find multiple matches in a single string
-  // TODO: @rekysenjaya Display multiple matches
-  // TODO: @rekysenjaya Modularize display matches
   return (
     <li>
       <div className={"card" + (count ? " card-is-selected" : "")}>
@@ -36,17 +22,17 @@ export default function Card(props) {
           {count &&
             <div className="card-image-overlay">
               <div className="card-image-overlay-qty">
-                {qty}
+                {quantify(count, step, unit)}
               </div>
             </div>
           }
         </div>
         <div className="card-content">
           <div className="card-content-title">
-            {titleMarked}
+            {markHelper(title, keyword)}
           </div>
           <div className="card-content-description">
-            {descMarked}
+            {markHelper(description, keyword)}
           </div>
         </div>
         <div className="card-action">
