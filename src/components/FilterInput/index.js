@@ -17,7 +17,7 @@ export default function FilterInput(props) {
             className="filter-input filter-input-txt"
             placeholder={props.placeholder}
             value={props.tempKeyword}
-            onChange={(e) => props.updateTempKeyword(e.target.value)}
+            onChange={(e) => props.actionTemp(e.target.value)}
             />
           <button type="submit" className="filter-input filter-input-btn">
             {searchIcon}
@@ -49,5 +49,5 @@ FilterInput.propTypes = {
   keyword: React.PropTypes.string.isRequired,
   action: React.PropTypes.func.isRequired,
   withButton: React.PropTypes.bool,
-  updateTempKeyword: React.PropTypes.func
+  actionTemp: React.PropTypes.func
 }
