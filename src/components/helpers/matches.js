@@ -15,9 +15,10 @@ function signMark(first, body, keyword) {
 
 export function markHelper(body, keyword, first=[]) {
   const marked = signMark(first, body, keyword);
+  let key = 0;
   return marked.map(function(d){
     if(d.isMarked){
-      return(<mark>{d.data}</mark>)
+      return(<mark key={key++}>{d.data}</mark>)
     }else{
       return(d.data)
     }
