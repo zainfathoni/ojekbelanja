@@ -62,10 +62,28 @@
 
 .label-toggle {display: none;}
 
+.logo {display: none;}
+.logoNew {visibility: hidden;height: 0px;}
+
 @media (max-width: 45rem) {
 
   nav {
     height: 3rem;
+  }
+
+  .logo {
+    display: inline;
+  }
+
+  .logoNew .mainnav-home {
+    height: 3rem;
+    visibility: visible;
+    text-decoration: none;
+    color: #212121;
+    left: 0rem;
+    padding-left: 1rem;
+    position: absolute;
+    z-index: inherit;
   }
 
   .mainnav a {
@@ -82,10 +100,18 @@
     visibility: hidden;
   }
 
+  .mainnav .mainnav-home {
+    display: none;
+  }
+
   #menu-toggle:checked ~ .mainnav a {
     height: 3rem;
     font-size: 0.9rem;
     visibility: visible;
+  }
+
+  #menu-toggle:checked ~ nav .mainnav-home {
+    display: none;
   }
 
   .label-toggle {
