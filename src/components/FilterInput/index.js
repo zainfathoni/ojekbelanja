@@ -49,5 +49,6 @@ FilterInput.propTypes = {
   placeholder: React.PropTypes.string.isRequired,
   keyword: React.PropTypes.string.isRequired,
   action: React.PropTypes.func.isRequired,
-  withButton: React.PropTypes.bool
+  withButton: React.PropTypes.bool,
+  updateTempKeyword: React.PropTypes.func
 }

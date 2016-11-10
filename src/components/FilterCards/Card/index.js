@@ -13,9 +13,6 @@ export default function Card(props) {
     step
   } = props;
 
-  // Index for marking String Matches
-  const index = title.toLowerCase().indexOf(keyword.toLowerCase());
-
   // Mark Helper Cals
   const titleMarked = markHelper(title, keyword)
   const descMarked = markHelper(description, keyword)
