@@ -7,6 +7,9 @@ export default class MainNav extends Component {
   render() {
     return (
       <div className="l-mainnav">
+      <div className="logo" />
+        <input id="menu-toggle" type="checkbox" />
+        <label htmlFor="menu-toggle" className="label-toggle" />
         <nav className="mainnav">
           <Link to="/" className="mainnav-item mainnav-home">Ojek <i className="material-icons">motorcycle</i><i className="material-icons">shopping_basket</i> Belanja</Link>
           <Link to="/cara-kerja" className="mainnav-item" activeClassName="is-mainnav-active">Cara Kerja</Link>
