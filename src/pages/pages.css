@@ -35,9 +35,16 @@
 .l-pesan {
   display: block;
   /* 2 Grids */
-  /* Grid */
   width: 50%;
   float: left;
   /* Gutter */
   padding: 0.5rem;
+}
+
+@media (max-width: 45rem) {
+  .l-pesan {
+    /* 1 Grid */
+    width: 100%;
+    float: none;
+  }
 }
