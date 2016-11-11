@@ -42,6 +42,14 @@ export default class Pesan extends Component {
     this.context.router.transitionTo(`/toko/${tokoId}`);
   }
 
+  updateOrder = (productId, orderQty) => {
+    let newOrder = this.state.order;
+    newOrder[productId] = orderQty;
+    this.setState({
+      order: newOrder
+    })
+  }
+
   remove = (productId) => {
     let newOrder = this.state.order;
     delete newOrder[productId];
@@ -140,9 +148,9 @@ export default class Pesan extends Component {
                                 className="pesanan-item-order-qty-input"
                                 type="number"
                                 step={item.step}
-                                defaultValue={order[key] * item.step}
+                                value={order[key] * item.step}
+                                onChange={(e) => this.updateOrder(key, (e.target.value / item.step))}
                                 />
-                                {/* TODO: onChange */}
                               <span className="pesanan-item-order-qty-unit">
                                 {item.unit}
                               </span>
