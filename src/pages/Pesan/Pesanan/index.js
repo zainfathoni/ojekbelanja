@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import { quantify, escapeFloatingPoint } from '../../../services/product';
 import { tokos, products } from '../../../models';
 import '../../pages.css';
-import '../Pesan.css';
+import './Pesanan.css';
 
 export default function Pesanan(props) {
   const {
