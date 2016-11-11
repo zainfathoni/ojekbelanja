@@ -92,7 +92,7 @@ export default class Pesan extends Component {
                   className="pesanan-heading-action order-action order-action-clear"
                   onClick={(e) => this.goToToko(tokoId)}>
                   <i className="material-icons">&#xE5C4;</i>
-                  Kembali ke Toko
+                  Kembali
                 </button>
               </div>
               <div className="pesanan-body">
@@ -103,14 +103,14 @@ export default class Pesan extends Component {
                       <table key={key} className="pesanan-item">
                         <tbody>
                           <tr>
-                            <td width="17%">
+                            <td width="10%" className="pesanan-item-image-wrapper">
                               <img
                                 className="pesanan-item-image"
                                 src={require(`../../css/images/${item.image}`)}
                                 alt={item.name}
                                 />
                             </td>
-                            <td width="63%" className="pesanan-item-detail">
+                            <td width="70%" className="pesanan-item-detail">
                               <table width="100%">
                                 <tbody>
                                   <tr>
@@ -123,10 +123,10 @@ export default class Pesan extends Component {
                                   <tr>
                                     <td className="pesanan-item-price-per-unit">
                                       <span className="pesanan-item-price">
-                                        {`Rp ${(item.price).toLocaleString('id')}`}
+                                        {`Rp ${(item.price).toLocaleString('id')}/`}
                                       </span>
                                       <span className="pesanan-item-unit">
-                                        {` / ${item.unit}`}
+                                        {`${item.unit}`}
                                       </span>
                                       <div className="pesanan-item-order-quantified">
                                         {quantify(order[key], item.step, item.unit)}
