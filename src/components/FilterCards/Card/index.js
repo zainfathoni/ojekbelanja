@@ -18,7 +18,7 @@ export default function Card(props) {
     <li>
       <div className={"card" + (count ? " card-is-selected" : "")}>
         <div className="card-image">
-          <img src={props.image} alt="Toko Profile" />
+          <img src={props.image} alt={props.title} />
           {count &&
             <div className="card-image-overlay">
               <div className="card-image-overlay-qty">
