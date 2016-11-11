@@ -52,7 +52,7 @@
 .pesanan-item td {
   text-align: left;
   font-size: 1rem;
-  color: #8C8C8C;
+  color: #424242;
   line-height: 80%;
   padding: .125rem;
 }
@@ -110,6 +110,7 @@ td.pesanan-item-order-qty {
 .pesanan-item-order-qty-unit {
   font-size: .75rem;
   font-weight: 300;
+  color: #673AB7;
 }
 
 .pesanan-heading > .order-action-clear,
