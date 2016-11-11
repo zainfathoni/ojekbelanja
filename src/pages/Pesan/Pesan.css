@@ -168,3 +168,9 @@ td.pesanan-item-order-qty {
   border: 1px solid #673AB7;
   border-bottom: none;
 }
+
+@media (max-width: 22.5rem) {
+  .pesanan-item-image-wrapper {
+    display: none;
+  }
+}
