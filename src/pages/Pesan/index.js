@@ -56,6 +56,16 @@ export default class Pesan extends Component {
     const { tokoId } = this.props.params;
     const { order } = this.state;
 
+    // Calculate Price
+    const totalPrice =
+      Object.keys(order)
+        .reduce(
+        (sum, key) =>
+          sum + (products[key].price * products[key].step * order[key])
+        ,
+        0
+        );
+
     return (
       <div className="l-fullwidth">
         <div className="l-wrapper-mainnav">
@@ -132,6 +142,7 @@ export default class Pesan extends Component {
                                 step={item.step}
                                 defaultValue={order[key] * item.step}
                                 />
+                                {/* TODO: onChange */}
                               <span className="pesanan-item-order-qty-unit">
                                 {item.unit}
                               </span>
@@ -151,11 +162,27 @@ export default class Pesan extends Component {
                 }
               </div>
               <div className="pesanan-footer">
+                <div className="pesanan-footer-delivery-fee">
+                  <div className="pesanan-footer-delivery-fee-label">
+                    Ongkos Kirim
+                  </div>
+                  <div className="pesanan-footer-delivery-fee-amount">
+                    {`Rp ${(tokos[tokoId].cost).toLocaleString('id')}`}
+                  </div>
+                </div>
+                <hr />
+                <div className="pesanan-footer-total-price">
+                  <div className="pesanan-footer-total-price-label">
+                    Harga Total
+                  </div>
+                  <div className="pesanan-footer-total-price-amount">
+                    {`Rp ${(tokos[tokoId].cost + totalPrice).toLocaleString('id')}`}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
           <div className="l-pesan">
-
           </div>
 
         </main>

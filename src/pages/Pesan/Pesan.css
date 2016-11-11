@@ -30,10 +30,10 @@
 .pesanan-heading-action {
   position: absolute;
   right: .75rem;
-  top: .375rem;
+  top: .5rem;
   font-size: .875rem;
-  padding-top: .125rem;
-  padding-bottom: .125rem;
+  padding-top: 0;
+  padding-bottom: 0;
   line-height: 1rem;
 }
 
@@ -115,4 +115,56 @@ td.pesanan-item-order-qty {
 .pesanan-heading > .order-action-clear,
 .pesanan-item-order-qty-action > .order-action-clear {
   margin-right: 0;
+}
+
+.pesanan-item-order-qty-action > .order-action-clear {
+  padding: .5rem;
+}
+
+.pesanan-footer {
+  padding: .5rem 1rem;
+  background-color: #f5f5f5;
+  border-color: #B39DDB;
+  border-top: .125rem solid transparent;
+}
+
+.pesanan-footer-delivery-fee:after,
+.pesanan-footer-total-price:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+.pesanan-footer-delivery-fee-label,
+.pesanan-footer-total-price-label {
+  float: left;
+}
+
+.pesanan-footer-delivery-fee-amount,
+.pesanan-footer-total-price-amount {
+  font-weight: 700;
+  float: right;
+  color: #FF6D00;
+}
+
+.pesanan-footer-delivery-fee {
+  font-style: italic;
+}
+
+.pesanan-footer-delivery-fee-label {
+  color: #673AB7;
+}
+
+.pesanan-footer-total-price {
+  font-size: 1.25rem;
+}
+
+.pesanan-footer-total-price-label {
+  font-weight: 700;
+  color: #FF6D00;
+}
+
+.pesanan-footer > hr {
+  border: 1px solid #673AB7;
+  border-bottom: none;
 }
