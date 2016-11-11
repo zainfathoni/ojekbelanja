@@ -1,5 +1,5 @@
 export function quantify(count, step, unit) {
-  const steps = escapeFloatingPoint(count * step * 100);
+  const steps = escapeFloatingPoint(count * step);
   const qty =
     (steps < 1 && unit === "kg") ?
       `${steps * 1000} gram`
