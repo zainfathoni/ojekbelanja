@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import { quantify } from '../../services/product';
+import { quantify, escapeFloatingPoint } from '../../services/product';
 import { tokos, products } from '../../models';
 import '../pages.css';
 import './Pesan.css';
@@ -44,7 +44,7 @@ export default class Pesan extends Component {
 
   updateOrder = (productId, orderQty) => {
     let newOrder = this.state.order;
-    newOrder[productId] = orderQty;
+    newOrder[productId] = escapeFloatingPoint(orderQty);
     this.setState({
       order: newOrder
     })
@@ -148,8 +148,8 @@ export default class Pesan extends Component {
                                 className="pesanan-item-order-qty-input"
                                 type="number"
                                 step={item.step}
-                                value={order[key] * item.step}
-                                onChange={(e) => this.updateOrder(key, (e.target.value / item.step))}
+                                value={escapeFloatingPoint(order[key] * item.step)}
+                                onChange={(e) => this.updateOrder(key, e.target.value / item.step)}
                                 />
                               <span className="pesanan-item-order-qty-unit">
                                 {item.unit}
