@@ -58,74 +58,95 @@
   transition: none;
 }
 
-#menu-toggle {display: none;}
+#check {display: none;}
 
-.label-toggle {display: none;}
-
-.logo {display: none;}
-.logoNew {visibility: hidden;height: 0px;}
+aside {display: none;}
 
 @media (max-width: 45rem) {
-
-  nav {
-    height: 3rem;
-  }
-
-  .logo {
-    display: inline;
-  }
-
-  .logoNew .mainnav-home {
-    height: 3rem;
-    visibility: visible;
-    text-decoration: none;
-    color: #212121;
-    left: 0rem;
-    padding-left: 1rem;
-    position: absolute;
-    z-index: inherit;
-  }
-
-  .mainnav a {
-    border: 1px solid #D1C4E9;
-    border-right-color: #BDBDBD;
-    text-decoration: none;
-    color: #212121;
-    font-size: 1px;
-    width: 100%;
-    height: 0.1rem;
-    padding: 0 0.75rem;
-    list-style-type: none;
-    transition: height 0.3s ease;
-    visibility: hidden;
-  }
-
-  .mainnav .mainnav-home {
+  .l-mainnav{
     display: none;
   }
 
-  #menu-toggle:checked ~ .mainnav a {
-    height: 3rem;
-    font-size: 0.9rem;
-    visibility: visible;
+  div#root {
+    margin-top: 3rem;
   }
 
-  #menu-toggle:checked ~ nav .mainnav-home {
-    display: none;
+  aside {
+    display: block;
+    position: fixed;
   }
 
-  .label-toggle {
+  .toggle:checked + .container > .menu-container
+  {
+    margin-left: 0;
+  }
+
+  .toggle:checked + .container > .content .full-screen-close
+  {
+    display: block;
+    background: rgba(0,0,0,.5);
+  }
+
+  .checkBtn
+  {
+    cursor: pointer;
+  }
+
+  .menu-container
+  {
+    transition: margin 0.5s ease-in-out;
+  }
+
+  .menu-container
+  {
+    background: #d1c4e9;
+    width: 300px;
+    margin-left: -300px;
+    float: left;
+    height: calc(100% - 3rem);
+    position: fixed;
+    z-index:99;
+    overflow: scroll;
+  }
+
+  .checkBtn {
     background: linear-gradient(to bottom, white 0%, white 20%, transparent 20%, transparent 40%, white 40%, white 60%, transparent 60%, transparent 80%, white 80%, white 100%); //Gradient Hamburger
     cursor: pointer;
     display: block;
     height: 35px;
-    margin-top: 0.4rem;
-    margin-right: 0.1em;
-    right: 1rem;
+    top: 0.4rem;
+    left: 0.4rem;
     width: 35px;
-    position: absolute;
-    z-index: inherit;
+    position: fixed;
+    z-index: 101;
   }
 
   .mainnav {display: block;}
+
+  .slide-menu {
+    font-weight: 900;
+    font-size: 1rem;
+  }
+
+  .slide-menu a {
+    float: left;
+    width: 100%;
+    border: 1px solid #D1C4E9;
+    border-right-color: #BDBDBD;
+    text-decoration: none;
+    color: #212121;
+    height: 3rem;
+    padding: 0.75rem;
+    transition: all 0.25s ease 0s;
+  }
+
+  .mainnav-home {
+    background: #d1c4e9;
+    font-size: 1.2rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 101;
+  }
 }
