@@ -3,8 +3,8 @@ import React from 'react';
 import './Header.css';
 
 export default function Header(props) {
-  const ojekIcon = <i className="material-icons">motorcycle</i>;
-  const belanjaIcon = <i className="material-icons">shopping_basket</i>;
+  const ojekIcon = <i className="material-icons">&#xE91B;</i>;
+  const belanjaIcon = <i className="material-icons">&#xE8CB;</i>;
   const nyasarIcon = <i className="material-icons">loop</i>;
 
   return (

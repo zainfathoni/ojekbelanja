@@ -31,3 +31,13 @@
   box-shadow: 0 0 .625rem rgba(0,0,0,.8);
   color: #FF6D00;
 }
+
+.l-pesan {
+  display: block;
+  /* 2 Grids */
+  /* Grid */
+  width: 50%;
+  float: left;
+  /* Gutter */
+  padding: 0.5rem;
+}
