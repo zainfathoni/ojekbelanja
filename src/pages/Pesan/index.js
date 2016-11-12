@@ -6,7 +6,6 @@ import Pesanan from './Pesanan';
 import { escapeFloatingPoint } from '../../services/product';
 import { tokos } from '../../models';
 import '../pages.css';
-import './Pesan.css';
 
 export default class Pesan extends Component {
   constructor(props) {
