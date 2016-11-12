@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Button from '../../Button';
 import { quantify } from '../../../services/product';
 import { markHelper } from '../../../services/matches.js'
 import './Card.css';
@@ -37,10 +38,13 @@ export default function Card(props) {
         </div>
         <div className="card-action">
           {!props.actionReverse ?
-            <button className="card-action-btn" onClick={(e) => props.action(props.id)}>
-              <i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
-              {" Mulai Belanja"}
-            </button>
+            <Button
+              type="fullwidth"
+              action={(e) => props.action(props.id)}
+              icon="fa-shopping-cart"
+              text="Mulai Belanja"
+              className="card-action-btn"
+              />
             :
             <div>
               <div className="card-action-price-parent">
