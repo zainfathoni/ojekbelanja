@@ -59,7 +59,7 @@
 
 .pesanan-item-image {
   border-radius: .375rem;
-  max-width: 4rem;
+  max-width: 4em;
   max-height: 4rem;
 }
 
@@ -170,7 +170,7 @@ td.pesanan-item-order-qty {
   border-bottom: none;
 }
 
-@media (max-width: 22.5rem) {
+@media (max-width: 22.5em) {
   .pesanan-item-image-wrapper {
     display: none;
   }

@@ -4,7 +4,7 @@
 
 .l-order {
   /* Center Horizontally on 60rem x 3rem */
-  max-width: 60rem;
+  max-width: 60em;
   margin: auto;
 }
 
@@ -84,7 +84,7 @@
 
 /* 2 Columns Grid */
 
-@media (max-width: 30rem) {
+@media (max-width: 30em) {
 
   .order-price-wrapper {
     display: block;

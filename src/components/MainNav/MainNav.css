@@ -5,7 +5,7 @@
 .l-mainnav{
   display: block;
   /* Center Horizontally on 60rem x 3rem */
-  max-width: 60rem;
+  max-width: 60em;
   margin: auto;
   line-height: 3rem;
 }

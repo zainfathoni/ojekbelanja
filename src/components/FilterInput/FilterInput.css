@@ -50,7 +50,7 @@
   font-size: 1.5rem;
 }
 
-@media (max-width: 36rem) {
+@media (max-width: 36em) {
 
   .l-filter-input {
     width: 90%;

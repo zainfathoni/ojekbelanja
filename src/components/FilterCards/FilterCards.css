@@ -26,7 +26,7 @@
 
 /* 3 Columns Grid */
 
-@media (max-width: 45rem) {
+@media (max-width: 45em) {
   .l-grid > li {
     width: 33.333333%;
   }
@@ -38,7 +38,7 @@
 
 /* 2 Columns Grid */
 
-@media (max-width: 30rem) {
+@media (max-width: 30em) {
   .l-grid > li {
     width: 50%;
   }
