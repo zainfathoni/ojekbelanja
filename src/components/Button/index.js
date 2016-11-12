@@ -5,14 +5,17 @@ import './Button.css';
 export default function Button(props) {
   return (
     <button className={props.className} onClick={props.action}>
-      <i className={`fa fa-lg ${props.icon}`} aria-hidden="true"></i>
+      <i className={`fa fa-lg fa-${props.icon}`} aria-hidden="true"></i>
       {` ${props.text}`}
     </button>
   )
 }
 
 Button.defaultProps = {
-  type: 'fullwidth'
+  type: 'fullwidth',
+  icon: 'font-awesome',
+  text: 'Button',
+  className: 'btn'
 }
 
 Button.propTypes = {
@@ -23,7 +26,7 @@ Button.propTypes = {
     'icon'
   ]).isRequired,
   action: T.func.isRequired, // Action Function
-  icon: T.string, // String for Font Awesome icon identifier
+  icon: T.string, // Icon ID in Font Awesome
   text: T.string, // Button Text
-  className: T.string // className to be passed to button element
+  className: T.string // className to be passed to the root button element
 }

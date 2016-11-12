@@ -41,7 +41,7 @@ export default function Card(props) {
             <Button
               type="fullwidth"
               action={(e) => props.action(props.id)}
-              icon="fa-shopping-cart"
+              icon="shopping-cart"
               text="Mulai Belanja"
               className="card-action-btn"
               />
@@ -65,10 +65,13 @@ export default function Card(props) {
                   </button>
                 </div>
                 :
-                <button className="card-action-btn" onClick={(e) => props.action(props.id)}>
-                  <i className="fa fa-lg fa-cart-plus" aria-hidden="true"></i>
-                  {" Beli"}
-                </button>
+                <Button
+                  type="fullwidth"
+                  action={(e) => props.action(props.id)}
+                  icon="cart-plus"
+                  text="Beli"
+                  className="card-action-btn"
+                  />
               }
             </div>
           }
