@@ -3,7 +3,7 @@ import React from 'react';
 import './FilterInput.css';
 
 export default function FilterInput(props) {
-  const searchIcon = <i className="material-icons">&#xE8B6;</i>;
+  const searchIcon = <i className="fa fa-search" aria-hidden="true"></i>;
 
   if (props.withButton) {
     return (

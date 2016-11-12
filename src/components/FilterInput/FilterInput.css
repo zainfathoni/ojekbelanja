@@ -46,10 +46,6 @@
   transition: 0.25s;
 }
 
-.l-filter-input-no-btn .material-icons {
-  font-size: 1.5rem;
-}
-
 @media (max-width: 36em) {
 
   .l-filter-input {

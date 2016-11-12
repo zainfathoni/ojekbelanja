@@ -13,7 +13,7 @@ export default class MainNav extends Component {
           <Link to="/faq" className="mainnav-item" activeClassName="is-mainnav-active">FAQ</Link>
           <Link to="/tentang-kami" className="mainnav-item" activeClassName="is-mainnav-active">Tentang Kami</Link>
           <Link to="/styleguide" className="mainnav-item" activeClassName="is-mainnav-active">Style Guide</Link>
-          <Link to="/login" className="mainnav-item mainnav-login" activeClassName="is-mainnav-active"><i className="material-icons">&#xE879;</i> Login</Link>
+          <Link to="/login" className="mainnav-item mainnav-login" activeClassName="is-mainnav-active"><i className="fa fa-sign-in" aria-hidden="true"></i> Login</Link>
         </nav>
       </div>
     );

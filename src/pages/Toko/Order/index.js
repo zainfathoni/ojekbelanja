@@ -41,14 +41,14 @@ export default function Order(props) {
         <button
           className="order-action order-action-clear"
           onClick={(e) => props.clear()}>
-          Kosongkan
-          <i className="material-icons">&#xE928;</i>
+          <i className="fa fa-times" aria-hidden="true"></i>
+          {" Kosongkan"}
         </button>
         <button
           className="order-action order-action-checkout"
           onClick={(e) => props.checkout(tokoId)}>
-          Pesan
-          <i className="material-icons">&#xE8CC;</i>
+          <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+          {" Pesan"}
         </button>
       </div>
     </div>

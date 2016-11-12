@@ -23,10 +23,6 @@
   font-weight: 700;
 }
 
-.pesanan-heading-title > .material-icons {
-  margin-right: .25rem
-}
-
 .pesanan-heading-action {
   position: absolute;
   right: .75rem;
