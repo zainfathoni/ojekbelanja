@@ -28,7 +28,7 @@ export default function Pesanan(props) {
     <div className="pesanan">
       <div className="pesanan-heading">
         <div className="pesanan-heading-title">
-          <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+          <i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
           {" Pesanan Anda"}
         </div>
         <button
@@ -102,7 +102,7 @@ export default function Pesanan(props) {
                       <button
                         className="order-action order-action-clear"
                         onClick={(e) => remove(key)}>
-                        <i className="fa fa-trash" aria-hidden="true"></i>
+                        <i className="fa fa-lg fa-trash" aria-hidden="true"></i>
                       </button>
                     </td>
                   </tr>

@@ -41,13 +41,13 @@ export default function Order(props) {
         <button
           className="order-action order-action-clear"
           onClick={(e) => props.clear()}>
-          <i className="fa fa-times" aria-hidden="true"></i>
+          <i className="fa fa-lg fa-times" aria-hidden="true"></i>
           {" Kosongkan"}
         </button>
         <button
           className="order-action order-action-checkout"
           onClick={(e) => props.checkout(tokoId)}>
-          <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+          <i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
           {" Pesan"}
         </button>
       </div>
