@@ -64,23 +64,7 @@ aside {display: none;}
 
 .checkBtn {display: none;}
 
-@media (max-width: 24.9rem) {
-  .menu-container
-  {
-    width: 80vw;
-    margin-left: -80vw;
-  }
-}
-
-@media (max-width: 45rem) and (min-width: 25rem) {
-  .menu-container
-  {
-    width: 300px;
-    margin-left: -300px;
-  }
-}
-
-@media (max-width: 45rem) {
+@media (max-width: 45em) {
   .l-mainnav{
     display: none;
   }
@@ -149,7 +133,7 @@ aside {display: none;}
     float: left;
     width: 100%;
     border: 1px solid #D1C4E9;
-    border-right-color: #BDBDBD;
+    border-bottom-color: #BDBDBD;
     text-decoration: none;
     color: #212121;
     height: 3rem;
@@ -165,5 +149,33 @@ aside {display: none;}
     left: 0;
     position: fixed;
     z-index: 101;
+  }
+}
+
+@media (max-width: 45em) and (min-width: 25em) {
+  .menu-container
+  {
+    width: 300px;
+    margin-left: -300px;
+  }
+}
+
+@media (max-width: 30em) {
+  a[href^="/tentang-kami"], a[href^="/styleguide"]{
+    display: none;
+  }
+}
+
+@media (max-width: 24.9em) {
+  .menu-container
+  {
+    width: 70vw;
+    margin-left: -70vw;
+  }
+}
+
+@media (max-width: 22.5em) {
+  a[href^="/login"]{
+    display: none;
   }
 }
