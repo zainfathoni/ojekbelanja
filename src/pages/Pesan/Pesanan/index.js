@@ -28,14 +28,14 @@ export default function Pesanan(props) {
     <div className="pesanan">
       <div className="pesanan-heading">
         <div className="pesanan-heading-title">
-          <i className="material-icons">&#xE8CC;</i>
-          Pesanan Anda
+          <i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
+          {" Pesanan Anda"}
         </div>
         <button
           className="pesanan-heading-action order-action order-action-clear"
           onClick={(e) => kembali(tokoId)}>
-          <i className="material-icons">&#xE5C4;</i>
-          Kembali
+          <i className="fa fa-arrow-left" aria-hidden="true"></i>
+          {" Kembali"}
         </button>
       </div>
       <div className="pesanan-body">
@@ -102,7 +102,7 @@ export default function Pesanan(props) {
                       <button
                         className="order-action order-action-clear"
                         onClick={(e) => remove(key)}>
-                        <i className="material-icons">&#xE872;</i>
+                        <i className="fa fa-lg fa-trash" aria-hidden="true"></i>
                       </button>
                     </td>
                   </tr>

@@ -9,6 +9,7 @@ import StyleGuide from './pages/StyleGuide';
 import NotFound from './pages/NotFound';
 import './css/index.css';
 import './css/fonts.css';
+import './css/font-awesome.css';
 
 const Root = () => {
   return (

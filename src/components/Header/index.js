@@ -3,9 +3,9 @@ import React from 'react';
 import './Header.css';
 
 export default function Header(props) {
-  const ojekIcon = <i className="material-icons">&#xE91B;</i>;
-  const belanjaIcon = <i className="material-icons">&#xE8CB;</i>;
-  const nyasarIcon = <i className="material-icons">loop</i>;
+  const ojekIcon = <i className="fa fa-motorcycle" aria-hidden="true"></i>;
+  const belanjaIcon = <i className="fa fa-shopping-basket" aria-hidden="true"></i>;
+  const nyasarIcon = <i className="fa fa-question" aria-hidden="true"></i>;
 
   return (
     <div className="l-wrapper-header">

@@ -23,18 +23,13 @@
   font-weight: 700;
 }
 
-.pesanan-heading-title > .material-icons {
-  margin-right: .25rem
-}
-
 .pesanan-heading-action {
   position: absolute;
   right: .75rem;
   top: .5rem;
   font-size: .875rem;
-  padding-top: 0;
-  padding-bottom: 0;
-  line-height: 1rem;
+  padding: 0 .5rem;
+  line-height: 1.375rem;
 }
 
 .pesanan-body {
@@ -52,14 +47,14 @@
 .pesanan-item td {
   text-align: left;
   font-size: 1rem;
-  color: #424242;
+  color: #616161;
   line-height: 80%;
   padding: .125rem;
 }
 
 .pesanan-item-image {
   border-radius: .375rem;
-  max-width: 4rem;
+  max-width: 4em;
   max-height: 4rem;
 }
 
@@ -97,7 +92,7 @@ td.pesanan-item-order-qty {
 
 .pesanan-item-order-qty-input {
   width: 3rem;
-  height: 2rem;
+  height: 1.75rem;
   line-height: 2rem;
   border: 1px solid #CCC;
   border-radius: .25rem;
@@ -170,7 +165,7 @@ td.pesanan-item-order-qty {
   border-bottom: none;
 }
 
-@media (max-width: 22.5rem) {
+@media (max-width: 22.5em) {
   .pesanan-item-image-wrapper {
     display: none;
   }

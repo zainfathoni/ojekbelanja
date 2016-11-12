@@ -8,12 +8,12 @@ export default class MainNav extends Component {
     return (
       <div className="l-mainnav">
         <nav className="mainnav">
-          <Link to="/" className="mainnav-item mainnav-home">Ojek <i className="material-icons">&#xE91B;</i><i className="material-icons">&#xE8CB;</i> Belanja</Link>
+          <Link to="/" className="mainnav-item mainnav-home">Ojek <i className="fa fa-motorcycle" aria-hidden="true"></i><i className="fa fa-shopping-basket" aria-hidden="true"></i> Belanja</Link>
           <Link to="/cara-kerja" className="mainnav-item" activeClassName="is-mainnav-active">Cara Kerja</Link>
           <Link to="/faq" className="mainnav-item" activeClassName="is-mainnav-active">FAQ</Link>
           <Link to="/tentang-kami" className="mainnav-item" activeClassName="is-mainnav-active">Tentang Kami</Link>
           <Link to="/styleguide" className="mainnav-item" activeClassName="is-mainnav-active">Style Guide</Link>
-          <Link to="/login" className="mainnav-item mainnav-login" activeClassName="is-mainnav-active"><i className="material-icons">&#xE879;</i> Login</Link>
+          <Link to="/login" className="mainnav-item mainnav-login" activeClassName="is-mainnav-active"><i className="fa fa-sign-in" aria-hidden="true"></i> Login</Link>
         </nav>
       </div>
     );
