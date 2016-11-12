@@ -10,7 +10,7 @@ export default class MainNav extends Component {
         <input id="check" className="toggle" type="checkbox" />
         <div className="container">
           <label htmlFor="check" className="checkBtn">
-            <i className="fa fa-times" />
+            <i className="material-icons md-48 checkBtn">menu</i>
           </label>
           <aside className="menu-container">
             <nav className="slide-menu">

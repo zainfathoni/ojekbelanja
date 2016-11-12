@@ -62,6 +62,24 @@
 
 aside {display: none;}
 
+.checkBtn {display: none;}
+
+@media (max-width: 24.9rem) {
+  .menu-container
+  {
+    width: 80vw;
+    margin-left: -80vw;
+  }
+}
+
+@media (max-width: 45rem) and (min-width: 25rem) {
+  .menu-container
+  {
+    width: 300px;
+    margin-left: -300px;
+  }
+}
+
 @media (max-width: 45rem) {
   .l-mainnav{
     display: none;
@@ -75,6 +93,8 @@ aside {display: none;}
     display: block;
     position: fixed;
   }
+
+  .checkBtn {display: block;}
 
   .toggle:checked + .container > .menu-container
   {
@@ -100,8 +120,6 @@ aside {display: none;}
   .menu-container
   {
     background: #d1c4e9;
-    width: 300px;
-    margin-left: -300px;
     float: left;
     height: calc(100% - 3rem);
     position: fixed;
@@ -110,11 +128,10 @@ aside {display: none;}
   }
 
   .checkBtn {
-    background: linear-gradient(to bottom, white 0%, white 20%, transparent 20%, transparent 40%, white 40%, white 60%, transparent 60%, transparent 80%, white 80%, white 100%); //Gradient Hamburger
     cursor: pointer;
     display: block;
     height: 35px;
-    top: 0.4rem;
+    top: 0rem;
     left: 0.4rem;
     width: 35px;
     position: fixed;
