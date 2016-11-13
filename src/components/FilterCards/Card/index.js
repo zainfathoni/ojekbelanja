@@ -43,7 +43,6 @@ export default function Card(props) {
               action={(e) => props.action(props.id)}
               icon="shopping-cart"
               text="Mulai Belanja"
-              className="card-action-btn"
               />
             :
             <div>
@@ -70,7 +69,6 @@ export default function Card(props) {
                   action={(e) => props.action(props.id)}
                   icon="cart-plus"
                   text="Beli"
-                  className="card-action-btn"
                   />
               }
             </div>

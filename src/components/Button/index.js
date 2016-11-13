@@ -4,7 +4,7 @@ import './Button.css';
 
 export default function Button(props) {
   return (
-    <button className={props.className} onClick={props.action}>
+    <button className="Button" onClick={props.action}>
       <i className={`fa fa-lg fa-${props.icon}`} aria-hidden="true"></i>
       {` ${props.text}`}
     </button>
@@ -14,8 +14,7 @@ export default function Button(props) {
 Button.defaultProps = {
   type: 'fullwidth',
   icon: 'font-awesome',
-  text: 'Button',
-  className: 'btn'
+  text: 'Button'
 }
 
 Button.propTypes = {
@@ -27,6 +26,5 @@ Button.propTypes = {
   ]).isRequired,
   action: T.func.isRequired, // Action Function
   icon: T.string, // Icon ID in Font Awesome
-  text: T.string, // Button Text
-  className: T.string // className to be passed to the root button element
+  text: T.string // Button Text
 }

@@ -1,3 +1,37 @@
 /* Button.css */
 
+/* Module */
 
+.Button {
+  /* Color */
+  color: #FFFFFF;
+  /* Background & Border */
+  background-color: #673AB7;
+  border: .125rem solid #673AB7;
+  border-radius: .25rem;
+  /* Basic Box */
+  padding: .625rem 1rem;
+  width: 100%;
+  /* Text */
+  text-align: center;
+  /* Font */
+  font-size: 1rem;
+  /* Animation */
+  transition: 0.1s;
+}
+
+/* State */
+
+.Button:focus {
+  /* Basic UI */
+  outline: 0;
+}
+
+.Button:active,
+.Button:focus {
+  border-color: #FF6D00;
+}
+
+.Button:active {
+  background-color: #FF6D00;
+}
