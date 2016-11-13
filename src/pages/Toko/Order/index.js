@@ -40,14 +40,14 @@ export default function Order(props) {
       </div>
       <div className="order-action-wrapper">
         <Button
-          type="large"
+          type="content"
           action={(e) => props.clear()}
           icon="times"
           text="Kosongkan"
-          isPrimary={false}
+          isSecondary
           />
         <Button
-          type="large"
+          type="content"
           action={(e) => props.checkout(tokoId)}
           icon="shopping-cart"
           text="Pesan"

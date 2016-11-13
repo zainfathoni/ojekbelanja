@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 
+import Button from '../../../components/Button';
 import { quantify, escapeFloatingPoint } from '../../../services/product';
 import { tokos, products } from '../../../models';
 import '../../pages.css';
@@ -31,12 +32,15 @@ export default function Pesanan(props) {
           <i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
           {" Pesanan Anda"}
         </div>
-        <button
-          className="pesanan-heading-action order-action order-action-clear"
-          onClick={(e) => kembali(tokoId)}>
-          <i className="fa fa-arrow-left" aria-hidden="true"></i>
-          {" Kembali"}
-        </button>
+        <Button
+          type="content"
+          action={(e) => kembali(tokoId)}
+          icon="arrow-left"
+          text="Kembali"
+          isSecondary
+          isSmall
+          addClass="pesanan-heading-action"
+          />
       </div>
       <div className="pesanan-body">
         {Object.keys(order)

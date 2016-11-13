@@ -4,19 +4,24 @@ import classNames from 'classnames';
 import './Button.css';
 
 export default function Button(props) {
-  const {
-    type,
-    isPrimary
-  } = props;
   const buttonClass = classNames(
     'Button',
-    `Button-${type}`,
-    {'Button-secondary': !isPrimary}
+    `Button-${props.type}`,
+    {
+      'Button-small': props.isSmall,
+      'Button-secondary': props.isSecondary
+    },
+    props.addClass
   )
-  
+  const iconClass = classNames(
+    'fa',
+    `fa-${props.icon}`,
+    { 'fa-lg': !props.isSmall }
+  )
+
   return (
     <button className={buttonClass} onClick={props.action}>
-      <i className={`fa fa-lg fa-${props.icon}`} aria-hidden="true"></i>
+      <i className={iconClass} aria-hidden="true"></i>
       {` ${props.text}`}
     </button>
   )
@@ -24,20 +29,21 @@ export default function Button(props) {
 
 Button.defaultProps = {
   type: 'fullwidth',
+  size: 'large',
   icon: 'font-awesome',
-  text: 'Button',
-  isPrimary: true
+  text: 'Button'
 }
 
 Button.propTypes = {
   type: T.oneOf([ // Button Type
     'fullwidth',  // Full Width
-    'large',      // Large Font, Content Width
-    'small',      // Small Font
+    'content',    // Content Width
     'icon'        // Icon Only
   ]).isRequired,
-  action: T.func.isRequired, // Action Function
-  icon: T.string, // Icon ID in Font Awesome
-  text: T.string, // Button Text
-  isPrimary: T.bool // is Primary Button
+  action: T.func.isRequired,  // Action Function
+  icon: T.string,             // Icon ID in Font Awesome
+  text: T.string,             // Button Text
+  isSmall: T.bool,            // Size: Large (default) vs Small
+  isSecondary: T.bool,        // Role: Primary (default) vs Secondary
+  addClass: T.string          // Additional classNames (if any)
 }

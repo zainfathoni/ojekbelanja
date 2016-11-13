@@ -19,18 +19,36 @@
   transition: 0.1s;
 }
 
+/** Types **/
+
+.Button-fullwidth {
+  /* Basic Box */
+  width: 100%;
+}
+
+.Button-content {
+  /* Basic Box */
+  margin: 0 .375rem;
+}
+
+/** Button Size **/
+
+.Button-small {
+  /* Basic Box */
+  /*position: absolute;
+  right: 5.75rem;
+  top: .5rem;*/
+  padding: .25rem .5rem;
+  /* Font */
+  font-size: .875rem;
+}
+
+/** Button Role **/
+
 .Button-secondary {
   /* Background & Border */
   background-color: #FF6D00;
   border-color: #FF6D00;
-}
-
-.Button-fullwidth {
-  width: 100%;
-}
-
-.Button-large {
-  margin: 0 .375rem;
 }
 
 /** State **/
