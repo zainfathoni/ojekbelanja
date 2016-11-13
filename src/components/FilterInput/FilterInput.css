@@ -41,7 +41,7 @@
 .filter-input-txt-search-icon {
   color: #BDBDBD;
   position: absolute;
-  right: 2.3rem;
+  right: 2rem;
   width: 0;
   transition: 0.25s;
 }
@@ -64,12 +64,11 @@
 
 .filter-input-btn {
   width: 3rem;
-  border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
+  border-radius: 0 1.5rem 1.5rem 0;
   border-color: #673AB7;
   padding: 0.125rem 0.625rem;
   background-color: #673AB7;
-  color: #FFFFFF;
+  font-size: 1rem;
 }
 
 /* State */

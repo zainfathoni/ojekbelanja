@@ -8,7 +8,7 @@ export default class MainNav extends Component {
     return (
       <div className="l-mainnav">
         <nav className="mainnav">
-          <Link to="/" className="mainnav-item mainnav-home">Ojek <i className="fa fa-motorcycle" aria-hidden="true"></i><i className="fa fa-shopping-basket" aria-hidden="true"></i> Belanja</Link>
+          <Link to="/" className="mainnav-item mainnav-home">Ojek <i className="fa fa-motorcycle" aria-hidden="true"></i><i className="fa fa-shopping-cart" aria-hidden="true"></i> Belanja</Link>
           <Link to="/cara-kerja" className="mainnav-item" activeClassName="is-mainnav-active">Cara Kerja</Link>
           <Link to="/faq" className="mainnav-item" activeClassName="is-mainnav-active">FAQ</Link>
           <Link to="/tentang-kami" className="mainnav-item" activeClassName="is-mainnav-active">Tentang Kami</Link>

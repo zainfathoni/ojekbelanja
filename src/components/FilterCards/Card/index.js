@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Button from '../../Button';
 import { quantify } from '../../../services/product';
 import { markHelper } from '../../../services/matches.js'
 import './Card.css';
@@ -37,10 +38,12 @@ export default function Card(props) {
         </div>
         <div className="card-action">
           {!props.actionReverse ?
-            <button className="card-action-btn" onClick={(e) => props.action(props.id)}>
-              <i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
-              {" Mulai Belanja"}
-            </button>
+            <Button
+              type="fullwidth"
+              action={(e) => props.action(props.id)}
+              icon="shopping-cart"
+              text="Mulai Belanja"
+              />
             :
             <div>
               <div className="card-action-price-parent">
@@ -53,18 +56,29 @@ export default function Card(props) {
               </div>
               {count ?
                 <div>
-                  <button className="card-action-btn minus" onClick={(e) => props.actionReverse(props.id)}>
-                    <i className="fa fa-lg fa-minus" aria-hidden="true"></i>
-                  </button>
-                  <button className="card-action-btn plus" onClick={(e) => props.action(props.id)}>
-                    <i className="fa fa-lg fa-plus" aria-hidden="true"></i>
-                  </button>
+                  <Button
+                    className="minus"
+                    display="icon"
+                    action={(e) => props.actionReverse(props.id)}
+                    icon="minus"
+                    text="Kurangi"
+                    isSecondary
+                    />
+                  <Button
+                    className="plus"
+                    display="icon"
+                    action={(e) => props.action(props.id)}
+                    icon="plus"
+                    text="Tambahkan"
+                    />
                 </div>
                 :
-                <button className="card-action-btn" onClick={(e) => props.action(props.id)}>
-                  <i className="fa fa-lg fa-cart-plus" aria-hidden="true"></i>
-                  {" Beli"}
-                </button>
+                <Button
+                  display="fullwidth"
+                  action={(e) => props.action(props.id)}
+                  icon="cart-plus"
+                  text="Beli"
+                  />
               }
             </div>
           }

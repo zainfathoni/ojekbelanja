@@ -26,7 +26,7 @@
 .mainnav-item {
   float: left;
   border: 1px solid #D1C4E9;
-  border-right-color: #BDBDBD;
+  border-right-color: rgba(0,0,0,.12);
   padding: 0 0.75rem;
   text-decoration: none;
   color: #212121;
@@ -50,7 +50,7 @@
   color: #FF6D00;
   background-color: #EDE7F6;
   border-color: #EDE7F6;
-  border-right-color: #BDBDBD;
+  border-right-color: rgba(0,0,0,.12);
 }
 
 .mainnav-item:focus {

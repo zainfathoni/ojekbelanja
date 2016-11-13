@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 
+import Button from '../../../components/Button';
 import { quantify, escapeFloatingPoint } from '../../../services/product';
 import { tokos, products } from '../../../models';
 import '../../pages.css';
@@ -31,12 +32,15 @@ export default function Pesanan(props) {
           <i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
           {" Pesanan Anda"}
         </div>
-        <button
-          className="pesanan-heading-action order-action order-action-clear"
-          onClick={(e) => kembali(tokoId)}>
-          <i className="fa fa-arrow-left" aria-hidden="true"></i>
-          {" Kembali"}
-        </button>
+        <Button
+          className="pesanan-heading-action"
+          display="content"
+          action={(e) => kembali(tokoId)}
+          icon="arrow-left"
+          text="Kembali"
+          isSecondary
+          isSmall
+          />
       </div>
       <div className="pesanan-body">
         {Object.keys(order)
@@ -53,7 +57,7 @@ export default function Pesanan(props) {
                         alt={item.name}
                         />
                     </td>
-                    <td width="70%" className="pesanan-item-detail">
+                    <td width="72%" className="pesanan-item-detail">
                       <table width="100%">
                         <tbody>
                           <tr>
@@ -98,12 +102,15 @@ export default function Pesanan(props) {
                         {item.unit}
                       </span>
                     </td>
-                    <td width="10%" className="pesanan-item-order-qty-action">
-                      <button
-                        className="order-action order-action-clear"
-                        onClick={(e) => remove(key)}>
-                        <i className="fa fa-lg fa-trash" aria-hidden="true"></i>
-                      </button>
+                    <td width="8%" className="pesanan-item-order-qty-action">
+                      <Button
+                        display="icon"
+                        action={(e) => remove(key)}
+                        icon="trash"
+                        text="Hapus"
+                        isSecondary
+                        isSmall
+                        />
                     </td>
                   </tr>
                 </tbody>

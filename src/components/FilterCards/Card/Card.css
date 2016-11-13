@@ -90,18 +90,6 @@
   right: 0;
 }
 
-.card-action-btn {
-  border-style: solid;
-  border-radius: .25rem;
-  border-color: #673AB7;
-  background-color: #673AB7;
-  color: #FFFFFF;
-  padding: .625rem 1rem;
-  width: 100%;
-  transition: 0.1s;
-  font-size: 1rem;
-}
-
 .plus,
 .minus {
   width: 47.5%;
@@ -117,25 +105,7 @@
   background-color: #FF6D00;
 }
 
-/* Card Action State */
-
-.card-action-btn:active,
-.card-action-btn:focus {
-  border-color: #FF6D00;
-}
-
-.card-action-btn:active {
-  background-color: #FF6D00;
-}
-
-.minus:active,
-.minus:focus {
-  border-color: #673AB7;
-}
-
-.minus:active {
-  background-color: #673AB7;
-}
+/** State **/
 
 .card-is-selected {
   box-shadow: inset 0 0 .75rem #673AB7;

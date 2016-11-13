@@ -1,9 +1,10 @@
 import React from 'react';
 
+import Button from '../Button';
 import './FilterInput.css';
 
 export default function FilterInput(props) {
-  const searchIcon = <i className="fa fa-lg fa-search" aria-hidden="true"></i>;
+  const searchIcon = <i className="fa fa-search" aria-hidden="true"></i>;
 
   if (props.withButton) {
     return (
@@ -19,9 +20,14 @@ export default function FilterInput(props) {
             value={props.tempKeyword}
             onChange={(e) => props.actionTemp(e.target.value)}
             />
-          <button type="submit" className="filter-input filter-input-btn">
-            {searchIcon}
-          </button>
+          <Button
+            className="filter-input filter-input-btn"
+            display="icon"
+            type="submit"
+            icon="search"
+            text="Cari"
+            isSmall
+            />
         </div>
       </form>
     )
