@@ -41,7 +41,7 @@
 .filter-input-txt-search-icon {
   color: #BDBDBD;
   position: absolute;
-  right: 2.3rem;
+  right: 2rem;
   width: 0;
   transition: 0.25s;
 }
@@ -70,6 +70,7 @@
   padding: 0.125rem 0.625rem;
   background-color: #673AB7;
   color: #FFFFFF;
+  font-size: 1rem;
 }
 
 /* State */
