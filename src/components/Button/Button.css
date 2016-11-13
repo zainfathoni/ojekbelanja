@@ -1,6 +1,6 @@
-/* Button.css */
+/*** Button.css ***/
 
-/* Module */
+/** Module **/
 
 .Button {
   /* Color */
@@ -20,12 +20,7 @@
   transition: 0.1s;
 }
 
-/* State */
-
-.Button:focus {
-  /* Basic UI */
-  outline: 0;
-}
+/** State **/
 
 .Button:active,
 .Button:focus {
