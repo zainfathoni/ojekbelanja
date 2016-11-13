@@ -4,7 +4,7 @@ import './Header.css';
 
 export default function Header(props) {
   const ojekIcon = <i className="fa fa-motorcycle" aria-hidden="true"></i>;
-  const belanjaIcon = <i className="fa fa-shopping-basket" aria-hidden="true"></i>;
+  const belanjaIcon = <i className="fa fa-shopping-cart" aria-hidden="true"></i>;
   const nyasarIcon = <i className="fa fa-question" aria-hidden="true"></i>;
 
   return (

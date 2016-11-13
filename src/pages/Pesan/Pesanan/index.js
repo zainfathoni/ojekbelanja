@@ -103,11 +103,15 @@ export default function Pesanan(props) {
                       </span>
                     </td>
                     <td width="10%" className="pesanan-item-order-qty-action">
-                      <button
-                        className="order-action order-action-clear"
-                        onClick={(e) => remove(key)}>
-                        <i className="fa fa-lg fa-trash" aria-hidden="true"></i>
-                      </button>
+                      <Button
+                        type="icon"
+                        action={(e) => kembali(tokoId)}
+                        icon="trash"
+                        text="Hapus"
+                        isSecondary
+                        isSmall
+                        addClass="pesanan-item-order-qty-action-btn"
+                        />
                     </td>
                   </tr>
                 </tbody>

@@ -26,6 +26,7 @@
 }
 
 .pesanan-heading-action {
+  /* Basic Box */
   position: absolute;
   right: 0.5rem;
   top: .375rem;
@@ -91,7 +92,7 @@ td.pesanan-item-order-qty {
 
 .pesanan-item-order-qty-input {
   width: 3rem;
-  height: 1.75rem;
+  height: 1.875rem;
   line-height: 2rem;
   border: 1px solid #CCC;
   border-radius: .25rem;
@@ -114,6 +115,12 @@ td.pesanan-item-order-qty {
 
 .pesanan-item-order-qty-action > .order-action-clear {
   padding: .5rem;
+}
+
+.pesanan-item-order-qty-action:after {
+  display: block;
+  content: "\00a0";
+  height: .75rem;
 }
 
 .pesanan-footer {
