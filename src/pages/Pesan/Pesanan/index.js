@@ -34,7 +34,7 @@ export default function Pesanan(props) {
         </div>
         <Button
           className="pesanan-heading-action"
-          type="content"
+          display="content"
           action={(e) => kembali(tokoId)}
           icon="arrow-left"
           text="Kembali"
@@ -104,7 +104,7 @@ export default function Pesanan(props) {
                     </td>
                     <td width="8%" className="pesanan-item-order-qty-action">
                       <Button
-                        type="icon"
+                        display="icon"
                         action={(e) => remove(key)}
                         icon="trash"
                         text="Hapus"
