@@ -56,12 +56,21 @@ export default function Card(props) {
               </div>
               {count ?
                 <div>
-                  <button className="card-action-btn minus" onClick={(e) => props.actionReverse(props.id)}>
-                    <i className="fa fa-lg fa-minus" aria-hidden="true"></i>
-                  </button>
-                  <button className="card-action-btn plus" onClick={(e) => props.action(props.id)}>
-                    <i className="fa fa-lg fa-plus" aria-hidden="true"></i>
-                  </button>
+                  <Button
+                    type="icon"
+                    action={(e) => props.actionReverse(props.id)}
+                    icon="minus"
+                    text="Kurangi"
+                    isSecondary
+                    addClass="minus"
+                    />
+                  <Button
+                    type="icon"
+                    action={(e) => props.action(props.id)}
+                    icon="plus"
+                    text="Tambahkan"
+                    addClass="plus"
+                    />
                 </div>
                 :
                 <Button

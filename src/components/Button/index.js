@@ -21,8 +21,8 @@ export default function Button(props) {
   const isIcon = props.type === 'icon';
 
   return (
-    <button className={buttonClass} onClick={props.action}>
-      <i className={iconClass} title={isIcon && props.text} aria-hidden="true"></i>
+    <button className={buttonClass} title={isIcon ? props.text : ""} onClick={props.action}>
+      <i className={iconClass} aria-hidden="true"></i>
       {!isIcon && ` ${props.text}`}
     </button>
   )
