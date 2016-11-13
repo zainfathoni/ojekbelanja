@@ -105,12 +105,11 @@ export default function Pesanan(props) {
                     <td width="10%" className="pesanan-item-order-qty-action">
                       <Button
                         type="icon"
-                        action={(e) => kembali(tokoId)}
+                        action={(e) => remove(key)}
                         icon="trash"
                         text="Hapus"
                         isSecondary
                         isSmall
-                        addClass="pesanan-item-order-qty-action-btn"
                         />
                     </td>
                   </tr>
