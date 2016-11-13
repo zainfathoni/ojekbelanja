@@ -19,8 +19,18 @@
   transition: 0.1s;
 }
 
+.Button-secondary {
+  /* Background & Border */
+  background-color: #FF6D00;
+  border-color: #FF6D00;
+}
+
 .Button-fullwidth {
   width: 100%;
+}
+
+.Button-large {
+  margin: 0 .375rem;
 }
 
 /** State **/
@@ -32,4 +42,13 @@
 
 .Button:active {
   background-color: #FF6D00;
+}
+
+.Button-secondary:active,
+.Button-secondary:focus {
+  border-color: #673AB7;
+}
+
+.Button-secondary:active {
+  background-color: #673AB7;
 }

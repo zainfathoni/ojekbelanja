@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Button from '../../../components/Button';
 import '../../pages.css';
 import './Order.css';
 
@@ -38,18 +39,19 @@ export default function Order(props) {
         </div>
       </div>
       <div className="order-action-wrapper">
-        <button
-          className="order-action order-action-clear"
-          onClick={(e) => props.clear()}>
-          <i className="fa fa-lg fa-times" aria-hidden="true"></i>
-          {" Kosongkan"}
-        </button>
-        <button
-          className="order-action order-action-checkout"
-          onClick={(e) => props.checkout(tokoId)}>
-          <i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
-          {" Pesan"}
-        </button>
+        <Button
+          type="large"
+          action={(e) => props.clear()}
+          icon="times"
+          text="Kosongkan"
+          isPrimary={false}
+          />
+        <Button
+          type="large"
+          action={(e) => props.checkout(tokoId)}
+          icon="shopping-cart"
+          text="Pesan"
+          />
       </div>
     </div>
   )
