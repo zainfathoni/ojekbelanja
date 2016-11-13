@@ -33,13 +33,13 @@ export default function Pesanan(props) {
           {" Pesanan Anda"}
         </div>
         <Button
+          className="pesanan-heading-action"
           type="content"
           action={(e) => kembali(tokoId)}
           icon="arrow-left"
           text="Kembali"
           isSecondary
           isSmall
-          addClass="pesanan-heading-action"
           />
       </div>
       <div className="pesanan-body">
@@ -57,7 +57,7 @@ export default function Pesanan(props) {
                         alt={item.name}
                         />
                     </td>
-                    <td width="70%" className="pesanan-item-detail">
+                    <td width="72%" className="pesanan-item-detail">
                       <table width="100%">
                         <tbody>
                           <tr>
@@ -102,7 +102,7 @@ export default function Pesanan(props) {
                         {item.unit}
                       </span>
                     </td>
-                    <td width="10%" className="pesanan-item-order-qty-action">
+                    <td width="8%" className="pesanan-item-order-qty-action">
                       <Button
                         type="icon"
                         action={(e) => remove(key)}

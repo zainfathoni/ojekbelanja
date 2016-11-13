@@ -5,13 +5,13 @@ import './Button.css';
 
 export default function Button(props) {
   const buttonClass = classNames(
+    props.className,
     'Button',
     `Button-${props.type}`,
     {
       'Button-small': props.isSmall,
       'Button-secondary': props.isSecondary
-    },
-    props.addClass
+    }
   )
   const iconClass = classNames(
     'fa',
@@ -45,6 +45,5 @@ Button.propTypes = {
   icon: T.string.isRequired,  // Icon ID in Font Awesome
   text: T.string.isRequired,  // Button Text
   isSmall: T.bool,            // Size: Large (default) vs Small
-  isSecondary: T.bool,        // Role: Primary (default) vs Secondary
-  addClass: T.string          // Additional classNames (if any)
+  isSecondary: T.bool         // Role: Primary (default) vs Secondary
 }

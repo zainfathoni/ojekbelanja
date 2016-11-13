@@ -57,19 +57,19 @@ export default function Card(props) {
               {count ?
                 <div>
                   <Button
+                    className="minus"
                     type="icon"
                     action={(e) => props.actionReverse(props.id)}
                     icon="minus"
                     text="Kurangi"
                     isSecondary
-                    addClass="minus"
                     />
                   <Button
+                    className="plus"
                     type="icon"
                     action={(e) => props.action(props.id)}
                     icon="plus"
                     text="Tambahkan"
-                    addClass="plus"
                     />
                 </div>
                 :
