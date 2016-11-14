@@ -94,6 +94,9 @@ export default class FilterCards extends Component {
                   title={filteredItems[key][titleField]}
                   description={filteredItems[key][descriptionField]}
                   image={require(`../../css/images/${filteredItems[key][imageField]}`)}
+                  unit="pengiriman"
+                  step={1}
+                  price={filteredItems[key].cost}
                   action={action}
                   actionReverse={actionReverse}
                   />

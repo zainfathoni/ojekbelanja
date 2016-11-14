@@ -37,6 +37,14 @@ export default function Card(props) {
           </div>
         </div>
         <div className="card-action">
+          <div className="card-action-price-parent">
+            <span className="card-action-price">
+              {`Rp ${props.price.toLocaleString('id')}`}
+            </span>
+            <span className="card-action-unit">
+              {` / ${props.unit}`}
+            </span>
+          </div>
           {!props.actionReverse ?
             <Button
               type="fullwidth"
@@ -46,14 +54,6 @@ export default function Card(props) {
               />
             :
             <div>
-              <div className="card-action-price-parent">
-                <span className="card-action-price">
-                  {`Rp ${props.price.toLocaleString('id')}`}
-                </span>
-                <span className="card-action-unit">
-                  {` / ${props.unit}`}
-                </span>
-              </div>
               {count ?
                 <div>
                   <Button
