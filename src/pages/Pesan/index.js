@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Pesanan from './Pesanan';
+import Pemesan from './Pemesan';
 import { escapeFloatingPoint } from '../../services/product';
 import { tokos } from '../../models';
 import '../pages.css';
@@ -91,6 +92,9 @@ export default class Pesan extends Component {
               />
           </div>
           <div className="l-pesan">
+            <Pemesan
+              nama="Zain"
+              />
           </div>
 
         </main>
