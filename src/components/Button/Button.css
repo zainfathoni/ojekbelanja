@@ -70,3 +70,8 @@
 .Button-secondary:active {
   background-color: #673AB7;
 }
+
+.Button:disabled {
+  cursor: not-allowed;
+  opacity: .7;
+}
