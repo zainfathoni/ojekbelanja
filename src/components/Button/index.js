@@ -25,7 +25,8 @@ export default function Button(props) {
       className={buttonClass}
       title={isIcon ? props.text : ""}
       type={props.type}
-      onClick={props.action}>
+      onClick={props.action}
+      disabled={props.disabled}>
       <i className={iconClass} aria-hidden="true"></i>
       {!isIcon && ` ${props.text}`}
     </button>
@@ -48,7 +49,8 @@ Button.propTypes = {
   ]).isRequired,
   icon: T.string.isRequired,  // Icon ID in Font Awesome
   text: T.string.isRequired,  // Button Text
-  action: T.func,  // Action Function
+  action: T.func,             // Action Function
   isSmall: T.bool,            // Size: Large (default) vs Small
-  isSecondary: T.bool         // Role: Primary (default) vs Secondary
+  isSecondary: T.bool,        // Role: Primary (default) vs Secondary
+  disabled: T.bool            // Button is disabled
 }

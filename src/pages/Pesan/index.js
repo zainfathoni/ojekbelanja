@@ -22,9 +22,15 @@ export default class Pesan extends Component {
     // Fetch 'order' from Local Storage
     const localStorageRef = localStorage.getItem(`order-${this.props.params.tokoId}`);
     if (localStorageRef) {
-      this.setState({
-        order: JSON.parse(localStorageRef)
-      })
+      const order = JSON.parse(localStorageRef);
+      if (Object.keys(order).length) {
+        this.setState({
+          order
+        })
+      } else {
+        // No ordered Item, go back to Toko page
+        this.goToToko(this.props.params.tokoId);
+      }
     }
   }
 
@@ -33,6 +39,11 @@ export default class Pesan extends Component {
     localStorage.setItem(
       `order-${this.props.params.tokoId}`,
       JSON.stringify(nextState.order));
+
+    if (!Object.keys(nextState.order).length) {
+      // No ordered Item, go back to Toko page
+      this.goToToko(this.props.params.tokoId);
+    }
   }
 
   /*** Methods ***/

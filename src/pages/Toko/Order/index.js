@@ -13,8 +13,9 @@ export default function Order(props) {
   } = props;
 
   // Calculate Price
+  const orderKeys = Object.keys(order);
   const totalPrice =
-    Object.keys(order)
+    orderKeys
       .reduce(
       (sum, key) =>
         sum + (products[key].price * products[key].step * order[key])
@@ -45,12 +46,14 @@ export default function Order(props) {
           icon="times"
           text="Kosongkan"
           isSecondary
+          disabled={!orderKeys.length}
           />
         <Button
           display="content"
           action={(e) => props.checkout(tokoId)}
           icon="shopping-cart"
           text="Pesan"
+          disabled={!orderKeys.length}
           />
       </div>
     </div>
