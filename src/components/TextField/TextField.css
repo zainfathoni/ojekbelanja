@@ -2,10 +2,62 @@
 
 /** Module **/
 
+.TextField {
+  /* Color */
+  color: rgba(0,0,0,.54);
+  /* Basic Box */
+  padding: .5rem 0;
+  /* Text */
+  line-height: 2rem;
+  text-align: left;
+}
 
+.TextField-label {
+  /* Font */
+  font-weight: 700;
+}
 
-/** State **/
+.TextField-label-span {
+  /* Font */
+  font-weight: 300;
+  font-style: italic;
+  font-size: .75rem;
+}
 
-.hidden {
-  display: none;
+.TextField-input {
+  /* Color */
+  color: rgba(0,0,0,.78);
+  /* Background & Border */
+  border-radius: .375rem;
+  border: 1px solid rgba(0,0,0,.38);
+  padding: .375rem .625rem;
+  /* Basic Box */
+  width: 100%;
+  /* Text */
+  line-height: 1.5rem;
+  /* Font */
+  font-size: .875rem;
+  /* Animation */
+  transition: .5s;
+}
+
+.TextField-message {
+  /* Color */
+  color: #FF6D00;
+  /* Basic Box */
+  float: right;
+  /* Text */
+  line-height: 1.5rem;
+  /* Font */
+  font-size: .75rem;
+}
+
+/* State */
+
+.TextField-input:focus {
+  border: 1px solid #673AB7;
+}
+
+.TextField-input.error {
+  border-color: #FF6D00;
 }

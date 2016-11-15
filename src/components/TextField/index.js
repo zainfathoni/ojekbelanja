@@ -28,15 +28,7 @@ export default function TextField(props) {
     'TextField-input',
     { 'error': !validate(value) || (required && value.length === 0) }
   )
-  const requiredMessageClass = classnames(
-    'TextField-message',
-    { 'hidden': value.length > 0 || !required }
-  )
-  const messageClass = classnames(
-    'TextField-message',
-    { 'hidden': value.length === 0 || validate(value) }
-  )
-
+  
   return (
     <div className={textFieldClass}>
       <label className={labelClass} htmlFor={name}>
@@ -46,8 +38,13 @@ export default function TextField(props) {
         }
       </label>
       <input className={inputClass} id={name} name={name} type={type} value={value} onChange={(e) => update(name, e.target.value)} placeholder={placeholder} required={required} />
-      <span className={messageClass}>* {message}</span>
-      <span className={requiredMessageClass}>* {label} harus diisi</span>
+      {value ?
+        (!validate(value) &&
+          <span className="TextField-message">* {message}</span>)
+        :
+        (required &&
+          <span className="TextField-message">* {label} harus diisi</span>)
+      }
     </div>
   )
 }
