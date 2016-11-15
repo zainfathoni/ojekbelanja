@@ -14,11 +14,7 @@ export default class Pesan extends Component {
 
     this.state = {
       order: {},
-      user: {
-        name: 'Zain Fathoni',
-        nickname: 'Zain',
-        email: 'zain.fathoni@gmail.com'
-      }
+      user: {}
     }
   }
 
@@ -26,9 +22,9 @@ export default class Pesan extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const localStorageRef = localStorage.getItem(`order-${this.props.params.tokoId}`);
-    if (localStorageRef) {
-      const order = JSON.parse(localStorageRef);
+    const orderRef = localStorage.getItem(`order-${this.props.params.tokoId}`);
+    if (orderRef) {
+      const order = JSON.parse(orderRef);
       if (Object.keys(order).length) {
         this.setState({
           order
@@ -36,6 +32,17 @@ export default class Pesan extends Component {
       } else {
         // No ordered Item, go back to Toko page
         this.goToToko(this.props.params.tokoId);
+      }
+    }
+
+    // Fetch 'user' from Local Storage
+    const userRef = localStorage.getItem('user');
+    if (userRef) {
+      const user = JSON.parse(userRef);
+      if (user) {
+        this.setState({
+          user
+        })
       }
     }
   }
@@ -50,6 +57,11 @@ export default class Pesan extends Component {
       // No ordered Item, go back to Toko page
       this.goToToko(this.props.params.tokoId);
     }
+
+    // Save 'user' to Local Storage
+    localStorage.setItem(
+      'user',
+      JSON.stringify(nextState.user));
   }
 
   /*** Methods ***/
