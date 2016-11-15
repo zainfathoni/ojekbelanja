@@ -55,6 +55,7 @@ export default function Pemesan(props) {
           action={(e) => console.log('Lanjutkan')}
           icon="arrow-right"
           text="Lanjutkan"
+          disabled={!validateEmail(user.email)}
           />
       </div>
 
