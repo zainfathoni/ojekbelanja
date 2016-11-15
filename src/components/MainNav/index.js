@@ -22,7 +22,10 @@ export default class MainNav extends Component {
               <Link to="/login" className="mainnav-item mainnav-login" activeClassName="is-mainnav-active"><i className="material-icons">exit_to_app</i> Login</Link>
             </nav>
           </aside>
-          <div className="backNav" />
+          <div className="content">
+            <div className="backNav"></div>
+            <label htmlFor="check" className="full-screen-close" />
+          </div>
           <div className="l-mainnav">
             <nav className="mainnav">
               <Link to="/" className="mainnav-item mainnav-home">Ojek <i className="material-icons">motorcycle</i><i className="material-icons">shopping_basket</i> Belanja</Link>
