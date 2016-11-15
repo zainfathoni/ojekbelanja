@@ -1,76 +1,65 @@
-import React, { Component, PropTypes as T } from 'react';
+import React, { PropTypes as T } from 'react';
 
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
+import { validateEmail } from '../../../services/validation';
 import '../../pages.css';
 import './Pemesan.css';
 
-export default class Pemesan extends Component {
+export default function Pemesan(props) {
+  const {
+    user,
+    update
+  } = props;
 
-  /*** Methods ***/
-
-  validateEmail = (value) => {
-    var re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(value);
-  }
-
-  /*** Render ***/
-
-  render() {
-    const {
-      user,
-      update,
-    } = this.props;
-
-    return (
-      <div className="pemesan">
-        <div className="pemesan-heading">
-          <div className="pemesan-heading-title">
-            <i className="fa fa-lg fa-address-card" aria-hidden="true"></i>
-            {" Data Pemesan"}
-          </div>
+  return (
+    <div className="pemesan">
+      <div className="pemesan-heading">
+        <div className="pemesan-heading-title">
+          <i className="fa fa-lg fa-address-card" aria-hidden="true"></i>
+          {" Data Pemesan"}
         </div>
-        <div className="pemesan-body">
-          <TextField
-            name="name"
-            label="Nama"
-            placeholder="Nama Lengkap"
-            value={user.name}
-            update={update}
-            required
-            />
-          <TextField
-            name="nickname"
-            label="Panggilan"
-            placeholder="Nama Panggilan"
-            value={user.nickname}
-            update={update}
-            />
-          <TextField
-            type="email"
-            name="email"
-            label="Email"
-            placeholder="Alamat Email"
-            value={user.email}
-            update={update}
-            validate={this.validateEmail}
-            message="Alamat Email tidak valid"
-            required
-            />
-        </div>
-        <div className="pemesan-footer">
-          <Button
-            className="pemesan-footer-action"
-            display="content"
-            action={(e) => console.log('Lanjutkan')}
-            icon="arrow-right"
-            text="Lanjutkan"
-            />
-        </div>
-
       </div>
-    )
-  }
+      <div className="pemesan-body">
+        <TextField
+          name="name"
+          label="Nama"
+          placeholder="Nama Lengkap"
+          value={user.name}
+          update={update}
+          required
+          />
+        <TextField
+          name="nickname"
+          label="Panggilan"
+          placeholder="Nama Panggilan"
+          value={user.nickname}
+          update={update}
+          />
+        <TextField
+          type="email"
+          name="email"
+          label="Email"
+          placeholder="Alamat Email"
+          value={user.email}
+          update={update}
+          validate={validateEmail}
+          message="Alamat Email tidak valid"
+          required
+          />
+      </div>
+      <div className="pemesan-footer">
+        <Button
+          className="pemesan-footer-action"
+          display="content"
+          action={(e) => console.log('Lanjutkan')}
+          icon="arrow-right"
+          text="Lanjutkan"
+          />
+      </div>
+
+    </div>
+  )
 }
 
 Pemesan.propTypes = {
