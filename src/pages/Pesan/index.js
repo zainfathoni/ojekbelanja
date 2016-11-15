@@ -93,7 +93,7 @@ export default class Pesan extends Component {
           </div>
           <div className="l-pesan">
             <Pemesan
-              nama="Zain"
+              name="Zain"
               />
           </div>
 
