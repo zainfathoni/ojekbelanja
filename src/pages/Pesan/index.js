@@ -13,7 +13,12 @@ export default class Pesan extends Component {
     super(props);
 
     this.state = {
-      order: {}
+      order: {},
+      user: {
+        name: 'Zain Fathoni',
+        nickname: 'Zain',
+        email: 'zain.fathoni@gmail.com'
+      }
     }
   }
 
@@ -70,6 +75,14 @@ export default class Pesan extends Component {
     })
   }
 
+  updateUser = (field, value) => {
+    let newUser = this.state.user;
+    newUser[field] = value;
+    this.setState({
+      user: newUser
+    })
+  }
+
   /*** Render ***/
 
   render() {
@@ -93,7 +106,8 @@ export default class Pesan extends Component {
           </div>
           <div className="l-pesan">
             <Pemesan
-              name="Zain"
+              user={this.state.user}
+              update={this.updateUser}
               />
           </div>
 
