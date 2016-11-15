@@ -26,7 +26,7 @@ export default function TextField(props) {
   )
   const inputClass = classnames(
     'TextField-input',
-    { 'error': !validate() || (required && value.length === 0) }
+    { 'error': !validate(value) || (required && value.length === 0) }
   )
   const requiredMessageClass = classnames(
     'TextField-message',
@@ -34,7 +34,7 @@ export default function TextField(props) {
   )
   const messageClass = classnames(
     'TextField-message',
-    { 'hidden': value.length === 0 || validate() }
+    { 'hidden': value.length === 0 || validate(value) }
   )
 
   return (

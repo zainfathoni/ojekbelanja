@@ -7,6 +7,14 @@ import './Pemesan.css';
 
 export default class Pemesan extends Component {
 
+  /*** Methods ***/
+
+  validateEmail = (value) => {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(value);
+  }
+
+  /*** Render ***/
 
   render() {
     const {
@@ -45,7 +53,7 @@ export default class Pemesan extends Component {
             placeholder="Alamat Email"
             value={user.email}
             update={update}
-            validate={() => false}
+            validate={this.validateEmail}
             message="Alamat Email tidak valid"
             required
             />
