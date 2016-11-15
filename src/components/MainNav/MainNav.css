@@ -64,18 +64,31 @@ aside {display: none;}
 
 .checkBtn {display: none;}
 
-@media (max-width: 45em) {
-  .l-mainnav{
-    display: none;
-  }
-
-  div#root {
-    margin-top: 3rem;
+@media (max-width: 30em) {
+  .l-mainnav {
+    margin-left: 3.1rem;
   }
 
   aside {
+    top: 3.1rem;
     display: block;
     position: fixed;
+  }
+
+  .full-screen-close
+  {
+    display: none;
+  }
+
+  .full-screen-close
+  {
+    width: 100%;
+    height: 100%;
+    position: fixed;;
+    cursor: pointer;
+    top:0;
+    left:0;
+    z-index: 90;
   }
 
   .checkBtn {display: block;}
@@ -105,7 +118,7 @@ aside {display: none;}
   {
     background: #d1c4e9;
     float: left;
-    height: calc(100% - 3rem);
+    height: calc(100% - 3.1rem);
     position: fixed;
     z-index:99;
     overflow: scroll;
@@ -132,7 +145,7 @@ aside {display: none;}
   .slide-menu a {
     float: left;
     width: 100%;
-    border: 1px solid #D1C4E9;
+    border: 0.1rem solid #D1C4E9;
     border-bottom-color: #BDBDBD;
     text-decoration: none;
     color: #212121;
@@ -140,29 +153,13 @@ aside {display: none;}
     padding: 0.75rem;
     transition: all 0.25s ease 0s;
   }
-
-  .mainnav-home {
-    background: #d1c4e9;
-    font-size: 1.2rem;
-    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.8);
-    top: 0;
-    left: 0;
-    position: fixed;
-    z-index: 101;
-  }
 }
 
-@media (max-width: 45em) and (min-width: 25em) {
+@media (max-width: 30em) and (min-width: 25em) {
   .menu-container
   {
-    width: 300px;
-    margin-left: -300px;
-  }
-}
-
-@media (max-width: 30em) {
-  a[href^="/tentang-kami"], a[href^="/styleguide"]{
-    display: none;
+    width: 20rem;
+    margin-left: -20rem;
   }
 }
 
@@ -174,8 +171,42 @@ aside {display: none;}
   }
 }
 
-@media (max-width: 22.5em) {
-  a[href^="/login"]{
+@media (max-width: 30em){
+  .l-mainnav a[href^="/tentang-kami"], .l-mainnav a[href^="/styleguide"]{
     display: none;
+  }
+}
+
+@media (max-width: 30em) and (min-width: 22.6em) {
+  aside .mainnav-home, aside a[href^="/faq"], aside a[href^="/cara-kerja"], aside a[href^="/login"]{
+    display: none;
+  }
+}
+
+@media (max-width: 22.5em) and (min-width: 18.1em) {
+  .l-mainnav a[href^="/faq"]{
+    display: none;
+  }
+
+  aside .mainnav-home, aside a[href^="/faq"], aside a[href^="/cara-kerja"], aside a[href^="/login"]{
+    display: none;
+  }
+
+  aside a[href^="/faq"] {
+    display: block;
+  }
+}
+
+@media (max-width: 18em) {
+  .l-mainnav a[href^="/faq"], .l-mainnav a[href^="/login"], .l-mainnav a[href^="/cara-kerja"]{
+    display: none;
+  }
+
+  aside .mainnav-home, aside a[href^="/faq"], aside a[href^="/cara-kerja"]{
+    display: none;
+  }
+
+  aside a[href^="/faq"], aside a[href^="/login"], aside a[href^="/cara-kerja"]{
+    display: block;
   }
 }
