@@ -115,12 +115,12 @@ export default class Pesan extends Component {
 
     return (
       <div className="l-fullwidth">
-        <div className="l-wrapper-mainnav">
+        <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
         <Header heading={"Toko " + tokos[tokoId].name} />
-        <main className="l-wrapper-filter">
-          <div className="l-pesan">
+        <main className="l-main">
+          <div className="l-Pesan">
             <Pesanan
               tokoId={tokoId}
               order={this.state.order}
@@ -130,7 +130,7 @@ export default class Pesan extends Component {
               cleanUp={this.cleanUpOrder}
               />
           </div>
-          <div className="l-pesan">
+          <div className="l-Pesan">
             <Pemesan
               user={this.state.user}
               onChange={this.updateUser}

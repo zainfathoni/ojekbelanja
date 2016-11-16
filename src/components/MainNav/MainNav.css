@@ -22,7 +22,7 @@
 /** Module **/
 
 .MainNav {
-  /* Font */
+  /* Fonts */
   font-weight: 700;
   font-size: 0.9rem;  
 }
@@ -43,7 +43,7 @@
 }
 
 .MainNav-home {
-  /* Font */
+  /* Fonts */
   font-size: 1.2rem;
 }
 
@@ -52,7 +52,7 @@
   border-right-color: #D1C4E9;
   /* Basic Box */
   float: right;
-  /* Font */
+  /* Fonts */
   font-size: 1rem;
 }
 

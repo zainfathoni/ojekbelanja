@@ -1,28 +1,32 @@
 /*** StyleGuide.css ***/
 
-/* Layout */
+/** Layout **/
 
-.l-styleguide {
+.l-StyleGuide {
+  /* Basic Box */
   max-width: 82em;
   margin: auto;
 }
 
-/* Module */
+/** Module **/
 
-section {
-  margin: 1rem;
+.StyleGuide-section {
+  /* Background & Borders */
   border: .125rem groove #673AB7;
-  padding: 1rem;
-  text-align: center;
+  /* Basic Box */
   position: relative;
+  margin: 1rem;
+  padding: 1rem;
+  /* Text */
+  text-align: center;
 }
 
-section > label {
-  /* Positioning */
+.StyleGuide-label {
+  /* Background & Borders */
+  background-color: #EDE7F6;
+  /* Basic Box */
   position: absolute;
   top: -1rem;
   left: 1rem;
-  /* Styling */
-  background-color: #EDE7F6;
   padding: .25rem;
 }

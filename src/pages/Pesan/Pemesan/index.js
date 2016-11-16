@@ -9,7 +9,7 @@ import './Pemesan.css';
 export default function Pemesan(props) {
   const {
     user,
-    onChange
+    onChange,
   } = props;
 
   const isInvalid = isUserInvalid(user);
@@ -91,5 +91,5 @@ export default function Pemesan(props) {
 
 Pemesan.propTypes = {
   user: T.object.isRequired,
-  onChange: T.func.isRequired
+  onChange: T.func.isRequired,
 }

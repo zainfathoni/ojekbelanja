@@ -8,8 +8,9 @@
   border-radius: 0.25rem;
   /* Basic Box */
   margin: .5rem 0;
-  box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.16), 0 .125rem .25rem 0 rgba(0,0,0,.12);
   overflow: hidden;
+  /* Background & Borders */
+  box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.16), 0 .125rem .25rem 0 rgba(0,0,0,.12);
 }
 
 /** Module - Card Image **/
@@ -47,7 +48,7 @@
 }
 
 .Card-image-overlay-qty {
-  /* Font */
+  /* Fonts */
   font-size: 1.5rem;
 }
 
@@ -61,7 +62,7 @@
 }
 
 .Card-content-title {
-  /* Font */
+  /* Fonts */
   font-size: 1rem;
   font-weight: 700;
 }
@@ -69,7 +70,7 @@
 .Card-content-description {
   /* Color */
   color: #888;
-  /* Font */
+  /* Fonts */
   font-size: .8rem;
   font-weight: 300;
 }
@@ -94,7 +95,7 @@
 .Card-action-price {
   /* Color */
   color: #FF6D00;
-  /* Font */
+  /* Fonts */
   font-weight: 700;
   font-size: 1.125rem;
 }
@@ -103,7 +104,7 @@
 .Card-action-step {
   /* Color */
   color: #888;
-  /* Font */
+  /* Fonts */
   font-size: .75rem;
 }
 
@@ -135,6 +136,6 @@
 /** State **/
 
 .Card-is-selected {
-  /* Basic Box */
+  /* Background & Borders */
   box-shadow: inset 0 0 .75rem #673AB7;
 }

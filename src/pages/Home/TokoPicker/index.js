@@ -38,7 +38,7 @@ export default class TokoPicker extends Component {
 
   render() {
     return (
-      <main className="l-wrapper-filter">
+      <main className="l-main">
         <FilterInput
           placeholder="Cari Nama atau Area Layanan"
           keyword={this.state.keyword}

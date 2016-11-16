@@ -29,35 +29,35 @@ export default class StyleGuide extends Component {
 
   render() {
     return (
-      <div className="l-styleguide">
+      <div className="l-StyleGuide">
 
-        <section>
-          <label>Main Navigation</label>
-          <div className="l-wrapper-mainnav">
+        <section className="StyleGuide-section">
+          <label className="StyleGuide-label">Main Navigation</label>
+          <div className="l-wrapper-MainNav">
             <MainNav />
           </div>
         </section>
 
-        <section>
-          <label>Header</label>
+        <section className="StyleGuide-section">
+          <label className="StyleGuide-label">Header</label>
           <Header />
         </section>
 
-        <section>
-          <label>Header Not Found</label>
+        <section className="StyleGuide-section">
+          <label className="StyleGuide-label">Header Not Found</label>
           <Header is404 />
         </section>
         
-        <section>
-          <label>Paragraph</label>
+        <section className="StyleGuide-section">
+          <label className="StyleGuide-label">Paragraph</label>
           <p>
             Pilih Toko <strong>Ojek Belanja</strong> Anda
         </p>
         </section>
 
-        <section>
-          <label>Filter Input</label>
-          <div className="l-wrapper-filter">
+        <section className="StyleGuide-section">
+          <label className="StyleGuide-label">Filter Input</label>
+          <div className="l-main">
             <FilterInput
               placeholder="Without Button"
               keyword={this.state.keyword}
@@ -72,9 +72,9 @@ export default class StyleGuide extends Component {
           </div>
         </section>
 
-        <section>
-          <label>Filter Cards</label>
-          <div className="l-wrapper-filter">
+        <section className="StyleGuide-section">
+          <label className="StyleGuide-label">Filter Cards</label>
+          <div className="l-main">
             <FilterCards
               keyword=""
               items={tokos}

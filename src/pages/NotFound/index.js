@@ -9,7 +9,7 @@ export default class NotFound extends Component {
   render() {
     return (
       <div className="l-fullwidth">
-        <div className="l-wrapper-mainnav">
+        <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
         <Header is404={true} />

@@ -15,12 +15,12 @@
 .TextField-label {
   /* Basic Box */
   display: block;
-  /* Font */
+  /* Fonts */
   font-weight: 700;
 }
 
 .TextField-label-span {
-  /* Font */
+  /* Fonts */
   font-weight: 300;
   font-style: italic;
   font-size: .75rem;
@@ -35,7 +35,7 @@
   padding: .375rem .625rem;
   /* Text */
   line-height: 1.5rem;
-  /* Font */
+  /* Fonts */
   font-family: 'Lato', sans-serif;
   font-size: .875rem;
   /* Animation */
@@ -54,7 +54,7 @@
   float: right;
   /* Text */
   line-height: 1.5rem;
-  /* Font */
+  /* Fonts */
   font-size: .75rem;
 }
 

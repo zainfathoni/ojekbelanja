@@ -3,47 +3,52 @@
 /** Layout **/
 
 .l-fullwidth {
+  /* Border Box */
   width: 100%;
+  /* Text */
   text-align: center;
 }
 
-.l-wrapper-mainnav {
+.l-wrapper-MainNav {
+  /* Background & Borders */
   background-color: #D1C4E9;
 }
 
-.l-wrapper-filter {
+.l-main {
+  /* Basic Box - Center Horizontally on 60rem x 3rem */
   display: block;
-  /* Center Horizontally on 60rem x 3rem */
   max-width: 60em;
   margin: auto;
 }
 
 .l-wrapper-footer {
+  /* Color */
+  color: #FF6D00;
+  /* Basic Box - Stick to the bottom of the page */
   display: block;
-  /* Stick to the bottom of the page */
   position: fixed;
   right: 0;
   left: 0;
   bottom: 0;
   z-index: 2;
-  /* Color & Shadow */
+  /* Background & Borders */
   background-color: #EDE7F6;
   box-shadow: 0 0 .625rem rgba(0,0,0,.8);
-  color: #FF6D00;
 }
 
-.l-pesan {
+.l-Pesan {
+  /* Basic Box */
   display: block;
-  /* 2 Grids */
+  /* Basic Box - 2 Columns Grid */
   width: 50%;
   float: left;
-  /* Gutter */
+  /* Basic Box - Gutter */
   padding: 0.5rem;
 }
 
 @media (max-width: 45em) {
-  .l-pesan {
-    /* 1 Grid */
+  .l-Pesan {
+    /* Basic Box - 1 Column Grid */
     width: 100%;
     float: none;
   }
