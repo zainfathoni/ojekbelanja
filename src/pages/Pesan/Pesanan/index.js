@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import Button from '../../../components/Button';
+import TextField from '../../../components/TextField';
 import { quantify, escapeFloatingPoint } from '../../../services/product';
 import { tokos, products } from '../../../models';
 import '../../pages.css';
@@ -91,12 +92,14 @@ export default function Pesanan(props) {
                       </table>
                     </td>
                     <td width="10%" className="pesanan-item-order-qty">
-                      <input
+                      <TextField
                         className="pesanan-item-order-qty-input"
                         type="number"
-                        step={item.step}
+                        display="fixed"
                         value={escapeFloatingPoint(order[key] * item.step)}
-                        onChange={(e) => update(key, e.target.value / item.step)}
+                        update={(e) => update(key, e.target.value / item.step)}
+                        min={0}
+                        step={item.step}
                         />
                       <span className="pesanan-item-order-qty-unit">
                         {item.unit}

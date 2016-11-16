@@ -35,12 +35,14 @@ export default function TextField(props) {
 
   return (
     <div className={textFieldClass}>
-      <label className={labelClass} htmlFor={name}>
-        {label}
-        {!required &&
-          <span className="TextField-label-span"> - Opsional</span>
-        }
-      </label>
+      {label &&
+        <label className={labelClass} htmlFor={name}>
+          {label}
+          {!required &&
+            <span className="TextField-label-span"> - Opsional</span>
+          }
+        </label>
+      }
       <input
         className={inputClass}
         id={name}
@@ -82,11 +84,12 @@ TextField.propTypes = {
   display: T.oneOf([                // TextField Display
     'fullwidth',                    // Full Width
     'content',                      // Content Width
+    'fixed',                        // Fixed Width
   ]),
-  name: T.string.isRequired,        // Name
-  label: T.string.isRequired,       // Label
-  placeholder: T.string.isRequired, // Placeholder
-  value: T.string,                  // Value
+  name: T.string,                   // Name
+  label: T.string,                  // Label
+  placeholder: T.string,            // Placeholder
+  value: T.any.isRequired,          // Value
   update: T.func.isRequired,        // Update Function
   validate: T.func,                 // Validation Function
   message: T.string,                // Error Message

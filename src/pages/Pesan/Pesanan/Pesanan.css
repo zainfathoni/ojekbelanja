@@ -90,11 +90,14 @@ td.pesanan-item-order-qty {
   text-align: center;
 }
 
-.pesanan-item-order-qty-input {
+.pesanan-item-order-qty-input.TextField {
+  padding: 0;
+}
+
+.pesanan-item-order-qty-input > .TextField-input {
   width: 3rem;
   line-height: 2rem;
-  border: 1px solid #CCC;
-  border-radius: .25rem;
+  padding: 1px;
   font-family: 'Lato', sans-serif;
   font-size: .875rem;
   color: #673AB7;
