@@ -64,9 +64,32 @@ aside {display: none;}
 
 .checkBtn {display: none;}
 
-@media (max-width: 30em) {
-  .l-mainnav {
+@media (max-width: 35em) {
+  .l-mainnav {top: 0;
     margin-left: 3.1rem;
+    z-index: 91;
+    position: fixed;
+    background:  #d1c4e9;
+  }
+
+  div#root {
+    margin-top: 3.1rem;
+  }
+
+  .backNav {
+    width: 100%;
+    height: 3.1rem;
+    left: 0;
+    top: 0;
+    z-index: 91;
+    position: fixed;
+    background:  #d1c4e9;
+  }
+
+  .mainnav {
+    height:3.1rem;
+    overflow:hidden;
+    whitespace:no-wrap;
   }
 
   aside {
@@ -116,7 +139,7 @@ aside {display: none;}
 
   .menu-container
   {
-    background: #d1c4e9;
+    background: #d1c4e9;;
     float: left;
     height: calc(100% - 3.1rem);
     position: fixed;
@@ -153,9 +176,14 @@ aside {display: none;}
     padding: 0.75rem;
     transition: all 0.25s ease 0s;
   }
+
+  .mainnav-login {
+    font-size: 1rem;
+    float: left;
+  }
 }
 
-@media (max-width: 30em) and (min-width: 25em) {
+@media (max-width: 35em) and (min-width: 25em) {
   .menu-container
   {
     width: 20rem;
@@ -171,24 +199,20 @@ aside {display: none;}
   }
 }
 
-@media (max-width: 30em){
+@media (max-width: 35em){
   .l-mainnav a[href^="/tentang-kami"], .l-mainnav a[href^="/styleguide"]{
     display: none;
   }
 }
 
-@media (max-width: 30em) and (min-width: 22.6em) {
+@media (max-width: 35em) {
   aside .mainnav-home, aside a[href^="/faq"], aside a[href^="/cara-kerja"], aside a[href^="/login"]{
     display: none;
   }
 }
 
-@media (max-width: 22.5em) and (min-width: 18.1em) {
+@media (max-width: 31em) {
   .l-mainnav a[href^="/faq"]{
-    display: none;
-  }
-
-  aside .mainnav-home, aside a[href^="/faq"], aside a[href^="/cara-kerja"], aside a[href^="/login"]{
     display: none;
   }
 
@@ -197,16 +221,22 @@ aside {display: none;}
   }
 }
 
-@media (max-width: 18em) {
-  .l-mainnav a[href^="/faq"], .l-mainnav a[href^="/login"], .l-mainnav a[href^="/cara-kerja"]{
+@media (max-width: 28em) {
+  .l-mainnav a[href^="/login"]{
     display: none;
   }
 
-  aside .mainnav-home, aside a[href^="/faq"], aside a[href^="/cara-kerja"]{
+  aside a[href^="/login"]{
+    display: block;
+  }
+}
+
+@media (max-width: 21em) {
+  .l-mainnav a[href^="/cara-kerja"]{
     display: none;
   }
 
-  aside a[href^="/faq"], aside a[href^="/login"], aside a[href^="/cara-kerja"]{
+  aside a[href^="/cara-kerja"]{
     display: block;
   }
 }
