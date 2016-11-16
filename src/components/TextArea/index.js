@@ -1,9 +1,9 @@
 import React, { Component, PropTypes as T } from 'react';
 import classnames from 'classnames';
 
-import './TextField.css';
+import './TextArea.css';
 
-export default class TextField extends Component {
+export default class TextArea extends Component {
   constructor(props) {
     super(props);
 
@@ -37,73 +37,67 @@ export default class TextField extends Component {
   render() {
     const {
       className,
-      type,
       display,
       name,
       label,
       placeholder,
       value,
+      rows,
       validate,
       message,
       required,
       onChange,
-      min,
-      max,
-      step,
     } = this.props;
     const {
       isPristine,
       isFocused,
     } = this.state
 
-    const textFieldClass = classnames(
+    const TextAreaClass = classnames(
       className,
-      'TextField',
+      'TextArea',
     )
     const labelClass = classnames(
-      'TextField-label'
+      'TextArea-label'
     )
     const inputClass = classnames(
-      'TextField-input',
-      `TextField-input-${display}`,
+      'TextArea-input',
+      `TextArea-input-${display}`,
       {
-        'TextField-input-is-error': !isPristine && !isFocused &&
+        'TextArea-input-is-error': !isPristine && !isFocused &&
         (value ? !validate(value) : required)
       }
     )
 
     return (
-      <div className={textFieldClass}>
+      <div className={TextAreaClass}>
         {label &&
           <label className={labelClass} htmlFor={name}>
             {label}
             {!required &&
-              <span className="TextField-label-span"> - Opsional</span>
+              <span className="TextArea-label-span"> - Opsional</span>
             }
           </label>
         }
-        <input
+        <textarea
           className={inputClass}
           id={name}
-          type={type}
           name={name}
           placeholder={placeholder}
           value={value}
+          rows={rows}
           onFocus={(e) => this.onFocus(name, e.target.value)}
           onChange={(e) => onChange(name, e.target.value)}
           onBlur={(e) => this.onBlur(name, e.target.value)}
           required={required}
-          min={min}
-          max={max}
-          step={step}
           />
         {!isPristine && !isFocused &&
           (value ?
             (!validate(value) && /* Validation Message */
-              <span className="TextField-message">{`* ${message}`}</span>)
+              <span className="TextArea-message">{`* ${message}`}</span>)
             :
             (required && /* Requiring Message */
-              <span className="TextField-message">{`* ${label} harus diisi`}</span>)
+              <span className="TextArea-message">{`* ${label} harus diisi`}</span>)
           )
         }
       </div>
@@ -111,35 +105,29 @@ export default class TextField extends Component {
   }
 }
 
-TextField.defaultProps = {
-  type: 'text',
+TextArea.defaultProps = {
   display: 'fullwidth',
   value: '',
+  rows: 3,
   validate: () => true,
   message: '',
-  min: 0,
-  max: 100,
-  step: 1,
 }
 
-TextField.propTypes = {
-  type: T.string,                   // Input Type [Text, Email, Number, ...]
-  display: T.oneOf([                // TextField Display
-    'fullwidth',                    // Full Width
-    'content',                      // Content Width
-    'fixed',                        // Fixed Width
+TextArea.propTypes = {
+  display: T.oneOf([            // TextArea Display
+    'fullwidth',                // Full Width
+    'content',                  // Content Width
+    'fixed',                    // Fixed Width
   ]),
-  name: T.string,                   // Name
-  label: T.string,                  // Label
-  placeholder: T.string,            // Placeholder
-  value: T.any.isRequired,          // Value
-  onChange: T.func.isRequired,      // onChange Function
-  onBlur: T.func,                   // onBlur Function
-  noValidation: T.bool,             // Flag to disable Validation
-  validate: T.func,                 // Validation Function
-  message: T.string,                // Error Message
-  required: T.bool,                 // is Required
-  min: T.number,                    // Minimum Value for Number/Range Type
-  max: T.number,                    // Maximum Value for Number/Range Type
-  step: T.number,                   // Step for Range Number/Type
+  name: T.string,               // Name
+  label: T.string,              // Label
+  placeholder: T.string,        // Placeholder
+  value: T.any.isRequired,      // Value
+  rows: T.any,                  // Number of Rows
+  onChange: T.func.isRequired,  // onChange Function
+  onBlur: T.func,               // onBlur Function
+  noValidation: T.bool,         // Flag to disable Validation
+  validate: T.func,             // Validation Function
+  message: T.string,            // Error Message
+  required: T.bool,             // is Required
 }

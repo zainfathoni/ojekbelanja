@@ -2,6 +2,7 @@ import React, { PropTypes as T } from 'react';
 
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
+import TextArea from '../../../components/TextArea';
 import { isEmailValid, isPhoneValid, isUserInvalid } from '../../../services/validation';
 import '../../pages.css';
 import './Pemesan.css';
@@ -69,6 +70,22 @@ export default function Pemesan(props) {
           value={user.city}
           onChange={onChange}
           required
+          />
+        <TextArea
+          name="address"
+          label="Alamat"
+          placeholder="Alamat Lengkap"
+          value={user.address}
+          rows={4}
+          onChange={onChange}
+          required
+          />
+        <TextArea
+          name="notes"
+          label="Catatan"
+          placeholder="Catatan Tambahan"
+          value={user.notes}
+          onChange={onChange}
           />
       </div>
       <div className="Pemesan-footer">
