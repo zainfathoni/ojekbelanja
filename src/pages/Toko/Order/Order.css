@@ -1,138 +1,170 @@
-/* Order.css */
+/*** Order.css ***/
 
-/* Layout */
+/** Layout **/
 
-.l-order {
-  /* Center Horizontally on 60rem x 3rem */
+.l-Order {
+  /* Basic Box - Center Horizontally on 60rem x 3rem */
   max-width: 60em;
   margin: auto;
 }
 
-.footer-buffer {
+.l-footer-buffer {
+  /* Basic Box */
   height: 4.5rem;
 }
 
-/* Module */
+/** Module **/
 
-.order-price-wrapper {
+.Order-price-wrapper {
+  /* Basic Box */
   float: left;
   margin: .5rem;
+  /* Fonts */
   font-size: 1.25rem;
   text-align: left;
 }
 
-.order-product-count {
-  display: inline-block;
-  background-color: #673AB7;
+.Order-product-count {
+  /* Color */
   color: #FFF;
+  /* Background & Borders */
+  background-color: #673AB7;
+  border-radius: .125rem;
+  /* Basic Box */
+  display: inline-block;
   width: 2.25rem;
   height: 2.25rem;
-  line-height: 2.25rem;
   margin-right: .5rem;
   margin-bottom: .5rem;
-  border-radius: .125rem;
+  /* Text */
   text-align: center;
+  line-height: 2.25rem;
 }
 
-.order-price {
+.Order-price {
+  /* Basic Box */
   display: inline-block;
   margin-right: .5rem;
+  /* Fonts */
   font-size: 1.5rem;
   font-weight: 700;
 }
 
-.order-delivery-fee {
+.Order-delivery-fee {
+  /* Basic Box */
   display: table;
+  /* Fonts */
   font-size: .75rem;
   font-weight: 700;
   font-style: italic;
 }
 
-.order-delivery-fee-label {
-  font-weight: 300;
+.Order-delivery-fee-label {
+  /* Color */
   color: #673AB7;
+  /* Fonts */
+  font-weight: 300;
 }
 
-.order-action-wrapper {
+.Order-action-wrapper {
+  /* Basic Box */
   float: right;
   margin: .5rem;
   padding-top: .5rem;
   padding-bottom: .5rem;
 }
 
-.order-action {
+.Order-action {
+  /* Color */
+  color: #FFFFFF;
+  /* Background & Borders */
+  background-color: #673AB7;
   border-style: solid;
   border-radius: .25rem;
   border-color: #673AB7;
-  background-color: #673AB7;
-  color: #FFFFFF;
+  /* Basic Box */
   padding: .625rem 1rem;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
+  /* Fonts */
   font-size: 1rem;
+  /* Animation */
+  transition: 0.1s;
 }
 
-.order-action-clear {
-  margin-right: .375rem;
-  border-color: #FF6D00;
+.Order-action-clear {
+  /* Background & Borders */
   background-color: #FF6D00;
+  border-color: #FF6D00;
+  /* Basic Box */
+  margin-right: .375rem;
 }
 
-.order-action-checkout {
+.Order-action-checkout {
+  /* Basic Box */
   margin-left: .375rem;
 }
 
-/* 2 Columns Grid */
+/** Module - 2 Columns Grid **/
 
 @media (max-width: 30em) {
 
-  .order-price-wrapper {
+  .Order-price-wrapper {
+    /* Basic Box */
     display: block;
     width: 100%;
     margin: .5rem auto;
+    /* Text */
     text-align: center;
   }
 
-  .order-product-count {
+  .Order-product-count {
+    /* Basic Box */
     margin-bottom: 0;
   }
 
-  .order-delivery-fee {
+  .Order-delivery-fee {
+    /* Basic Box */
     display: inline-block;
   }
 
-  .order-action-wrapper {
+  .Order-action-wrapper {
+    /* Basic Box */
     display: block;
     width: 100%;
     margin: auto;
     padding: 0;
   }
 
-  .order-action {
+  .Order-action {
+    /* Basic Box */
     margin-bottom: .375rem
   }
 
   .footer-buffer {
+    /* Basic Box */
     height: 7.25rem;
   }
 }
 
-/* State */
+/** State **/
 
-.order-action-clear:active,
-.order-action-clear:focus {
+.Order-action-clear:active,
+.Order-action-clear:focus {
+  /* Background & Borders */
   border-color: #673AB7;
 }
 
-.order-action-clear:active {
+.Order-action-clear:active {
+  /* Background & Borders */
   background-color: #673AB7;
 }
 
-.order-action-checkout:active,
-.order-action-checkout:focus {
+.Order-action-checkout:active,
+.Order-action-checkout:focus {
+  /* Background & Borders */
   border-color: #FF6D00;
 }
 
-.order-action-checkout:active {
+.Order-action-checkout:active {
+  /* Background & Borders */
   background-color: #FF6D00;
 }

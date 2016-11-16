@@ -1,15 +1,22 @@
 /*** Header.css ***/
 
-/* Module */
+/** Module **/
 
-header {
-  text-align: center;
+.Header {
+  /* Color */
+  color: #FFFFFF;
+  /* Background & Color */
   background-color: #673AB7;
+  /* Basic Box */
   height: 10.5rem;
   padding: 1.5rem;
-  color: #FFFFFF;
+  /* Text */
+  text-align: center;
 }
 
-.header-is-error {
+/** State **/
+
+.Header-is-error {
+  /* Color */
   color: #FF9800;
 }

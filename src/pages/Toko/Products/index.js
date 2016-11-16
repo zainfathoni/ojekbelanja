@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Proptypes as T } from 'react';
 
 import FilterInput from '../../../components/FilterInput';
 import FilterCards from '../../../components/FilterCards';
@@ -12,7 +12,7 @@ export default class Products extends Component {
     this.state = {
       products,
       keyword: '',
-      tempKeyword: ''
+      tempKeyword: '',
     }
   }
 
@@ -20,13 +20,13 @@ export default class Products extends Component {
 
   updateKeyword = (keyword) => {
     this.setState({
-      keyword
+      keyword,
     })
   }
 
   actionTemp = (tempKeyword) => {
     this.setState({
-      tempKeyword
+      tempKeyword,
     })
   }
 
@@ -61,8 +61,8 @@ export default class Products extends Component {
 }
 
 Products.propTypes = {
-  toko: React.PropTypes.object.isRequired,
-  order: React.PropTypes.object.isRequired,
-  action: React.PropTypes.func.isRequired,
-  actionReverse: React.PropTypes.func.isRequired
+  toko: T.object.isRequired,
+  order: T.object.isRequired,
+  action: T.func.isRequired,
+  actionReverse: T.func.isRequired,
 }

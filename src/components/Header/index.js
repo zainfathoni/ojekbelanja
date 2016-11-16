@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes as T } from 'react';
 
 import './Header.css';
 
@@ -10,14 +10,14 @@ export default function Header(props) {
   return (
     <div className="l-wrapper-header">
       {!props.is404 ?
-        <header>
+        <header className="Header">
           <h1>Ojek {ojekIcon}{belanjaIcon} Belanja</h1>
           <h3>{props.heading ? props.heading : "Asisten Belanja Anda"}</h3>
         </header>
       :
-        <header>
+        <header className="Header">
           <h1>Ojek {ojekIcon}{nyasarIcon} Nyasar</h1>
-          <h3 className="header-is-error">404 | Page Not Found</h3>
+          <h3 className="Header-is-error">404 | Page Not Found</h3>
         </header>
       }
     </div>
@@ -25,6 +25,6 @@ export default function Header(props) {
 }
 
 Header.propTypes = {
-  heading: React.PropTypes.string,
-  is404: React.PropTypes.bool
+  heading: T.string,
+  is404: T.bool,
 }

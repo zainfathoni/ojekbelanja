@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes as T } from 'react';
 
 import Button from '../../../components/Button';
+import TextField from '../../../components/TextField';
 import { quantify, escapeFloatingPoint } from '../../../services/product';
 import { tokos, products } from '../../../models';
 import '../../pages.css';
@@ -10,9 +11,10 @@ export default function Pesanan(props) {
   const {
     tokoId,
     order,
-    kembali,
+    goBack,
     update,
-    remove
+    remove,
+    cleanUp,
   } = props;
 
   // Calculate Price
@@ -26,63 +28,63 @@ export default function Pesanan(props) {
       );
 
   return (
-    <div className="pesanan">
-      <div className="pesanan-heading">
-        <div className="pesanan-heading-title">
+    <div className="Pesanan">
+      <div className="Pesanan-heading">
+        <div className="Pesanan-heading-title">
           <i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>
           {" Pesanan Anda"}
         </div>
         <Button
-          className="pesanan-heading-action"
+          className="Pesanan-heading-action"
           display="content"
-          action={(e) => kembali(tokoId)}
+          action={(e) => goBack(tokoId)}
           icon="arrow-left"
           text="Kembali"
           isSecondary
           isSmall
           />
       </div>
-      <div className="pesanan-body">
+      <div className="Pesanan-body">
         {Object.keys(order)
           .map(key => {
             const item = products[key];
             return (
-              <table key={key} className="pesanan-item">
+              <table key={key} className="Pesanan-item">
                 <tbody>
                   <tr>
-                    <td width="10%" className="pesanan-item-image-wrapper">
+                    <td width="10%" className="Pesanan-item-image-wrapper">
                       <img
-                        className="pesanan-item-image"
+                        className="Pesanan-item-image"
                         src={require(`../../../css/images/${item.image}`)}
                         alt={item.name}
                         />
                     </td>
-                    <td width="72%" className="pesanan-item-detail">
+                    <td width="72%" className="Pesanan-item-detail">
                       <table width="100%">
                         <tbody>
                           <tr>
                             <td width="100%">
-                              <div className="pesanan-item-name">
+                              <div className="Pesanan-item-name">
                                 {item.name}
                               </div>
                             </td>
                           </tr>
                           <tr>
-                            <td className="pesanan-item-price-per-unit">
-                              <span className="pesanan-item-price">
+                            <td className="Pesanan-item-price-per-unit">
+                              <span className="Pesanan-item-price">
                                 {`Rp ${(item.price).toLocaleString('id')}/`}
                               </span>
-                              <span className="pesanan-item-unit">
+                              <span className="Pesanan-item-unit">
                                 {`${item.unit}`}
                               </span>
-                              <div className="pesanan-item-order-quantified">
+                              <div className="Pesanan-item-order-quantified">
                                 {quantify(order[key], item.step, item.unit)}
                               </div>
                             </td>
                           </tr>
                           <tr>
                             <td>
-                              <div className="pesanan-item-total-price">
+                              <div className="Pesanan-item-total-price">
                                 {`Rp ${(item.price * item.step * order[key]).toLocaleString('id')}`}
                               </div>
                             </td>
@@ -90,19 +92,24 @@ export default function Pesanan(props) {
                         </tbody>
                       </table>
                     </td>
-                    <td width="10%" className="pesanan-item-order-qty">
-                      <input
-                        className="pesanan-item-order-qty-input"
+                    <td width="10%" className="Pesanan-item-order-qty">
+                      <TextField
+                        className="Pesanan-item-order-qty-input"
+                        name={key}
                         type="number"
-                        step={item.step}
+                        display="fixed"
                         value={escapeFloatingPoint(order[key] * item.step)}
-                        onChange={(e) => update(key, e.target.value / item.step)}
+                        onChange={(name, value) => update(key, value / item.step)}
+                        onBlur={(name, value) => cleanUp(key)}
+                        noValidation
+                        min={0}
+                        step={item.step}
                         />
-                      <span className="pesanan-item-order-qty-unit">
+                      <span className="Pesanan-item-order-qty-unit">
                         {item.unit}
                       </span>
                     </td>
-                    <td width="8%" className="pesanan-item-order-qty-action">
+                    <td width="8%" className="Pesanan-item-order-qty-action">
                       <Button
                         display="icon"
                         action={(e) => remove(key)}
@@ -119,21 +126,21 @@ export default function Pesanan(props) {
           })
         }
       </div>
-      <div className="pesanan-footer">
-        <div className="pesanan-footer-delivery-fee">
-          <div className="pesanan-footer-delivery-fee-label">
+      <div className="Pesanan-footer">
+        <div className="Pesanan-footer-delivery-fee">
+          <div className="Pesanan-footer-delivery-fee-label">
             Ongkos Kirim
-                  </div>
-          <div className="pesanan-footer-delivery-fee-amount">
+          </div>
+          <div className="Pesanan-footer-delivery-fee-amount">
             {`Rp ${(tokos[tokoId].cost).toLocaleString('id')}`}
           </div>
         </div>
         <hr />
-        <div className="pesanan-footer-total-price">
-          <div className="pesanan-footer-total-price-label">
+        <div className="Pesanan-footer-total-price">
+          <div className="Pesanan-footer-total-price-label">
             Harga Total
-                  </div>
-          <div className="pesanan-footer-total-price-amount">
+          </div>
+          <div className="Pesanan-footer-total-price-amount">
             {`Rp ${(tokos[tokoId].cost + totalPrice).toLocaleString('id')}`}
           </div>
         </div>
@@ -143,9 +150,10 @@ export default function Pesanan(props) {
 }
 
 Pesanan.propTypes = {
-  tokoId: PropTypes.string.isRequired,
-  order: PropTypes.object.isRequired,
-  kembali: PropTypes.func.isRequired,
-  update: PropTypes.func.isRequired,
-  remove: PropTypes.func.isRequired,
+  tokoId: T.string.isRequired,
+  order: T.object.isRequired,
+  goBack: T.func.isRequired,
+  update: T.func.isRequired,
+  remove: T.func.isRequired,
+  cleanUp: T.func.isRequired,
 }

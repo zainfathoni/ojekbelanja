@@ -72,23 +72,36 @@ export default class Pesan extends Component {
   }
 
   updateOrder = (productId, orderQty) => {
-    let newOrder = this.state.order;
+    const newOrder = this.state.order;
     newOrder[productId] = escapeFloatingPoint(orderQty);
+
     this.setState({
       order: newOrder
     })
   }
 
-  remove = (productId) => {
-    let newOrder = this.state.order;
+  removeOrder = (productId) => {
+    const newOrder = this.state.order;
     delete newOrder[productId];
     this.setState({
       order: newOrder
     })
   }
 
+  cleanUpOrder = (productId) => {
+    const newOrder = this.state.order;
+
+    if (newOrder[productId] <= 0) {
+      delete newOrder[productId];
+    }
+
+    this.setState({
+      order: newOrder
+    })
+  }
+
   updateUser = (field, value) => {
-    let newUser = this.state.user;
+    const newUser = this.state.user;
     newUser[field] = value;
     this.setState({
       user: newUser
@@ -102,24 +115,25 @@ export default class Pesan extends Component {
 
     return (
       <div className="l-fullwidth">
-        <div className="l-wrapper-mainnav">
+        <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
         <Header heading={"Toko " + tokos[tokoId].name} />
-        <main className="l-wrapper-filter">
-          <div className="l-pesan">
+        <main className="l-main">
+          <div className="l-Pesan">
             <Pesanan
               tokoId={tokoId}
               order={this.state.order}
-              kembali={this.goToToko}
+              goBack={this.goToToko}
               update={this.updateOrder}
-              remove={this.remove}
+              remove={this.removeOrder}
+              cleanUp={this.cleanUpOrder}
               />
           </div>
-          <div className="l-pesan">
+          <div className="l-Pesan">
             <Pemesan
               user={this.state.user}
-              update={this.updateUser}
+              onChange={this.updateUser}
               />
           </div>
 

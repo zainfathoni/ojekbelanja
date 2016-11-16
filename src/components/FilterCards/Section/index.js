@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes as T } from 'react';
 
 import Card from '../Card';
 import './Section.css';
@@ -14,14 +14,14 @@ export default function Section(props) {
     imageField,
     action,
     actionReverse,
-    collection
+    collection,
   } = props;
 
   return (
-    <section className="filter-cards-section">
-      <label htmlFor={id} className="filter-cards-section-label">{label}</label>
-      <hr className="filter-cards-section-separator" />
-      <ul id={id} className="l-grid">
+    <section className="Section">
+      <label htmlFor={id} className="Section-label">{label}</label>
+      <hr className="Section-separator" />
+      <ul id={id} className="l-FilterCards-grid">
         {
           Object.keys(items)
             .map(key =>
@@ -47,14 +47,14 @@ export default function Section(props) {
 }
 
 Section.propTypes = {
-  id: React.PropTypes.string.isRequired,
-  label: React.PropTypes.string.isRequired,
-  items: React.PropTypes.object.isRequired,
-  keyword: React.PropTypes.string.isRequired,
-  titleField: React.PropTypes.string.isRequired,
-  descriptionField: React.PropTypes.string.isRequired,
-  imageField: React.PropTypes.string.isRequired,
-  action: React.PropTypes.func.isRequired,
-  actionReverse: React.PropTypes.func,
-  collection: React.PropTypes.object
+  id: T.string.isRequired,
+  label: T.string.isRequired,
+  items: T.object.isRequired,
+  keyword: T.string.isRequired,
+  titleField: T.string.isRequired,
+  descriptionField: T.string.isRequired,
+  imageField: T.string.isRequired,
+  action: T.func.isRequired,
+  actionReverse: T.func,
+  collection: T.object,
 }

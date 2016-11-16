@@ -85,11 +85,11 @@ export default class Toko extends Component {
     
     return (
       <div className="l-fullwidth">
-        <div className="l-wrapper-mainnav">
+        <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
         <Header heading={"Toko " + toko.name} />
-        <main className="l-wrapper-filter">
+        <main className="l-main">
           <p>
             Selamat datang di toko <code>{tokoId}</code>.
           </p>
@@ -99,7 +99,7 @@ export default class Toko extends Component {
             action={this.plus}
             actionReverse={this.minus}
             />
-          <div className="footer-buffer">
+          <div className="l-footer-buffer">
           </div>
         </main>
         <footer className="l-wrapper-footer">

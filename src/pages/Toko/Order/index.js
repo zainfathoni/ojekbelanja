@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes as T } from 'react';
 
 import Button from '../../../components/Button';
 import '../../pages.css';
@@ -9,7 +9,7 @@ export default function Order(props) {
     tokoId,
     order,
     products,
-    deliveryFee
+    deliveryFee,
   } = props;
 
   // Calculate Price
@@ -24,22 +24,22 @@ export default function Order(props) {
       );
 
   return (
-    <div className="l-order">
-      <div className="order-price-wrapper">
-        <div className="order-product-count" title="Banyaknya Jenis Produk">
+    <div className="l-Order">
+      <div className="Order-price-wrapper">
+        <div className="Order-product-count" title="Banyaknya Jenis Produk">
           {Object.keys(order).length}
         </div>
-        <div className="order-price">
+        <div className="Order-price">
           {`Rp ${totalPrice.toLocaleString('id')}`}
         </div>
-        <div className="order-delivery-fee">
-          <span className="order-delivery-fee-label">
+        <div className="Order-delivery-fee">
+          <span className="Order-delivery-fee-label">
             + Ongkos Kirim
           </span>
           {` Rp ${deliveryFee.toLocaleString('id')}`}
         </div>
       </div>
-      <div className="order-action-wrapper">
+      <div className="Order-action-wrapper">
         <Button
           display="content"
           action={(e) => props.clear()}
@@ -61,10 +61,10 @@ export default function Order(props) {
 }
 
 Order.propTypes = {
-  tokoId: React.PropTypes.string.isRequired,
-  order: React.PropTypes.object.isRequired,
-  products: React.PropTypes.object.isRequired,
-  deliveryFee: React.PropTypes.number.isRequired,
-  clear: React.PropTypes.func.isRequired,
-  checkout: React.PropTypes.func.isRequired
+  tokoId: T.string.isRequired,
+  order: T.object.isRequired,
+  products: T.object.isRequired,
+  deliveryFee: T.number.isRequired,
+  clear: T.func.isRequired,
+  checkout: T.func.isRequired,
 }
