@@ -2,7 +2,7 @@ import React, { PropTypes as T } from 'react';
 
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
-import { isEmailValid, isPhoneValid } from '../../../services/validation';
+import { isEmailValid, isPhoneValid, isUserValid } from '../../../services/validation';
 import '../../pages.css';
 import './Pemesan.css';
 
@@ -55,7 +55,6 @@ export default function Pemesan(props) {
           placeholder="Usia Anda Saat Ini"
           value={user.usia}
           update={update}
-          required
           min={10}
           max={100}
           />
@@ -79,12 +78,7 @@ export default function Pemesan(props) {
           action={(e) => console.log('Lanjutkan')}
           icon="arrow-right"
           text="Lanjutkan"
-          disabled={
-            !user.name ||
-            !user.email ||
-            !isEmailValid(user.email) ||
-            !isPhoneValid
-          }
+          disabled={isUserValid(user)}
           />
       </div>
 
