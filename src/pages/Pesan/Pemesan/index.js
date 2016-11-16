@@ -50,17 +50,6 @@ export default function Pemesan(props) {
           required
           />
         <TextField
-          type="number"
-          display="content"
-          name="usia"
-          label="Usia"
-          placeholder="Usia Anda Saat Ini"
-          value={user.usia}
-          onChange={onChange}
-          min={10}
-          max={100}
-          />
-        <TextField
           type="tel"
           display="content"
           name="phone"
@@ -70,6 +59,15 @@ export default function Pemesan(props) {
           onChange={onChange}
           validate={isPhoneValid}
           message="No. HP tidak valid"
+          required
+          />
+        <TextField
+          type="text"
+          name="city"
+          label="Kota"
+          placeholder="Kota Domisili"
+          value={user.city}
+          onChange={onChange}
           required
           />
       </div>
