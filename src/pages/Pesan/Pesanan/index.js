@@ -97,7 +97,7 @@ export default function Pesanan(props) {
                         type="number"
                         display="fixed"
                         value={escapeFloatingPoint(order[key] * item.step)}
-                        update={(e) => update(key, e.target.value / item.step)}
+                        update={(name, value) => update(key, value / item.step)}
                         min={0}
                         step={item.step}
                         />
