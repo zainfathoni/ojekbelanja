@@ -1,31 +1,40 @@
 /*** Card.css ***/
 
-/* Module */
+/** Module **/
 
-.card {
-  margin: .5rem 0;
-  border-radius: 0.25rem;
+.Card {
+  /* Background & Borders */
   background-color: #fff;
+  border-radius: 0.25rem;
+  /* Basic Box */
+  margin: .5rem 0;
   box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.16), 0 .125rem .25rem 0 rgba(0,0,0,.12);
   overflow: hidden;
 }
 
-/* Card Image */
+/** Module - Card Image **/
 
-.card-image {
+.Card-image {
+  /* Background & Borders */
   background-color: #a9a9a9;
+  /* Basic Box */
   position: relative;
 }
 
-.card-image > img {
+.Card-image > img {
+  /* Basic Box */
   display: block;
   max-width: 100%;
   height: auto;
   min-height: 10.25rem;
 }
 
-.card-image-overlay {
-  /* Positioning */
+.Card-image-overlay {
+  /* Color */
+  color: #FFF;
+  /* Background & Borders */
+  background-color: rgba(21,21,21,.45);
+  /* Basic Box */
   position: absolute;
   top: 0;
   z-index: 2;
@@ -33,80 +42,99 @@
   height: 100%;
   padding-top: 40%;
   padding-bottom: 40%;
-  color: #FFF;
+  /* Text */
   text-align: center;
-  background-color: rgba(21,21,21,.45);
 }
 
-.card-image-overlay-qty {
+.Card-image-overlay-qty {
+  /* Font */
   font-size: 1.5rem;
 }
 
-/* Card Content */
+/** Module - Card Content **/
 
-.card-content {
+.Card-content {
+  /* Basic Box */
   padding: .25rem .5rem;
+  /* Text */
   line-height: 1rem;
 }
 
-.card-content-title {
+.Card-content-title {
+  /* Font */
   font-size: 1rem;
   font-weight: 700;
 }
 
-.card-content-description {
+.Card-content-description {
+  /* Color */
+  color: #888;
+  /* Font */
   font-size: .8rem;
   font-weight: 300;
-  color: #888;
 }
 
-/* Card Action */
+/** Module - Card Action **/
 
-.card-action {
+.Card-action {
+  /* Background & Borders */
   border-top: 1px solid rgba(160,160,160,.2);
+  /* Basic Box */
   padding: .25rem .5rem .5rem .5rem;
 }
 
-.card-action-price-parent {
-  margin-bottom: .25rem;
-  text-align: left;
+.Card-action-price-parent {
+  /* Basic Box */
   position: relative;
+  margin-bottom: .25rem;
+  /* Text */
+  text-align: left;
 }
 
-.card-action-price {
+.Card-action-price {
+  /* Color */
   color: #FF6D00;
+  /* Font */
   font-weight: 700;
   font-size: 1.125rem;
 }
 
-.card-action-unit,
-.card-action-step {
-  font-size: .75rem;
+.Card-action-unit,
+.Card-action-step {
+  /* Color */
   color: #888;
+  /* Font */
+  font-size: .75rem;
 }
 
-.card-action-step {
+.Card-action-step {
+  /* Basic Box */
   bottom: 0;
   right: 0;
 }
 
 .plus,
 .minus {
+  /* Basic Box */
   width: 47.5%;
 }
 
 .plus {
+  /* Basic Box */
   margin-left: 2.5%;
 }
 
 .minus {
-  margin-right: 2.5%;
-  border-color: #FF6D00;
+  /* Background & Borders */
   background-color: #FF6D00;
+  border-color: #FF6D00;
+  /* Basic Box */
+  margin-right: 2.5%;
 }
 
 /** State **/
 
-.card-is-selected {
+.Card-is-selected {
+  /* Basic Box */
   box-shadow: inset 0 0 .75rem #673AB7;
 }

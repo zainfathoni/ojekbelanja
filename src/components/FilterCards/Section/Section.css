@@ -1,29 +1,35 @@
 /*** Section.css ***/
 
-/* Module */
+/** Module **/
 
-.filter-cards-section {
+.Section {
+  /* Background & Borders */
   border: 0;
+  /* Basic Box */
   padding: 0;
   margin-left: 0;
   margin-right: 0;
 }
 
-.filter-cards-section-label {
+.Section-label {
+  /* Basic Box */
+  display: inline-block;
+  position: static;
+  margin: 0 auto;
+  padding: .5rem;
+  /* Font */
   font-size: 1.5rem;
   font-weight: 700;
-  padding: .5rem;
-  position: static;
-  display: inline-block;
-  margin: 0 auto;
 }
 
-.filter-cards-section-separator {
+.Section-separator {
+  /* Background & Borders */
+  border-top: .125rem solid #673AB7;
+  border-bottom: none;
+  /* Basic Box */
   position: absolute;
   top: 1rem;
   left: 0;
   width: 100%;
   z-index: -1;
-  border-top: .125rem solid #673AB7;
-  border-bottom: none;
 }

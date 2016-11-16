@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes as T } from 'react';
 
 import Button from '../../Button';
 import { quantify } from '../../../services/product';
@@ -12,36 +12,36 @@ export default function Card(props) {
     description,
     count,
     unit,
-    step
+    step,
   } = props;
 
   return (
     <li>
-      <div className={"card" + (count ? " card-is-selected" : "")}>
-        <div className="card-image">
+      <div className={"Card" + (count ? " Card-is-selected" : "")}>
+        <div className="Card-image">
           <img src={props.image} alt={props.title} />
           {count &&
-            <div className="card-image-overlay">
-              <div className="card-image-overlay-qty">
+            <div className="Card-image-overlay">
+              <div className="Card-image-overlay-qty">
                 {quantify(count, step, unit)}
               </div>
             </div>
           }
         </div>
-        <div className="card-content">
-          <div className="card-content-title">
+        <div className="Card-content">
+          <div className="Card-content-title">
             {markHelper(title, keyword)}
           </div>
-          <div className="card-content-description">
+          <div className="Card-content-description">
             {markHelper(description, keyword)}
           </div>
         </div>
-        <div className="card-action">
-          <div className="card-action-price-parent">
-            <span className="card-action-price">
+        <div className="Card-action">
+          <div className="Card-action-price-parent">
+            <span className="Card-action-price">
               {`Rp ${props.price.toLocaleString('id')}`}
             </span>
-            <span className="card-action-unit">
+            <span className="Card-action-unit">
               {` / ${props.unit}`}
             </span>
           </div>
@@ -89,15 +89,15 @@ export default function Card(props) {
 }
 
 Card.propTypes = {
-  keyword: React.PropTypes.string.isRequired,
-  id: React.PropTypes.string.isRequired,
-  title: React.PropTypes.string.isRequired,
-  description: React.PropTypes.string.isRequired,
-  image: React.PropTypes.string.isRequired,
-  unit: React.PropTypes.string,
-  step: React.PropTypes.number,
-  price: React.PropTypes.number,
-  action: React.PropTypes.func.isRequired,
-  actionReverse: React.PropTypes.func,
-  count: React.PropTypes.number
+  keyword: T.string.isRequired,
+  id: T.string.isRequired,
+  title: T.string.isRequired,
+  description: T.string.isRequired,
+  image: T.string.isRequired,
+  unit: T.string,
+  step: T.number,
+  price: T.number,
+  action: T.func.isRequired,
+  actionReverse: T.func,
+  count: T.number,
 }

@@ -1,59 +1,76 @@
 /*** MainNav.css ***/
 
-/* Layout */
+/** Layout **/
 
-.l-mainnav{
+.l-MainNav{
+  /* Basic Box - Center Horizontally on 60rem x 3rem */
   display: block;
-  /* Center Horizontally on 60rem x 3rem */
   max-width: 60em;
   margin: auto;
+  /* Text */
   line-height: 3rem;
 }
 
-.l-mainnav:after {
+.l-MainNav:after {
+  /* Basic Box */
   display: table;
   clear: both;
+  /* Basic UI */
   content: '';
 }
 
-/* Module */
+/** Module **/
 
-.mainnav {
+.MainNav {
+  /* Font */
   font-weight: 700;
   font-size: 0.9rem;  
 }
 
-.mainnav-item {
-  float: left;
+.MainNav-item {
+  /* Color */
+  color: #212121;
+  /* Background & Borders */
   border: 1px solid #D1C4E9;
   border-right-color: rgba(0,0,0,.12);
+  /* Basic Box */
+  float: left;
   padding: 0 0.75rem;
+  /* Text */
   text-decoration: none;
-  color: #212121;
+  /* Animation */
   transition: 0.25s;
 }
 
-.mainnav-home {
+.MainNav-home {
+  /* Font */
   font-size: 1.2rem;
 }
 
-.mainnav-login {
-  font-size: 1rem;
-  float: right;
+.MainNav-login {
+  /* Background & Borders */
   border-right-color: #D1C4E9;
+  /* Basic Box */
+  float: right;
+  /* Font */
+  font-size: 1rem;
 }
 
-/* State */
+/** State **/
 
-.mainnav-item:hover,
-.is-mainnav-active {
+.MainNav-item:hover,
+.MainNav-is-active {
+  /* Color */
   color: #FF6D00;
+  /* Background & Borders */
   background-color: #EDE7F6;
   border-color: #EDE7F6;
   border-right-color: rgba(0,0,0,.12);
 }
 
-.mainnav-item:focus {
+.MainNav-item:focus {
+  /* Background & Borders */
   border: 1px solid #673AB7;
+  /* Animation */
   transition: none;
 }

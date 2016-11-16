@@ -1,46 +1,53 @@
 /*** FilterCards.css ***/
 
-/* Layout */
+/** Layout **/
 
-.l-filter-cards {
+.l-FilterCards {
+  /* Basic Box */
   margin-top: 1rem;
   width: 100%;
 }
 
-.l-grid > li {
+.l-FilterCards-grid > li {
+  /* Basic Box */
   display: block;
-  /* Grid */
+  /* Basic Box - Grid */
   width: 25%;
   float: left;
-  /* Gutter */
+  /* Basic Box - Gutter */
   padding-right: 0.5rem;
   padding-left: 0.5rem;
 }
 
-.l-grid:after {
+.l-FilterCards-grid:after {
+  /* Basic Box */
   display: table;
   clear: both;
+  /* Basic UI */
   content: '';
 }
 
 /* TODO: Center & crop images vertically & horizontally */
 
-/* 3 Columns Grid */
+/** Layout - 3 Columns Grid **/
 
 @media (max-width: 45em) {
-  .l-grid > li {
+  .l-FilterCards-grid > li {
+    /* Basic Box */
     width: 33.333333%;
   }
 
   .card-image > img {
+    /* Basic Box */
     min-height: 9rem;
   }
 }
 
-/* 2 Columns Grid */
+/** Layout - 2 Columns Grid **/
 
 @media (max-width: 30em) {
-  .l-grid > li {
+  .l-FilterCards-grid > li {
+    /* Basic Box */
     width: 50%;
   }
 }

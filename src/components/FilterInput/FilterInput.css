@@ -1,96 +1,121 @@
 /*** FilterInput.css ***/
 
-/* Layout */
+/** Layout **/
 
-.l-filter-input {
-  line-height: 3.5rem;
+.l-FilterInput {
+  /* Basic Box */
   width: 30rem;
   margin: auto;
+  /* Text */
+  line-height: 3.5rem;
 }
 
-.l-filter-input-no-btn {
+.l-FilterInput-no-btn {
+  /* Basic Box */
   position: relative;
 }
 
-/* Module */
+/** Module **/
 
-.filter-input {
+.FilterInput {
+  /* Background & Borders */
+  border-style: solid;
+  /* Text */
   line-height: 2.5rem;
   vertical-align: middle;
-  border-style: solid;
+  /* Animation */
   transition: 0.25s;
 }
 
-.filter-input-txt {
-  width: 27rem;
-  padding: 0.125rem 1rem;
-  font-family: 'Lato', sans-serif;
-  font-size: 1rem;
+.FilterInput-txt {
+  /* Background & Borders */
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
   border-color: #BDBDBD;
+  /* Basic Box */
+  width: 27rem;
+  padding: 0.125rem 1rem;
+  /* Font */
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
 }
 
-.filter-input-txt.filter-input-txt-no-btn {
-  width: 30rem;
+.FilterInput-txt.FilterInput-txt-no-btn {
+  /* Background & Borders */
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
   border-right: 2px solid #BDBDBD;
+  /* Basic Box */
+  width: 30rem;
 }
 
-.filter-input-txt-search-icon {
+.FilterInput-txt-search-icon {
+  /* Color */
   color: #BDBDBD;
+  /* Basic Box */
   position: absolute;
   right: 2rem;
   width: 0;
+  /* Animation */
   transition: 0.25s;
 }
 
 @media (max-width: 36em) {
 
-  .l-filter-input {
+  .l-FilterInput {
+    /* Basic Box */
     width: 90%;
   }
 
-  .filter-input-txt {
+  .FilterInput-txt {
+    /* Basic Box */
     width: 75%; /* fallback for UC Browser */
     width: calc(100% - 3rem);
   }
 
-  .filter-input-txt.filter-input-txt-no-btn {
+  .FilterInput-txt.FilterInput-txt-no-btn {
+    /* Basic Box */
     width: 100%;
   }
 }
 
-.filter-input-btn {
-  width: 3rem;
+.FilterInput-btn {
+  /* Background & Borders */
+  background-color: #673AB7;
   border-radius: 0 1.5rem 1.5rem 0;
   border-color: #673AB7;
+  /* Basic Box */
+  width: 3rem;
   padding: 0.125rem 0.625rem;
-  background-color: #673AB7;
+  /* Font */
   font-size: 1rem;
 }
 
-/* State */
+/** State **/
 
-.filter-input-txt:focus {
+.FilterInput-txt:focus {
+  /* Background & Borders */
   border: 2px solid #673AB7;
 }
 
-.filter-input-txt,
-.filter-input-txt:focus {
+.FilterInput-txt,
+.FilterInput-txt:focus {
+  /* Background & Borders */
   border-right: 0;
 }
 
-.filter-input-txt.filter-input-txt-no-btn:focus {
+.FilterInput-txt.FilterInput-txt-no-btn:focus {
+  /* Background & Borders */
   border-right: 2px solid #673AB7;
 }
 
-.filter-input-btn:active,
-.filter-input-btn:focus {
+.FilterInput-btn:active,
+.FilterInput-btn:focus {
+  /* Background & Borders */
   border-color: #FF6D00;
 }
 
-.filter-input-btn:active {
+.FilterInput-btn:active {
+  /* Background & Borders */
   background-color: #FF6D00;
 }
