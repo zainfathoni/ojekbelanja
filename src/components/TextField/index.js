@@ -14,7 +14,8 @@ export default function TextField(props) {
     validate,
     message,
     required,
-    update,
+    onChange,
+    onBlur,
     min,
     max,
     step,
@@ -50,7 +51,8 @@ export default function TextField(props) {
         name={name}
         placeholder={placeholder}
         value={value}
-        onChange={(e) => update(name, e.target.value)}
+        onChange={(e) => onChange(name, e.target.value)}
+        onBlur={(e) => onBlur(name, e.target.value)}
         required={required}
         min={min}
         max={max}
@@ -90,7 +92,8 @@ TextField.propTypes = {
   label: T.string,                  // Label
   placeholder: T.string,            // Placeholder
   value: T.any.isRequired,          // Value
-  update: T.func.isRequired,        // Update Function
+  onChange: T.func.isRequired,      // onChange Function
+  onBlur: T.func,                   // onBlur Function
   validate: T.func,                 // Validation Function
   message: T.string,                // Error Message
   required: T.bool,                 // is Required

@@ -75,18 +75,26 @@ export default class Pesan extends Component {
     const newOrder = this.state.order;
     newOrder[productId] = escapeFloatingPoint(orderQty);
 
-    if (newOrder[productId] <= 0) {
-      delete newOrder[productId];
-    }
-
     this.setState({
       order: newOrder
     })
   }
 
-  remove = (productId) => {
+  removeOrder = (productId) => {
     const newOrder = this.state.order;
     delete newOrder[productId];
+    this.setState({
+      order: newOrder
+    })
+  }
+
+  cleanUpOrder = (productId) => {
+    const newOrder = this.state.order;
+
+    if (newOrder[productId] <= 0) {
+      delete newOrder[productId];
+    }
+
     this.setState({
       order: newOrder
     })
@@ -118,13 +126,14 @@ export default class Pesan extends Component {
               order={this.state.order}
               kembali={this.goToToko}
               update={this.updateOrder}
-              remove={this.remove}
+              remove={this.removeOrder}
+              cleanUp={this.cleanUpOrder}
               />
           </div>
           <div className="l-pesan">
             <Pemesan
               user={this.state.user}
-              update={this.updateUser}
+              onChange={this.updateUser}
               />
           </div>
 

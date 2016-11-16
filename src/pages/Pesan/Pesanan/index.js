@@ -13,7 +13,8 @@ export default function Pesanan(props) {
     order,
     kembali,
     update,
-    remove
+    remove,
+    cleanUp,
   } = props;
 
   // Calculate Price
@@ -94,10 +95,12 @@ export default function Pesanan(props) {
                     <td width="10%" className="pesanan-item-order-qty">
                       <TextField
                         className="pesanan-item-order-qty-input"
+                        name={key}
                         type="number"
                         display="fixed"
                         value={escapeFloatingPoint(order[key] * item.step)}
-                        update={(name, value) => update(key, value / item.step)}
+                        onChange={(name, value) => update(key, value / item.step)}
+                        onBlur={(name, value) => cleanUp(key)}
                         min={0}
                         step={item.step}
                         />
@@ -151,4 +154,5 @@ Pesanan.propTypes = {
   kembali: PropTypes.func.isRequired,
   update: PropTypes.func.isRequired,
   remove: PropTypes.func.isRequired,
+  cleanUp: PropTypes.func.isRequired,
 }

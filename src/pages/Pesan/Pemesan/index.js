@@ -9,7 +9,7 @@ import './Pemesan.css';
 export default function Pemesan(props) {
   const {
     user,
-    update
+    onChange
   } = props;
 
   return (
@@ -26,7 +26,7 @@ export default function Pemesan(props) {
           label="Nama"
           placeholder="Nama Lengkap"
           value={user.name}
-          update={update}
+          onChange={onChange}
           required
           />
         <TextField
@@ -34,7 +34,7 @@ export default function Pemesan(props) {
           label="Panggilan"
           placeholder="Nama Panggilan"
           value={user.nickname}
-          update={update}
+          onChange={onChange}
           />
         <TextField
           type="email"
@@ -42,7 +42,7 @@ export default function Pemesan(props) {
           label="Email"
           placeholder="Alamat Email"
           value={user.email}
-          update={update}
+          onChange={onChange}
           validate={isEmailValid}
           message="Alamat Email tidak valid"
           required
@@ -54,7 +54,7 @@ export default function Pemesan(props) {
           label="Usia"
           placeholder="Usia Anda Saat Ini"
           value={user.usia}
-          update={update}
+          onChange={onChange}
           min={10}
           max={100}
           />
@@ -65,7 +65,7 @@ export default function Pemesan(props) {
           label="No. Telepon"
           placeholder="081234567890"
           value={user.phone}
-          update={update}
+          onChange={onChange}
           validate={isPhoneValid}
           message="No. Telepon tidak valid"
           required
@@ -88,5 +88,5 @@ export default function Pemesan(props) {
 
 Pemesan.propTypes = {
   user: T.object.isRequired,
-  update: T.func.isRequired
+  onChange: T.func.isRequired
 }
