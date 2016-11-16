@@ -101,6 +101,7 @@ export default function Pesanan(props) {
                         value={escapeFloatingPoint(order[key] * item.step)}
                         onChange={(name, value) => update(key, value / item.step)}
                         onBlur={(name, value) => cleanUp(key)}
+                        noValidation
                         min={0}
                         step={item.step}
                         />
