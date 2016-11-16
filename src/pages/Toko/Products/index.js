@@ -1,4 +1,4 @@
-import React, { Component, Proptypes as T } from 'react';
+import React, { Component, PropTypes as T } from 'react';
 
 import FilterInput from '../../../components/FilterInput';
 import FilterCards from '../../../components/FilterCards';
