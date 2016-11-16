@@ -9,21 +9,26 @@ export default class TextField extends Component {
 
     this.state = {
       isPristine: true,
+      isFocused: false,
     }
   }
 
   /*** Methods ***/
 
-  revalidate(name, value) {
-    const {
-      noValidation,
-      onBlur
-    } = this.props;
-    if (noValidation) {
-      onBlur(name, value);
+  onChange(name, value) {
+    this.setState({
+      isFocused: true,      // Set Focused
+    })
+    this.props.onChange(name, value);
+  }
+
+  onBlur(name, value) {
+    if (this.props.noValidation) {
+      this.props.onBlur(name, value); // Call onBlur props function
     } else {
       this.setState({
-        isPristine: false,
+        isPristine: false,  // Set Dirty
+        isFocused: false,   // Set Blur
       })
     }
   }
@@ -49,6 +54,7 @@ export default class TextField extends Component {
     } = this.props;
     const {
       isPristine,
+      isFocused,
     } = this.state
 
     const textFieldClass = classnames(
@@ -62,7 +68,7 @@ export default class TextField extends Component {
       'TextField-input',
       `TextField-input-${display}`,
       {
-        'error': !isPristine &&
+        'error': !isPristine && !isFocused &&
         (value ? !validate(value) : required)
       }
     )
@@ -84,19 +90,19 @@ export default class TextField extends Component {
           name={name}
           placeholder={placeholder}
           value={value}
-          onChange={(e) => onChange(name, e.target.value)}
-          onBlur={(e) => this.revalidate(name, e.target.value)}
+          onChange={(e) => this.onChange(name, e.target.value)}
+          onBlur={(e) => this.onBlur(name, e.target.value)}
           required={required}
           min={min}
           max={max}
           step={step}
           />
-        {!isPristine &&
+        {!isPristine && !isFocused &&
           (value ?
-            (!validate(value) &&
+            (!validate(value) && /* Validation Message */
               <span className="TextField-message">{`* ${message}`}</span>)
             :
-            (required &&
+            (required && /* Requiring Message */
               <span className="TextField-message">{`* ${label} harus diisi`}</span>)
           )
         }

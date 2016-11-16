@@ -2,7 +2,7 @@ import React, { PropTypes as T } from 'react';
 
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
-import { isEmailValid, isPhoneValid, isUserValid } from '../../../services/validation';
+import { isEmailValid, isPhoneValid, isUserInvalid } from '../../../services/validation';
 import '../../pages.css';
 import './Pemesan.css';
 
@@ -11,6 +11,8 @@ export default function Pemesan(props) {
     user,
     onChange
   } = props;
+
+  const isInvalid = isUserInvalid(user);
 
   return (
     <div className="pemesan">
@@ -62,12 +64,12 @@ export default function Pemesan(props) {
           type="tel"
           display="content"
           name="phone"
-          label="No. Telepon"
+          label="No. HP"
           placeholder="081234567890"
           value={user.phone}
           onChange={onChange}
           validate={isPhoneValid}
-          message="No. Telepon tidak valid"
+          message="No. HP tidak valid"
           required
           />
       </div>
@@ -78,7 +80,8 @@ export default function Pemesan(props) {
           action={(e) => console.log('Lanjutkan')}
           icon="arrow-right"
           text="Lanjutkan"
-          disabled={isUserValid(user)}
+          disabled={isInvalid}
+          title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Lanjutkan pemesanan"}
           />
       </div>
 

@@ -23,7 +23,7 @@ export default function Button(props) {
   return (
     <button
       className={buttonClass}
-      title={isIcon ? props.text : ""}
+      title={isIcon ? props.text : props.title || ""}
       type={props.type}
       onClick={props.action}
       disabled={props.disabled}>
@@ -52,5 +52,6 @@ Button.propTypes = {
   action: T.func,             // Action Function
   isSmall: T.bool,            // Size: Large (default) vs Small
   isSecondary: T.bool,        // Role: Primary (default) vs Secondary
-  disabled: T.bool            // Button is disabled
+  disabled: T.bool,           // Button is disabled
+  title: T.string,            // Title (if any)
 }

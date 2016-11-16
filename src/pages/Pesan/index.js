@@ -124,7 +124,7 @@ export default class Pesan extends Component {
             <Pesanan
               tokoId={tokoId}
               order={this.state.order}
-              kembali={this.goToToko}
+              goBack={this.goToToko}
               update={this.updateOrder}
               remove={this.removeOrder}
               cleanUp={this.cleanUpOrder}

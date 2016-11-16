@@ -14,7 +14,7 @@ export function isPhoneValid(value) {
 
 /*** Specific Validation ***/
 
-export function isUserValid(user) {
+export function isUserInvalid(user) {
   return !user.name ||
     !isEmailValid(user.email) ||
     !isPhoneValid(user.phone)

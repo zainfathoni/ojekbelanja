@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes as T } from 'react';
 
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
@@ -11,7 +11,7 @@ export default function Pesanan(props) {
   const {
     tokoId,
     order,
-    kembali,
+    goBack,
     update,
     remove,
     cleanUp,
@@ -37,7 +37,7 @@ export default function Pesanan(props) {
         <Button
           className="pesanan-heading-action"
           display="content"
-          action={(e) => kembali(tokoId)}
+          action={(e) => goBack(tokoId)}
           icon="arrow-left"
           text="Kembali"
           isSecondary
@@ -150,10 +150,10 @@ export default function Pesanan(props) {
 }
 
 Pesanan.propTypes = {
-  tokoId: PropTypes.string.isRequired,
-  order: PropTypes.object.isRequired,
-  kembali: PropTypes.func.isRequired,
-  update: PropTypes.func.isRequired,
-  remove: PropTypes.func.isRequired,
-  cleanUp: PropTypes.func.isRequired,
+  tokoId: T.string.isRequired,
+  order: T.object.isRequired,
+  goBack: T.func.isRequired,
+  update: T.func.isRequired,
+  remove: T.func.isRequired,
+  cleanUp: T.func.isRequired,
 }
