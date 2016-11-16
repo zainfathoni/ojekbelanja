@@ -2,7 +2,7 @@ import React, { PropTypes as T } from 'react';
 
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
-import { validateEmail } from '../../../services/validation';
+import { isEmailValid, isPhoneValid } from '../../../services/validation';
 import '../../pages.css';
 import './Pemesan.css';
 
@@ -43,8 +43,32 @@ export default function Pemesan(props) {
           placeholder="Alamat Email"
           value={user.email}
           update={update}
-          validate={validateEmail}
+          validate={isEmailValid}
           message="Alamat Email tidak valid"
+          required
+          />
+        <TextField
+          type="number"
+          display="content"
+          name="usia"
+          label="Usia"
+          placeholder="Usia Anda Saat Ini"
+          value={user.usia}
+          update={update}
+          required
+          min={10}
+          max={100}
+          />
+        <TextField
+          type="tel"
+          display="content"
+          name="phone"
+          label="No. Telepon"
+          placeholder="081234567890"
+          value={user.phone}
+          update={update}
+          validate={isPhoneValid}
+          message="No. Telepon tidak valid"
           required
           />
       </div>
@@ -58,7 +82,8 @@ export default function Pemesan(props) {
           disabled={
             !user.name ||
             !user.email ||
-            !validateEmail(user.email)
+            !isEmailValid(user.email) ||
+            !isPhoneValid
           }
           />
       </div>

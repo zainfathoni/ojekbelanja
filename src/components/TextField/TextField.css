@@ -13,6 +13,8 @@
 }
 
 .TextField-label {
+  /* Basic Box */
+  display: block;
   /* Font */
   font-weight: 700;
 }
@@ -31,14 +33,17 @@
   border-radius: .375rem;
   border: 1px solid rgba(0,0,0,.38);
   padding: .375rem .625rem;
-  /* Basic Box */
-  width: 100%;
   /* Text */
   line-height: 1.5rem;
   /* Font */
   font-size: .875rem;
   /* Animation */
   transition: .5s;
+}
+
+.TextField-input-fullwidth {
+  /* Basic Box */
+  width: 100%;
 }
 
 .TextField-message {
