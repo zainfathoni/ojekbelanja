@@ -15,11 +15,10 @@ export default class TextField extends Component {
 
   /*** Methods ***/
 
-  onChange(name, value) {
+  onFocus(name, value) {
     this.setState({
       isFocused: true,      // Set Focused
     })
-    this.props.onChange(name, value);
   }
 
   onBlur(name, value) {
@@ -68,7 +67,7 @@ export default class TextField extends Component {
       'TextField-input',
       `TextField-input-${display}`,
       {
-        'error': !isPristine && !isFocused &&
+        'TextField-input-is-error': !isPristine && !isFocused &&
         (value ? !validate(value) : required)
       }
     )
@@ -90,7 +89,8 @@ export default class TextField extends Component {
           name={name}
           placeholder={placeholder}
           value={value}
-          onChange={(e) => this.onChange(name, e.target.value)}
+          onFocus={(e) => this.onFocus(name, e.target.value)}
+          onChange={(e) => onChange(name, e.target.value)}
           onBlur={(e) => this.onBlur(name, e.target.value)}
           required={required}
           min={min}

@@ -29,7 +29,7 @@
 .TextField-input {
   /* Color */
   color: rgba(0,0,0,.78);
-  /* Background & Border */
+  /* Background & Borders */
   border-radius: .375rem;
   border: 1px solid rgba(0,0,0,.12);
   padding: .375rem .625rem;
@@ -65,7 +65,7 @@
   border: 1px solid #673AB7;
 }
 
-.TextField-input.error {
+.TextField-input-is-error {
   /* Background & Border */
   border-color: #FF6D00;
 }
