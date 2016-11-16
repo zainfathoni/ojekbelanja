@@ -1,10 +1,10 @@
 import React, { PropTypes as T } from 'react';
-import classNames from 'classnames';
+import classnames from 'classnames';
 
 import './Button.css';
 
 export default function Button(props) {
-  const buttonClass = classNames(
+  const buttonClass = classnames(
     props.className,
     'Button',
     `Button-${props.display}`,
@@ -13,7 +13,7 @@ export default function Button(props) {
       'Button-secondary': props.isSecondary
     }
   )
-  const iconClass = classNames(
+  const iconClass = classnames(
     'fa',
     `fa-${props.icon}`,
     { 'fa-lg': !props.isSmall }

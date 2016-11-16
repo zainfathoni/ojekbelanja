@@ -1,0 +1,51 @@
+/*** Pesanan.css ***/
+
+/** Module **/
+
+.pemesan {
+  margin: .5rem;
+  border: 1px solid #B39DDB;
+  border-radius: .25rem;
+  overflow: hidden;
+}
+
+.pemesan-heading {
+  position: relative;
+  color: #fff;
+  background-color: #673AB7;
+  border-color: #B39DDB;
+  border-bottom: .125rem solid transparent;
+  padding: .5rem 1rem;
+  line-height: 1.5rem;
+  text-align: left;
+}
+
+.pemesan-heading-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.pemesan-body {
+  table-layout: fixed;
+  width: 100%;
+  padding-left: .5rem;
+  padding-right: .5rem;
+}
+
+.pemesan-body:after {
+  display: table;
+  clear: both;
+  content: '';
+}
+
+.pemesan-footer {
+  padding: .5rem;
+  background-color: #f5f5f5;
+  border-color: #B39DDB;
+  border-top: .125rem solid transparent;
+  text-align: right;
+}
+
+.pemesan-footer-action {
+  margin: 0;
+}
