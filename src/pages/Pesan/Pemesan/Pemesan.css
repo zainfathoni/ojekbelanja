@@ -2,14 +2,14 @@
 
 /** Module **/
 
-.pemesan {
+.Pemesan {
   margin: .5rem;
   border: 1px solid #B39DDB;
   border-radius: .25rem;
   overflow: hidden;
 }
 
-.pemesan-heading {
+.Pemesan-heading {
   position: relative;
   color: #fff;
   background-color: #673AB7;
@@ -20,25 +20,25 @@
   text-align: left;
 }
 
-.pemesan-heading-title {
+.Pemesan-heading-title {
   font-size: 1rem;
   font-weight: 700;
 }
 
-.pemesan-body {
+.Pemesan-body {
   table-layout: fixed;
   width: 100%;
   padding-left: .5rem;
   padding-right: .5rem;
 }
 
-.pemesan-body:after {
+.Pemesan-body:after {
   display: table;
   clear: both;
   content: '';
 }
 
-.pemesan-footer {
+.Pemesan-footer {
   padding: .5rem;
   background-color: #f5f5f5;
   border-color: #B39DDB;
@@ -46,6 +46,6 @@
   text-align: right;
 }
 
-.pemesan-footer-action {
+.Pemesan-footer-action {
   margin: 0;
 }

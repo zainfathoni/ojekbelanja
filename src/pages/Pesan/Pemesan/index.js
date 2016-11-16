@@ -15,14 +15,14 @@ export default function Pemesan(props) {
   const isInvalid = isUserInvalid(user);
 
   return (
-    <div className="pemesan">
-      <div className="pemesan-heading">
-        <div className="pemesan-heading-title">
+    <div className="Pemesan">
+      <div className="Pemesan-heading">
+        <div className="Pemesan-heading-title">
           <i className="fa fa-lg fa-address-card" aria-hidden="true"></i>
           {" Data Pemesan"}
         </div>
       </div>
-      <div className="pemesan-body">
+      <div className="Pemesan-body">
         <TextField
           name="name"
           label="Nama"
@@ -73,15 +73,15 @@ export default function Pemesan(props) {
           required
           />
       </div>
-      <div className="pemesan-footer">
+      <div className="Pemesan-footer">
         <Button
-          className="pemesan-footer-action"
+          className="Pemesan-footer-action"
           display="content"
           action={(e) => console.log('Lanjutkan')}
           icon="arrow-right"
           text="Lanjutkan"
           disabled={isInvalid}
-          title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Lanjutkan pemesanan"}
+          title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Lanjutkan Pemesanan"}
           />
       </div>
 

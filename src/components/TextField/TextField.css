@@ -58,12 +58,14 @@
   font-size: .75rem;
 }
 
-/* State */
+/** State **/
 
 .TextField-input:focus {
+  /* Background & Border */
   border: 1px solid #673AB7;
 }
 
 .TextField-input.error {
+  /* Background & Border */
   border-color: #FF6D00;
 }
