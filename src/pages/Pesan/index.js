@@ -72,15 +72,20 @@ export default class Pesan extends Component {
   }
 
   updateOrder = (productId, orderQty) => {
-    let newOrder = this.state.order;
+    const newOrder = this.state.order;
     newOrder[productId] = escapeFloatingPoint(orderQty);
+
+    if (newOrder[productId] <= 0) {
+      delete newOrder[productId];
+    }
+
     this.setState({
       order: newOrder
     })
   }
 
   remove = (productId) => {
-    let newOrder = this.state.order;
+    const newOrder = this.state.order;
     delete newOrder[productId];
     this.setState({
       order: newOrder
@@ -88,7 +93,7 @@ export default class Pesan extends Component {
   }
 
   updateUser = (field, value) => {
-    let newUser = this.state.user;
+    const newUser = this.state.user;
     newUser[field] = value;
     this.setState({
       user: newUser
