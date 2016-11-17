@@ -4,7 +4,7 @@ import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import DescriptionList from '../../components/DescriptionList';
 import Table from '../../components/Table';
-import { quantify } from '../../services/product';
+import { quantify, subtotal, total } from '../../services/product';
 import { tokos, products } from '../../models';
 import '../pages.css';
 import './ThankYou.css';
@@ -76,6 +76,7 @@ export default class ThankYou extends Component {
 
   render() {
     const tokoId = this.props.params.tokoId;
+    const toko = tokos[tokoId];
     const {
       order,
       user,
@@ -106,22 +107,19 @@ export default class ThankYou extends Component {
           const row = {
             "No": id + 1,
             "Nama": item.name,
-            "Harga": `Rp ${(item.price).toLocaleString('id')}/${item.unit}`,
+            "Harga":
+            <div>
+              {`Rp ${(item.price).toLocaleString('id')}`}
+              <span className="ThankYou-pesanan-unit">
+                {` /${item.unit}`}
+              </span>
+            </div>,
             "Beli": quantify(order[key], item.step, item.unit),
-            "Subtotal": `Rp ${(item.price * item.step * order[key]).toLocaleString('id')}`,
+            "Subtotal": subtotal(order[key], item.step, item.price),
           }
           return row;
         });
 
-    // Calculate Price
-    const totalPrice =
-      Object.keys(order)
-        .reduce(
-        (sum, key) =>
-          sum + (products[key].price * products[key].step * order[key])
-        ,
-        0
-        );
     const footerColSpan = {
       "Nama": 2,
       "Harga": 3,
@@ -132,15 +130,15 @@ export default class ThankYou extends Component {
     const footer = [
       {
         "Nama": "Diskon",
-        "Harga": 0,
+        "Harga": `Rp ${(0).toLocaleString('id')}`,
       },
       {
         "Nama": "Ongkos Kirim",
-        "Harga": `Rp ${(tokos[tokoId].cost).toLocaleString('id')}`,
+        "Harga": `Rp ${(toko.cost).toLocaleString('id')}`,
       },
       {
         "Nama": "Total",
-        "Harga": `Rp ${(tokos[tokoId].cost + totalPrice).toLocaleString('id')}`,
+        "Harga": `Rp ${(toko.cost + total(order, products)).toLocaleString('id')}`,
       },
     ]
 
@@ -149,9 +147,9 @@ export default class ThankYou extends Component {
         <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
-        <Header heading={"Toko " + tokos[tokoId].name} />
+        <Header heading={"Toko " + toko.name} />
         <main className="l-ThankYou">
-          <p>Terima kasih telah berbelanja di toko {tokos[tokoId].name}, berikut detil transaksi Anda:</p>
+          <p>Terima kasih telah berbelanja di toko {toko.name}, berikut detil transaksi Anda:</p>
           <DescriptionList
             list={list}
             />

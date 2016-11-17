@@ -8,7 +8,7 @@
   max-width: 36rem;
   margin: 1rem auto;
   /* Text */
-  line-height: 1.5rem;
+  line-height: 1rem;
   /* Fonts */
   font-size: .875rem;
   /* Table Properties */
@@ -22,12 +22,12 @@
   border-style: solid;
   border-color: #673AB7;
   /* Basic Box */
-  padding: .375rem 0;
+  padding: .5rem 0;
 }
 
 .Table td {
   /* Basic Box */
-  padding: .375rem 0;
+  padding: .5rem 0;
 }
 
 .Table > tfoot {
@@ -37,7 +37,7 @@
 
 .Table-header-number {
   /* Basic Box */
-  width: 10%;
+  width: 7%;
 }
 
 .Table-header-name {
@@ -48,7 +48,7 @@
 .Table-header-price,
 .Table-header-qty {
   /* Basic Box */
-  width: 21%;
+  width: 22%;
 }
 
 .Table-name {

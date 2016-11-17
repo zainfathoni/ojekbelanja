@@ -2,7 +2,7 @@ import React, { PropTypes as T } from 'react';
 
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
-import { quantify, escapeFloatingPoint } from '../../../services/product';
+import { escapeFloatingPoint, quantify, subtotal, total } from '../../../services/product';
 import { tokos, products } from '../../../models';
 import '../../pages.css';
 import './Pesanan.css';
@@ -16,16 +16,6 @@ export default function Pesanan(props) {
     remove,
     cleanUp,
   } = props;
-
-  // Calculate Price
-  const totalPrice =
-    Object.keys(order)
-      .reduce(
-      (sum, key) =>
-        sum + (products[key].price * products[key].step * order[key])
-      ,
-      0
-      );
 
   return (
     <div className="Pesanan">
@@ -72,10 +62,10 @@ export default function Pesanan(props) {
                           <tr>
                             <td className="Pesanan-item-price-per-unit">
                               <span className="Pesanan-item-price">
-                                {`Rp ${(item.price).toLocaleString('id')}/`}
+                                {`Rp ${(item.price).toLocaleString('id')}`}
                               </span>
                               <span className="Pesanan-item-unit">
-                                {`${item.unit}`}
+                                {`/${item.unit}`}
                               </span>
                               <div className="Pesanan-item-order-quantified">
                                 {quantify(order[key], item.step, item.unit)}
@@ -85,7 +75,7 @@ export default function Pesanan(props) {
                           <tr>
                             <td>
                               <div className="Pesanan-item-total-price">
-                                {`Rp ${(item.price * item.step * order[key]).toLocaleString('id')}`}
+                                {subtotal(order[key], item.step, item.price)}
                               </div>
                             </td>
                           </tr>
@@ -141,7 +131,7 @@ export default function Pesanan(props) {
             Harga Total
           </div>
           <div className="Pesanan-footer-total-price-amount">
-            {`Rp ${(tokos[tokoId].cost + totalPrice).toLocaleString('id')}`}
+            {`Rp ${(tokos[tokoId].cost + total(order, products)).toLocaleString('id')}`}
           </div>
         </div>
       </div>
