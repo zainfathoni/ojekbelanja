@@ -1,0 +1,60 @@
+/*** InfoPesanan.css ***/
+
+/** Module **/
+
+.InfoPesanan {
+  /* Basic Box */
+  width: 30rem;
+  margin: 1rem auto;
+  /* Text */
+  line-height: 1.5rem;
+  /* Fonts */
+  font-size: .875rem;
+  /* Table Properties */
+  border-collapse: collapse;
+}
+
+.InfoPesanan th,
+.InfoPesanan tfoot td {
+  /* Background & Borders */
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #673AB7;
+  /* Basic Box */
+  padding: .375rem 0;
+}
+
+.InfoPesanan td {
+  /* Basic Box */
+  padding: .375rem 0;
+}
+
+.InfoPesanan > tfoot {
+  /* Color */
+  color: #673AB7;
+}
+
+.InfoPesanan-header-number {
+  /* Basic Box */
+  width: 10%;
+}
+
+.InfoPesanan-header-name {
+  /* Basic Box */
+  width: 40%;
+}
+
+.InfoPesanan-header-price {
+  /* Basic Box */
+  width: 20%;
+}
+
+.InfoPesanan-name {
+  /* Text */
+  text-align: left;
+}
+
+.InfoPesanan-price {
+  /* Text */
+  text-align: right;
+}

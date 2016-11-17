@@ -1,12 +1,13 @@
-/*** Info Pemesan.css ***/
+/*** InfoPemesan.css ***/
 
 /** Module **/
 
 .InfoPemesan {
   /* Basic Box */
   max-width: 26rem;
-  margin: auto;
+  margin: 1rem auto;
   /* Fonts */
+  font-size: .875rem;
   font-weight: 300;
   /* Text */
   line-height: 1.5rem;
