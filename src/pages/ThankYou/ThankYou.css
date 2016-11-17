@@ -4,6 +4,7 @@
 
 .l-ThankYou {
   /* Basic Box */
+  width: 90%;
   max-width: 45rem;
   margin: auto;
 }
@@ -14,4 +15,11 @@
   line-height: 1.5rem;
   /* Fonts */
   font-size: .875rem;
+}
+
+@media (max-width: 22.5em) {
+  .l-ThankYou {
+    /* Basic Box */
+    width: 95%;
+  }
 }

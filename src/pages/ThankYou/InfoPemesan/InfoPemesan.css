@@ -4,6 +4,7 @@
 
 .InfoPemesan {
   /* Basic Box */
+  width: 100%;
   max-width: 26rem;
   margin: 1rem auto;
   /* Fonts */
@@ -32,4 +33,18 @@
   margin-left: 11rem;
   /* Text */
   text-align: left;
+}
+
+@media (max-width: 30em) {
+  .InfoPemesan > dt {
+    /* Basic Box */
+    float: none;
+    /* Text */
+    text-align: left;
+  }
+
+  .InfoPemesan > dd {
+    /* Basic Box */
+    margin-left: 0;
+  }
 }
