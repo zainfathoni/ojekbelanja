@@ -114,18 +114,18 @@
   right: 0;
 }
 
-.plus,
-.minus {
+.Card-action-plus,
+.Card-action-minus {
   /* Basic Box */
   width: 47.5%;
 }
 
-.plus {
+.Card-action-plus {
   /* Basic Box */
   margin-left: 2.5%;
 }
 
-.minus {
+.Card-action-minus {
   /* Basic Box */
   margin-right: 2.5%;
 }

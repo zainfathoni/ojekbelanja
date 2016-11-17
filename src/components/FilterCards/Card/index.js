@@ -57,7 +57,7 @@ export default function Card(props) {
               {count ?
                 <div>
                   <Button
-                    className="minus"
+                    className="Card-action-minus"
                     display="icon"
                     action={(e) => props.actionReverse(props.id)}
                     icon="minus"
@@ -65,7 +65,7 @@ export default function Card(props) {
                     isSecondary
                     />
                   <Button
-                    className="plus"
+                    className="Card-action-plus"
                     display="icon"
                     action={(e) => props.action(props.id)}
                     icon="plus"
