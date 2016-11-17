@@ -47,7 +47,7 @@ export default function Card(props) {
           </div>
           {!props.actionReverse ?
             <Button
-              type="fullwidth"
+              display="fullwidth"
               action={(e) => props.action(props.id)}
               icon="shopping-cart"
               text="Mulai Belanja"

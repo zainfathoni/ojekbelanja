@@ -35,17 +35,21 @@ export default function Button(props) {
 
 Button.defaultProps = {
   display: 'fullwidth',
-  size: 'large',
   icon: 'font-awesome',
   text: 'Button'
 }
 
 Button.propTypes = {
-  type: T.string,     // Input Type [Submit, ...]
+  type: T.oneOf([     // Button Type https://developer.mozilla.org/en/docs/Web/HTML/Element/button
+    'submit',
+    'reset',
+    'button',
+    'menu',
+  ]),
   display: T.oneOf([  // Button Display
     'fullwidth',      // Full Width
     'content',        // Content Width
-    'icon'            // Icon Only
+    'icon',           // Icon Only
   ]).isRequired,
   icon: T.string.isRequired,  // Icon ID in Font Awesome
   text: T.string.isRequired,  // Button Text

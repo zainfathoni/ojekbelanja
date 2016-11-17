@@ -68,9 +68,9 @@ export default function Table(props) {
 }
 
 Table.propTypes = {
-  type: T.object.isRequired,
+  type: T.objectOf(T.string).isRequired,
   body: T.array.isRequired,
-  footerColSpan: T.object,
-  footerClassName: T.object,
+  footerColSpan: T.objectOf(T.number),
+  footerClassName: T.objectOf(T.string),
   footer: T.array,
 }

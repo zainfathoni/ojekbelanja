@@ -123,7 +123,7 @@ TextArea.propTypes = {
   label: T.string,              // Label
   placeholder: T.string,        // Placeholder
   value: T.any.isRequired,      // Value
-  rows: T.any,                  // Number of Rows
+  rows: T.number,               // Number of Rows
   onChange: T.func.isRequired,  // onChange Function
   onBlur: T.func,               // onBlur Function
   noValidation: T.bool,         // Flag to disable Validation

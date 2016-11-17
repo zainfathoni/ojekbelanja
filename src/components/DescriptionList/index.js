@@ -6,24 +6,25 @@ export default function DescriptionList(props) {
   const { list } = props;
 
   const formatDefinition = (def) => {
-    var arrayDef = def.split('\n');
-    return (
-      arrayDef.length === 1 ?
-        def.length === 0 ?
-        "-"
+    if (def) {
+      let arrayDef = def.split('\n');
+      return (
+        arrayDef.length === 1 ?
+          def
         :
-        def
-      :
-        <div>
-          {arrayDef
-            .map(defElement =>
-              <div key={defElement}>
-                {defElement}
-              </div>
-            )  
-          }
-        </div>
-    )
+          <div>
+            {arrayDef
+              .map(defElement =>
+                <div key={defElement}>
+                  {defElement}
+                </div>
+              )  
+            }
+          </div>
+      )
+    } else {
+      return "-";
+    }
   }
 
   return (
@@ -43,6 +44,6 @@ export default function DescriptionList(props) {
 DescriptionList.propTypes = {
   list: T.arrayOf(T.shape({
     term: T.string.isRequired,
-    definition: T.string.isRequired,
+    definition: T.string,
   })).isRequired,
 }

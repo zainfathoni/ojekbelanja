@@ -107,7 +107,7 @@ export default function Pemesan(props) {
 }
 
 Pemesan.propTypes = {
-  user: T.object.isRequired,
+  user: T.objectOf(T.string).isRequired,
   onChange: T.func.isRequired,
   tokoId: T.string.isRequired,
   goForward: T.func.isRequired,
