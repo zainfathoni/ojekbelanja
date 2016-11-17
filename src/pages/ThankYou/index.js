@@ -3,7 +3,9 @@ import { tokos } from '../../models';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
+import InfoPemesan from './InfoPemesan';
 import '../pages.css';
+import './ThankYou.css'
 
 export default class NotFound extends Component {
   render() {
@@ -15,7 +17,10 @@ export default class NotFound extends Component {
           <MainNav />
         </div>
         <Header heading={"Terima kasih telah berbelanja di Toko " + tokos[tokoId].name} />
-        
+        <p>Hai Zain, berikut detil transaksi Anda:</p>
+        <main className="l-wrapper-InfoPemesan">
+          <InfoPemesan />
+        </main>
       </div>
     );
   }
