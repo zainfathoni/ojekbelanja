@@ -6,12 +6,15 @@
   /* Background & Borders */
   border: 0;
   /* Basic Box */
+  position: relative;
   padding: 0;
   margin-left: 0;
   margin-right: 0;
 }
 
 .Section-label {
+  /* Background & Borders */
+  background-color: #EDE7F6;
   /* Basic Box */
   display: inline-block;
   position: static;
