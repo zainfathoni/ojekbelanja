@@ -1,8 +1,8 @@
-/*** InfoPemesan.css ***/
+/*** DescriptionList.css ***/
 
 /** Module **/
 
-.InfoPemesan {
+.DescriptionList {
   /* Basic Box */
   width: 100%;
   max-width: 26rem;
@@ -14,7 +14,7 @@
   line-height: 1.5rem;
 }
 
-.InfoPemesan > dt {
+.DescriptionList dt {
   /* Basic Box */
   float: left;
   width: 10rem;
@@ -28,7 +28,7 @@
   white-space: nowrap
 }
 
-.InfoPemesan > dd {
+.DescriptionList dd {
   /* Basic Box */
   margin-left: 11rem;
   /* Text */
@@ -36,14 +36,14 @@
 }
 
 @media (max-width: 30em) {
-  .InfoPemesan > dt {
+  .DescriptionList dt {
     /* Basic Box */
     float: none;
     /* Text */
     text-align: left;
   }
 
-  .InfoPemesan > dd {
+  .DescriptionList dd {
     /* Basic Box */
     margin-left: 0;
   }
