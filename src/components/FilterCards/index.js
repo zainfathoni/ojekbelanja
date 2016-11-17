@@ -111,12 +111,12 @@ export default function FilterCards(props) {
 FilterCards.propTypes = {
   keyword: T.string.isRequired,
   items: T.object.isRequired,
-  sections: T.object,
+  sections: T.objectOf(T.string),
   titleField: T.string.isRequired,
   descriptionField: T.string.isRequired,
   sectionField: T.string,
   imageField: T.string.isRequired,
   action: T.func.isRequired,
   actionReverse: T.func,
-  collection: T.object,
+  collection: T.objectOf(T.number),
 }

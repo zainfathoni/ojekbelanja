@@ -113,6 +113,12 @@ export default class Pesan extends Component {
     })
   }
 
+  clearUser = () => {
+    this.setState({
+      user: {},  
+    });
+  }
+
   /*** Render ***/
 
   render() {
@@ -140,6 +146,7 @@ export default class Pesan extends Component {
               user={this.state.user}
               onChange={this.updateUser}
               tokoId={tokoId}
+              clear={this.clearUser}
               goForward={this.goToThankYou}
               />
           </div>

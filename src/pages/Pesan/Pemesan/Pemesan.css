@@ -60,7 +60,20 @@
   text-align: right;
 }
 
-.Pemesan-footer-action {
+.Pemesan-footer-done,
+.Pemesan-footer-clear {
   /* Basic Box */
-  margin: 0;
+  width: 48.5%;
+}
+
+.Pemesan-footer-done {
+  /* Basic Box */
+  margin-left: 1.5%;
+  margin-right: 0;
+}
+
+.Pemesan-footer-clear {
+  /* Basic Box */
+  margin-left: 0;
+  margin-right: 1.5%;
 }

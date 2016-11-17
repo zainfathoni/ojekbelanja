@@ -141,7 +141,7 @@ export default function Pesanan(props) {
 
 Pesanan.propTypes = {
   tokoId: T.string.isRequired,
-  order: T.object.isRequired,
+  order: T.objectOf(T.number).isRequired,
   goBack: T.func.isRequired,
   update: T.func.isRequired,
   remove: T.func.isRequired,

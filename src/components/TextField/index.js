@@ -123,7 +123,20 @@ TextField.defaultProps = {
 }
 
 TextField.propTypes = {
-  type: T.string,                   // Input Type [Text, Email, Number, ...]
+  type: T.oneOf([                   // Input Type https://developer.mozilla.org/en/docs/Web/HTML/Element/input
+    'date',
+    'email',
+    'file',
+    'month',
+    'number',
+    'password',
+    'search',
+    'tel',
+    'text',
+    'time',
+    'url',
+    'week',
+  ]),
   display: T.oneOf([                // TextField Display
     'fullwidth',                    // Full Width
     'content',                      // Content Width

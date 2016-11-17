@@ -12,6 +12,7 @@ export default function Pemesan(props) {
     user,
     onChange,
     tokoId,
+    clear,
     goForward,
   } = props;
 
@@ -92,13 +93,22 @@ export default function Pemesan(props) {
       </div>
       <div className="Pemesan-footer">
         <Button
-          className="Pemesan-footer-action"
+          className="Pemesan-footer-clear"
+          display="content"
+          action={(e) => clear()}
+          icon="times"
+          text="Bersihkan"
+          title={"Bersihkan Data"}
+          isSecondary
+          />
+        <Button
+          className="Pemesan-footer-done"
           display="content"
           action={(e) => goForward(tokoId)}
-          icon="arrow-right"
-          text="Lanjutkan"
+          icon="cart-arrow-down"
+          text="Selesai"
           disabled={isInvalid}
-          title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Lanjutkan Pemesanan"}
+          title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Konfirmasi Pemesanan"}
           />
       </div>
 
@@ -107,8 +117,9 @@ export default function Pemesan(props) {
 }
 
 Pemesan.propTypes = {
-  user: T.object.isRequired,
+  user: T.objectOf(T.string).isRequired,
   onChange: T.func.isRequired,
   tokoId: T.string.isRequired,
+  clear: T.func.isRequired,
   goForward: T.func.isRequired,
 }

@@ -17,5 +17,7 @@ export function isPhoneValid(value) {
 export function isUserInvalid(user) {
   return !user.name ||
     !isEmailValid(user.email) ||
-    !isPhoneValid(user.phone)
+    !isPhoneValid(user.phone) ||
+    !user.city ||
+    !user.address
 }

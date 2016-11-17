@@ -132,10 +132,15 @@ export default class ThankYou extends Component {
       'Harga': 3,
     }
     const footerClassName = {
-      0: 'reverse',
-      2: 'total',
+      1: 'reverse',
+      3: 'total',
     }
+    const productsTotalPrice = total(order, products);
     const footer = [
+      {
+        'Nama': 'Subtotal',
+        'Harga': `Rp ${productsTotalPrice.toLocaleString('id')}`,
+      },
       {
         'Nama': 'Diskon',
         'Harga': `Rp ${(0).toLocaleString('id')}`,
@@ -146,7 +151,7 @@ export default class ThankYou extends Component {
       },
       {
         'Nama': 'Total',
-        'Harga': `Rp ${(toko.cost + total(order, products)).toLocaleString('id')}`,
+        'Harga': `Rp ${(toko.cost + productsTotalPrice).toLocaleString('id')}`,
       },
     ]
 

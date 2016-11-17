@@ -13,7 +13,7 @@ export default function FilterInput(props) {
         props.action(props.tempKeyword)
       } }>
         <input
-          type="text"
+          type="search"
           className="FilterInput FilterInput-txt"
           placeholder={props.placeholder}
           value={props.tempKeyword}
@@ -33,7 +33,7 @@ export default function FilterInput(props) {
     return (
       <div className="l-FilterInput l-FilterInput-no-btn">
         <input
-          type="text"
+          type="search"
           className="FilterInput FilterInput-txt FilterInput-txt-no-btn"
           placeholder={props.placeholder}
           value={props.keyword}

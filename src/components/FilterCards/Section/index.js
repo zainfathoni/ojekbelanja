@@ -56,5 +56,5 @@ Section.propTypes = {
   imageField: T.string.isRequired,
   action: T.func.isRequired,
   actionReverse: T.func,
-  collection: T.object,
+  collection: T.objectOf(T.number),
 }
