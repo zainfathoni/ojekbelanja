@@ -69,6 +69,10 @@ tfoot td.Table-reverse {
   border-color: #FF6D00;
 }
 
+.Table-price.Table-reverse:before {
+  content: "- ";
+}
+
 .Table-total {
   /* Text */
   font-weight: 700;
