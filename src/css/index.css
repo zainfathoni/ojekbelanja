@@ -3,6 +3,8 @@
 /* Base */
 
 body {
+  /* Color */
+  color: rgba(0,0,0,.78);
   margin: 0;
   padding: 0;
   font-family: 'Lato', 'Open Sans', sans-serif;

@@ -1,0 +1,83 @@
+/*** Table.css ***/
+
+/** Module **/
+
+.Table {
+  /* Basic Box */
+  width: 100%;
+  max-width: 36rem;
+  margin: 1rem auto;
+  /* Text */
+  line-height: 1rem;
+  /* Fonts */
+  font-size: .875rem;
+  /* Table Properties */
+  border-collapse: collapse;
+}
+
+.Table th,
+.Table tfoot td {
+  /* Background & Borders */
+  border-width: 1px 0;
+  border-style: solid;
+  border-color: #673AB7;
+  /* Basic Box */
+  padding: .5rem 0;
+}
+
+.Table td {
+  /* Basic Box */
+  padding: .5rem 0;
+}
+
+.Table > tfoot {
+  /* Color */
+  color: #673AB7;
+}
+
+.Table-header-number {
+  /* Basic Box */
+  width: 7%;
+}
+
+.Table-header-name {
+  /* Basic Box */
+  width: 27%;
+}
+
+.Table-header-price,
+.Table-header-qty {
+  /* Basic Box */
+  width: 22%;
+}
+
+.Table-name {
+  /* Text */
+  text-align: left;
+}
+
+.Table-price,
+.Table-qty {
+  /* Text */
+  text-align: right;
+}
+
+tfoot td.Table-reverse {
+  /* Color */
+  color: #FF6D00;
+  /* Background & Borders */
+  border-color: #FF6D00;
+}
+
+.Table-total {
+  /* Text */
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+@media (max-width: 36em) {
+  .Table {
+    /* Fonts */
+    font-size: .75rem;
+  }
+}

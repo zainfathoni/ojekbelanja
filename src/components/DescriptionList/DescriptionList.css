@@ -1,0 +1,56 @@
+/*** DescriptionList.css ***/
+
+/** Module **/
+
+.DescriptionList {
+  /* Basic Box */
+  width: 100%;
+  max-width: 26rem;
+  margin: 1rem auto;
+  /* Fonts */
+  font-size: .875rem;
+  font-weight: 700;
+  /* Text */
+  line-height: 1.5rem;
+}
+
+.DescriptionList dt {
+  /* Basic Box */
+  float: left;
+  width: 10rem;
+  overflow: hidden;
+  clear: left;
+  /* Fonts */
+  font-weight: 300;
+  /* Text */
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+.DescriptionList dd {
+  /* Basic Box */
+  margin-left: 11rem;
+  /* Text */
+  text-align: left;
+}
+
+@media (max-width: 30em) {
+  .DescriptionList {
+    /* Basic Box */
+    width: 75%;
+    min-width: 10rem;
+  }
+
+  .DescriptionList dt {
+    /* Basic Box */
+    float: none;
+    /* Text */
+    text-align: left;
+  }
+
+  .DescriptionList dd {
+    /* Basic Box */
+    margin-left: 0;
+  }
+}

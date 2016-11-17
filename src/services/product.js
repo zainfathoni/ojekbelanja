@@ -1,14 +1,23 @@
-export function quantify(count, step, unit) {
+export const escapeFloatingPoint = (value) =>
+  // Avoid Floating Point Problem
+  Math.round(value * 100) / 100;
+
+export const quantify = (count, step, unit) => {
   const steps = escapeFloatingPoint(count * step);
-  const qty =
-    (steps < 1 && unit === "kg") ?
-      `${steps * 1000} gram`
-      :
-      `${steps} ${unit}`
-  return qty;
+  return (steps < 1 && unit === "kg") ?
+    `${steps * 1000} gram`
+    :
+    `${steps} ${unit}`;
 }
 
-export function escapeFloatingPoint(value) {
-  // Avoid Floating Point Problem
-  return Math.round(value * 100) / 100;
-}
+export const subtotal = (count, step, price) =>
+  `Rp ${(count * step * price).toLocaleString('id')}`;
+
+export const total = (order, products) =>
+  Object.keys(order)
+    .reduce(
+    (sum, key) =>
+      sum + (products[key].price * products[key].step * order[key])
+    ,
+    0
+    );

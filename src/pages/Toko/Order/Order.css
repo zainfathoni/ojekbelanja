@@ -139,7 +139,9 @@
     margin-bottom: .375rem
   }
 
-  .footer-buffer {
+  /** Layout **/
+
+  .l-footer-buffer {
     /* Basic Box */
     height: 7.25rem;
   }

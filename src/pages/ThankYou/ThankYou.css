@@ -1,0 +1,32 @@
+/*** ThankYou.css ***/
+
+/** Layout **/
+
+.l-ThankYou {
+  /* Basic Box */
+  width: 90%;
+  max-width: 45rem;
+  margin: auto;
+}
+
+.l-ThankYou li {
+  /* Text */
+  text-align: left;
+  line-height: 1.5rem;
+  /* Fonts */
+  font-size: .875rem;
+}
+
+@media (max-width: 22.5em) {
+  .l-ThankYou {
+    /* Basic Box */
+    width: 95%;
+  }
+}
+
+/** Module **/
+
+.ThankYou-pesanan-unit {
+  /* Fonts */
+  font-size: .625rem;
+}
