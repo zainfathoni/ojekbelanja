@@ -4,6 +4,7 @@ import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import DescriptionList from '../../components/DescriptionList';
 import Table from '../../components/Table';
+import Brand from '../../components/Brand';
 import { quantify, subtotal, total } from '../../services/product';
 import { tokos, products } from '../../models';
 import '../pages.css';
@@ -82,7 +83,9 @@ export default class ThankYou extends Component {
       user,
     } = this.state;
 
-    const list = [
+    const pemesanList = [
+      { term: "No. Pesanan", definition: "" },
+      { term: "Tanggal Pengiriman", definition: "" },
       { term: "Nama", definition: user.name },
       { term: "Panggilan", definition: user.nickname },
       { term: "Email", definition: user.email },
@@ -92,11 +95,17 @@ export default class ThankYou extends Component {
       { term: "Catatan", definition: user.notes },
     ];
 
+    const tokoList = [
+      { term: "Nama Toko", definition: toko.name },
+      { term: "Area Layanan", definition: toko.area },
+      { term: "No. HP", definition: toko.phone },
+    ];
+
     const type = {
       "No": "number",
       "Nama": "name",
       "Harga": "price",
-      "Beli": "qty",
+      "Jumlah": "qty",
       "Subtotal": "price",
     }
 
@@ -109,12 +118,10 @@ export default class ThankYou extends Component {
             "Nama": item.name,
             "Harga":
             <div>
-              {`Rp ${(item.price).toLocaleString('id')}`}
-              <span className="ThankYou-pesanan-unit">
-                {` /${item.unit}`}
-              </span>
+              Rp {(item.price).toLocaleString('id')}
+              <span className="ThankYou-pesanan-unit"> /{item.unit}</span>
             </div>,
-            "Beli": quantify(order[key], item.step, item.unit),
+            "Jumlah": quantify(order[key], item.step, item.unit),
             "Subtotal": subtotal(order[key], item.step, item.price),
           }
           return row;
@@ -125,6 +132,7 @@ export default class ThankYou extends Component {
       "Harga": 3,
     }
     const footerClassName = {
+      0: "reverse",
       2: "total",
     }
     const footer = [
@@ -151,7 +159,7 @@ export default class ThankYou extends Component {
         <main className="l-ThankYou">
           <p>Terima kasih telah berbelanja di toko {toko.name}, berikut detil transaksi Anda:</p>
           <DescriptionList
-            list={list}
+            list={pemesanList}
             />
           <Table
             type={type}
@@ -162,15 +170,13 @@ export default class ThankYou extends Component {
             />
           <h4>Cara Pembayaran</h4>
           <ol>
-            <li>Make sure you have received the order confirmation email from SayurBox.</li>
-            <li>Transfer the total transaction amount with reference to your order number to SayurBox BCA account with the following details:
-              <ul>
-                <li><b>Account Name : PT. ABCD EFGH</b></li>
-                <li><b>Account No : 022 – 1234567</b></li>
-              </ul>
+            <li>Pastikan Anda telah menerima email konfirmasi pesanan dari <Brand />.</li>
+            <li>Untuk pertanyaan lebih lanjut, berikut detil informasi toko tempat Anda memesan:
+              <DescriptionList
+                list={tokoList}
+                />
             </li>
-            <li>Please make payment by :<div><b>Monday 5 p.m</b> for Wednesday’s delivery, and <b>Thursday by 5 p.m</b> for Saturday’s delivery to avoid order cancellation.</div>Once you have paid, you will receive a whatsapp or email confirmation.
-              </li>
+            <li>Pembayaran dilakukan dengan cara <i>COD (Cash On Delivery)</i>.</li>
           </ol>
         </main>
       </div>

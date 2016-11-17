@@ -51,7 +51,8 @@ export default function Table(props) {
                   <td key={data}
                     className={classnames(
                       `Table-${type[data]}`,
-                      { 'Table-total': footerClassName[rowId] }
+                      { 'Table-reverse': footerClassName[rowId] === 'reverse' },
+                      { 'Table-total': footerClassName[rowId] === 'total' },
                     )}
                     colSpan={footerColSpan[data]}>
                     {row[data]}

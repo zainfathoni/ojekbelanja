@@ -62,6 +62,13 @@
   text-align: right;
 }
 
+tfoot td.Table-reverse {
+  /* Color */
+  color: #FF6D00;
+  /* Background & Borders */
+  border-color: #FF6D00;
+}
+
 .Table-total {
   /* Text */
   font-weight: 700;
