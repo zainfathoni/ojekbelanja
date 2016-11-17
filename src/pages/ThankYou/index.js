@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { tokos } from '../../models';
+import { tokos, products } from '../../models';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
@@ -76,7 +76,7 @@ export default class ThankYou extends Component {
   render() {
     const tokoId = this.props.params.tokoId;
     const {
-      // order,
+      order,
       user,
     } = this.state;
 
@@ -92,53 +92,53 @@ export default class ThankYou extends Component {
 
     const type = {
       "No": "number",
-      "Name": "name",
-      "Price": "price",
-      "Qty": "qty",
-      "Sub Total": "price",
+      "Nama": "name",
+      "Harga": "price",
+      "Beli": "qty",
+      "Subtotal": "price",
     }
     const body = [
       {
         "No": 1,
-        "Name": "Cassava",
-        "Price": 5000,
-        "Qty": 3,
-        "Sub Total": 15000,
+        "Nama": "Cassava",
+        "Harga": 5000,
+        "Beli": 3,
+        "Subtotal": 15000,
       },
       {
         "No": 2,
-        "Name": "Peanut",
-        "Price": 5000,
-        "Qty": 3,
-        "Sub Total": 15000,
+        "Nama": "Peanut",
+        "Harga": 5000,
+        "Beli": 3,
+        "Subtotal": 15000,
       },
       {
         "No": 3,
-        "Name": "Butter",
-        "Price": 5000,
-        "Qty": 3,
-        "Sub Total": 15000,
+        "Nama": "Butter",
+        "Harga": 5000,
+        "Beli": 3,
+        "Subtotal": 15000,
       },
     ]
     const footerColSpan = {
-      "Name": 2,
-      "Price": 3,
+      "Nama": 2,
+      "Harga": 3,
     }
     const footerClassName = {
       2: "total",
     }
     const footer = [
       {
-        "Name": "Diskon",
-        "Price": 0,
+        "Nama": "Diskon",
+        "Harga": 0,
       },
       {
-        "Name": "Ongkos Kirim",
-        "Price": 20000,
+        "Nama": "Ongkos Kirim",
+        "Harga": 20000,
       },
       {
-        "Name": "Total",
-        "Price": 20000,
+        "Nama": "Total",
+        "Harga": 20000,
       },
     ]
 

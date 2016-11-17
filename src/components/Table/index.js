@@ -49,7 +49,7 @@ export default function Table(props) {
       <tfoot>
         {footer
           .map((row, rowId) =>
-            <tr key={row["Name"]}>
+            <tr key={row["Nama"]}>
               {Object.keys(row)
                 .map(data =>
                   <td key={data}
