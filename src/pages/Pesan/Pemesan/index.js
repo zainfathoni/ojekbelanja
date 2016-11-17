@@ -11,6 +11,8 @@ export default function Pemesan(props) {
   const {
     user,
     onChange,
+    tokoId,
+    goForward,
   } = props;
 
   const isInvalid = isUserInvalid(user);
@@ -92,7 +94,7 @@ export default function Pemesan(props) {
         <Button
           className="Pemesan-footer-action"
           display="content"
-          action={(e) => console.log('Lanjutkan')}
+          action={(e) => goForward(tokoId)}
           icon="arrow-right"
           text="Lanjutkan"
           disabled={isInvalid}
@@ -107,4 +109,6 @@ export default function Pemesan(props) {
 Pemesan.propTypes = {
   user: T.object.isRequired,
   onChange: T.func.isRequired,
+  tokoId: T.string.isRequired,
+  goForward: T.func.isRequired,
 }

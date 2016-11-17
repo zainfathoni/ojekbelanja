@@ -71,6 +71,11 @@ export default class Pesan extends Component {
     this.context.router.transitionTo(`/toko/${tokoId}`);
   }
 
+  goToThankYou = (tokoId) => {
+    console.log(`Melanjutkan Pesanan di Toko ${tokoId}`);
+    this.context.router.transitionTo(`/thankyou/${tokoId}`);
+  }
+
   updateOrder = (productId, orderQty) => {
     const newOrder = this.state.order;
     newOrder[productId] = escapeFloatingPoint(orderQty);
@@ -134,6 +139,8 @@ export default class Pesan extends Component {
             <Pemesan
               user={this.state.user}
               onChange={this.updateUser}
+              tokoId={tokoId}
+              goForward={this.goToThankYou}
               />
           </div>
 
