@@ -119,7 +119,7 @@ export default class ThankYou extends Component {
             'Harga':
             <div>
               Rp {(item.price).toLocaleString('id')}
-              <span className='ThankYou-pesanan-unit'> /{item.unit}</span>
+              <span className="ThankYou-pesanan-unit"> /{item.unit}</span>
             </div>,
             'Jumlah': quantify(order[key], item.step, item.unit),
             'Subtotal': subtotal(order[key], item.step, item.price),
