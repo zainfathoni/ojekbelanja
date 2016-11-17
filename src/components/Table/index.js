@@ -34,11 +34,7 @@ export default function Table(props) {
                 .map(data =>
                   <td key={data}
                     className={`Table-${type[data]}`}>
-                    {type[data] === "price" ?
-                      `Rp ${row[data].toLocaleString('id')}`
-                      :
-                      row[data]
-                    }
+                    {row[data]}
                   </td>
                 )
               }
@@ -58,11 +54,7 @@ export default function Table(props) {
                       { 'Table-total': footerClassName[rowId] }
                     )}
                     colSpan={footerColSpan[data]}>
-                    {type[data] === "price" ?
-                      `Rp ${row[data].toLocaleString('id')}`
-                      :
-                      row[data]
-                    }
+                    {row[data]}
                   </td>
                 )
               }

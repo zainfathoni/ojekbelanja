@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { tokos, products } from '../../models';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import DescriptionList from '../../components/DescriptionList';
 import Table from '../../components/Table';
+import { quantify } from '../../services/product';
+import { tokos, products } from '../../models';
 import '../pages.css';
 import './ThankYou.css';
 
@@ -81,13 +82,13 @@ export default class ThankYou extends Component {
     } = this.state;
 
     const list = [
-      {term: "Nama", definition: user.name},
-      {term: "Panggilan", definition: user.nickname},
-      {term: "Email", definition: user.email},
-      {term: "No. HP", definition: user.phone},
-      {term: "Kota", definition: user.city},
-      {term: "Alamat", definition: user.address},
-      {term: "Catatan", definition: user.notes},
+      { term: "Nama", definition: user.name },
+      { term: "Panggilan", definition: user.nickname },
+      { term: "Email", definition: user.email },
+      { term: "No. HP", definition: user.phone },
+      { term: "Kota", definition: user.city },
+      { term: "Alamat", definition: user.address },
+      { term: "Catatan", definition: user.notes },
     ];
 
     const type = {
@@ -97,29 +98,30 @@ export default class ThankYou extends Component {
       "Beli": "qty",
       "Subtotal": "price",
     }
-    const body = [
-      {
-        "No": 1,
-        "Nama": "Cassava",
-        "Harga": 5000,
-        "Beli": 3,
-        "Subtotal": 15000,
-      },
-      {
-        "No": 2,
-        "Nama": "Peanut",
-        "Harga": 5000,
-        "Beli": 3,
-        "Subtotal": 15000,
-      },
-      {
-        "No": 3,
-        "Nama": "Butter",
-        "Harga": 5000,
-        "Beli": 3,
-        "Subtotal": 15000,
-      },
-    ]
+
+    const body =
+      Object.keys(order)
+        .map((key, id) => {
+          const item = products[key];
+          const row = {
+            "No": id + 1,
+            "Nama": item.name,
+            "Harga": `Rp ${(item.price).toLocaleString('id')}/${item.unit}`,
+            "Beli": quantify(order[key], item.step, item.unit),
+            "Subtotal": `Rp ${(item.price * item.step * order[key]).toLocaleString('id')}`,
+          }
+          return row;
+        });
+
+    // Calculate Price
+    const totalPrice =
+      Object.keys(order)
+        .reduce(
+        (sum, key) =>
+          sum + (products[key].price * products[key].step * order[key])
+        ,
+        0
+        );
     const footerColSpan = {
       "Nama": 2,
       "Harga": 3,
@@ -134,11 +136,11 @@ export default class ThankYou extends Component {
       },
       {
         "Nama": "Ongkos Kirim",
-        "Harga": 20000,
+        "Harga": `Rp ${(tokos[tokoId].cost).toLocaleString('id')}`,
       },
       {
         "Nama": "Total",
-        "Harga": 20000,
+        "Harga": `Rp ${(tokos[tokoId].cost + totalPrice).toLocaleString('id')}`,
       },
     ]
 
