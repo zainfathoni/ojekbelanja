@@ -84,29 +84,29 @@ export default class ThankYou extends Component {
     } = this.state;
 
     const pemesanList = [
-      { term: "No. Pesanan", definition: "" },
-      { term: "Tanggal Pengiriman", definition: "" },
-      { term: "Nama", definition: user.name },
-      { term: "Panggilan", definition: user.nickname },
-      { term: "Email", definition: user.email },
-      { term: "No. HP", definition: user.phone },
-      { term: "Kota", definition: user.city },
-      { term: "Alamat", definition: user.address },
-      { term: "Catatan", definition: user.notes },
+      { term: 'No. Pesanan', definition: '' },
+      { term: 'Tanggal Pengiriman', definition: '' },
+      { term: 'Nama', definition: user.name },
+      { term: 'Panggilan', definition: user.nickname },
+      { term: 'Email', definition: user.email },
+      { term: 'No. HP', definition: user.phone },
+      { term: 'Kota', definition: user.city },
+      { term: 'Alamat', definition: user.address },
+      { term: 'Catatan', definition: user.notes },
     ];
 
     const tokoList = [
-      { term: "Nama Toko", definition: toko.name },
-      { term: "Area Layanan", definition: toko.area },
-      { term: "No. HP", definition: toko.phone },
+      { term: 'Nama Toko', definition: toko.name },
+      { term: 'Area Layanan', definition: toko.area },
+      { term: 'No. HP', definition: toko.phone },
     ];
 
     const type = {
-      "No": "number",
-      "Nama": "name",
-      "Harga": "price",
-      "Jumlah": "qty",
-      "Subtotal": "price",
+      'No': 'number',
+      'Nama': 'name',
+      'Harga': 'price',
+      'Jumlah': 'qty',
+      'Subtotal': 'price',
     }
 
     const body =
@@ -114,39 +114,39 @@ export default class ThankYou extends Component {
         .map((key, id) => {
           const item = products[key];
           const row = {
-            "No": id + 1,
-            "Nama": item.name,
-            "Harga":
+            'No': id + 1,
+            'Nama': item.name,
+            'Harga':
             <div>
               Rp {(item.price).toLocaleString('id')}
-              <span className="ThankYou-pesanan-unit"> /{item.unit}</span>
+              <span className='ThankYou-pesanan-unit'> /{item.unit}</span>
             </div>,
-            "Jumlah": quantify(order[key], item.step, item.unit),
-            "Subtotal": subtotal(order[key], item.step, item.price),
+            'Jumlah': quantify(order[key], item.step, item.unit),
+            'Subtotal': subtotal(order[key], item.step, item.price),
           }
           return row;
         });
 
     const footerColSpan = {
-      "Nama": 2,
-      "Harga": 3,
+      'Nama': 2,
+      'Harga': 3,
     }
     const footerClassName = {
-      0: "reverse",
-      2: "total",
+      0: 'reverse',
+      2: 'total',
     }
     const footer = [
       {
-        "Nama": "Diskon",
-        "Harga": `Rp ${(0).toLocaleString('id')}`,
+        'Nama': 'Diskon',
+        'Harga': `Rp ${(0).toLocaleString('id')}`,
       },
       {
-        "Nama": "Ongkos Kirim",
-        "Harga": `Rp ${(toko.cost).toLocaleString('id')}`,
+        'Nama': 'Ongkos Kirim',
+        'Harga': `Rp ${(toko.cost).toLocaleString('id')}`,
       },
       {
-        "Nama": "Total",
-        "Harga": `Rp ${(toko.cost + total(order, products)).toLocaleString('id')}`,
+        'Nama': 'Total',
+        'Harga': `Rp ${(toko.cost + total(order, products)).toLocaleString('id')}`,
       },
     ]
 
