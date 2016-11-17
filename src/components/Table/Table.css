@@ -1,8 +1,8 @@
-/*** InfoPesanan.css ***/
+/*** Table.css ***/
 
 /** Module **/
 
-.InfoPesanan {
+.Table {
   /* Basic Box */
   width: 100%;
   max-width: 30rem;
@@ -15,8 +15,8 @@
   border-collapse: collapse;
 }
 
-.InfoPesanan th,
-.InfoPesanan tfoot td {
+.Table th,
+.Table tfoot td {
   /* Background & Borders */
   border-width: 1px 0;
   border-style: solid;
@@ -25,72 +25,73 @@
   padding: .375rem 0;
 }
 
-.InfoPesanan td {
+.Table td {
   /* Basic Box */
   padding: .375rem 0;
 }
 
-.InfoPesanan > tfoot {
+.Table > tfoot {
   /* Color */
   color: #673AB7;
 }
 
-.InfoPesanan-header-number {
+.Table-header-number,
+.Table-header-qty {
   /* Basic Box */
   width: 10%;
 }
 
-.InfoPesanan-header-name {
+.Table-header-name {
   /* Basic Box */
   width: 40%;
 }
 
-.InfoPesanan-header-price {
+.Table-header-price {
   /* Basic Box */
   width: 20%;
 }
 
-.InfoPesanan-name {
+.Table-name {
   /* Text */
   text-align: left;
 }
 
-.InfoPesanan-price,
-.InfoPesanan-qty {
+.Table-price,
+.Table-qty {
   /* Text */
   text-align: right;
 }
 
-.InfoPesanan-total {
+.Table-total {
   /* Text */
   font-weight: 700;
   font-size: 1rem;
 }
 
 @media (max-width: 36em) {
-  .InfoPesanan-header-name {
+  .Table-header-name {
     /* Basic Box */
     width: 30%;
   }
 
-  .InfoPesanan-header-price {
+  .Table-header-price {
     /* Basic Box */
     width: 25%;
   }
 }
 
 @media (max-width: 22.5em) {
-  .InfoPesanan {
+  .Table {
     /* Fonts */
     font-size: .75rem;
   }
 
-  .InfoPesanan-header-name {
+  .Table-header-name {
     /* Basic Box */
     width: 20%;
   }
 
-  .InfoPesanan-header-price {
+  .Table-header-price {
     /* Basic Box */
     width: 30%;
   }

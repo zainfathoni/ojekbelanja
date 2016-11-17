@@ -5,7 +5,7 @@ import './DescriptionList.css';
 export default function DescriptionList(props) {
   const { list } = props;
 
-  function formatDefinition(def) {
+  const formatDefinition = (def) => {
     var arrayDef = def.split('\n');
     return (
       arrayDef.length === 1 ?

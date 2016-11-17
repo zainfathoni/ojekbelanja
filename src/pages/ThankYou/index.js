@@ -4,7 +4,7 @@ import { tokos } from '../../models';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import DescriptionList from '../../components/DescriptionList';
-import InfoPesanan from './InfoPesanan';
+import Table from '../../components/Table';
 import '../pages.css';
 import './ThankYou.css';
 
@@ -76,7 +76,7 @@ export default class ThankYou extends Component {
   render() {
     const tokoId = this.props.params.tokoId;
     const {
-      order,
+      // order,
       user,
     } = this.state;
 
@@ -90,6 +90,58 @@ export default class ThankYou extends Component {
       {term: "Catatan", definition: user.notes},
     ];
 
+    const type = {
+      "No": "number",
+      "Name": "name",
+      "Price": "price",
+      "Qty": "qty",
+      "Sub Total": "price",
+    }
+    const body = [
+      {
+        "No": 1,
+        "Name": "Cassava",
+        "Price": 5000,
+        "Qty": 3,
+        "Sub Total": 15000,
+      },
+      {
+        "No": 2,
+        "Name": "Peanut",
+        "Price": 5000,
+        "Qty": 3,
+        "Sub Total": 15000,
+      },
+      {
+        "No": 3,
+        "Name": "Butter",
+        "Price": 5000,
+        "Qty": 3,
+        "Sub Total": 15000,
+      },
+    ]
+    const footerColSpan = {
+      "Name": 2,
+      "Price": 3,
+    }
+    const footerClassName = {
+      2: "total",
+    }
+    const footer = [
+      {
+        "Name": "Diskon",
+        "Price": 0,
+      },
+      {
+        "Name": "Ongkos Kirim",
+        "Price": 20000,
+      },
+      {
+        "Name": "Total",
+        "Price": 20000,
+      },
+    ]
+
     return (
       <div className="l-fullwidth">
         <div className="l-wrapper-MainNav">
@@ -101,14 +153,20 @@ export default class ThankYou extends Component {
           <DescriptionList
             list={list}
             />
-          <InfoPesanan />
+          <Table
+            type={type}
+            body={body}
+            footerColSpan={footerColSpan}
+            footerClassName={footerClassName}
+            footer={footer}
+            />
           <h4>Cara Pembayaran</h4>
           <ol>
             <li>Make sure you have received the order confirmation email from SayurBox.</li>
             <li>Transfer the total transaction amount with reference to your order number to SayurBox BCA account with the following details:
               <ul>
-                <li><b>Account Name : PT. KREASI NOSTRA MANDIRI</b></li>
-                <li><b>Account No : 006 – 9197771</b></li>
+                <li><b>Account Name : PT. ABCD EFGH</b></li>
+                <li><b>Account No : 022 – 1234567</b></li>
               </ul>
             </li>
             <li>Please make payment by :<div><b>Monday 5 p.m</b> for Wednesday’s delivery, and <b>Thursday by 5 p.m</b> for Saturday’s delivery to avoid order cancellation.</div>Once you have paid, you will receive a whatsapp or email confirmation.
