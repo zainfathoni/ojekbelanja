@@ -3,6 +3,15 @@
 /** Layout **/
 
 .l-ThankYou {
+  /* Basic Box */
   max-width: 45rem;
   margin: auto;
+}
+
+.l-ThankYou li {
+  /* Text */
+  text-align: left;
+  line-height: 1.5rem;
+  /* Fonts */
+  font-size: .875rem;
 }
