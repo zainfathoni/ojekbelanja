@@ -9,7 +9,7 @@
   margin: 1rem auto;
   /* Fonts */
   font-size: .875rem;
-  font-weight: 300;
+  font-weight: 700;
   /* Text */
   line-height: 1.5rem;
 }
@@ -21,7 +21,7 @@
   overflow: hidden;
   clear: left;
   /* Fonts */
-  font-weight: 700;
+  font-weight: 300;
   /* Text */
   text-align: right;
   text-overflow: ellipsis;
@@ -36,6 +36,12 @@
 }
 
 @media (max-width: 30em) {
+  .DescriptionList {
+    /* Basic Box */
+    width: 75%;
+    min-width: 10rem;
+  }
+
   .DescriptionList dt {
     /* Basic Box */
     float: none;

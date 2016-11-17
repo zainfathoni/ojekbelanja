@@ -9,6 +9,9 @@ export default function DescriptionList(props) {
     var arrayDef = def.split('\n');
     return (
       arrayDef.length === 1 ?
+        def.length === 0 ?
+        "-"
+        :
         def
       :
         <div>

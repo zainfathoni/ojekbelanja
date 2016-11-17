@@ -8,7 +8,7 @@ import InfoPesanan from './InfoPesanan';
 import '../pages.css';
 import './ThankYou.css';
 
-export default class NotFound extends Component {
+export default class ThankYou extends Component {
   constructor(props) {
     super(props);
 
@@ -64,6 +64,13 @@ export default class NotFound extends Component {
       JSON.stringify(nextState.user));
   }
 
+  /*** Methods ***/
+
+  goToToko = (tokoId) => {
+    console.log(`Kembali ke Toko ${tokoId}`);
+    this.context.router.transitionTo(`/toko/${tokoId}`);
+  }
+
   /*** Render ***/
 
   render() {
@@ -73,18 +80,15 @@ export default class NotFound extends Component {
       user,
     } = this.state;
 
-    const list = [];
-    list.push({term: "Nama", definition: user.name});
-    list.push({term: "Panggilan", definition: user.nickname});
-    list.push({term: "Email", definition: user.email});
-    list.push({term: "No. HP", definition: user.phone});
-    list.push({term: "Kota", definition: user.city});
-    list.push({term: "Alamat", definition: user.address});
-    list.push({term: "Catatan", definition: user.notes});
-
-    console.log(order);
-    console.log(user);
-    console.log(list);
+    const list = [
+      {term: "Nama", definition: user.name},
+      {term: "Panggilan", definition: user.nickname},
+      {term: "Email", definition: user.email},
+      {term: "No. HP", definition: user.phone},
+      {term: "Kota", definition: user.city},
+      {term: "Alamat", definition: user.address},
+      {term: "Catatan", definition: user.notes},
+    ];
 
     return (
       <div className="l-fullwidth">
@@ -114,4 +118,8 @@ export default class NotFound extends Component {
       </div>
     );
   }
+}
+
+ThankYou.contextTypes = {
+  router: React.PropTypes.object
 }
