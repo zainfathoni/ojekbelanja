@@ -2,6 +2,7 @@ import React, { PropTypes as T } from 'react';
 
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
+import TextArea from '../../../components/TextArea';
 import { isEmailValid, isPhoneValid, isUserInvalid } from '../../../services/validation';
 import '../../pages.css';
 import './Pemesan.css';
@@ -50,17 +51,6 @@ export default function Pemesan(props) {
           required
           />
         <TextField
-          type="number"
-          display="content"
-          name="usia"
-          label="Usia"
-          placeholder="Usia Anda Saat Ini"
-          value={user.usia}
-          onChange={onChange}
-          min={10}
-          max={100}
-          />
-        <TextField
           type="tel"
           display="content"
           name="phone"
@@ -71,6 +61,31 @@ export default function Pemesan(props) {
           validate={isPhoneValid}
           message="No. HP tidak valid"
           required
+          />
+        <TextField
+          type="text"
+          name="city"
+          label="Kota"
+          placeholder="Kota Domisili"
+          value={user.city}
+          onChange={onChange}
+          required
+          />
+        <TextArea
+          name="address"
+          label="Alamat"
+          placeholder="Alamat Lengkap"
+          value={user.address}
+          rows={4}
+          onChange={onChange}
+          required
+          />
+        <TextArea
+          name="notes"
+          label="Catatan"
+          placeholder="Catatan Tambahan"
+          value={user.notes}
+          onChange={onChange}
           />
       </div>
       <div className="Pemesan-footer">
