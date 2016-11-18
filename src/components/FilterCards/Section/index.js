@@ -32,6 +32,7 @@ export default function Section(props) {
                 image={require(`../../../css/images/${items[key][fields.image]}`)}
                 ribbon={items[key][fields.ribbon]}
                 tooltip={items[key][fields.tooltip]}
+                disabled={items[key][fields.disabled]}
                 unit={items[key].unit}
                 step={items[key].step}
                 price={items[key].price}

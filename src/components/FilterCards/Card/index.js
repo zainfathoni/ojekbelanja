@@ -14,6 +14,7 @@ export default function Card(props) {
     image,
     ribbon,
     tooltip,
+    disabled,
     unit,
     step,
     price,
@@ -73,31 +74,43 @@ export default function Card(props) {
               />
             :
             <div>
-              {count ?
-                <div>
-                  <Button
-                    className="Card-action-minus"
-                    display="icon"
-                    action={(e) => actionReverse(id)}
-                    icon="minus"
-                    text="Kurangi"
-                    isSecondary
-                    />
-                  <Button
-                    className="Card-action-plus"
-                    display="icon"
-                    action={(e) => action(id)}
-                    icon="plus"
-                    text="Tambahkan"
-                    />
-                </div>
-                :
+              {disabled ?
                 <Button
                   display="fullwidth"
                   action={(e) => action(id)}
-                  icon="cart-plus"
-                  text="Beli"
+                  icon="ban"
+                  text="Stok Habis"
+                  disabled
                   />
+                :
+                <div>
+                  {count ?
+                    <div>
+                      <Button
+                        className="Card-action-minus"
+                        display="icon"
+                        action={(e) => actionReverse(id)}
+                        icon="minus"
+                        text="Kurangi"
+                        isSecondary
+                        />
+                      <Button
+                        className="Card-action-plus"
+                        display="icon"
+                        action={(e) => action(id)}
+                        icon="plus"
+                        text="Tambahkan"
+                        />
+                    </div>
+                    :
+                    <Button
+                      display="fullwidth"
+                      action={(e) => action(id)}
+                      icon="cart-plus"
+                      text="Beli"
+                      />
+                  }
+                </div>
               }
             </div>
           }
@@ -115,6 +128,7 @@ Card.propTypes = {
   image: T.string.isRequired,
   ribbon: T.string,
   tooltip: T.string,
+  isDisabled: T.bool,
   unit: T.string,
   step: T.number,
   price: T.number,
