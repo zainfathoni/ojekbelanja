@@ -30,6 +30,8 @@ export default function Section(props) {
                 title={items[key][fields.title]}
                 description={items[key][fields.description]}
                 image={require(`../../../css/images/${items[key][fields.image]}`)}
+                ribbon={items[key][fields.ribbon]}
+                modal={items[key][fields.modal]}
                 unit={items[key].unit}
                 step={items[key].step}
                 price={items[key].price}

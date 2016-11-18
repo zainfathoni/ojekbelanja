@@ -10,6 +10,8 @@ export default function Card(props) {
     keyword,
     title,
     description,
+    image,
+    ribbon,
     count,
     unit,
     step,
@@ -19,7 +21,7 @@ export default function Card(props) {
     <li>
       <div className={"Card" + (count ? " Card-is-selected" : "")}>
         <div className="Card-image">
-          <img src={props.image} alt={props.title} />
+          <img src={image} alt={title} />
           {count &&
             <div className="Card-image-overlay">
               <div className="Card-image-overlay-qty">
@@ -27,11 +29,13 @@ export default function Card(props) {
               </div>
             </div>
           }
-          <div className="Card-ribbon-wrapper">
-            <div className="Card-ribbon">
-              Paket Mingguan
+          {ribbon &&
+            <div className="Card-ribbon-wrapper">
+              <div className="Card-ribbon">
+                {ribbon}
+              </div>
             </div>
-          </div>
+          }
         </div>
         <div className="Card-content">
           <div className="Card-content-title">
@@ -99,6 +103,8 @@ Card.propTypes = {
   title: T.string.isRequired,
   description: T.string.isRequired,
   image: T.string.isRequired,
+  ribbon: T.string,
+  modal: T.string,
   unit: T.string,
   step: T.number,
   price: T.number,

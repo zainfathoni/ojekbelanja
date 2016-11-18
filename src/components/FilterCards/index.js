@@ -88,6 +88,8 @@ export default function FilterCards(props) {
                 title={filteredItems[key][fields.title]}
                 description={filteredItems[key][fields.description]}
                 image={require(`../../css/images/${filteredItems[key][fields.image]}`)}
+                ribbon={items[key][fields.ribbon]}
+                modal={items[key][fields.modal]}
                 unit="pengiriman"
                 step={1}
                 price={filteredItems[key].cost}
