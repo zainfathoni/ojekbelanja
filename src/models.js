@@ -129,9 +129,9 @@ export var products = {
     price: 35000,
     category: 'ayam',
   },
-  ayam: {
-    desc: 'Ayam',
-    name: 'Ayam',
+  ayam_mingguan: {
+    desc: 'Ayam Paket Mingguan',
+    name: 'Ayam Paket Mingguan',
     image: 'placeholder-224x224.png',
     unit: 'kg',
     step: .25,
