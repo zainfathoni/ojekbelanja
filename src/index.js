@@ -5,6 +5,7 @@ import { BrowserRouter, Match, Miss } from 'react-router';
 import Home from './pages/Home';
 import Toko from './pages/Toko';
 import Pesan from './pages/Pesan';
+import Login from './pages/Login';
 import ThankYou from './pages/ThankYou';
 import StyleGuide from './pages/StyleGuide';
 import NotFound from './pages/NotFound';
@@ -20,6 +21,7 @@ const Root = () => {
         <Match pattern="/toko/:tokoId" component={Toko} />
         <Match pattern="/pesan/:tokoId" component={Pesan} />
         <Match pattern="/thankyou/:tokoId" component={ThankYou} />
+        <Match pattern="/login" component={Login} />
         <Match pattern="/styleguide" component={StyleGuide} />
         <Miss component={NotFound} />
       </div>
