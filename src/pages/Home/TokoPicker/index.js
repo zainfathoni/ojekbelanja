@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import FilterInput from'../../../components/FilterInput';
 import FilterCards from '../../../components/FilterCards';
-import { tokos } from '../../../models';
+import base from '../../../services/base';
 import '../../pages.css';
 
 export default class TokoPicker extends Component {
@@ -10,9 +10,28 @@ export default class TokoPicker extends Component {
     super(props);
 
     this.state = {
+      stores: {},
       keyword: '',
       tempKeyword: ''
     }
+  }
+
+  /*** Lifecycle ***/
+
+  componentWillMount() {
+    // Fetch stores from Firebase
+    base
+      .fetch(`/stores`, {
+        context: this
+      })
+      .then(data => {
+        this.setState({
+          stores: data
+        })
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   /*** Methods ***/
@@ -48,7 +67,7 @@ export default class TokoPicker extends Component {
           />
         <FilterCards
           keyword={this.state.keyword}
-          items={tokos}
+          items={this.state.stores}
           fields={{
             title: 'name',
             description: 'area',

@@ -19,9 +19,10 @@ export default function FilterCards(props) {
   // Render Loading Bars
   if (ids.length === 0) {
     return (
-      <div className="loading-bars">
-        Loading...
-        </div>
+      <div className="l-FilterCards">
+        <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+        <span className="sr-only">Loading...</span>
+      </div>
     )
   }
 
