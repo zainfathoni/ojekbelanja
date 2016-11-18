@@ -52,6 +52,7 @@ export default function Table(props) {
                     className={classnames(
                       `Table-${type[data]}`,
                       { 'Table-reverse': footerClassName[rowId] === 'reverse' },
+                      { 'Table-italic': footerClassName[rowId] === 'italic' },
                       { 'Table-total': footerClassName[rowId] === 'total' },
                     )}
                     colSpan={footerColSpan[data]}>

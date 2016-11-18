@@ -73,8 +73,13 @@ tfoot td.Table-reverse {
   content: "- ";
 }
 
+tfoot td.Table-italic {
+  /* Fonts */
+  font-style: italic;
+}
+
 .Table-total {
-  /* Text */
+  /* Fonts */
   font-weight: 700;
   font-size: 1rem;
 }
