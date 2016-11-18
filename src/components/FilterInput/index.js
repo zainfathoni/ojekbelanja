@@ -39,9 +39,11 @@ export default function FilterInput(props) {
           value={props.keyword}
           onChange={(e) => props.action(e.target.value)}
           />
-        <span className="FilterInput-txt-search-icon">
-          {searchIcon}
-        </span>
+        {props.keyword.length === 0 &&
+          <span className="FilterInput-txt-search-icon">
+            {searchIcon}
+          </span>
+        }
       </div>
     )
   }
