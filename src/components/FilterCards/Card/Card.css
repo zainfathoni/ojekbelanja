@@ -5,10 +5,10 @@
 .Card {
   /* Background & Borders */
   background-color: #fff;
-  border-radius: 0.25rem;
+  border-radius: .25rem;
   /* Basic Box */
   margin: .5rem 0;
-  overflow: hidden;
+  overflow: visible;
   /* Background & Borders */
   box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.16), 0 .125rem .25rem 0 rgba(0,0,0,.12);
 }
@@ -23,6 +23,8 @@
 }
 
 .Card-image > img {
+  /* Background & Borders */
+  border-radius: .25rem .25rem 0 0;
   /* Basic Box */
   display: block;
   max-width: 100%;
@@ -35,6 +37,7 @@
   color: #FFF;
   /* Background & Borders */
   background-color: rgba(21,21,21,.45);
+  border-radius: .25rem .25rem 0 0;
   /* Basic Box */
   position: absolute;
   top: 0;
@@ -50,6 +53,35 @@
 .Card-image-overlay-qty {
   /* Fonts */
   font-size: 1.5rem;
+}
+
+.Card-ribbon-wrapper {
+  /* Color */
+  color: #FFF;
+  /* Basic Box */
+  width: 7rem;
+  height: 7rem;
+  overflow: hidden;
+  position: absolute;
+  top: -.125rem;
+  right: -.125rem;
+  z-index: 3;
+  /* Fonts */
+  font-size: .625rem;
+}
+
+.Card-ribbon {
+  /* Background & Borders */
+  background-color: #FF6D00;
+  box-shadow: 0 0 .125rem rgba(0,0,0,.12);
+  /* Basic Box */
+  position: relative;
+  top: 1rem;
+  right: -1.5rem;
+  width: 7.125rem;
+  padding: .625rem 0;
+  /* Transform */
+  transform: rotate(45deg);
 }
 
 /** Module - Card Content **/

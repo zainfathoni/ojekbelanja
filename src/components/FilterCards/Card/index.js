@@ -27,6 +27,11 @@ export default function Card(props) {
               </div>
             </div>
           }
+          <div className="Card-ribbon-wrapper">
+            <div className="Card-ribbon">
+              Paket Mingguan
+            </div>
+          </div>
         </div>
         <div className="Card-content">
           <div className="Card-content-title">
