@@ -89,7 +89,7 @@ export default function FilterCards(props) {
                 description={filteredItems[key][fields.description]}
                 image={require(`../../css/images/${filteredItems[key][fields.image]}`)}
                 ribbon={items[key][fields.ribbon]}
-                modal={items[key][fields.modal]}
+                tooltip={items[key][fields.tooltip]}
                 unit="pengiriman"
                 step={1}
                 price={filteredItems[key].cost}
@@ -114,7 +114,7 @@ FilterCards.propTypes = {
     description: T.string.isRequired,
     image: T.string.isRequired,
     ribbon: T.string,
-    modal: T.string,
+    tooltip: T.string,
     section: T.string,
   }).isRequired,
   action: T.func.isRequired,

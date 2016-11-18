@@ -38,6 +38,8 @@ export var products = {
     step: .1,
     price: 35000,
     category: 'bumbu',
+    promo: 'Diskon',
+    promo_desc: 'Diskon Akhir Pekan',
   },
   bawang_merah: {
     name: 'Bawang Merah',

@@ -84,6 +84,36 @@
   transform: rotate(45deg);
 }
 
+.Card-tooltip {
+  /* Color */
+  color: #FFF;
+  /* Background & Borders */
+  background-color: #FF6D00;
+  border-radius: .25rem;
+  box-shadow: .125rem .125rem .375rem rgba(0,0,0,.12);
+  /* Basic Box */
+  position: absolute;
+  top: 80px;
+  display: block;
+  margin: .5rem;
+  padding: .5rem;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  /* Fonts */
+  font-size: .875rem;
+  /* Transform */
+  transform: translateY(10px);
+  /* Animation */
+  transition: all .25s ease-out;
+}
+
+.Card-ribbon-wrapper:hover + .Card-tooltip {
+  pointer-events: auto;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /** Module - Card Content **/
 
 .Card-content {

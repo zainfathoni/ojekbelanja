@@ -52,7 +52,7 @@ export default class Products extends Component {
             description: 'desc',
             image: 'image',
             ribbon: 'promo',
-            modal: 'promo_desc',
+            tooltip: 'promo_desc',
             section: 'category',
           }}
           action={this.props.action}

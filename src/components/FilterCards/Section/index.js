@@ -31,7 +31,7 @@ export default function Section(props) {
                 description={items[key][fields.description]}
                 image={require(`../../../css/images/${items[key][fields.image]}`)}
                 ribbon={items[key][fields.ribbon]}
-                modal={items[key][fields.modal]}
+                tooltip={items[key][fields.tooltip]}
                 unit={items[key].unit}
                 step={items[key].step}
                 price={items[key].price}
@@ -56,7 +56,7 @@ Section.propTypes = {
     description: T.string.isRequired,
     image: T.string.isRequired,
     ribbon: T.string,
-    modal: T.string,
+    tooltip: T.string,
   }).isRequired,
   action: T.func.isRequired,
   actionReverse: T.func,
