@@ -77,7 +77,7 @@
 
 .Button:disabled {
   /* Color */
-  opacity: .12;
+  opacity: .5;
   /* Basic UI */
   cursor: not-allowed;
 }
