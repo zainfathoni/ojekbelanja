@@ -9,9 +9,7 @@ export default function Section(props) {
     label,
     items,
     keyword,
-    titleField,
-    descriptionField,
-    imageField,
+    fields,
     action,
     actionReverse,
     collection,
@@ -29,9 +27,9 @@ export default function Section(props) {
                 key={key}
                 id={key}
                 keyword={keyword}
-                title={items[key][titleField]}
-                description={items[key][descriptionField]}
-                image={require(`../../../css/images/${items[key][imageField]}`)}
+                title={items[key][fields.title]}
+                description={items[key][fields.description]}
+                image={require(`../../../css/images/${items[key][fields.image]}`)}
                 unit={items[key].unit}
                 step={items[key].step}
                 price={items[key].price}
@@ -51,9 +49,13 @@ Section.propTypes = {
   label: T.string.isRequired,
   items: T.object.isRequired,
   keyword: T.string.isRequired,
-  titleField: T.string.isRequired,
-  descriptionField: T.string.isRequired,
-  imageField: T.string.isRequired,
+  fields: T.shape({
+    title: T.string.isRequired,
+    description: T.string.isRequired,
+    image: T.string.isRequired,
+    ribbon: T.string,
+    modal: T.string,
+  }).isRequired,
   action: T.func.isRequired,
   actionReverse: T.func,
   collection: T.objectOf(T.number),

@@ -9,10 +9,7 @@ export default function FilterCards(props) {
     keyword,
     items,
     sections,
-    titleField,
-    descriptionField,
-    sectionField,
-    imageField,
+    fields,
     action,
     actionReverse,
     collection,
@@ -30,8 +27,8 @@ export default function FilterCards(props) {
 
   const filteredItems = ids
     .filter(key =>
-      items[key][titleField].toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
-      items[key][descriptionField].toLowerCase().indexOf(keyword.toLowerCase()) !== -1)
+      items[key][fields.title].toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
+      items[key][fields.description].toLowerCase().indexOf(keyword.toLowerCase()) !== -1)
     .reduce(
     (res, key) =>
       Object.assign(
@@ -44,7 +41,7 @@ export default function FilterCards(props) {
   const sectionedItems = Object.keys(filteredItems)
     .reduce(
     (res, key) => {
-      const section = items[key][sectionField];
+      const section = items[key][fields.section];
       return Object.assign(
         {},
         res,
@@ -62,7 +59,7 @@ export default function FilterCards(props) {
 
   return (
     <div className="l-FilterCards">
-      {sectionField ?
+      {fields.section ?
         <div>
           {Object.keys(sectionedItems)
             .map(section =>
@@ -72,9 +69,7 @@ export default function FilterCards(props) {
                 label={sections[section]}
                 items={sectionedItems[section]}
                 keyword={keyword}
-                titleField={titleField}
-                descriptionField={descriptionField}
-                imageField={imageField}
+                fields={fields}
                 action={action}
                 actionReverse={actionReverse}
                 collection={collection}
@@ -90,9 +85,9 @@ export default function FilterCards(props) {
                 key={key}
                 id={key}
                 keyword={keyword}
-                title={filteredItems[key][titleField]}
-                description={filteredItems[key][descriptionField]}
-                image={require(`../../css/images/${filteredItems[key][imageField]}`)}
+                title={filteredItems[key][fields.title]}
+                description={filteredItems[key][fields.description]}
+                image={require(`../../css/images/${filteredItems[key][fields.image]}`)}
                 unit="pengiriman"
                 step={1}
                 price={filteredItems[key].cost}
@@ -112,10 +107,14 @@ FilterCards.propTypes = {
   keyword: T.string.isRequired,
   items: T.object.isRequired,
   sections: T.objectOf(T.string),
-  titleField: T.string.isRequired,
-  descriptionField: T.string.isRequired,
-  sectionField: T.string,
-  imageField: T.string.isRequired,
+  fields: T.shape({
+    title: T.string.isRequired,
+    description: T.string.isRequired,
+    image: T.string.isRequired,
+    ribbon: T.string,
+    modal: T.string,
+    section: T.string,
+  }).isRequired,
   action: T.func.isRequired,
   actionReverse: T.func,
   collection: T.objectOf(T.number),

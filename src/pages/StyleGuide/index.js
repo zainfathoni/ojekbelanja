@@ -47,7 +47,7 @@ export default class StyleGuide extends Component {
           <label className="StyleGuide-label">Header Not Found</label>
           <Header is404 />
         </section>
-        
+
         <section className="StyleGuide-section">
           <label className="StyleGuide-label">Paragraph</label>
           <p>
@@ -78,14 +78,16 @@ export default class StyleGuide extends Component {
             <FilterCards
               keyword=""
               items={tokos}
-              titleField="name"
-              descriptionField="area"
-              imageField="image"
+              fields={{
+                title: 'name',
+                description: 'area',
+                image: 'image',
+              }}
               action={() => true}
               />
           </div>
         </section>
-        
+
       </div>
     );
   }
