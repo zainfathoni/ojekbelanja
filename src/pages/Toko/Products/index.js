@@ -54,6 +54,7 @@ export default class Products extends Component {
             ribbon: 'promo',
             tooltip: 'promo_desc',
             section: 'category',
+            disabled: 'empty'
           }}
           action={this.props.action}
           actionReverse={this.props.actionReverse}

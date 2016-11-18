@@ -18,13 +18,31 @@ export default class Toko extends Component {
   }
 
   /*** Lifecycle ***/
-  
+
   componentWillMount() {
     // Fetch 'order' from Local Storage
     const localStorageRef = localStorage.getItem(`order-${this.props.params.tokoId}`);
+
+    const order = JSON.parse(localStorageRef);
+
+    // Clean empty products 
+    const cleanedOrder =
+      Object.keys(order)
+        .filter(key =>
+          !products[key].empty
+        )
+        .reduce(
+        (res, key) =>
+          Object.assign(
+            {},
+            res,
+            { [key]: order[key] }),
+        {}
+        );
+
     if (localStorageRef) {
       this.setState({
-        order: JSON.parse(localStorageRef)
+        order: cleanedOrder
       })
     }
   }
@@ -78,11 +96,11 @@ export default class Toko extends Component {
   }
 
   /*** Render ***/
-  
+
   render() {
     const { tokoId } = this.props.params;
     const toko = tokos[tokoId];
-    
+
     return (
       <div className="l-fullwidth">
         <div className="l-wrapper-MainNav">

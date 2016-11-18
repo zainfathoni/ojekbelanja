@@ -49,6 +49,7 @@ export var products = {
     step: .1,
     price: 40000,
     category: 'bumbu',
+    empty: true,
   },
   bawang_bombay: {
     name: 'Bawang Bombay',
@@ -58,6 +59,7 @@ export var products = {
     step: .1,
     price: 22000,
     category: 'bumbu',
+    empty: true,
   },
   cabe_gendot: {
     name: 'Cabe Gendot',
@@ -67,6 +69,7 @@ export var products = {
     step: .1,
     price: 35000,
     category: 'bumbu',
+    empty: true,
   },
   cabe_tanjung: {
     name: 'Cabe Tanjung',
