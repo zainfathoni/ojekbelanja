@@ -41,7 +41,7 @@
   /* Basic Box */
   position: absolute;
   top: 0;
-  z-index: 2;
+  z-index: 1;
   width: 100%;
   height: 100%;
   padding-top: 40%;
@@ -65,9 +65,9 @@
   position: absolute;
   top: -.125rem;
   right: -.125rem;
-  z-index: 3;
+  z-index: 2;
   /* Fonts */
-  font-size: .625rem;
+  font-size: .75rem;
 }
 
 .Card-ribbon {
@@ -77,8 +77,8 @@
   /* Basic Box */
   position: relative;
   top: 1rem;
-  right: -1.5rem;
-  width: 7.125rem;
+  right: -1rem;
+  width: 8rem;
   padding: .625rem 0;
   /* Transform */
   transform: rotate(45deg);
