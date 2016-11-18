@@ -49,9 +49,11 @@ export default class TokoPicker extends Component {
         <FilterCards
           keyword={this.state.keyword}
           items={tokos}
-          titleField="name"
-          descriptionField="area"
-          imageField="image"
+          fields={{
+            title: 'name',
+            description: 'area',
+            image: 'image',
+          }}
           action={this.goToToko}
           />
       </main>

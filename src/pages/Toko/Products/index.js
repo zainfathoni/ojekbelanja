@@ -47,10 +47,14 @@ export default class Products extends Component {
           keyword={this.state.keyword}
           items={this.state.products}
           sections={categories}
-          titleField="name"
-          descriptionField="desc"
-          sectionField="category"
-          imageField="image"
+          fields={{
+            title: 'name',
+            description: 'desc',
+            image: 'image',
+            ribbon: 'promo',
+            tooltip: 'promo_desc',
+            section: 'category',
+          }}
           action={this.props.action}
           actionReverse={this.props.actionReverse}
           collection={this.props.order}

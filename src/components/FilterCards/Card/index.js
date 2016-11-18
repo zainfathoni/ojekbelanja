@@ -8,23 +8,42 @@ import './Card.css';
 export default function Card(props) {
   const {
     keyword,
+    id,
     title,
     description,
-    count,
+    image,
+    ribbon,
+    tooltip,
     unit,
     step,
+    price,
+    action,
+    actionReverse,
+    count,
   } = props;
 
   return (
     <li>
       <div className={"Card" + (count ? " Card-is-selected" : "")}>
         <div className="Card-image">
-          <img src={props.image} alt={props.title} />
+          <img src={image} alt={title} />
           {count &&
             <div className="Card-image-overlay">
               <div className="Card-image-overlay-qty">
                 {quantify(count, step, unit)}
               </div>
+            </div>
+          }
+          {ribbon &&
+            <div className="Card-ribbon-wrapper">
+              <div className="Card-ribbon">
+                {ribbon}
+              </div>
+            </div>
+          }
+          {ribbon && tooltip &&
+            <div className="Card-tooltip">
+              {tooltip}
             </div>
           }
         </div>
@@ -39,16 +58,16 @@ export default function Card(props) {
         <div className="Card-action">
           <div className="Card-action-price-parent">
             <span className="Card-action-price">
-              {`Rp ${props.price.toLocaleString('id')}`}
+              {`Rp ${price.toLocaleString('id')}`}
             </span>
             <span className="Card-action-unit">
-              {` / ${props.unit}`}
+              {` / ${unit}`}
             </span>
           </div>
-          {!props.actionReverse ?
+          {!actionReverse ?
             <Button
               display="fullwidth"
-              action={(e) => props.action(props.id)}
+              action={(e) => action(id)}
               icon="shopping-cart"
               text="Mulai Belanja"
               />
@@ -59,7 +78,7 @@ export default function Card(props) {
                   <Button
                     className="Card-action-minus"
                     display="icon"
-                    action={(e) => props.actionReverse(props.id)}
+                    action={(e) => actionReverse(id)}
                     icon="minus"
                     text="Kurangi"
                     isSecondary
@@ -67,7 +86,7 @@ export default function Card(props) {
                   <Button
                     className="Card-action-plus"
                     display="icon"
-                    action={(e) => props.action(props.id)}
+                    action={(e) => action(id)}
                     icon="plus"
                     text="Tambahkan"
                     />
@@ -75,7 +94,7 @@ export default function Card(props) {
                 :
                 <Button
                   display="fullwidth"
-                  action={(e) => props.action(props.id)}
+                  action={(e) => action(id)}
                   icon="cart-plus"
                   text="Beli"
                   />
@@ -94,6 +113,8 @@ Card.propTypes = {
   title: T.string.isRequired,
   description: T.string.isRequired,
   image: T.string.isRequired,
+  ribbon: T.string,
+  tooltip: T.string,
   unit: T.string,
   step: T.number,
   price: T.number,
