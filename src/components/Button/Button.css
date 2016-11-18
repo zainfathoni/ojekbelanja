@@ -46,7 +46,7 @@
 /** Button Role **/
 
 .Button-secondary {
-  /* Background & Border */
+  /* Background & Borders */
   background-color: #FF6D00;
   border-color: #FF6D00;
 }
@@ -55,23 +55,29 @@
 
 .Button:active,
 .Button:focus {
+  /* Background & Borders */
   border-color: #FF6D00;
 }
 
 .Button:active {
+  /* Background & Borders */
   background-color: #FF6D00;
 }
 
 .Button-secondary:active,
 .Button-secondary:focus {
+  /* Background & Borders */
   border-color: #673AB7;
 }
 
 .Button-secondary:active {
+  /* Background & Borders */
   background-color: #673AB7;
 }
 
 .Button:disabled {
+  /* Color */
+  opacity: .12;
+  /* Basic UI */
   cursor: not-allowed;
-  opacity: .7;
 }
