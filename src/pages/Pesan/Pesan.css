@@ -1,0 +1,41 @@
+/*** Pesan.css ***/
+
+/** Layout **/
+
+.l-Pesan {
+  /* Basic Box */
+  display: block;
+  /* Basic Box - 2 Columns Grid */
+  width: 50%;
+  float: left;
+  /* Basic Box - Gutter */
+  padding: 0.5rem;
+}
+
+@media (max-width: 45em) {
+  .l-Pesan {
+    /* Basic Box - 1 Column Grid */
+    width: 100%;
+    float: none;
+  }
+}
+
+/** Module **/
+
+.Pemesan-footer-done,
+.Pemesan-footer-clear {
+  /* Basic Box */
+  width: 48.5%;
+}
+
+.Pemesan-footer-done {
+  /* Basic Box */
+  margin-left: 1.5%;
+  margin-right: 0;
+}
+
+.Pemesan-footer-clear {
+  /* Basic Box */
+  margin-left: 0;
+  margin-right: 1.5%;
+}

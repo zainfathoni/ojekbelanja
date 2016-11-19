@@ -1,13 +1,20 @@
 /*** Generic Update ***/
 
 // Generic Form field update
+
 export function update(component, stateName, field, value) {
   component.setState({
     [stateName]: {
       ...component.state[stateName],
       [field]: value,
     }
-  })
+  });
+}
+
+export function clear(component, stateName) {
+  component.setState({
+    [stateName] : {}
+  });
 }
 
 /*** Generic Validation
@@ -30,5 +37,5 @@ export function isUserInvalid(user) {
     !isEmailValid(user.email) ||
     !isPhoneValid(user.phone) ||
     !user.city ||
-    !user.address
+    !user.address;
 }
