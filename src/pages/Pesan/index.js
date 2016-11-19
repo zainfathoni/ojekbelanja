@@ -106,11 +106,6 @@ export default class Pesan extends Component {
     })
   }
 
-  onSubmit = (e, tokoId) => {
-    e.preventDefault();
-    this.goToThankYou(tokoId);
-  }
-
   /*** Render ***/
 
   render() {
@@ -140,7 +135,7 @@ export default class Pesan extends Component {
               name={"user"}
               context={this}
               tokoId={tokoId}
-              onSubmit={this.onSubmit}
+              action={this.goToThankYou}
               />
           </div>
 

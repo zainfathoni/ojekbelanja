@@ -13,7 +13,7 @@ export default function Pemesan(props) {
     name,
     context,
     tokoId,
-    onSubmit,
+    action,
   } = props;
 
   const user = context.state[name];
@@ -33,12 +33,17 @@ export default function Pemesan(props) {
     clear(context, name);
   }
 
+  const onSubmit = (e, tokoId) => {
+    e.preventDefault();
+    action(tokoId);
+  }
+
   return (
     <Form
       name={name}
       title="Data Pemesan"
       icon={<i className="fa fa-lg fa-address-card" aria-hidden="true"></i>}
-      onSubmit={(e) => this.onSubmit(e, tokoId)}
+      onSubmit={(e) => onSubmit(e, tokoId)}
       footer={
         <div>
           <Button
@@ -136,5 +141,5 @@ Pemesan.propTypes = {
   name: T.string.isRequired,
   context: T.object.isRequired,
   tokoId: T.string.isRequired,
-  onSubmit: T.func.isRequired,
+  action: T.func.isRequired,
 }
