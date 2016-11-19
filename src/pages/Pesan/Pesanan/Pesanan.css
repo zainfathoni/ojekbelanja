@@ -20,6 +20,26 @@
   font-size: 1rem;
 }
 
+.Pesanan-item-image-wrapper {
+  /* Basic Box */
+  width: 10%;
+}
+
+.Pesanan-item-detail {
+  /* Basic Box */
+  width: 72%;
+}
+
+.Pesanan-item-order-qty {
+  /* Basic Box */
+  width: 10%;
+}
+
+.Pesanan-item-order-qty-action {
+  /* Basic Box */
+  width: 8%;
+}
+
 .Pesanan-item-image {
   /* Background & Borders */
   border-radius: .375rem;

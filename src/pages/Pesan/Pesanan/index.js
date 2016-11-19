@@ -77,14 +77,14 @@ export default function Pesanan(props) {
             <table key={key} className="Pesanan-item">
               <tbody>
                 <tr>
-                  <td width="10%" className="Pesanan-item-image-wrapper">
+                  <td className="Pesanan-item-image-wrapper">
                     <img
                       className="Pesanan-item-image"
                       src={require(`../../../css/images/${item.image}`)}
                       alt={item.name}
                       />
                   </td>
-                  <td width="72%" className="Pesanan-item-detail">
+                  <td className="Pesanan-item-detail">
                     <table width="100%">
                       <tbody>
                         <tr>
@@ -117,7 +117,7 @@ export default function Pesanan(props) {
                       </tbody>
                     </table>
                   </td>
-                  <td width="10%" className="Pesanan-item-order-qty">
+                  <td className="Pesanan-item-order-qty">
                     <TextField
                       className="Pesanan-item-order-qty-input"
                       name={key}
@@ -134,7 +134,7 @@ export default function Pesanan(props) {
                       {item.unit}
                     </span>
                   </td>
-                  <td width="8%" className="Pesanan-item-order-qty-action">
+                  <td className="Pesanan-item-order-qty-action">
                     <Button
                       display="icon"
                       action={(e) => removeOrder(key)}
