@@ -32,6 +32,13 @@
   font-weight: 700;
 }
 
+.Form-header-action {
+  /* Basic Box */
+  position: absolute;
+  right: 0.375rem;
+  top: .375rem;
+}
+
 .Form-body {
   /* Basic Box */
   width: 100%;

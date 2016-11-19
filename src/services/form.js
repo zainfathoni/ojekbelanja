@@ -1,6 +1,4 @@
-/*** Generic Update ***/
-
-// Generic Form field update
+/*** Generic Form Fields Updates ***/
 
 export function update(component, stateName, field, value) {
   component.setState({
@@ -17,7 +15,7 @@ export function clear(component, stateName) {
   });
 }
 
-/*** Generic Validation
+/*** Generic Validations
  * Taken from https://html5hive.org/reactjs-form-validation-tutorial/
  * ***/
 
@@ -29,13 +27,3 @@ export const isPhoneValid = (value) =>
 
 export const isPasswordValid = (value) =>
   /^.{6,}$/.test(value);
-
-/*** Specific Validation ***/
-
-export function isUserInvalid(user) {
-  return !user.name ||
-    !isEmailValid(user.email) ||
-    !isPhoneValid(user.phone) ||
-    !user.city ||
-    !user.address;
-}

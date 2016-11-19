@@ -7,6 +7,7 @@ export default function Form(props) {
     title,
     icon,
     onSubmit,
+    header,
     children,
     footer,
   } = props;
@@ -19,6 +20,9 @@ export default function Form(props) {
         <div className="Form-header-title">
           {icon}
           {` ${title}`}
+        </div>
+        <div className="Form-header-action">
+          {header}
         </div>
       </header>
       <main className="Form-body">
@@ -37,6 +41,7 @@ Form.propTypes = {
   title: T.string.isRequired,
   icon: T.element.isRequired,
   onSubmit: T.func.isRequired,
+  header: T.node,
   children: T.node,
   footer: T.node,
 }
