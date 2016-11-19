@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Form from '../../components/Form';
 import TextField from '../../components/TextField';
 import Button from '../../components/Button';
-import { update, isEmailValid, isPasswordValid } from '../../services/validation';
+import { update, isEmailValid, isPasswordValid } from '../../services/form';
 import '../pages.css';
 import './Login.css';
 
