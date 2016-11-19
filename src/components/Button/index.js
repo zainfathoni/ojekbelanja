@@ -34,6 +34,7 @@ export default function Button(props) {
 }
 
 Button.defaultProps = {
+  type: 'button',
   display: 'fullwidth',
   icon: 'font-awesome',
   text: 'Button'

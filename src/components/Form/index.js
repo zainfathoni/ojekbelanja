@@ -6,12 +6,15 @@ export default function Form(props) {
   const {
     title,
     icon,
+    onSubmit,
     children,
     footer,
   } = props;
 
   return (
-    <section className="Form">
+    <form
+      className="Form"
+      onSubmit={onSubmit}>
       <header className="Form-header">
         <div className="Form-header-title">
           {icon}
@@ -26,13 +29,14 @@ export default function Form(props) {
           {footer}
         </footer>
       }
-    </section>
+    </form>
   )
 }
 
 Form.propTypes = {
   title: T.string.isRequired,
   icon: T.element.isRequired,
+  onSubmit: T.func.isRequired,
   children: T.node,
   footer: T.node,
 }
