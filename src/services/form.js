@@ -1,9 +1,7 @@
 /*** Generic Local Storage Operations ***/
 
-export function fetch(key) {
-  const ref = localStorage.getItem(key);
-  return ref ? JSON.parse(ref) : undefined;
-}
+export const fetch = (key) =>
+  JSON.parse(localStorage.getItem(key));
 
 export function save(key, obj) {
   localStorage.setItem(key, JSON.stringify(obj));

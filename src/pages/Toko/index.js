@@ -4,6 +4,7 @@ import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Products from './Products';
 import Order from './Order';
+import { fetch, save, set } from '../../services/form';
 import { tokos, products } from '../../models';
 import '../pages.css';
 
@@ -21,37 +22,33 @@ export default class Toko extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const localStorageRef = localStorage.getItem(`order-${this.props.params.tokoId}`);
+    const order = fetch(`order-${this.props.params.tokoId}`);
 
-    const order = JSON.parse(localStorageRef);
+    if (order) {
+      // Clean empty products from order
+      const cleanedOrder =
+        Object.keys(order)
+          .filter(key =>
+            !products[key].empty
+          )
+          .reduce(
+          (res, key) =>
+            Object.assign(
+              {},
+              res,
+              { [key]: order[key] }),
+          {}
+          );
 
-    // Clean empty products 
-    const cleanedOrder =
-      Object.keys(order)
-        .filter(key =>
-          !products[key].empty
-        )
-        .reduce(
-        (res, key) =>
-          Object.assign(
-            {},
-            res,
-            { [key]: order[key] }),
-        {}
-        );
-
-    if (localStorageRef) {
-      this.setState({
-        order: cleanedOrder
-      })
+      if (cleanedOrder) {
+        set(this, 'order', cleanedOrder);
+      }
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
     // Save 'order' to Local Storage
-    localStorage.setItem(
-      `order-${this.props.params.tokoId}`,
-      JSON.stringify(nextState.order));
+    save(`order-${this.props.params.tokoId}`, nextState.order);
   }
 
   /*** Methods ***/
