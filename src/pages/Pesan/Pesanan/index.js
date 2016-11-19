@@ -37,7 +37,6 @@ export default function Pesanan(props) {
       name={name}
       title="Pesanan Anda"
       icon={<i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>}
-      onSubmit={(e) => console.log('Pesanan Submit')/*this.onSubmit(e, tokoId)*/}
       header={
         <Button
           className="Pesanan-heading-action"
@@ -54,7 +53,7 @@ export default function Pesanan(props) {
           <div className="Pesanan-footer-delivery-fee">
             <div className="Pesanan-footer-delivery-fee-label">
               Ongkos Kirim
-                    </div>
+            </div>
             <div className="Pesanan-footer-delivery-fee-amount">
               {`Rp ${(tokos[tokoId].cost).toLocaleString('id')}`}
             </div>
@@ -63,7 +62,7 @@ export default function Pesanan(props) {
           <div className="Pesanan-footer-total-price">
             <div className="Pesanan-footer-total-price-label">
               Harga Total
-                    </div>
+            </div>
             <div className="Pesanan-footer-total-price-amount">
               {`Rp ${(tokos[tokoId].cost + total(order, products)).toLocaleString('id')}`}
             </div>

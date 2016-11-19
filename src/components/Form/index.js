@@ -43,7 +43,7 @@ Form.propTypes = {
   name: T.string.isRequired,
   title: T.string.isRequired,
   icon: T.element.isRequired,
-  onSubmit: T.func.isRequired,
+  onSubmit: T.func,
   header: T.node,
   children: T.node,
   footer: T.node,
