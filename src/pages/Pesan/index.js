@@ -4,8 +4,8 @@ import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Form from '../../components/Form';
 import TextField from '../../components/TextField';
-import TextArea from '../../components/TextArea';
 import Button from '../../components/Button';
+import Pemesan from './Pemesan';
 import { update, clear, isEmailValid, isPhoneValid } from '../../services/form';
 import { escapeFloatingPoint, quantify, subtotal, total } from '../../services/product';
 import { tokos, products } from '../../models';
@@ -268,100 +268,13 @@ export default class Pesan extends Component {
             </Form>
           </div>
           <div className="l-Pesan">
-            <Form
-              title="Data Pemesan"
-              icon={<i className="fa fa-lg fa-address-card" aria-hidden="true"></i>}
-              onSubmit={(e) => this.onSubmit(e, tokoId)}
-              footer={
-                <div>
-                  <Button
-                    className="Pemesan-footer-clear"
-                    type="reset"
-                    display="content"
-                    action={(e) => this.onReset(e)}
-                    icon="times"
-                    text="Bersihkan"
-                    disabled={!Object.keys(user).length}
-                    title={!Object.keys(user).length ? "Data sudah bersih" : "Bersihkan data"}
-                    isSecondary
-                    />
-                  <Button
-                    className="Pemesan-footer-done"
-                    type="submit"
-                    display="content"
-                    action={(e) => this.onSubmit(e, tokoId)}
-                    icon="cart-arrow-down"
-                    text="Selesai"
-                    disabled={this.isUserInvalid(user)}
-                    title={this.isUserInvalid(user) ? "Masih ditemukan data yang tidak valid" : "Konfirmasi Pemesanan"}
-                    />
-                </div>
-              }
-              >
-              <TextField
-                name="name"
-                label="Nama"
-                placeholder="Nama Lengkap"
-                value={user.name}
-                onChange={this.updateUser}
-                required
-                />
-              <TextField
-                name="nickname"
-                label="Panggilan"
-                placeholder="Nama Panggilan"
-                value={user.nickname}
-                onChange={this.updateUser}
-                />
-              <TextField
-                type="email"
-                name="email"
-                label="Email"
-                placeholder="Alamat Email"
-                value={user.email}
-                onChange={this.updateUser}
-                validate={isEmailValid}
-                message="Alamat Email tidak valid"
-                required
-                />
-              <TextField
-                type="tel"
-                display="content"
-                name="phone"
-                label="No. HP"
-                placeholder="081234567890"
-                value={user.phone}
-                onChange={this.updateUser}
-                validate={isPhoneValid}
-                message="No. HP tidak valid"
-                required
-                />
-              <TextField
-                type="text"
-                name="city"
-                label="Kota"
-                placeholder="Kota Domisili"
-                value={user.city}
-                onChange={this.updateUser}
-                required
-                />
-              <TextArea
-                name="address"
-                label="Alamat"
-                placeholder="Alamat Lengkap"
-                value={user.address}
-                rows={4}
-                onChange={this.updateUser}
-                required
-                />
-              <TextArea
-                name="notes"
-                label="Catatan"
-                placeholder="Catatan Tambahan"
-                value={user.notes}
-                onChange={this.updateUser}
-                />
-            </Form>
+            <Pemesan
+              user={user}
+              tokoId={tokoId}
+              onChange={this.updateUser}
+              onReset={this.onReset}
+              onSubmit={this.onSubmit}
+              />
           </div>
 
         </main>
