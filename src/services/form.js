@@ -9,6 +9,14 @@ export function update(component, stateName, field, value) {
   });
 }
 
+export function remove(component, stateName, field) {
+  const newState = component.state[stateName];
+  delete newState[field];
+  component.setState({
+    [stateName]: newState
+  })
+}
+
 export function clear(component, stateName) {
   component.setState({
     [stateName] : {}

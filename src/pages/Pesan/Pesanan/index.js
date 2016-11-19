@@ -3,6 +3,7 @@ import React, { PropTypes as T } from 'react';
 import Form from '../../../components/Form';
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
+import { update, remove } from '../../../services/form';
 import { escapeFloatingPoint, quantify, subtotal, total } from '../../../services/product';
 import { tokos, products } from '../../../models';
 import './Pesanan.css';
@@ -10,25 +11,38 @@ import './Pesanan.css';
 export default function Pesanan(props) {
   const {
     name,
-    order,
+    context,
     tokoId,
-    goBack,
-    update,
-    remove,
-    cleanUp,
+    action,
   } = props;
+
+  const order = context.state[name];
+
+  const onChange = (field, value) => {
+    update(context, name, field, escapeFloatingPoint(value));
+  }
+
+  const onBlur = (productId) => {
+    if (order[productId] <= 0) {
+      remove(context, name, productId);
+    }
+  }
+
+  const removeOrder = (productId) => {
+    remove(context, name, productId);
+  }
 
   return (
     <Form
       name={name}
       title="Pesanan Anda"
       icon={<i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>}
-      onSubmit={(e) => this.onSubmit(e, tokoId)}
+      onSubmit={(e) => console.log('Pesanan Submit')/*this.onSubmit(e, tokoId)*/}
       header={
         <Button
           className="Pesanan-heading-action"
           display="content"
-          action={(e) => goBack(tokoId)}
+          action={(e) => action(tokoId)}
           icon="arrow-left"
           text="Kembali"
           isSecondary
@@ -111,8 +125,8 @@ export default function Pesanan(props) {
                       type="number"
                       display="fixed"
                       value={escapeFloatingPoint(order[key] * item.step)}
-                      onChange={(name, value) => update(key, value / item.step)}
-                      onBlur={(name, value) => cleanUp(key)}
+                      onChange={(name, value) => onChange(key, value / item.step)}
+                      onBlur={(name, value) => onBlur(key)}
                       noValidation
                       min={0}
                       step={item.step}
@@ -124,7 +138,7 @@ export default function Pesanan(props) {
                   <td width="8%" className="Pesanan-item-order-qty-action">
                     <Button
                       display="icon"
-                      action={(e) => remove(key)}
+                      action={(e) => removeOrder(key)}
                       icon="trash"
                       text="Hapus"
                       isSecondary
@@ -143,10 +157,7 @@ export default function Pesanan(props) {
 
 Pesanan.propTypes = {
   name: T.string.isRequired,
-  order: T.objectOf(T.number).isRequired,
+  context: T.object.isRequired,
   tokoId: T.string.isRequired,
-  goBack: T.func.isRequired,
-  update: T.func.isRequired,
-  remove: T.func.isRequired,
-  cleanUp: T.func.isRequired,
+  action: T.func.isRequired,
 }

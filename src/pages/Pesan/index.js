@@ -4,7 +4,6 @@ import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Pesanan from './Pesanan';
 import Pemesan from './Pemesan';
-import { escapeFloatingPoint} from '../../services/product';
 import { tokos } from '../../models';
 import '../pages.css';
 import './Pesan.css';
@@ -77,40 +76,10 @@ export default class Pesan extends Component {
     this.context.router.transitionTo(`/thankyou/${tokoId}`);
   }
 
-  updateOrder = (productId, orderQty) => {
-    const newOrder = this.state.order;
-    newOrder[productId] = escapeFloatingPoint(orderQty);
-
-    this.setState({
-      order: newOrder
-    })
-  }
-
-  removeOrder = (productId) => {
-    const newOrder = this.state.order;
-    delete newOrder[productId];
-    this.setState({
-      order: newOrder
-    })
-  }
-
-  cleanUpOrder = (productId) => {
-    const newOrder = this.state.order;
-
-    if (newOrder[productId] <= 0) {
-      delete newOrder[productId];
-    }
-
-    this.setState({
-      order: newOrder
-    })
-  }
-
   /*** Render ***/
 
   render() {
     const tokoId = this.props.params.tokoId;
-    const { order } = this.state;
 
     return (
       <div className="l-fullwidth">
@@ -122,12 +91,9 @@ export default class Pesan extends Component {
           <div className="l-Pesan">
             <Pesanan
               name={"order"}
-              order={order}
+              context={this}
               tokoId={tokoId}
-              goBack={this.goToToko}
-              update={this.updateOrder}
-              remove={this.removeOrder}
-              cleanUp={this.cleanUpOrder}
+              action={this.goToToko}
               />
           </div>
           <div className="l-Pesan">
