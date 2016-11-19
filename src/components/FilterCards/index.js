@@ -74,7 +74,28 @@ export default function FilterCards(props) {
                 action={action}
                 actionReverse={actionReverse}
                 collection={collection}
-                />
+                >
+                {Object.keys(sectionedItems[section])
+                  .map(key =>
+                    <Card
+                      key={key}
+                      id={key}
+                      keyword={keyword}
+                      title={sectionedItems[section][key][fields.title]}
+                      description={sectionedItems[section][key][fields.description]}
+                      image={require(`../../css/images/${sectionedItems[section][key][fields.image]}`)}
+                      ribbon={sectionedItems[section][key][fields.ribbon]}
+                      tooltip={sectionedItems[section][key][fields.tooltip]}
+                      disabled={sectionedItems[section][key][fields.disabled]}
+                      unit={sectionedItems[section][key].unit}
+                      step={sectionedItems[section][key].step}
+                      price={sectionedItems[section][key].price}
+                      action={action}
+                      actionReverse={actionReverse}
+                      count={collection[key]}
+                      />)
+                }
+              </Section>
             )
           }
         </div>
