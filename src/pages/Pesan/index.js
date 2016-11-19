@@ -4,7 +4,6 @@ import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Pesanan from './Pesanan';
 import Pemesan from './Pemesan';
-import { update, clear, isEmailValid, isPhoneValid } from '../../services/form';
 import { escapeFloatingPoint} from '../../services/product';
 import { tokos } from '../../models';
 import '../pages.css';
@@ -107,26 +106,6 @@ export default class Pesan extends Component {
     })
   }
 
-  updateUser = (field, value) => {
-    update(this, 'user', field, value)
-  }
-
-  clearUser = () => {
-    clear(this, 'user');
-  }
-
-  isUserInvalid = (user) =>
-    !user.name ||
-    !isEmailValid(user.email) ||
-    !isPhoneValid(user.phone) ||
-    !user.city ||
-    !user.address;
-
-  onReset = (e) => {
-    e.preventDefault();
-    this.clearUser();
-  }
-
   onSubmit = (e, tokoId) => {
     e.preventDefault();
     this.goToThankYou(tokoId);
@@ -136,7 +115,7 @@ export default class Pesan extends Component {
 
   render() {
     const tokoId = this.props.params.tokoId;
-    const { order, user } = this.state;
+    const { order } = this.state;
 
     return (
       <div className="l-fullwidth">
@@ -147,6 +126,7 @@ export default class Pesan extends Component {
         <main className="l-main">
           <div className="l-Pesan">
             <Pesanan
+              name={"order"}
               order={order}
               tokoId={tokoId}
               goBack={this.goToToko}
@@ -157,10 +137,9 @@ export default class Pesan extends Component {
           </div>
           <div className="l-Pesan">
             <Pemesan
-              user={user}
+              name={"user"}
+              context={this}
               tokoId={tokoId}
-              onChange={this.updateUser}
-              onReset={this.onReset}
               onSubmit={this.onSubmit}
               />
           </div>

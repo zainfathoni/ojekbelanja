@@ -4,17 +4,19 @@ import Form from '../../../components/Form';
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
 import TextArea from '../../../components/TextArea';
+import { update, clear } from '../../../services/form';
 import { isEmailValid, isPhoneValid } from '../../../services/form';
 import './Pemesan.css';
 
 export default function Pemesan(props) {
   const {
-    user,
+    name,
+    context,
     tokoId,
-    onChange,
-    onReset,
     onSubmit,
   } = props;
+
+  const user = context.state[name];
 
   const isUserInvalid = (user) =>
     !user.name ||
@@ -23,8 +25,17 @@ export default function Pemesan(props) {
     !user.city ||
     !user.address;
 
+  const onChange = (field, value) => {
+    update(context, name, field, value);
+  }
+
+  const onReset = (field, value) => {
+    clear(context, name);
+  }
+
   return (
     <Form
+      name={name}
       title="Data Pemesan"
       icon={<i className="fa fa-lg fa-address-card" aria-hidden="true"></i>}
       onSubmit={(e) => this.onSubmit(e, tokoId)}
@@ -122,9 +133,8 @@ export default function Pemesan(props) {
 }
 
 Pemesan.propTypes = {
-  user: T.objectOf(T.string).isRequired,
+  name: T.string.isRequired,
+  context: T.object.isRequired,
   tokoId: T.string.isRequired,
-  onChange: T.func.isRequired,
-  onReset: T.func.isRequired,
   onSubmit: T.func.isRequired,
 }

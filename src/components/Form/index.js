@@ -4,6 +4,7 @@ import './Form.css';
 
 export default function Form(props) {
   const {
+    name,
     title,
     icon,
     onSubmit,
@@ -15,6 +16,7 @@ export default function Form(props) {
   return (
     <form
       className="Form"
+      name={name}
       onSubmit={onSubmit}>
       <header className="Form-header">
         <div className="Form-header-title">
@@ -38,6 +40,7 @@ export default function Form(props) {
 }
 
 Form.propTypes = {
+  name: T.string.isRequired,
   title: T.string.isRequired,
   icon: T.element.isRequired,
   onSubmit: T.func.isRequired,

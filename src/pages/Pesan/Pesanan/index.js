@@ -9,6 +9,7 @@ import './Pesanan.css';
 
 export default function Pesanan(props) {
   const {
+    name,
     order,
     tokoId,
     goBack,
@@ -19,6 +20,7 @@ export default function Pesanan(props) {
 
   return (
     <Form
+      name={name}
       title="Pesanan Anda"
       icon={<i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>}
       onSubmit={(e) => this.onSubmit(e, tokoId)}
@@ -140,6 +142,7 @@ export default function Pesanan(props) {
 }
 
 Pesanan.propTypes = {
+  name: T.string.isRequired,
   order: T.objectOf(T.number).isRequired,
   tokoId: T.string.isRequired,
   goBack: T.func.isRequired,
