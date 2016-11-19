@@ -1,10 +1,21 @@
+/*** Generic Local Storage Operations ***/
+
+export function fetch(key) {
+  const ref = localStorage.getItem(key);
+  return ref ? JSON.parse(ref) : undefined;
+}
+
+export function save(key, obj) {
+  localStorage.setItem(key, JSON.stringify(obj));
+}
+
 /*** Generic Form Fields Updates ***/
 
 export function update(component, stateName, field, value) {
   component.setState({
     [stateName]: {
       ...component.state[stateName],
-      [field]: value,
+    [field]: value,
     }
   });
 }
@@ -17,10 +28,14 @@ export function remove(component, stateName, field) {
   })
 }
 
-export function clear(component, stateName) {
+export function set(component, stateName, obj) {
   component.setState({
-    [stateName] : {}
-  });
+    [stateName]: obj
+  })
+}
+
+export function clear(component, stateName) {
+  set(component, stateName, {});
 }
 
 /*** Generic Validations
