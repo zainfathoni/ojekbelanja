@@ -1,4 +1,5 @@
 import React, { PropTypes as T } from 'react';
+import classnames from 'classnames';
 
 import './Section.css';
 
@@ -10,12 +11,31 @@ export default function Section(props) {
   } = props;
 
   return (
-    <section className="Section">
-      <label htmlFor={id} className="Section-label">{label}</label>
-      <hr className="Section-separator" />
-      <ul id={id} className="l-FilterCards-grid">
-        {children}
-      </ul>
+    <section
+      className={
+        classnames(
+          'Section',
+          props.className
+        )
+      }>
+      <label
+        htmlFor={id}
+        className={
+          classnames(
+            'Section-label',
+            props.labelClassName
+          )
+        }>
+        {label}
+      </label>
+      <hr
+        className={
+          classnames(
+            'Section-separator',
+            props.separatorClassName
+          )
+        } />
+      {children}
     </section>
   )
 }
@@ -24,4 +44,6 @@ Section.propTypes = {
   children: T.node.isRequired,
   id: T.string.isRequired,
   label: T.string.isRequired,
+  labelClassName: T.string,
+  separatorClassName: T.string,
 }

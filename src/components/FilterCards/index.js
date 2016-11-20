@@ -65,16 +65,12 @@ export default function FilterCards(props) {
           {Object.keys(sectionedItems)
             .map(section =>
               <Section
+                className="l-FilterCards-grid"
                 key={section}
                 id={section}
                 label={sections[section]}
-                items={sectionedItems[section]}
-                keyword={keyword}
-                fields={fields}
-                action={action}
-                actionReverse={actionReverse}
-                collection={collection}
                 >
+                <ul id={section} className="l-FilterCards-grid">
                 {Object.keys(sectionedItems[section])
                   .map(key =>
                     <Card
@@ -95,6 +91,7 @@ export default function FilterCards(props) {
                       count={collection[key]}
                       />)
                 }
+                </ul>
               </Section>
             )
           }

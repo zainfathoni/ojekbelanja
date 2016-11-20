@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import Section from '../../components/FilterCards/Section'
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import FilterInput from '../../components/FilterInput';
@@ -29,35 +30,53 @@ export default class StyleGuide extends Component {
 
   render() {
     return (
-      <div className="l-StyleGuide">
-
-        <section className="StyleGuide-section">
-          <label className="StyleGuide-label">Main Navigation</label>
-          <div className="l-wrapper-MainNav">
+      <div className="l-fullwidth">
+        <Section
+          id="main-navigation"
+          label="Main Navigation"
+          labelClassName="StyleGuide-label"
+          separatorClassName="StyleGuide-separator">
+          <div id="main-navigation" className="l-wrapper-MainNav">
             <MainNav />
           </div>
-        </section>
+        </Section>
 
-        <section className="StyleGuide-section">
-          <label className="StyleGuide-label">Header</label>
+        <Section
+          className="Styleguide-section"
+          id="header"
+          label="Header"
+          labelClassName="StyleGuide-label"
+          separatorClassName="StyleGuide-separator">
           <Header />
-        </section>
+        </Section>
 
-        <section className="StyleGuide-section">
-          <label className="StyleGuide-label">Header Not Found</label>
+        <Section
+          className="Styleguide-section"
+          id="header-not-found"
+          label="Header-Not-Found"
+          labelClassName="StyleGuide-label"
+          separatorClassName="StyleGuide-separator">
           <Header is404 />
-        </section>
+        </Section>
 
-        <section className="StyleGuide-section">
-          <label className="StyleGuide-label">Paragraph</label>
+        <Section
+          className="Styleguide-section"
+          id="paragraph"
+          label="Paragraph"
+          labelClassName="StyleGuide-label"
+          separatorClassName="StyleGuide-separator">
           <p>
             Pilih Toko <strong>Ojek Belanja</strong> Anda
-        </p>
-        </section>
+          </p>
+        </Section>
 
-        <section className="StyleGuide-section">
-          <label className="StyleGuide-label">Filter Input</label>
-          <div className="l-main">
+        <Section
+          className="Styleguide-section"
+          id="filter-input"
+          label="Filter Input"
+          labelClassName="StyleGuide-label"
+          separatorClassName="StyleGuide-separator">
+          <div id="filter-input" className="l-main">
             <FilterInput
               placeholder="Without Button"
               keyword={this.state.keyword}
@@ -70,11 +89,15 @@ export default class StyleGuide extends Component {
               withButton
               />
           </div>
-        </section>
+        </Section>
 
-        <section className="StyleGuide-section">
-          <label className="StyleGuide-label">Filter Cards</label>
-          <div className="l-main">
+        <Section
+          className="Styleguide-section"
+          id="filter-cards"
+          label="Filter Cards"
+          labelClassName="StyleGuide-label"
+          separatorClassName="StyleGuide-separator">
+          <div id="filter-cards" className="l-main">
             <FilterCards
               keyword=""
               items={tokos}
@@ -86,7 +109,7 @@ export default class StyleGuide extends Component {
               action={() => true}
               />
           </div>
-        </section>
+        </Section>
 
       </div>
     );
