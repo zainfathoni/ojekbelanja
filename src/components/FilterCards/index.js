@@ -71,26 +71,28 @@ export default function FilterCards(props) {
                 label={sections[section]}
                 >
                 <ul id={section} className="l-FilterCards-grid">
-                {Object.keys(sectionedItems[section])
-                  .map(key =>
-                    <Card
-                      key={key}
-                      id={key}
-                      keyword={keyword}
-                      title={sectionedItems[section][key][fields.title]}
-                      description={sectionedItems[section][key][fields.description]}
-                      image={require(`../../css/images/${sectionedItems[section][key][fields.image]}`)}
-                      ribbon={sectionedItems[section][key][fields.ribbon]}
-                      tooltip={sectionedItems[section][key][fields.tooltip]}
-                      disabled={sectionedItems[section][key][fields.disabled]}
-                      unit={sectionedItems[section][key].unit}
-                      step={sectionedItems[section][key].step}
-                      price={sectionedItems[section][key].price}
-                      action={action}
-                      actionReverse={actionReverse}
-                      count={collection[key]}
-                      />)
-                }
+                  {Object.keys(sectionedItems[section])
+                    .map(key => {
+                      const item = sectionedItems[section][key];
+                      return <Card
+                        key={key}
+                        id={key}
+                        keyword={keyword}
+                        title={item[fields.title]}
+                        description={item[fields.description]}
+                        image={require(`../../css/images/${item[fields.image]}`)}
+                        ribbon={item[fields.ribbon]}
+                        tooltip={item[fields.tooltip]}
+                        disabled={item[fields.disabled]}
+                        unit={item.unit}
+                        step={item.step}
+                        price={item.price}
+                        action={action}
+                        actionReverse={actionReverse}
+                        count={collection[key]}
+                        />
+                    })
+                  }
                 </ul>
               </Section>
             )
@@ -99,24 +101,25 @@ export default function FilterCards(props) {
         :
         <ul className="l-FilterCards-grid">
           {Object.keys(filteredItems)
-            .map(key =>
-              <Card
+            .map(key => {
+              const item = filteredItems[key];
+              return <Card
                 key={key}
                 id={key}
                 keyword={keyword}
-                title={filteredItems[key][fields.title]}
-                description={filteredItems[key][fields.description]}
-                image={require(`../../css/images/${filteredItems[key][fields.image]}`)}
-                ribbon={items[key][fields.ribbon]}
-                tooltip={items[key][fields.tooltip]}
-                disabled={items[key][fields.disabled]}
+                title={item[fields.title]}
+                description={item[fields.description]}
+                image={require(`../../css/images/${item[fields.image]}`)}
+                ribbon={item[fields.ribbon]}
+                tooltip={item[fields.tooltip]}
+                disabled={item[fields.disabled]}
                 unit="pengiriman"
                 step={1}
-                price={filteredItems[key].cost}
+                price={item.cost}
                 action={action}
                 actionReverse={actionReverse}
                 />
-            )
+            })
           }
         </ul>
       }
