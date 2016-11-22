@@ -22,11 +22,13 @@
 }
 
 .StyleGuide-label {
-  /* Background & Borders */
-  background-color: #EDE7F6;
   /* Basic Box */
-  position: absolute;
-  top: -1rem;
-  left: 1rem;
-  padding: .25rem;
+  position: static;
+  /* Fonts */
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.StyleGuide-separator {
+  top: .5rem;
 }

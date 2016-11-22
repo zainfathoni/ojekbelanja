@@ -2,52 +2,6 @@
 
 /** Module **/
 
-.Pesanan {
-  /* Background & Borders */
-  border: 1px solid #B39DDB;
-  border-radius: .25rem;
-  /* Basic Box */
-  margin: .5rem;
-  overflow: hidden;
-}
-
-.Pesanan-heading {
-  /* Color */
-  color: #fff;
-  /* Background & Borders */
-  background-color: #673AB7;
-  border-color: #B39DDB;
-  border-bottom: .125rem solid transparent;
-  /* Basic Box */
-  position: relative;
-  padding: .5rem 1rem;
-  /* Text */
-  line-height: 1.5rem;
-  text-align: left;
-}
-
-.Pesanan-heading-title {
-  /* Fonts */
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.Pesanan-heading-action {
-  /* Basic Box */
-  position: absolute;
-  right: 0.375rem;
-  top: .375rem;
-}
-
-.Pesanan-body {
-  /* Basic Box */
-  width: 100%;
-  padding-left: .5rem;
-  padding-right: .5rem;
-  /* Table Properties */
-  table-layout: fixed;
-}
-
 .Pesanan-item {
   /* Basic Box */
   padding-top: .25rem;
@@ -64,6 +18,26 @@
   text-align: left;
   /* Fonts */
   font-size: 1rem;
+}
+
+.Pesanan-item-image-wrapper {
+  /* Basic Box */
+  width: 10%;
+}
+
+.Pesanan-item-detail {
+  /* Basic Box */
+  width: 72%;
+}
+
+.Pesanan-item-order-qty {
+  /* Basic Box */
+  width: 10%;
+}
+
+.Pesanan-item-order-qty-action {
+  /* Basic Box */
+  width: 8%;
 }
 
 .Pesanan-item-image {
@@ -160,15 +134,6 @@ td.Pesanan-item-order-qty {
   height: .75rem;
   /* Basic UI */
   content: "\00a0";
-}
-
-.Pesanan-footer {
-  /* Background & Borders */
-  background-color: #f5f5f5;
-  border-color: #B39DDB;
-  border-top: .125rem solid transparent;
-  /* Basic Box */
-  padding: .5rem 1rem;
 }
 
 .Pesanan-footer-delivery-fee:after,

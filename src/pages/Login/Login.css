@@ -4,7 +4,20 @@
 
 .l-Login {
   /* Basic Box */
-  width: 75%;
-  max-width: 45rem;
+  width: 90%;
+  max-width: 30rem;
   margin: auto;
+}
+
+/** Module **/
+
+.Login-footer-register,
+.Login-footer-login {
+  /* Basic Box */
+  width: 8rem;
+}
+
+.Login-footer-register {
+  /* Basic Boc */
+  float: left;
 }

@@ -5,6 +5,7 @@ import Header from '../../components/Header';
 import DescriptionList from '../../components/DescriptionList';
 import Table from '../../components/Table';
 import Brand from '../../components/Brand';
+import { fetch, set } from '../../services/form';
 import { quantify, subtotal, total } from '../../services/product';
 import { tokos, products } from '../../models';
 import '../pages.css';
@@ -24,46 +25,19 @@ export default class ThankYou extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const orderRef = localStorage.getItem(`order-${this.props.params.tokoId}`);
-    if (orderRef) {
-      const order = JSON.parse(orderRef);
-      if (Object.keys(order).length) {
-        this.setState({
-          order
-        })
-      } else {
-        // No ordered Item, go back to Toko page
-        this.goToToko(this.props.params.tokoId);
-      }
-    }
-
-    // Fetch 'user' from Local Storage
-    const userRef = localStorage.getItem('user');
-    if (userRef) {
-      const user = JSON.parse(userRef);
-      if (user) {
-        this.setState({
-          user
-        })
-      }
-    }
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    // Save 'order' to Local Storage
-    localStorage.setItem(
-      `order-${this.props.params.tokoId}`,
-      JSON.stringify(nextState.order));
-
-    if (!Object.keys(nextState.order).length) {
+    const order = fetch(`order-${this.props.params.tokoId}`);
+    if (order) {
+      set(this, 'order', order);
+    } else {
       // No ordered Item, go back to Toko page
       this.goToToko(this.props.params.tokoId);
     }
 
-    // Save 'user' to Local Storage
-    localStorage.setItem(
-      'user',
-      JSON.stringify(nextState.user));
+    // Fetch 'user' from Local Storage
+    const user = fetch('user');
+    if (user) {
+      set(this, 'user', user);
+    }
   }
 
   /*** Methods ***/

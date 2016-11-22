@@ -1,64 +1,6 @@
-/*** Pesanan.css ***/
+/*** Pemesan.css ***/
 
 /** Module **/
-
-.Pemesan {
-  /* Background & Borders */
-  border: 1px solid #B39DDB;
-  border-radius: .25rem;
-  /* Basic Box */
-  margin: .5rem;
-  overflow: hidden;
-}
-
-.Pemesan-heading {
-  /* Color */
-  color: #fff;
-  /* Background & Borders */
-  background-color: #673AB7;
-  border-color: #B39DDB;
-  border-bottom: .125rem solid transparent;
-  /* Basic Box */
-  position: relative;
-  padding: .5rem 1rem;
-  /* Text */
-  line-height: 1.5rem;
-  text-align: left;
-}
-
-.Pemesan-heading-title {
-  /* Fonts */
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.Pemesan-body {
-  /* Basic Box */
-  width: 100%;
-  padding-left: .5rem;
-  padding-right: .5rem;
-  /* Table Properties*/
-  table-layout: fixed;
-}
-
-.Pemesan-body:after {
-  /* Basic Box */
-  display: table;
-  clear: both;
-  /* Basic UI */
-  content: '';
-}
-
-.Pemesan-footer {
-  /* Background & Borders */
-  background-color: #f5f5f5;
-  border-color: #B39DDB;
-  border-top: .125rem solid transparent;
-  /* Basic Box */
-  padding: .5rem;
-  /* Text */
-  text-align: right;
-}
 
 .Pemesan-footer-done,
 .Pemesan-footer-clear {

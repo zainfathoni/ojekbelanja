@@ -4,9 +4,10 @@ import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Pesanan from './Pesanan';
 import Pemesan from './Pemesan';
-import { escapeFloatingPoint } from '../../services/product';
+import { fetch, save, set } from '../../services/form';
 import { tokos } from '../../models';
 import '../pages.css';
+import './Pesan.css';
 
 export default class Pesan extends Component {
   constructor(props) {
@@ -22,46 +23,32 @@ export default class Pesan extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const orderRef = localStorage.getItem(`order-${this.props.params.tokoId}`);
-    if (orderRef) {
-      const order = JSON.parse(orderRef);
-      if (Object.keys(order).length) {
-        this.setState({
-          order
-        })
-      } else {
-        // No ordered Item, go back to Toko page
-        this.goToToko(this.props.params.tokoId);
-      }
+    const order = fetch(`order-${this.props.params.tokoId}`);
+    if (order) {
+      set(this, 'order', order);
+    } else {
+      // No ordered Item, go back to Toko page
+      this.goToToko(this.props.params.tokoId);
     }
 
     // Fetch 'user' from Local Storage
-    const userRef = localStorage.getItem('user');
-    if (userRef) {
-      const user = JSON.parse(userRef);
-      if (user) {
-        this.setState({
-          user
-        })
-      }
+    const user = fetch('user');
+    if (user) {
+      set(this, 'user', user);
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
     // Save 'order' to Local Storage
-    localStorage.setItem(
-      `order-${this.props.params.tokoId}`,
-      JSON.stringify(nextState.order));
+    save(`order-${this.props.params.tokoId}`, nextState.order);
+
+    // Save 'user' to Local Storage
+    save('user', nextState.user);
 
     if (!Object.keys(nextState.order).length) {
       // No ordered Item, go back to Toko page
       this.goToToko(this.props.params.tokoId);
     }
-
-    // Save 'user' to Local Storage
-    localStorage.setItem(
-      'user',
-      JSON.stringify(nextState.user));
   }
 
   /*** Methods ***/
@@ -74,49 +61,6 @@ export default class Pesan extends Component {
   goToThankYou = (tokoId) => {
     console.log(`Melanjutkan Pesanan di Toko ${tokoId}`);
     this.context.router.transitionTo(`/thankyou/${tokoId}`);
-  }
-
-  updateOrder = (productId, orderQty) => {
-    const newOrder = this.state.order;
-    newOrder[productId] = escapeFloatingPoint(orderQty);
-
-    this.setState({
-      order: newOrder
-    })
-  }
-
-  removeOrder = (productId) => {
-    const newOrder = this.state.order;
-    delete newOrder[productId];
-    this.setState({
-      order: newOrder
-    })
-  }
-
-  cleanUpOrder = (productId) => {
-    const newOrder = this.state.order;
-
-    if (newOrder[productId] <= 0) {
-      delete newOrder[productId];
-    }
-
-    this.setState({
-      order: newOrder
-    })
-  }
-
-  updateUser = (field, value) => {
-    const newUser = this.state.user;
-    newUser[field] = value;
-    this.setState({
-      user: newUser
-    })
-  }
-
-  clearUser = () => {
-    this.setState({
-      user: {},  
-    });
   }
 
   /*** Render ***/
@@ -133,21 +77,18 @@ export default class Pesan extends Component {
         <main className="l-main">
           <div className="l-Pesan">
             <Pesanan
+              name={"order"}
+              context={this}
               tokoId={tokoId}
-              order={this.state.order}
-              goBack={this.goToToko}
-              update={this.updateOrder}
-              remove={this.removeOrder}
-              cleanUp={this.cleanUpOrder}
+              action={this.goToToko}
               />
           </div>
           <div className="l-Pesan">
             <Pemesan
-              user={this.state.user}
-              onChange={this.updateUser}
+              name={"user"}
+              context={this}
               tokoId={tokoId}
-              clear={this.clearUser}
-              goForward={this.goToThankYou}
+              action={this.goToThankYou}
               />
           </div>
 

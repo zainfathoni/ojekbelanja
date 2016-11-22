@@ -65,40 +65,61 @@ export default function FilterCards(props) {
           {Object.keys(sectionedItems)
             .map(section =>
               <Section
+                className="l-FilterCards-grid"
                 key={section}
                 id={section}
                 label={sections[section]}
-                items={sectionedItems[section]}
-                keyword={keyword}
-                fields={fields}
-                action={action}
-                actionReverse={actionReverse}
-                collection={collection}
-                />
+                >
+                <ul id={section} className="l-FilterCards-grid">
+                  {Object.keys(sectionedItems[section])
+                    .map(key => {
+                      const item = sectionedItems[section][key];
+                      return <Card
+                        key={key}
+                        id={key}
+                        keyword={keyword}
+                        title={item[fields.title]}
+                        description={item[fields.description]}
+                        image={require(`../../css/images/${item[fields.image]}`)}
+                        ribbon={item[fields.ribbon]}
+                        tooltip={item[fields.tooltip]}
+                        disabled={item[fields.disabled]}
+                        unit={item.unit}
+                        step={item.step}
+                        price={item.price}
+                        action={action}
+                        actionReverse={actionReverse}
+                        count={collection[key]}
+                        />
+                    })
+                  }
+                </ul>
+              </Section>
             )
           }
         </div>
         :
         <ul className="l-FilterCards-grid">
           {Object.keys(filteredItems)
-            .map(key =>
-              <Card
+            .map(key => {
+              const item = filteredItems[key];
+              return <Card
                 key={key}
                 id={key}
                 keyword={keyword}
-                title={filteredItems[key][fields.title]}
-                description={filteredItems[key][fields.description]}
-                image={require(`../../css/images/${filteredItems[key][fields.image]}`)}
-                ribbon={items[key][fields.ribbon]}
-                tooltip={items[key][fields.tooltip]}
-                disabled={items[key][fields.disabled]}
+                title={item[fields.title]}
+                description={item[fields.description]}
+                image={require(`../../css/images/${item[fields.image]}`)}
+                ribbon={item[fields.ribbon]}
+                tooltip={item[fields.tooltip]}
+                disabled={item[fields.disabled]}
                 unit="pengiriman"
                 step={1}
-                price={filteredItems[key].cost}
+                price={item.cost}
                 action={action}
                 actionReverse={actionReverse}
                 />
-            )
+            })
           }
         </ul>
       }
