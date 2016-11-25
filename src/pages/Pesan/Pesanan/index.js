@@ -19,6 +19,8 @@ export default function Pesanan(props) {
   } = props;
 
   const order = context.state[name];
+  console.log("order");
+  console.log(order);
 
   const onChange = (field, value) => {
     update(context, name, field, escapeFloatingPoint(value));

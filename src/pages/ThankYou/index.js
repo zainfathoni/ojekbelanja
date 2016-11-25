@@ -73,18 +73,17 @@ export default class ThankYou extends Component {
     });
 
     // Order not again is retrieved from local storage. get 'em from firebase.
-    // console.log("orders/" + this.props.params.tokoId + "/" + this.props.param.userId + "/" + this.props.params.orderId);
-    // base.fetch("orders/" + this.props.params.tokoId + "/" + this.props.param.userId + "/" + this.props.params.orderId, {
-    //   context: this,
-    //   asArray: true,
-    //   then(data){
-    //     console.log('fetching order ... ');
-    //     console.log(data);
-    //     if (data != null) {
-    //       // set(this, 'order', data);
-    //     }
-    //   }
-    // });
+    base.fetch("orders/agus/order-1", {
+      context: this,
+      asArray: false,
+      then(data){
+        console.log('fetching order ... ');
+        console.log(data.ingredients);
+        if (data != null) {
+          set(this, 'order', data.ingredients);
+        }
+      }
+    });
 
     if (order) {
       console.log('order: ' + order);
@@ -143,6 +142,8 @@ export default class ThankYou extends Component {
       Object.keys(order)
         .map((key, id) => {
           const item = products[key];
+          console.log("item");
+          console.log(item);
           const row = {
             'No': id + 1,
             'Nama': item.name,

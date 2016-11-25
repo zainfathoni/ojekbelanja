@@ -46,11 +46,33 @@ export default class Pesan extends Component {
       this.goToToko(this.props.params.tokoId);
     }
 
+    console.log("orders/" + this.props.params.tokoId + "/order-1");
+    base.fetch("orders/" + this.props.params.tokoId + "/order-1", {
+      context: this,
+      asArray: false,
+      then(data){
+        if (data != null) {
+          console.log(data);
+          this.setState({order : data.ingredients});
+        }
+      }
+    });
+
     // Fetch 'user' from Local Storage
     const user = fetch('user');
     if (user) {
       set(this, 'user', user);
     }
+
+    // Load user, for this time being, 'zain' is used again.
+    base.fetch("members/zain", {
+      context: this,
+      asArray: false,
+      then(data){
+        console.log(data);
+        this.setState({user : data});
+      }
+    });
   }
 
   componentWillUpdate(nextProps, nextState) {
