@@ -27,8 +27,37 @@ export default class ThankYou extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
+    // Fetch 'user' from Local Storage
+    const user = fetch('user');
+    if (user) {
+      console.log(user);
+      set(this, 'user', user);
+    }
+
+    // Fetch user from firebase.
+    base.fetch("members/zain", {
+      context: this,
+      asArray: false,
+      then(data){
+        console.log('fetching user ... ');
+        console.log(data);
+        if (data != null) {
+          set(this, 'user', {
+            address : data.address,
+            city : data.city, 
+            email : data.email,
+            name : data.name,
+            nickname : data.nickname,
+            notes : "Cepetan ya.",
+            phone : data.phone, 
+          });
+        }
+      }
+    });
+
     // Fetch 'order' from Local Storage
     const order = fetch(`order-${this.props.params.tokoId}`);
+    console.log(order);
 
     // Get toko details from firebase.
     base.fetch("stores/" + this.props.params.tokoId, {
@@ -37,20 +66,25 @@ export default class ThankYou extends Component {
       then(data){
         console.log('fetching toko ... ');
         console.log(data);
-        this.setState({toko: data});
+        if (data != null) {
+          set(this, 'toko', data)
+        }
       }
     });
 
     // Order not again is retrieved from local storage. get 'em from firebase.
-    base.fetch("orders/" + this.props.params.tokoId + "/" + this.props.params.orderId, {
-      context: this,
-      asArray: true,
-      then(data){
-        console.log('fetching order ... ');
-        console.log(data);
-        this.setState({order: data});
-      }
-    });
+    // console.log("orders/" + this.props.params.tokoId + "/" + this.props.param.userId + "/" + this.props.params.orderId);
+    // base.fetch("orders/" + this.props.params.tokoId + "/" + this.props.param.userId + "/" + this.props.params.orderId, {
+    //   context: this,
+    //   asArray: true,
+    //   then(data){
+    //     console.log('fetching order ... ');
+    //     console.log(data);
+    //     if (data != null) {
+    //       // set(this, 'order', data);
+    //     }
+    //   }
+    // });
 
     if (order) {
       console.log('order: ' + order);
@@ -59,12 +93,6 @@ export default class ThankYou extends Component {
     } else {
       // No ordered Item, go back to Toko page
       this.goToToko(this.props.params.tokoId);
-    }
-
-    // Fetch 'user' from Local Storage
-    const user = fetch('user');
-    if (user) {
-      set(this, 'user', user);
     }
   }
 
