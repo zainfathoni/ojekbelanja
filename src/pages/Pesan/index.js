@@ -9,17 +9,32 @@ import { tokos } from '../../models';
 import '../pages.css';
 import './Pesan.css';
 
+import base from '../../services/base';
+
 export default class Pesan extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       order: {},
-      user: {}
+      user: {},
+      toko: "",
     }
   }
 
   /*** Lifecycle ***/
+
+  // Called when component being inserted to DOM.
+  componentDidMount() {
+    base.fetch("stores/" + this.props.params.tokoId, {
+        context: this,
+        asArray: false,
+        then(data){
+          console.log(data.name);
+          this.setState({toko : data.name});
+        }
+    });
+  }
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
@@ -73,7 +88,7 @@ export default class Pesan extends Component {
         <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
-        <Header heading={"Toko " + tokos[tokoId].name} />
+        <Header heading={"Toko " + this.state.toko} />
         <main className="l-main">
           <div className="l-Pesan">
             <Pesanan

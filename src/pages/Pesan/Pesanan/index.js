@@ -8,6 +8,8 @@ import { escapeFloatingPoint, quantify, subtotal, total } from '../../../service
 import { tokos, products } from '../../../models';
 import './Pesanan.css';
 
+import base from '../../../services/base';
+
 export default function Pesanan(props) {
   const {
     name,
@@ -30,6 +32,16 @@ export default function Pesanan(props) {
 
   const removeOrder = (productId) => {
     remove(context, name, productId);
+  }
+
+  const getTokoDeliveryCost = (tokoId) => {
+    base.fetch("stores/" + tokoId, {
+      context: props.context,
+        asArray: false,
+        then(data){
+          console.log(data);
+        }
+    });
   }
 
   return (

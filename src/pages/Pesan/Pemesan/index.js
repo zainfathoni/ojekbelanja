@@ -8,6 +8,8 @@ import { update, clear } from '../../../services/form';
 import { isEmailValid, isPhoneValid } from '../../../services/form';
 import './Pemesan.css';
 
+import base from '../../../services/base';
+
 export default function Pemesan(props) {
   const {
     name,

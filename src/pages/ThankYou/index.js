@@ -11,13 +11,16 @@ import { tokos, products } from '../../models';
 import '../pages.css';
 import './ThankYou.css';
 
+import base from '../../services/base';
+
 export default class ThankYou extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       order: {},
-      user: {}
+      user: {},
+      toko: {},
     }
   }
 
@@ -26,7 +29,32 @@ export default class ThankYou extends Component {
   componentWillMount() {
     // Fetch 'order' from Local Storage
     const order = fetch(`order-${this.props.params.tokoId}`);
+
+    // Get toko details from firebase.
+    base.fetch("stores/" + this.props.params.tokoId, {
+      context: this,
+      asArray: false,
+      then(data){
+        console.log('fetching toko ... ');
+        console.log(data);
+        this.setState({toko: data});
+      }
+    });
+
+    // Order not again is retrieved from local storage. get 'em from firebase.
+    base.fetch("orders/" + this.props.params.tokoId + "/" + this.props.params.orderId, {
+      context: this,
+      asArray: true,
+      then(data){
+        console.log('fetching order ... ');
+        console.log(data);
+        this.setState({order: data});
+      }
+    });
+
     if (order) {
+      console.log('order: ' + order);
+      console.log(order);
       set(this, 'order', order);
     } else {
       // No ordered Item, go back to Toko page
@@ -130,9 +158,9 @@ export default class ThankYou extends Component {
         <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
-        <Header heading={"Toko " + toko.name} />
-        <main className="l-ThankYou">
-          <p>Terima kasih telah berbelanja di toko {toko.name}, berikut detil transaksi Anda:</p>
+        <Header heading={"Toko " + this.state.toko.name} />
+        <main className="l-ThankYou">  
+          <p>Terima kasih telah berbelanja di toko {this.state.toko.name}, berikut detil transaksi Anda:</p>
           <DescriptionList
             list={pemesanList}
             />
@@ -148,7 +176,13 @@ export default class ThankYou extends Component {
             <li>Pastikan Anda telah menerima email konfirmasi pesanan dari <Brand />.</li>
             <li>Untuk pertanyaan lebih lanjut, berikut detil informasi toko tempat Anda memesan:
               <DescriptionList
-                list={tokoList}
+                list={
+                  [
+                    { term: 'Nama Toko', definition: this.state.toko.name },
+                    { term: 'Area Layanan', definition: this.state.toko.area },
+                    { term: 'No. HP', definition: this.state.toko.phone },
+                  ]
+                }
                 />
             </li>
             <li>Pembayaran dilakukan dengan cara <i>COD (Cash On Delivery)</i>.</li>
