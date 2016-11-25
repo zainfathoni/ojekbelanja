@@ -19,6 +19,12 @@
   padding-left: 0.5rem;
 }
 
+/* Different Card Heights Fix: http://stackoverflow.com/a/11811937/3187014 */
+/* 4 Columns Grid */
+.l-FilterCards-grid > li:nth-child(4n+1) {
+    clear: both;
+}
+
 .l-FilterCards-grid:after {
   /* Basic Box */
   display: table;
@@ -37,6 +43,14 @@
     width: 33.333333%;
   }
 
+  .l-FilterCards-grid > li:nth-child(4n+1) {
+    clear: none;
+  }
+
+  .l-FilterCards-grid > li:nth-child(3n+1) {
+    clear: both;
+  }
+
   .card-image > img {
     /* Basic Box */
     min-height: 9rem;
@@ -49,5 +63,13 @@
   .l-FilterCards-grid > li {
     /* Basic Box */
     width: 50%;
+  }
+
+  .l-FilterCards-grid > li:nth-child(3n+1) {
+    clear: none;
+  }
+
+  .l-FilterCards-grid > li:nth-child(2n+1) {
+    clear: both;
   }
 }
