@@ -28,19 +28,16 @@ export default class ThankYou extends Component {
 
   componentWillMount() {
     // Fetch 'user' from Local Storage
-    const user = fetch('user');
-    if (user) {
-      console.log(user);
-      set(this, 'user', user);
-    }
+    // const user = fetch('user');
+    // if (user) {
+    //   set(this, 'user', user);
+    // }
 
-    // Fetch user from firebase.
+    // Fetch user from firebase, always zain.
     base.fetch("members/zain", {
       context: this,
       asArray: false,
       then(data){
-        console.log('fetching user ... ');
-        console.log(data);
         if (data != null) {
           set(this, 'user', {
             address : data.address,
@@ -55,44 +52,39 @@ export default class ThankYou extends Component {
       }
     });
 
-    // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.tokoId}`);
-    console.log(order);
-
     // Get toko details from firebase.
     base.fetch("stores/" + this.props.params.tokoId, {
       context: this,
       asArray: false,
       then(data){
-        console.log('fetching toko ... ');
-        console.log(data);
         if (data != null) {
           set(this, 'toko', data)
         }
       }
     });
 
-    // Order not again is retrieved from local storage. get 'em from firebase.
-    base.fetch("orders/agus/order-1", {
-      context: this,
-      asArray: false,
-      then(data){
-        console.log('fetching order ... ');
-        console.log(data.ingredients);
-        if (data != null) {
-          set(this, 'order', data.ingredients);
-        }
-      }
-    });
+    // Fetch 'order' from Local Storage
+    const order = fetch(`order`);
+    const orderId = fetch('orderId');
 
     if (order) {
-      console.log('order: ' + order);
       console.log(order);
       set(this, 'order', order);
     } else {
       // No ordered Item, go back to Toko page
       this.goToToko(this.props.params.tokoId);
     }
+
+    // Order not again is retrieved from local storage. get 'em from firebase.
+    base.fetch("orders/" + orderId, {
+      context: this,
+      asArray: false,
+      then(data){
+        if (data != null) {
+          set(this, 'order', data.ingredients);
+        }
+      }
+    });
   }
 
   /*** Methods ***/
@@ -138,12 +130,10 @@ export default class ThankYou extends Component {
       'Subtotal': 'price',
     }
 
-    const body =
+    const body = order != null ?
       Object.keys(order)
         .map((key, id) => {
           const item = products[key];
-          console.log("item");
-          console.log(item);
           const row = {
             'No': id + 1,
             'Nama': item.name,
@@ -156,7 +146,7 @@ export default class ThankYou extends Component {
             'Subtotal': subtotal(order[key], item.step, item.price),
           }
           return row;
-        });
+        }) : null;
 
     const footerColSpan = {
       'Nama': 2,

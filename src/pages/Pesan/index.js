@@ -27,12 +27,11 @@ export default class Pesan extends Component {
   // Called when component being inserted to DOM.
   componentDidMount() {
     base.fetch("stores/" + this.props.params.tokoId, {
-        context: this,
-        asArray: false,
-        then(data){
-          console.log(data.name);
-          this.setState({toko : data.name});
-        }
+      context: this,
+      asArray: false,
+      then(data) {
+        this.setState({ toko: data.name });
+      }
     });
   }
 
@@ -46,17 +45,15 @@ export default class Pesan extends Component {
       this.goToToko(this.props.params.tokoId);
     }
 
-    console.log("orders/" + this.props.params.tokoId + "/order-1");
-    base.fetch("orders/" + this.props.params.tokoId + "/order-1", {
-      context: this,
-      asArray: false,
-      then(data){
-        if (data != null) {
-          console.log(data);
-          this.setState({order : data.ingredients});
-        }
-      }
-    });
+    // base.fetch("orders/" + this.props.params.tokoId + "/order-1", {
+    //   context: this,
+    //   asArray: false,
+    //   then(data){
+    //     if (data != null) {
+    //       this.setState({order : data.ingredients});
+    //     }
+    //   }
+    // });
 
     // Fetch 'user' from Local Storage
     const user = fetch('user');
@@ -65,17 +62,17 @@ export default class Pesan extends Component {
     }
 
     // Load user, for this time being, 'zain' is used again.
-    base.fetch("members/zain", {
-      context: this,
-      asArray: false,
-      then(data){
-        console.log(data);
-        this.setState({user : data});
-      }
-    });
+    // base.fetch("members/zain", {
+    //   context: this,
+    //   asArray: false,
+    //   then(data){
+    //     this.setState({user : data});
+    //   }
+    // });
   }
 
   componentWillUpdate(nextProps, nextState) {
+
     // Save 'order' to Local Storage
     save(`order-${this.props.params.tokoId}`, nextState.order);
 
@@ -97,7 +94,22 @@ export default class Pesan extends Component {
 
   goToThankYou = (tokoId) => {
     console.log(`Melanjutkan Pesanan di Toko ${tokoId}`);
-    this.context.router.transitionTo(`/thankyou/${tokoId}`);
+    console.log('Upload pesanan.');
+
+    const order = this.state.order;
+    const classContext = this;
+
+    var result = base.push('orders/' + tokoId, {
+      data: { date: new Date().toString("ddMMyyyy"), ingredients: order, user: 'zain'}, 
+      then(error) {
+        if (error) console.log(error);
+        else classContext.context.router.transitionTo(`/thankyou/${tokoId}`);
+      }
+    });
+
+    // set(this, 'order', result.key);
+    save('orderId', result.key);
+    save('order', order);
   }
 
   /*** Render ***/
@@ -128,7 +140,6 @@ export default class Pesan extends Component {
               action={this.goToThankYou}
               />
           </div>
-
         </main>
       </div>
     )
