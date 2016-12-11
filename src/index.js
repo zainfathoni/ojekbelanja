@@ -11,7 +11,8 @@ import StyleGuide from './pages/StyleGuide';
 import NotFound from './pages/NotFound';
 import Product from './pages/Product';
 import DetailProduct from './pages/DetailProduct';
-import Category from './pages/Category';
+import EditProduct from './pages/EditProduct';
+import EditCategory from './pages/EditCategory';
 import './css/index.css';
 import './css/fonts.css';
 import './css/font-awesome.css';
@@ -27,7 +28,8 @@ const Root = () => {
         <Match pattern="/login" component={Login} />
         <Match pattern="/product" component={Product} />
         <Match pattern="/detailproduct/:tokoId" component={DetailProduct} />
-        <Match pattern="/category" component={Category} />
+        <Match pattern="/editproduct" component={EditProduct} />
+        <Match pattern="/editcategory" component={EditCategory} />
         <Match pattern="/styleguide" component={StyleGuide} />
         <Miss component={NotFound} />
       </div>

@@ -11,13 +11,15 @@ export default function Form(props) {
     header,
     children,
     footer,
+    type
   } = props;
 
   return (
     <form
       className="Form"
       name={name}
-      onSubmit={onSubmit}>
+      onSubmit={onSubmit}
+      >
       <header className="Form-header">
         <div className="Form-header-title">
           {icon}
