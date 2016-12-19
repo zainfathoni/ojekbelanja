@@ -5,19 +5,10 @@
 .l-Login {
   /* Basic Box */
   width: 90%;
-  max-width: 30rem;
+  max-width: 21rem;
   margin: auto;
 }
 
 /** Module **/
 
-.Login-footer-register,
-.Login-footer-login {
-  /* Basic Box */
-  width: 8rem;
-}
 
-.Login-footer-register {
-  /* Basic Boc */
-  float: left;
-}

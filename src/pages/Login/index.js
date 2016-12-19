@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Form from '../../components/Form';
 import TextField from '../../components/TextField';
 import Button from '../../components/Button';
-import { update, isEmailValid, isPasswordValid } from '../../services/form';
+import { update, set, isEmailValid, isPasswordValid } from '../../services/form';
 import '../pages.css';
 import './Login.css';
 
@@ -14,7 +14,8 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-      user: {}
+      user: {},
+      isRegister: false,
     }
   }
 
@@ -24,30 +25,34 @@ export default class Login extends Component {
     update(this, 'user', field, value)
   }
 
-  isFormInvalid = (user) => {
-    return !user.name ||
+  isFormInvalid = (user, isRegister) => {
+    return (isRegister && !user.name) ||
       !user.email || !isEmailValid(user.email) ||
       !user.password || !isPasswordValid(user.password)
   }
 
-  register = (e, user) => {
-    e.preventDefault()
-    console.log(`Register ${JSON.stringify(user)}`);
+  toggleRegister = () => {
+    set(this, 'isRegister', !this.state.isRegister);
   }
 
-  login = (e, user) => {
+  submit = (e, user) => {
     e.preventDefault()
-    console.log(`Login ${JSON.stringify(user)}`);
+    if (this.state.isRegister) {
+      console.log(`Register ${JSON.stringify(user)}`);
+    } else {
+      console.log(`Login ${JSON.stringify(user)}`);
+    }
   }
 
   /*** Render ***/
 
   render() {
     const {
-      user
+      user,
+      isRegister,
     } = this.state;
 
-    const isInvalid = this.isFormInvalid(user);
+    const isInvalid = this.isFormInvalid(user, isRegister);
 
     return (
       <div className="l-fullwidth">
@@ -57,42 +62,45 @@ export default class Login extends Component {
         <Header heading={'Login/Register'} />
         <main className="l-Login">
           <Form
-            title="Login / Register"
-            icon={<i className="fa fa-lg fa-sign-in" aria-hidden="true"></i>}
-            onSubmit={(e) => this.login(e, user)}
+            name="Login"
+            title={isRegister ? "Register" : "Login"}
+            onSubmit={(e) => this.submit(e, user)}
+            header={
+              <Button
+                className="Login-heading-action"
+                display="content"
+                action={(e) => this.toggleRegister()}
+                icon={isRegister ? "sign-in" : "user-plus"}
+                text={isRegister ? "Login" : "Register"}
+                isSecondary
+                isSmall
+                />
+            }
             footer={
               <div>
                 <Button
-                  className="Login-footer-register"
-                  display="content"
-                  action={(e) => this.register(e, user)}
-                  icon="user-plus"
-                  text="Register"
-                  disabled={isInvalid}
-                  title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Register"}
-                  isSecondary
-                  />
-                <Button
                   className="Login-footer-login"
                   type="submit"
-                  display="content"
-                  action={(e) => this.login(e, user)}
-                  icon="sign-in"
-                  text="Login"
+                  display="fullwidth"
+                  action={(e) => this.submit(e, user)}
+                  icon={isRegister ? "user-plus" : "sign-in"}
+                  text={isRegister ? "Register" : "Login"}
                   disabled={isInvalid}
                   title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Login"}
                   />
               </div>
             }
             >
-            <TextField
-              name="name"
-              label="Nama"
-              placeholder="Nama Lengkap"
-              value={user.name}
-              onChange={this.updateUser}
-              required
-              />
+            {isRegister &&
+              <TextField
+                name="name"
+                label="Nama"
+                placeholder="Nama Lengkap"
+                value={user.name}
+                onChange={this.updateUser}
+                required
+                />
+            }
             <TextField
               type="email"
               name="email"
