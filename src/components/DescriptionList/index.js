@@ -5,35 +5,13 @@ import './DescriptionList.css';
 export default function DescriptionList(props) {
   const { list } = props;
 
-  const formatDefinition = (def) => {
-    if (def) {
-      let arrayDef = def.split('\n');
-      return (
-        arrayDef.length === 1 ?
-          def
-        :
-          <div>
-            {arrayDef
-              .map(defElement =>
-                <div key={defElement}>
-                  {defElement}
-                </div>
-              )  
-            }
-          </div>
-      )
-    } else {
-      return "-";
-    }
-  }
-
   return (
     <dl className="DescriptionList">
       {list
         .map(item =>
           <div key={item.term}>
             <dt>{item.term}</dt>
-            <dd>{formatDefinition(item.definition)}</dd>
+            <dd>{item.definition || "-"}</dd>
           </div>
         )
       }

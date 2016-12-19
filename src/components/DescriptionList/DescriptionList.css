@@ -25,7 +25,7 @@
   /* Text */
   text-align: right;
   text-overflow: ellipsis;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 .DescriptionList dd {
@@ -33,6 +33,7 @@
   margin-left: 11rem;
   /* Text */
   text-align: left;
+  white-space: pre-line;
 }
 
 @media (max-width: 30em) {
