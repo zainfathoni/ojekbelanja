@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 
+import base from '../../services/base';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Form from '../../components/Form';
@@ -14,9 +15,20 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
+      uid: null,
       user: {},
       isRegister: false,
     }
+  }
+
+  /*** Lifecycle ***/
+
+  componentDidMount() {
+    base.onAuth((user) => {
+      if (user) {
+        this.authHandler(null, { user });
+      }
+    })
   }
 
   /*** Methods ***/
@@ -37,17 +49,40 @@ export default class Login extends Component {
 
   submit = (e, user) => {
     e.preventDefault()
-    if (this.state.isRegister) {
+    if (this.state.uid) {
+      base.unauth();
+      set(this, 'uid', null);
+    } else if (this.state.isRegister) {
       console.log(`Register ${JSON.stringify(user)}`);
+      base.createUser({
+        email: user.email,
+        password: user.password,
+      }, this.authHandler);
     } else {
       console.log(`Login ${JSON.stringify(user)}`);
+      base.authWithPassword({
+        email: user.email,
+        password: user.password,
+      }, this.authHandler);
     }
+  }
+
+  authHandler = (err, authData) => {
+    // TODO: Fix double invocation of authHandler upon Login
+    console.log(authData);
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    set(this, 'uid', authData.user.uid);
   }
 
   /*** Render ***/
 
   render() {
     const {
+      uid,
       user,
       isRegister,
     } = this.state;
@@ -59,7 +94,7 @@ export default class Login extends Component {
         <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
-        <Header heading={'Login/Register'} />
+        <Header heading={'Login / Register'} />
         <main className="l-Login">
           <Form
             name="Login"
@@ -74,21 +109,21 @@ export default class Login extends Component {
                 text={isRegister ? "Login" : "Register"}
                 isSecondary
                 isSmall
+                disabled={uid !== null}
                 />
             }
             footer={
-              <div>
-                <Button
-                  className="Login-footer-login"
-                  type="submit"
-                  display="fullwidth"
-                  action={(e) => this.submit(e, user)}
-                  icon={isRegister ? "user-plus" : "sign-in"}
-                  text={isRegister ? "Register" : "Login"}
-                  disabled={isInvalid}
-                  title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Login"}
-                  />
-              </div>
+              <Button
+                className="Login-footer-login"
+                type="submit"
+                display="fullwidth"
+                action={(e) => this.submit(e, user)}
+                icon={uid ? "sign-out" : isRegister ? "user-plus" : "sign-in"}
+                text={uid ? "Logout" : isRegister ? "Register" : "Login"}
+                disabled={!uid && isInvalid}
+                title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Login"}
+                isSecondary={uid !== null}
+                />
             }
             >
             {isRegister &&
