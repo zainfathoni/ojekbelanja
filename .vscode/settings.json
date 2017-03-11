@@ -1,5 +1,8 @@
 // Place your settings in this file to overwrite default and user settings.
 {
   "javascript.validate.enable": false,
-  "todoIgnore":   ["**/node_modules/**"]
+  "todoIgnore": [
+    "**/node_modules/**"
+  ],
+  "vsicons.presets.angular": false
 }
