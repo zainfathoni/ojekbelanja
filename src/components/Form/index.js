@@ -42,7 +42,7 @@ export default function Form(props) {
 Form.propTypes = {
   name: T.string.isRequired,
   title: T.string.isRequired,
-  icon: T.element.isRequired,
+  icon: T.element,
   onSubmit: T.func,
   header: T.node,
   children: T.node,

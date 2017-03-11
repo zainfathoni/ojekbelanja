@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 
+import base from '../../services/base';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Form from '../../components/Form';
 import TextField from '../../components/TextField';
 import Button from '../../components/Button';
-import { update, isEmailValid, isPasswordValid } from '../../services/form';
+import { update, set, isEmailValid, isPasswordValid } from '../../services/form';
 import '../pages.css';
 import './Login.css';
 
@@ -14,8 +15,20 @@ export default class Login extends Component {
     super(props);
 
     this.state = {
-      user: {}
+      uid: null,
+      user: {},
+      isRegister: false,
     }
+  }
+
+  /*** Lifecycle ***/
+
+  componentDidMount() {
+    base.onAuth((user) => {
+      if (user) {
+        this.authHandler(null, { user });
+      }
+    })
   }
 
   /*** Methods ***/
@@ -24,75 +37,105 @@ export default class Login extends Component {
     update(this, 'user', field, value)
   }
 
-  isFormInvalid = (user) => {
-    return !user.name ||
+  isFormInvalid = (user, isRegister) => {
+    return (isRegister && !user.name) ||
       !user.email || !isEmailValid(user.email) ||
       !user.password || !isPasswordValid(user.password)
   }
 
-  register = (e, user) => {
-    e.preventDefault()
-    console.log(`Register ${JSON.stringify(user)}`);
+  toggleRegister = () => {
+    set(this, 'isRegister', !this.state.isRegister);
   }
 
-  login = (e, user) => {
+  submit = (e, user) => {
     e.preventDefault()
-    console.log(`Login ${JSON.stringify(user)}`);
+    if (this.state.uid) {
+      base.unauth();
+      set(this, 'uid', null);
+    } else if (this.state.isRegister) {
+      console.log(`Register ${JSON.stringify(user)}`);
+      base.createUser({
+        email: user.email,
+        password: user.password,
+      }, this.authHandler);
+    } else {
+      console.log(`Login ${JSON.stringify(user)}`);
+      base.authWithPassword({
+        email: user.email,
+        password: user.password,
+      }, this.authHandler);
+    }
+  }
+
+  authHandler = (err, authData) => {
+    // TODO: Fix double invocation of authHandler upon Login
+    console.log(authData);
+    if (err) {
+      console.error(err);
+      return;
+    }
+
+    set(this, 'uid', authData.user.uid);
   }
 
   /*** Render ***/
 
   render() {
     const {
-      user
+      uid,
+      user,
+      isRegister,
     } = this.state;
 
-    const isInvalid = this.isFormInvalid(user);
+    const isInvalid = this.isFormInvalid(user, isRegister);
 
     return (
       <div className="l-fullwidth">
         <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
-        <Header heading={'Login/Register'} />
+        <Header heading={'Login / Register'} />
         <main className="l-Login">
           <Form
-            title="Login / Register"
-            icon={<i className="fa fa-lg fa-sign-in" aria-hidden="true"></i>}
-            onSubmit={(e) => this.login(e, user)}
+            name="Login"
+            title={isRegister ? "Register" : "Login"}
+            onSubmit={(e) => this.submit(e, user)}
+            header={
+              <Button
+                className="Login-heading-action"
+                display="content"
+                action={(e) => this.toggleRegister()}
+                icon={isRegister ? "sign-in" : "user-plus"}
+                text={isRegister ? "Login" : "Register"}
+                isSecondary
+                isSmall
+                disabled={uid !== null}
+                />
+            }
             footer={
-              <div>
-                <Button
-                  className="Login-footer-register"
-                  display="content"
-                  action={(e) => this.register(e, user)}
-                  icon="user-plus"
-                  text="Register"
-                  disabled={isInvalid}
-                  title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Register"}
-                  isSecondary
-                  />
-                <Button
-                  className="Login-footer-login"
-                  type="submit"
-                  display="content"
-                  action={(e) => this.login(e, user)}
-                  icon="sign-in"
-                  text="Login"
-                  disabled={isInvalid}
-                  title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Login"}
-                  />
-              </div>
+              <Button
+                className="Login-footer-login"
+                type="submit"
+                display="fullwidth"
+                action={(e) => this.submit(e, user)}
+                icon={uid ? "sign-out" : isRegister ? "user-plus" : "sign-in"}
+                text={uid ? "Logout" : isRegister ? "Register" : "Login"}
+                disabled={!uid && isInvalid}
+                title={isInvalid ? "Masih ditemukan data yang tidak valid" : "Login"}
+                isSecondary={uid !== null}
+                />
             }
             >
-            <TextField
-              name="name"
-              label="Nama"
-              placeholder="Nama Lengkap"
-              value={user.name}
-              onChange={this.updateUser}
-              required
-              />
+            {isRegister &&
+              <TextField
+                name="name"
+                label="Nama"
+                placeholder="Nama Lengkap"
+                value={user.name}
+                onChange={this.updateUser}
+                required
+                />
+            }
             <TextField
               type="email"
               name="email"
