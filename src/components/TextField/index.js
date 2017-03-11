@@ -50,6 +50,7 @@ export default class TextField extends Component {
       min,
       max,
       step,
+      disabled
     } = this.props;
     const {
       isPristine,
@@ -88,7 +89,7 @@ export default class TextField extends Component {
           type={type}
           name={name}
           placeholder={placeholder}
-          value={value}
+          defaultValue={value}
           onFocus={(e) => this.onFocus(name, e.target.value)}
           onChange={(e) => onChange(name, e.target.value)}
           onBlur={(e) => this.onBlur(name, e.target.value)}
@@ -96,6 +97,7 @@ export default class TextField extends Component {
           min={min}
           max={max}
           step={step}
+          disabled={disabled}
           />
         {!isPristine && !isFocused &&
           (value ?
@@ -120,6 +122,7 @@ TextField.defaultProps = {
   min: 0,
   max: 100,
   step: 1,
+  readOnly: false
 }
 
 TextField.propTypes = {

@@ -14,6 +14,8 @@ export default class MainNav extends Component {
           <Link to="/tentang-kami" className="MainNav-item" activeClassName="MainNav-is-active">Tentang Kami</Link>
           <Link to="/styleguide" className="MainNav-item" activeClassName="MainNav-is-active">Style Guide</Link>
           <Link to="/login" className="MainNav-item MainNav-login" activeClassName="MainNav-is-active"><i className="fa fa-sign-in" aria-hidden="true"></i> Login</Link>
+          <Link to="/editproduct" className="MainNav-item" activeClassName="MainNav-is-active">Product</Link>
+          <Link to="/editcategory" className="MainNav-item" activeClassName="MainNav-is-active">Category</Link>
         </nav>
       </div>
     );

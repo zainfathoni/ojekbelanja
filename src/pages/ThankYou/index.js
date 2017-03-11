@@ -11,33 +11,80 @@ import { tokos, products } from '../../models';
 import '../pages.css';
 import './ThankYou.css';
 
+import base from '../../services/base';
+
 export default class ThankYou extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       order: {},
-      user: {}
+      user: {},
+      toko: {},
     }
   }
 
   /*** Lifecycle ***/
 
   componentWillMount() {
+    // Fetch 'user' from Local Storage
+    // const user = fetch('user');
+    // if (user) {
+    //   set(this, 'user', user);
+    // }
+
+    // Fetch user from firebase, always zain.
+    base.fetch("members/zain", {
+      context: this,
+      asArray: false,
+      then(data){
+        if (data != null) {
+          set(this, 'user', {
+            address : data.address,
+            city : data.city, 
+            email : data.email,
+            name : data.name,
+            nickname : data.nickname,
+            notes : "Cepetan ya.",
+            phone : data.phone, 
+          });
+        }
+      }
+    });
+
+    // Get toko details from firebase.
+    base.fetch("stores/" + this.props.params.tokoId, {
+      context: this,
+      asArray: false,
+      then(data){
+        if (data != null) {
+          set(this, 'toko', data)
+        }
+      }
+    });
+
     // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.tokoId}`);
+    const order = fetch(`order`);
+    const orderId = fetch('orderId');
+
     if (order) {
+      console.log(order);
       set(this, 'order', order);
     } else {
       // No ordered Item, go back to Toko page
       this.goToToko(this.props.params.tokoId);
     }
 
-    // Fetch 'user' from Local Storage
-    const user = fetch('user');
-    if (user) {
-      set(this, 'user', user);
-    }
+    // Order not again is retrieved from local storage. get 'em from firebase.
+    base.fetch("orders/" + orderId, {
+      context: this,
+      asArray: false,
+      then(data){
+        if (data != null) {
+          set(this, 'order', data.ingredients);
+        }
+      }
+    });
   }
 
   /*** Methods ***/
@@ -83,7 +130,7 @@ export default class ThankYou extends Component {
       'Subtotal': 'price',
     }
 
-    const body =
+    const body = order != null ?
       Object.keys(order)
         .map((key, id) => {
           const item = products[key];
@@ -99,7 +146,7 @@ export default class ThankYou extends Component {
             'Subtotal': subtotal(order[key], item.step, item.price),
           }
           return row;
-        });
+        }) : null;
 
     const footerColSpan = {
       'Nama': 2,
@@ -130,9 +177,9 @@ export default class ThankYou extends Component {
         <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
-        <Header heading={"Toko " + toko.name} />
-        <main className="l-ThankYou">
-          <p>Terima kasih telah berbelanja di toko {toko.name}, berikut detil transaksi Anda:</p>
+        <Header heading={"Toko " + this.state.toko.name} />
+        <main className="l-ThankYou">  
+          <p>Terima kasih telah berbelanja di toko {this.state.toko.name}, berikut detil transaksi Anda:</p>
           <DescriptionList
             list={pemesanList}
             />
@@ -148,7 +195,13 @@ export default class ThankYou extends Component {
             <li>Pastikan Anda telah menerima email konfirmasi pesanan dari <Brand />.</li>
             <li>Untuk pertanyaan lebih lanjut, berikut detil informasi toko tempat Anda memesan:
               <DescriptionList
-                list={tokoList}
+                list={
+                  [
+                    { term: 'Nama Toko', definition: this.state.toko.name },
+                    { term: 'Area Layanan', definition: this.state.toko.area },
+                    { term: 'No. HP', definition: this.state.toko.phone },
+                  ]
+                }
                 />
             </li>
             <li>Pembayaran dilakukan dengan cara <i>COD (Cash On Delivery)</i>.</li>
