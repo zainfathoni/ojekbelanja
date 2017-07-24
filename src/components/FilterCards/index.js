@@ -1,6 +1,7 @@
 import React, { PropTypes as T } from 'react';
 
 import Card from './Card';
+import ProductCard from '../../containers/ProductCard';
 import Section from './Section';
 import './FilterCards.css';
 
@@ -74,7 +75,7 @@ export default function FilterCards(props) {
                   {Object.keys(sectionedItems[section])
                     .map(key => {
                       const item = sectionedItems[section][key];
-                      return <Card
+                      return <ProductCard
                         key={key}
                         id={key}
                         keyword={keyword}
@@ -87,9 +88,9 @@ export default function FilterCards(props) {
                         unit={item.unit}
                         step={item.step}
                         price={item.price}
-                        action={action}
-                        actionReverse={actionReverse}
-                        count={collection[key]}
+                        // action={action}
+                        // actionReverse={actionReverse}
+                        // count={collection[key]}
                         />
                     })
                   }
