@@ -1,4 +1,4 @@
-import SET_COST from "../actions";
+import { SET_COST } from "../actions";
 
 const cost = (state = 0, action) => {
   switch (action.type) {
