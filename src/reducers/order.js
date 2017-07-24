@@ -3,7 +3,7 @@ import {
   ORDER_MINUS
 } from "../actions";
 
-const order = (state = [], action) => {
+const order = (state = {}, action) => {
   switch (action.type) {
     case ORDER_PLUS:
       const newOrder = state;
@@ -25,3 +25,5 @@ const order = (state = [], action) => {
       return state;
   }
 }
+
+export default order;
