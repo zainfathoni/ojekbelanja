@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Products from './Products';
-import OrderStatus from '../../containers/OrderStatus';
+import FooterOrder from '../../containers/FooterOrder';
 import { fetch, save, set } from '../../services/form';
 import { tokos, products } from '../../models';
 import '../pages.css';
@@ -118,11 +118,10 @@ export default class Toko extends Component {
           </div>
         </main>
         <footer className="l-wrapper-footer">
-          <OrderStatus
+          <FooterOrder
             tokoId={this.props.params.tokoId}
             order={this.state.order}
             products={products}
-            deliveryFee={this.state.deliveryCost}
             clear={this.clear}
             checkout={this.checkout}
             />
