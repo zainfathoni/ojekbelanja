@@ -88,9 +88,6 @@ export default function FilterCards(props) {
                         unit={item.unit}
                         step={item.step}
                         price={item.price}
-                        // action={action}
-                        // actionReverse={actionReverse}
-                        // count={collection[key]}
                         />
                     })
                   }
