@@ -7,8 +7,8 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const OrderStatus = connect(
+const FooterOrder = connect(
   mapStateToProps
 )(Order);
 
-export default OrderStatus;
+export default FooterOrder;
