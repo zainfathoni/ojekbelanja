@@ -13,7 +13,6 @@ export default function FilterCards(props) {
     fields,
     action,
     actionReverse,
-    collection,
   } = props
   const ids = Object.keys(items);
 
