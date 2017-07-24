@@ -1,22 +1,24 @@
-export const ORDER_PLUS = "ORDER_PLUS";
-export const ORDER_MINUS = "ORDER_MINUS";
+import {
+  ORDER_PLUS,
+  ORDER_MINUS
+} from "../actions";
 
 const order = (state = [], action) => {
   switch (action.type) {
     case ORDER_PLUS:
       const newOrder = state;
-      if (newOrder[action.productId]) {
-        newOrder[action.productId]++;
+      if (newOrder[action.id]) {
+        newOrder[action.id]++;
       } else {
-        newOrder[action.productId] = 1;
+        newOrder[action.id] = 1;
       }
       return newOrder;
     case ORDER_PLUS:
       const newOrder = state;
-      if (newOrder[productId] > 1) {
-        newOrder[productId]--;
+      if (newOrder[action.id] > 1) {
+        newOrder[action.id]--;
       } else {
-        delete newOrder[productId];
+        delete newOrder[action.id];
       }
       return newOrder;
     default:
