@@ -2,9 +2,9 @@ import { combineReducers } from "redux";
 import order from "./order";
 import cost from "./cost";
 
-const ojekbelanja = combineReducers({
+const ojekBelanja = combineReducers({
   order,
   cost
 });
 
-export default ojekbelanja;
+export default ojekBelanja;

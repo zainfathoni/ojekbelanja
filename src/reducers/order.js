@@ -4,23 +4,24 @@ import {
 } from "../actions";
 
 const order = (state = {}, action) => {
+  let newState;
   switch (action.type) {
     case ORDER_PLUS:
-      const newOrder = state;
-      if (newOrder[action.id]) {
-        newOrder[action.id]++;
+      newState = state;
+      if (newState[action.id]) {
+        newState[action.id]++;
       } else {
-        newOrder[action.id] = 1;
+        newState[action.id] = 1;
       }
-      return newOrder;
-    case ORDER_PLUS:
-      const newOrder = state;
-      if (newOrder[action.id] > 1) {
-        newOrder[action.id]--;
+      return newState;
+    case ORDER_MINUS:
+      newState = state;
+      if (newState[action.id] > 1) {
+        newState[action.id]--;
       } else {
-        delete newOrder[action.id];
+        delete newState[action.id];
       }
-      return newOrder;
+      return newState;
     default:
       return state;
   }
