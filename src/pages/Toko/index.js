@@ -4,7 +4,7 @@ import { orderSet, setCost } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import Products from './Products';
+import Products from '../../containers/Products';
 import FooterOrder from '../../containers/FooterOrder';
 import { fetch, save, set } from '../../services/form';
 import { stores, products } from '../../models';

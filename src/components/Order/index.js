@@ -1,7 +1,7 @@
 import React, { PropTypes as T } from 'react';
 
-import Button from '../../../components/Button';
-import '../../pages.css';
+import Button from '../Button';
+import '../../pages/pages.css';
 import './Order.css';
 
 export default function Order(props) {

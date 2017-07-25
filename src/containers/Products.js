@@ -1,11 +1,10 @@
 import React, { Component, PropTypes as T } from 'react';
 import { connect } from "react-redux";
-import { setKeyword } from "../../../actions";
+import { setKeyword } from "../actions";
 
-import ProductInput from '../../../containers/ProductInput';
-import ProductCards from '../../../containers/ProductCards';
-import { products, categories } from '../../../models';
-import '../../pages.css';
+import ProductInput from './ProductInput';
+import ProductCards from './/ProductCards';
+import { products, categories } from '../models';
 
 class Products extends Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { orderClear } from "../actions";
-import Order from "../pages/Toko/Order";
+import Order from "../components/Order";
 
 const mapStateToProps = (state, ownProps) => {
   return {
