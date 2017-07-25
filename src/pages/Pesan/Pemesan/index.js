@@ -12,7 +12,7 @@ export default function Pemesan(props) {
   const {
     name,
     context,
-    tokoId,
+    storeId,
     action,
   } = props;
 
@@ -33,9 +33,9 @@ export default function Pemesan(props) {
     clear(context, name);
   }
 
-  const onSubmit = (e, tokoId) => {
+  const onSubmit = (e, storeId) => {
     e.preventDefault();
-    action(tokoId);
+    action(storeId);
   }
 
   return (
@@ -43,7 +43,7 @@ export default function Pemesan(props) {
       name={name}
       title="Data Pemesan"
       icon={<i className="fa fa-lg fa-address-card" aria-hidden="true"></i>}
-      onSubmit={(e) => onSubmit(e, tokoId)}
+      onSubmit={(e) => onSubmit(e, storeId)}
       footer={
         <div>
           <Button
@@ -61,7 +61,7 @@ export default function Pemesan(props) {
             className="Pemesan-footer-done"
             type="submit"
             display="content"
-            action={(e) => onSubmit(e, tokoId)}
+            action={(e) => onSubmit(e, storeId)}
             icon="cart-arrow-down"
             text="Selesai"
             disabled={isUserInvalid(user)}
@@ -140,6 +140,6 @@ export default function Pemesan(props) {
 Pemesan.propTypes = {
   name: T.string.isRequired,
   context: T.object.isRequired,
-  tokoId: T.string.isRequired,
+  storeId: T.string.isRequired,
   action: T.func.isRequired,
 }
