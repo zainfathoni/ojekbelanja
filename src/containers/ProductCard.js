@@ -4,6 +4,7 @@ import Card from "../components/FilterCards/Card";
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    keyword: state.keyword,
     count: state.order[ownProps.id]
   };
 };

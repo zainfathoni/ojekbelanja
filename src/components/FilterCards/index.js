@@ -77,7 +77,6 @@ export default function FilterCards(props) {
                       return <ProductCard
                         key={key}
                         id={key}
-                        keyword={keyword}
                         title={item[fields.title]}
                         description={item[fields.description]}
                         image={require(`../../css/images/${item[fields.image]}`)}

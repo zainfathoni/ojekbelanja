@@ -1,7 +1,7 @@
 import React, { Component, PropTypes as T } from 'react';
 
 import FilterInput from '../../../components/FilterInput';
-import FilterCards from '../../../components/FilterCards';
+import ProductCards from '../../../containers/ProductCards';
 import { products, categories } from '../../../models';
 import '../../pages.css';
 
@@ -43,8 +43,7 @@ export default class Products extends Component {
           actionTemp={this.actionTemp}
           withButton
           />
-        <FilterCards
-          keyword={this.state.keyword}
+        <ProductCards
           items={this.state.products}
           sections={categories}
           fields={{
