@@ -57,12 +57,6 @@ class Toko extends Component {
 
   /*** Methods ***/
 
-  clear = () => {
-    this.setState({
-      order: {}
-    })
-  }
-
   checkout = (storeId) => {
     console.log(`Checkout ${storeId} Order`);
     this.context.router.transitionTo(`/pesan/${storeId}`);
@@ -95,7 +89,6 @@ class Toko extends Component {
           <FooterOrder
             storeId={this.props.params.storeId}
             products={products}
-            clear={this.clear}
             checkout={this.checkout}
             />
         </footer>

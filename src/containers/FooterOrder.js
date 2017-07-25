@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { orderClear } from "../actions";
 import Order from "../pages/Toko/Order";
 
 const mapStateToProps = (state, ownProps) => {
@@ -8,8 +9,17 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    clear: () => {
+      dispatch(orderClear());
+    }
+  };
+};
+
 const FooterOrder = connect(
-  mapStateToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Order);
 
 export default FooterOrder;
