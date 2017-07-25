@@ -1,11 +1,13 @@
 import React, { Component, PropTypes as T } from 'react';
+import { connect } from "react-redux";
+import { setKeyword } from "../../../actions";
 
 import ProductInput from '../../../containers/ProductInput';
 import ProductCards from '../../../containers/ProductCards';
 import { products, categories } from '../../../models';
 import '../../pages.css';
 
-export default class Products extends Component {
+class Products extends Component {
   constructor(props) {
     super(props);
 
@@ -13,6 +15,10 @@ export default class Products extends Component {
       products,
       tempKeyword: '',
     }
+  }
+
+  componentWillUnmount() {
+    this.props.clearKeyword();
   }
 
   /*** Methods ***/
@@ -61,6 +67,20 @@ Products.propTypes = {
     cost: T.number.isRequired,
   }).isRequired,
   order: T.objectOf(T.number).isRequired,
-  action: T.func.isRequired,
-  actionReverse: T.func.isRequired,
+  clearKeyword: T.func.isRequired
 }
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    clearKeyword: () => {
+      dispatch(setKeyword(""));
+    }
+  };
+};
+
+Products = connect(
+  null,
+  mapDispatchToProps
+)(Products);
+
+export default Products;

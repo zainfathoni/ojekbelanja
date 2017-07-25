@@ -53,34 +53,6 @@ export default class Toko extends Component {
 
   /*** Methods ***/
 
-  plus = (productId) => {
-    const newOrder = this.state.order;
-
-    if (newOrder[productId]) {
-      newOrder[productId]++;
-    } else {
-      newOrder[productId] = 1;
-    }
-
-    this.setState({
-      order: newOrder
-    })
-  }
-
-  minus = (productId) => {
-    const newOrder = this.state.order;
-
-    if (newOrder[productId] > 1) {
-      newOrder[productId]--;
-    } else {
-      delete newOrder[productId];
-    }
-
-    this.setState({
-      order: newOrder
-    })
-  }
-
   clear = () => {
     this.setState({
       order: {}
@@ -111,8 +83,6 @@ export default class Toko extends Component {
           <Products
             toko={toko}
             order={this.state.order}
-            action={this.plus}
-            actionReverse={this.minus}
             />
           <div className="l-footer-buffer">
           </div>
