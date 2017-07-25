@@ -57,13 +57,6 @@ class Products extends Component {
 }
 
 Products.propTypes = {
-  toko: T.shape({
-    name: T.string.isRequired,
-    phone: T.string.isRequired,
-    area: T.string.isRequired,
-    image: T.string.isRequired,
-    cost: T.number.isRequired,
-  }).isRequired,
   order: T.objectOf(T.number).isRequired,
   clearKeyword: T.func.isRequired
 }

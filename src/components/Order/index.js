@@ -6,7 +6,6 @@ import './Order.css';
 
 export default function Order(props) {
   const {
-    storeId,
     order,
     products,
     deliveryFee,
@@ -50,7 +49,7 @@ export default function Order(props) {
           />
         <Button
           display="content"
-          action={(e) => props.checkout(storeId)}
+          action={(e) => props.checkout()}
           icon="shopping-cart"
           text="Pesan"
           disabled={!orderKeys.length}
@@ -61,7 +60,6 @@ export default function Order(props) {
 }
 
 Order.propTypes = {
-  storeId: T.string.isRequired,
   order: T.objectOf(T.number).isRequired,
   products: T.objectOf(T.shape({
     name: T.string.isRequired,

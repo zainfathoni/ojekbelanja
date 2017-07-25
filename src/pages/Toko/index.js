@@ -49,7 +49,8 @@ class Toko extends Component {
 
   /*** Methods ***/
 
-  checkout = (storeId) => {
+  checkout = () => {
+    const { storeId } = this.props.params;
     console.log(`Checkout ${storeId} Order`);
     this.context.router.transitionTo(`/pesan/${storeId}`);
   }
@@ -70,15 +71,12 @@ class Toko extends Component {
           <p>
             Selamat datang di toko <code>{storeId}</code>.
           </p>
-          <Products
-            toko={toko}
-            />
+          <Products />
           <div className="l-footer-buffer">
           </div>
         </main>
         <footer className="l-wrapper-footer">
           <FooterOrder
-            storeId={this.props.params.storeId}
             products={products}
             checkout={this.checkout}
             />
