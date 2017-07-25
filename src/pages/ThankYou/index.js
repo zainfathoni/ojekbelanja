@@ -7,7 +7,7 @@ import Table from '../../components/Table';
 import Brand from '../../components/Brand';
 import { fetch, set } from '../../services/form';
 import { quantify, subtotal, total } from '../../services/product';
-import { tokos, products } from '../../models';
+import { stores, products } from '../../models';
 import '../pages.css';
 import './ThankYou.css';
 
@@ -51,7 +51,7 @@ export default class ThankYou extends Component {
 
   render() {
     const tokoId = this.props.params.tokoId;
-    const toko = tokos[tokoId];
+    const toko = stores[tokoId];
     const {
       order,
       user,

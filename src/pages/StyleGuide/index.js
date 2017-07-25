@@ -5,7 +5,7 @@ import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import FilterInput from '../../components/FilterInput';
 import FilterCards from '../../components/FilterCards';
-import { tokos } from '../../models';
+import { stores } from '../../models';
 import '../pages.css';
 import './StyleGuide.css';
 
@@ -100,7 +100,7 @@ export default class StyleGuide extends Component {
           <div id="filter-cards" className="l-main">
             <FilterCards
               keyword=""
-              items={tokos}
+              items={stores}
               fields={{
                 title: 'name',
                 description: 'area',

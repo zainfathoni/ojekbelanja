@@ -1,4 +1,4 @@
-export var tokos = {
+export var stores = {
   jejen: {
     name: 'Jejen',
     phone: '081234567890',

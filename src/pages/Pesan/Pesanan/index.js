@@ -5,7 +5,7 @@ import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
 import { update, remove } from '../../../services/form';
 import { escapeFloatingPoint, quantify, subtotal, total } from '../../../services/product';
-import { tokos, products } from '../../../models';
+import { stores, products } from '../../../models';
 import './Pesanan.css';
 
 export default function Pesanan(props) {
@@ -55,7 +55,7 @@ export default function Pesanan(props) {
               Ongkos Kirim
             </div>
             <div className="Pesanan-footer-delivery-fee-amount">
-              {`Rp ${(tokos[tokoId].cost).toLocaleString('id')}`}
+              {`Rp ${(stores[tokoId].cost).toLocaleString('id')}`}
             </div>
           </div>
           <hr />
@@ -64,7 +64,7 @@ export default function Pesanan(props) {
               Harga Total
             </div>
             <div className="Pesanan-footer-total-price-amount">
-              {`Rp ${(tokos[tokoId].cost + total(order, products)).toLocaleString('id')}`}
+              {`Rp ${(stores[tokoId].cost + total(order, products)).toLocaleString('id')}`}
             </div>
           </div>
         </div>

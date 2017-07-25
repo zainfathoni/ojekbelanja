@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Pesanan from './Pesanan';
 import Pemesan from './Pemesan';
 import { fetch, save, set } from '../../services/form';
-import { tokos } from '../../models';
+import { stores } from '../../models';
 import '../pages.css';
 import './Pesan.css';
 
@@ -73,7 +73,7 @@ export default class Pesan extends Component {
         <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
-        <Header heading={"Toko " + tokos[tokoId].name} />
+        <Header heading={"Toko " + stores[tokoId].name} />
         <main className="l-main">
           <div className="l-Pesan">
             <Pesanan

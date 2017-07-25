@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import Products from './Products';
 import FooterOrder from '../../containers/FooterOrder';
 import { fetch, save, set } from '../../services/form';
-import { tokos, products } from '../../models';
+import { stores, products } from '../../models';
 import '../pages.css';
 
 export default class Toko extends Component {
@@ -14,7 +14,7 @@ export default class Toko extends Component {
 
     this.state = {
       order: {},
-      deliveryCost: tokos[this.props.params.tokoId].cost
+      deliveryCost: stores[this.props.params.tokoId].cost
     }
   }
 
@@ -96,7 +96,7 @@ export default class Toko extends Component {
 
   render() {
     const { tokoId } = this.props.params;
-    const toko = tokos[tokoId];
+    const toko = stores[tokoId];
 
     return (
       <div className="l-fullwidth">
