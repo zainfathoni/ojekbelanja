@@ -23,9 +23,9 @@ const Root = () => {
       <BrowserRouter>
         <div>
           <Match exactly pattern="/" component={Home} />
-          <Match pattern="/toko/:tokoId" component={Toko} />
-          <Match pattern="/pesan/:tokoId" component={Pesan} />
-          <Match pattern="/thankyou/:tokoId" component={ThankYou} />
+          <Match pattern="/toko/:storeId" component={Toko} />
+          <Match pattern="/pesan/:storeId" component={Pesan} />
+          <Match pattern="/thankyou/:storeId" component={ThankYou} />
           <Match pattern="/login" component={Login} />
           <Match pattern="/styleguide" component={StyleGuide} />
           <Miss component={NotFound} />

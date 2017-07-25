@@ -12,7 +12,7 @@ export default function Pesanan(props) {
   const {
     name,
     context,
-    tokoId,
+    storeId,
     action,
   } = props;
 
@@ -41,7 +41,7 @@ export default function Pesanan(props) {
         <Button
           className="Pesanan-heading-action"
           display="content"
-          action={(e) => action(tokoId)}
+          action={(e) => action(storeId)}
           icon="arrow-left"
           text="Kembali"
           isSecondary
@@ -55,7 +55,7 @@ export default function Pesanan(props) {
               Ongkos Kirim
             </div>
             <div className="Pesanan-footer-delivery-fee-amount">
-              {`Rp ${(stores[tokoId].cost).toLocaleString('id')}`}
+              {`Rp ${(stores[storeId].cost).toLocaleString('id')}`}
             </div>
           </div>
           <hr />
@@ -64,7 +64,7 @@ export default function Pesanan(props) {
               Harga Total
             </div>
             <div className="Pesanan-footer-total-price-amount">
-              {`Rp ${(stores[tokoId].cost + total(order, products)).toLocaleString('id')}`}
+              {`Rp ${(stores[storeId].cost + total(order, products)).toLocaleString('id')}`}
             </div>
           </div>
         </div>
@@ -157,6 +157,6 @@ export default function Pesanan(props) {
 Pesanan.propTypes = {
   name: T.string.isRequired,
   context: T.object.isRequired,
-  tokoId: T.string.isRequired,
+  storeId: T.string.isRequired,
   action: T.func.isRequired,
 }

@@ -25,12 +25,12 @@ export default class ThankYou extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.tokoId}`);
+    const order = fetch(`order-${this.props.params.storeId}`);
     if (order) {
       set(this, 'order', order);
     } else {
       // No ordered Item, go back to Toko page
-      this.goToToko(this.props.params.tokoId);
+      this.goToToko(this.props.params.storeId);
     }
 
     // Fetch 'user' from Local Storage
@@ -42,16 +42,16 @@ export default class ThankYou extends Component {
 
   /*** Methods ***/
 
-  goToToko = (tokoId) => {
-    console.log(`Kembali ke Toko ${tokoId}`);
-    this.context.router.transitionTo(`/toko/${tokoId}`);
+  goToToko = (storeId) => {
+    console.log(`Kembali ke Toko ${storeId}`);
+    this.context.router.transitionTo(`/toko/${storeId}`);
   }
 
   /*** Render ***/
 
   render() {
-    const tokoId = this.props.params.tokoId;
-    const toko = stores[tokoId];
+    const storeId = this.props.params.storeId;
+    const toko = stores[storeId];
     const {
       order,
       user,

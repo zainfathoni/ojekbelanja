@@ -14,7 +14,7 @@ export default class Toko extends Component {
 
     this.state = {
       order: {},
-      deliveryCost: stores[this.props.params.tokoId].cost
+      deliveryCost: stores[this.props.params.storeId].cost
     }
   }
 
@@ -22,7 +22,7 @@ export default class Toko extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.tokoId}`);
+    const order = fetch(`order-${this.props.params.storeId}`);
 
     if (order) {
       // Clean empty products from order
@@ -48,7 +48,7 @@ export default class Toko extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     // Save 'order' to Local Storage
-    save(`order-${this.props.params.tokoId}`, nextState.order);
+    save(`order-${this.props.params.storeId}`, nextState.order);
   }
 
   /*** Methods ***/
@@ -87,16 +87,16 @@ export default class Toko extends Component {
     })
   }
 
-  checkout = (tokoId) => {
-    console.log(`Checkout ${tokoId} Order`);
-    this.context.router.transitionTo(`/pesan/${tokoId}`);
+  checkout = (storeId) => {
+    console.log(`Checkout ${storeId} Order`);
+    this.context.router.transitionTo(`/pesan/${storeId}`);
   }
 
   /*** Render ***/
 
   render() {
-    const { tokoId } = this.props.params;
-    const toko = stores[tokoId];
+    const { storeId } = this.props.params;
+    const toko = stores[storeId];
 
     return (
       <div className="l-fullwidth">
@@ -106,7 +106,7 @@ export default class Toko extends Component {
         <Header heading={"Toko " + toko.name} />
         <main className="l-main">
           <p>
-            Selamat datang di toko <code>{tokoId}</code>.
+            Selamat datang di toko <code>{storeId}</code>.
           </p>
           <Products
             toko={toko}
@@ -119,7 +119,7 @@ export default class Toko extends Component {
         </main>
         <footer className="l-wrapper-footer">
           <FooterOrder
-            tokoId={this.props.params.tokoId}
+            storeId={this.props.params.storeId}
             order={this.state.order}
             products={products}
             clear={this.clear}

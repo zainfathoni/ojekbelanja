@@ -23,12 +23,12 @@ export default class Pesan extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.tokoId}`);
+    const order = fetch(`order-${this.props.params.storeId}`);
     if (order) {
       set(this, 'order', order);
     } else {
       // No ordered Item, go back to Toko page
-      this.goToToko(this.props.params.tokoId);
+      this.goToToko(this.props.params.storeId);
     }
 
     // Fetch 'user' from Local Storage
@@ -40,46 +40,46 @@ export default class Pesan extends Component {
 
   componentWillUpdate(nextProps, nextState) {
     // Save 'order' to Local Storage
-    save(`order-${this.props.params.tokoId}`, nextState.order);
+    save(`order-${this.props.params.storeId}`, nextState.order);
 
     // Save 'user' to Local Storage
     save('user', nextState.user);
 
     if (!Object.keys(nextState.order).length) {
       // No ordered Item, go back to Toko page
-      this.goToToko(this.props.params.tokoId);
+      this.goToToko(this.props.params.storeId);
     }
   }
 
   /*** Methods ***/
 
-  goToToko = (tokoId) => {
-    console.log(`Kembali ke Toko ${tokoId}`);
-    this.context.router.transitionTo(`/toko/${tokoId}`);
+  goToToko = (storeId) => {
+    console.log(`Kembali ke Toko ${storeId}`);
+    this.context.router.transitionTo(`/toko/${storeId}`);
   }
 
-  goToThankYou = (tokoId) => {
-    console.log(`Melanjutkan Pesanan di Toko ${tokoId}`);
-    this.context.router.transitionTo(`/thankyou/${tokoId}`);
+  goToThankYou = (storeId) => {
+    console.log(`Melanjutkan Pesanan di Toko ${storeId}`);
+    this.context.router.transitionTo(`/thankyou/${storeId}`);
   }
 
   /*** Render ***/
 
   render() {
-    const tokoId = this.props.params.tokoId;
+    const storeId = this.props.params.storeId;
 
     return (
       <div className="l-fullwidth">
         <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
-        <Header heading={"Toko " + stores[tokoId].name} />
+        <Header heading={"Toko " + stores[storeId].name} />
         <main className="l-main">
           <div className="l-Pesan">
             <Pesanan
               name={"order"}
               context={this}
-              tokoId={tokoId}
+              storeId={storeId}
               action={this.goToToko}
               />
           </div>
@@ -87,7 +87,7 @@ export default class Pesan extends Component {
             <Pemesan
               name={"user"}
               context={this}
-              tokoId={tokoId}
+              storeId={storeId}
               action={this.goToThankYou}
               />
           </div>
