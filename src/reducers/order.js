@@ -1,6 +1,7 @@
 import {
   ORDER_PLUS,
   ORDER_MINUS,
+  ORDER_SET,
   ORDER_CLEAR
 } from "../actions";
 
@@ -22,6 +23,8 @@ const order = (state = {}, action) => {
         delete newState[id];
         return newState; 
       }
+    case ORDER_SET:
+      return action.order;
     case ORDER_CLEAR:
       return {};
     default:
