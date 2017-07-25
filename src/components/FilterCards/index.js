@@ -12,7 +12,6 @@ export default function FilterCards(props) {
     sections,
     fields,
     action,
-    actionReverse,
   } = props
   const ids = Object.keys(items);
 
@@ -113,7 +112,6 @@ export default function FilterCards(props) {
                 step={1}
                 price={item.cost}
                 action={action}
-                actionReverse={actionReverse}
                 />
             })
           }
@@ -137,7 +135,6 @@ FilterCards.propTypes = {
     section: T.string,
     isDisabled: T.bool,
   }).isRequired,
-  action: T.func.isRequired,
-  actionReverse: T.func,
+  action: T.func,
   collection: T.objectOf(T.number),
 }
