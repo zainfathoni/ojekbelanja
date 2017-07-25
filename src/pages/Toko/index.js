@@ -24,7 +24,7 @@ class Toko extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const order = fetch(`order`);
+    const order = fetch(`order-${this.props.params.storeId}`);
 
     if (order) {
       // Clean empty products from order
@@ -51,9 +51,9 @@ class Toko extends Component {
     this.props.updateCost();
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  componentDidUpdate(prevProps, prevState) {
     // Save 'order' to Local Storage
-    save(`order-${this.props.params.storeId}`, nextState.order);
+    save(`order-${this.props.params.storeId}`, this.props.order);
   }
 
   /*** Methods ***/
@@ -102,6 +102,12 @@ Toko.contextTypes = {
   router: React.PropTypes.object
 }
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    order: state.order
+  };
+};
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     updateOrder: (order) => {
@@ -114,7 +120,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 Toko = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Toko);
 

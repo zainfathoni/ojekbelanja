@@ -4,7 +4,6 @@ import { BrowserRouter, Match, Miss } from 'react-router';
 import { Provider } from "react-redux";
 
 import configureStore from "./configureStore";
-import { save } from './services/form';
 import Home from './pages/Home';
 import Toko from './pages/Toko';
 import Pesan from './pages/Pesan';
@@ -17,12 +16,6 @@ import './css/fonts.css';
 import './css/font-awesome.css';
 
 const store = configureStore();
-
-store.subscribe(() => {
-  // Save 'order' to Local Storage
-  // TODO Save order for each Store separately
-  save(`order`, store.getState().order);
-});
 
 const Root = () => {
   return (
