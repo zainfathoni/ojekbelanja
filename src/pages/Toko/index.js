@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { setCost } from "../../actions";
+import { orderSet, setCost } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
@@ -23,8 +23,6 @@ class Toko extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
-    this.props.updateCost();
-
     // Fetch 'order' from Local Storage
     const order = fetch(`order-${this.props.params.storeId}`);
 
@@ -46,8 +44,11 @@ class Toko extends Component {
 
       if (cleanedOrder) {
         set(this, 'order', cleanedOrder);
+        this.props.updateOrder(cleanedOrder);
       }
     }
+    
+    this.props.updateCost();
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -103,6 +104,9 @@ Toko.contextTypes = {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
+    updateOrder: (order) => {
+      dispatch(orderSet(order));
+    },
     updateCost: () => {
       dispatch(setCost(stores[ownProps.params.storeId].cost));
     }
