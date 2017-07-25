@@ -94,7 +94,6 @@ class Toko extends Component {
         <footer className="l-wrapper-footer">
           <FooterOrder
             storeId={this.props.params.storeId}
-            order={this.state.order}
             products={products}
             clear={this.clear}
             checkout={this.checkout}
