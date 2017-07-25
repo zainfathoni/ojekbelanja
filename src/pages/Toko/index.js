@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { setCost } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
@@ -8,7 +10,7 @@ import { fetch, save, set } from '../../services/form';
 import { stores, products } from '../../models';
 import '../pages.css';
 
-export default class Toko extends Component {
+class Toko extends Component {
   constructor(props) {
     super(props);
 
@@ -21,6 +23,8 @@ export default class Toko extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
+    this.props.updateCost();
+
     // Fetch 'order' from Local Storage
     const order = fetch(`order-${this.props.params.storeId}`);
 
@@ -104,3 +108,19 @@ export default class Toko extends Component {
 Toko.contextTypes = {
   router: React.PropTypes.object
 }
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    updateCost: () => {
+      dispatch(setCost(stores[ownProps.params.storeId].cost));
+    }
+  };
+};
+
+Toko = connect(
+  null,
+  mapDispatchToProps
+)(Toko);
+
+
+export default Toko;
