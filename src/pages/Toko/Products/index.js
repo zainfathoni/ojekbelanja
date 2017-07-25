@@ -1,6 +1,6 @@
 import React, { Component, PropTypes as T } from 'react';
 
-import FilterInput from '../../../components/FilterInput';
+import ProductInput from '../../../containers/ProductInput';
 import ProductCards from '../../../containers/ProductCards';
 import { products, categories } from '../../../models';
 import '../../pages.css';
@@ -11,18 +11,11 @@ export default class Products extends Component {
 
     this.state = {
       products,
-      keyword: '',
       tempKeyword: '',
     }
   }
 
   /*** Methods ***/
-
-  updateKeyword = (keyword) => {
-    this.setState({
-      keyword,
-    })
-  }
 
   actionTemp = (tempKeyword) => {
     this.setState({
@@ -35,11 +28,9 @@ export default class Products extends Component {
   render() {
     return (
       <div>
-        <FilterInput
+        <ProductInput
           placeholder="Cari Produk"
-          keyword={this.state.keyword}
           tempKeyword={this.state.tempKeyword}
-          action={this.updateKeyword}
           actionTemp={this.actionTemp}
           withButton
           />
@@ -55,9 +46,6 @@ export default class Products extends Component {
             section: 'category',
             disabled: 'empty'
           }}
-          action={this.props.action}
-          actionReverse={this.props.actionReverse}
-          collection={this.props.order}
           />
       </div>
     )
