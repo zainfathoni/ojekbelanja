@@ -13,7 +13,12 @@ export const fetch = (key) => {
 }
 
 export function save(key, obj) {
-  localStorage.setItem(key, JSON.stringify(obj));
+  try {
+    const serializedState = JSON.stringify(obj);
+    localStorage.setItem(key, serializedState);
+  } catch (err) {
+    // ignore errors
+  }
 }
 
 /*** Generic Form Fields Updates ***/

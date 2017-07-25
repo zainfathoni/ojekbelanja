@@ -24,7 +24,7 @@ class Toko extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.storeId}`);
+    const order = fetch(`order`);
 
     if (order) {
       // Clean empty products from order
