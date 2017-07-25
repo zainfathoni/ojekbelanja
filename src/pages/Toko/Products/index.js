@@ -12,7 +12,6 @@ class Products extends Component {
     super(props);
 
     this.state = {
-      products,
       tempKeyword: '',
     }
   }
@@ -41,7 +40,7 @@ class Products extends Component {
           withButton
           />
         <ProductCards
-          items={this.state.products}
+          items={products}
           sections={categories}
           fields={{
             title: 'name',
