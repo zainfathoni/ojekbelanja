@@ -70,6 +70,12 @@ Products.propTypes = {
   clearKeyword: T.func.isRequired
 }
 
+const mapStateToProps = (state, ownProps) => {
+  return {
+    order: state.order
+  };
+};
+
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     clearKeyword: () => {
@@ -79,7 +85,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 };
 
 Products = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Products);
 

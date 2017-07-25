@@ -11,15 +11,6 @@ import { stores, products } from '../../models';
 import '../pages.css';
 
 class Toko extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      order: {},
-      deliveryCost: stores[this.props.params.storeId].cost
-    }
-  }
-
   /*** Lifecycle ***/
 
   componentWillMount() {
@@ -81,7 +72,6 @@ class Toko extends Component {
           </p>
           <Products
             toko={toko}
-            order={this.state.order}
             />
           <div className="l-footer-buffer">
           </div>
