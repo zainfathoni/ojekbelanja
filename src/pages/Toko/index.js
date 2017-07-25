@@ -45,8 +45,6 @@ class Toko extends Component {
       if (cleanedOrder) {
         set(this, 'order', cleanedOrder);
         this.props.updateOrder(cleanedOrder);
-      } else {
-        this.props.updateOrder({});
       }
     }
     

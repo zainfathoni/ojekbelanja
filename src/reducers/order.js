@@ -24,7 +24,7 @@ const order = (state = {}, action) => {
         return newState; 
       }
     case ORDER_SET:
-      return action.order;
+      return action.order ? action.order : {};
     case ORDER_CLEAR:
       return {};
     default:
