@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { orderPlus, orderMinus } from "../actions";
+import { orderSet, orderRemove } from "../actions";
 import ListItem from "../components/ListItem";
 
 const mapStateToProps = (state, ownProps) => {
@@ -10,11 +10,11 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    action: (id) => {
-      dispatch(orderPlus(id));
+    set: (id, count) => {
+      dispatch(orderSet(id, count));
     },
-    actionReverse: (id) => {
-      dispatch(orderMinus(id));
+    remove: (id) => {
+      dispatch(orderRemove(id));
     }
   };
 };

@@ -3,25 +3,26 @@ import React, {PropTypes as T} from 'react';
 import Button from '../Button';
 import TextField from '../TextField';
 import { escapeFloatingPoint, quantify, subtotal } from '../../services/product';
-// import { update, remove } from '../../services/form';
 
 export default function ListItem({
   id,
   item,
-  count
+  count,
+  set,
+  remove
 }) {
   const onChange = (field, value) => {
-    // update(context, name, field, escapeFloatingPoint(value));
+    set(field, escapeFloatingPoint(value));
   }
 
   const onBlur = (productId) => {
     if (count <= 0) {
-      // remove(context, name, productId);
+      remove(productId);
     }
   }
 
   const removeOrder = (productId) => {
-    // remove(context, name, productId);
+    remove(productId);
   }
 
   return (
@@ -104,5 +105,7 @@ export default function ListItem({
 ListItem.propTypes = {
   id: T.string.isRequired,
   item: T.object.isRequired,
-  count: T.number.isRequired
+  count: T.number.isRequired,
+  set: T.func.isRequired,
+  remove: T.func.isRequired
 }
