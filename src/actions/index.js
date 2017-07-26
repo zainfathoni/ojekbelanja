@@ -1,5 +1,7 @@
 export const ORDER_PLUS = "ORDER_PLUS";
 export const ORDER_MINUS = "ORDER_MINUS";
+export const ORDER_SET = "ORDER_SET";
+export const ORDER_REMOVE = "ORDER_REMOVE";
 export const ORDER_LOAD = "ORDER_LOAD";
 export const ORDER_CLEAR = "ORDER_CLEAR";
 export const SET_COST = "SET_COST";
@@ -15,6 +17,21 @@ export const orderPlus = (id) => {
 export const orderMinus = (id) => {
   return {
     type: ORDER_MINUS,
+    id
+  }
+}
+
+export const orderSet = (id, count) => {
+  return {
+    type: ORDER_SET,
+    id,
+    count
+  }
+}
+
+export const orderRemove = (id) => {
+  return {
+    type: ORDER_REMOVE,
     id
   }
 }
