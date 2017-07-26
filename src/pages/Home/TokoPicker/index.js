@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes as T } from 'prop-types';
 
 import FilterInput from'../../../components/FilterInput';
 import FilterCards from '../../../components/FilterCards';
@@ -81,5 +82,5 @@ export default class TokoPicker extends Component {
 }
 
 TokoPicker.contextTypes = {
-  router: React.PropTypes.object
+  router: T.object
 }

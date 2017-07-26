@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes as T } from 'prop-types';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
@@ -160,5 +161,5 @@ export default class ThankYou extends Component {
 }
 
 ThankYou.contextTypes = {
-  router: React.PropTypes.object
+  router: T.object
 }

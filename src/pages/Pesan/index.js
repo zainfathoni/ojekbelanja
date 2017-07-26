@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes as T } from 'prop-types';
 import { connect } from "react-redux";
 import { orderLoad, setCost, userLoad } from "../../actions";
 
@@ -97,7 +98,7 @@ class Pesan extends Component {
 }
 
 Pesan.contextTypes = {
-  router: React.PropTypes.object
+  router: T.object
 }
 
 const mapStateToProps = (state, ownProps) => {

@@ -1,4 +1,5 @@
-import React, { PropTypes as T } from 'react';
+import React from 'react';
+import { PropTypes as T } from 'prop-types';
 
 import Form from '../../../components/Form';
 import ProductListItem from '../../../containers/ProductListItem';

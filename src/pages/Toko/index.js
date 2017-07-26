@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes as T } from 'prop-types';
 import { connect } from "react-redux";
 import { orderLoad, setCost } from "../../actions";
 
@@ -84,7 +85,7 @@ class Toko extends Component {
 }
 
 Toko.contextTypes = {
-  router: React.PropTypes.object
+  router: T.object
 }
 
 const mapStateToProps = (state, ownProps) => {
