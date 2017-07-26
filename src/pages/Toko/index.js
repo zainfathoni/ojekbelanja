@@ -6,7 +6,7 @@ import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Products from '../../containers/Products';
 import FooterOrder from '../../containers/FooterOrder';
-import { fetch, save, set } from '../../services/form';
+import { fetch, save } from '../../services/form';
 import { stores, products } from '../../models';
 import '../pages.css';
 
@@ -17,9 +17,10 @@ class Toko extends Component {
     // Fetch 'order' from Local Storage
     const order = fetch(`order-${this.props.params.storeId}`);
 
+    let cleanedOrder;
     if (order) {
       // Clean empty products from order
-      const cleanedOrder =
+      cleanedOrder =
         Object.keys(order)
           .filter(key =>
             !products[key].empty
@@ -32,13 +33,9 @@ class Toko extends Component {
               { [key]: order[key] }),
           {}
           );
-
-      if (cleanedOrder) {
-        set(this, 'order', cleanedOrder);
-        this.props.updateOrder(cleanedOrder);
-      }
     }
     
+    this.props.updateOrder(cleanedOrder);
     this.props.updateCost();
   }
 
@@ -111,6 +108,5 @@ Toko = connect(
   mapStateToProps,
   mapDispatchToProps
 )(Toko);
-
 
 export default Toko;
