@@ -1,6 +1,7 @@
 import React, { PropTypes as T } from 'react';
 
 import Button from '../Button';
+import { total } from '../../services/product';
 import '../../pages/pages.css';
 import './Order.css';
 
@@ -13,14 +14,7 @@ export default function Order(props) {
 
   // Calculate Price
   const orderKeys = Object.keys(order);
-  const totalPrice =
-    orderKeys
-      .reduce(
-      (sum, key) =>
-        sum + (products[key].price * products[key].step * order[key])
-      ,
-      0
-      );
+  const totalPrice = total(order, products);
 
   return (
     <div className="l-Order">
