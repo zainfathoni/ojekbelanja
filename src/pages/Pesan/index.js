@@ -5,7 +5,7 @@ import { orderLoad, setCost, userLoad } from "../../actions";
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Pesanan from './Pesanan';
-import Pemesan from './Pemesan';
+import PemesanContainer from '../../containers/PemesanContainer';
 import { fetch, save } from '../../services/form';
 import { stores } from '../../models';
 import '../pages.css';
@@ -83,9 +83,8 @@ class Pesan extends Component {
               />
           </div>
           <div className="l-Pesan">
-            <Pemesan
+            <PemesanContainer
               name={"user"}
-              user={this.props.user}
               storeId={storeId}
               action={this.goToThankYou}
               />
