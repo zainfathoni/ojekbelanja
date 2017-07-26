@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { orderSet, setCost } from "../../actions";
+import { orderLoad, setCost } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
@@ -96,7 +96,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     updateOrder: (order) => {
-      dispatch(orderSet(order));
+      dispatch(orderLoad(order));
     },
     updateCost: () => {
       dispatch(setCost(stores[ownProps.params.storeId].cost));
