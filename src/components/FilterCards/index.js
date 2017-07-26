@@ -1,6 +1,7 @@
 import React, { PropTypes as T } from 'react';
 
 import Card from './Card';
+import ProductCard from '../../containers/ProductCard';
 import Section from './Section';
 import './FilterCards.css';
 
@@ -11,8 +12,6 @@ export default function FilterCards(props) {
     sections,
     fields,
     action,
-    actionReverse,
-    collection,
   } = props
   const ids = Object.keys(items);
 
@@ -74,10 +73,9 @@ export default function FilterCards(props) {
                   {Object.keys(sectionedItems[section])
                     .map(key => {
                       const item = sectionedItems[section][key];
-                      return <Card
+                      return <ProductCard
                         key={key}
                         id={key}
-                        keyword={keyword}
                         title={item[fields.title]}
                         description={item[fields.description]}
                         image={require(`../../css/images/${item[fields.image]}`)}
@@ -87,9 +85,6 @@ export default function FilterCards(props) {
                         unit={item.unit}
                         step={item.step}
                         price={item.price}
-                        action={action}
-                        actionReverse={actionReverse}
-                        count={collection[key]}
                         />
                     })
                   }
@@ -117,7 +112,6 @@ export default function FilterCards(props) {
                 step={1}
                 price={item.cost}
                 action={action}
-                actionReverse={actionReverse}
                 />
             })
           }
@@ -141,7 +135,6 @@ FilterCards.propTypes = {
     section: T.string,
     isDisabled: T.bool,
   }).isRequired,
-  action: T.func.isRequired,
-  actionReverse: T.func,
+  action: T.func,
   collection: T.objectOf(T.number),
 }

@@ -1,32 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { orderLoad, setCost } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import Products from './Products';
-import Order from './Order';
-import { fetch, save, set } from '../../services/form';
-import { tokos, products } from '../../models';
+import Products from '../../containers/Products';
+import FooterOrder from '../../containers/FooterOrder';
+import { fetch, save } from '../../services/form';
+import { stores, products } from '../../models';
 import '../pages.css';
 
-export default class Toko extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      order: {},
-      deliveryCost: tokos[this.props.params.tokoId].cost
-    }
-  }
-
+class Toko extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.tokoId}`);
+    const order = fetch(`order-${this.props.params.storeId}`);
 
+    let cleanedOrder;
     if (order) {
       // Clean empty products from order
-      const cleanedOrder =
+      cleanedOrder =
         Object.keys(order)
           .filter(key =>
             !products[key].empty
@@ -39,64 +33,30 @@ export default class Toko extends Component {
               { [key]: order[key] }),
           {}
           );
-
-      if (cleanedOrder) {
-        set(this, 'order', cleanedOrder);
-      }
     }
+    
+    this.props.updateOrder(cleanedOrder);
+    this.props.updateCost();
   }
 
-  componentWillUpdate(nextProps, nextState) {
+  componentDidUpdate(prevProps, prevState) {
     // Save 'order' to Local Storage
-    save(`order-${this.props.params.tokoId}`, nextState.order);
+    save(`order-${this.props.params.storeId}`, this.props.order);
   }
 
   /*** Methods ***/
 
-  plus = (productId) => {
-    const newOrder = this.state.order;
-
-    if (newOrder[productId]) {
-      newOrder[productId]++;
-    } else {
-      newOrder[productId] = 1;
-    }
-
-    this.setState({
-      order: newOrder
-    })
-  }
-
-  minus = (productId) => {
-    const newOrder = this.state.order;
-
-    if (newOrder[productId] > 1) {
-      newOrder[productId]--;
-    } else {
-      delete newOrder[productId];
-    }
-
-    this.setState({
-      order: newOrder
-    })
-  }
-
-  clear = () => {
-    this.setState({
-      order: {}
-    })
-  }
-
-  checkout = (tokoId) => {
-    console.log(`Checkout ${tokoId} Order`);
-    this.context.router.transitionTo(`/pesan/${tokoId}`);
+  checkout = () => {
+    const { storeId } = this.props.params;
+    console.log(`Checkout ${storeId} Order`);
+    this.context.router.transitionTo(`/pesan/${storeId}`);
   }
 
   /*** Render ***/
 
   render() {
-    const { tokoId } = this.props.params;
-    const toko = tokos[tokoId];
+    const { storeId } = this.props.params;
+    const toko = stores[storeId];
 
     return (
       <div className="l-fullwidth">
@@ -106,24 +66,15 @@ export default class Toko extends Component {
         <Header heading={"Toko " + toko.name} />
         <main className="l-main">
           <p>
-            Selamat datang di toko <code>{tokoId}</code>.
+            Selamat datang di toko <code>{storeId}</code>.
           </p>
-          <Products
-            toko={toko}
-            order={this.state.order}
-            action={this.plus}
-            actionReverse={this.minus}
-            />
+          <Products />
           <div className="l-footer-buffer">
           </div>
         </main>
         <footer className="l-wrapper-footer">
-          <Order
-            tokoId={this.props.params.tokoId}
-            order={this.state.order}
+          <FooterOrder
             products={products}
-            deliveryFee={this.state.deliveryCost}
-            clear={this.clear}
             checkout={this.checkout}
             />
         </footer>
@@ -135,3 +86,27 @@ export default class Toko extends Component {
 Toko.contextTypes = {
   router: React.PropTypes.object
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    order: state.order
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    updateOrder: (order) => {
+      dispatch(orderLoad(order));
+    },
+    updateCost: () => {
+      dispatch(setCost(stores[ownProps.params.storeId].cost));
+    }
+  };
+};
+
+Toko = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Toko);
+
+export default Toko;

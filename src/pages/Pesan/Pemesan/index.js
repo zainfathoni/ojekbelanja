@@ -4,19 +4,19 @@ import Form from '../../../components/Form';
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
 import TextArea from '../../../components/TextArea';
-import { update, clear } from '../../../services/form';
+// import { update, clear } from '../../../services/form';
 import { isEmailValid, isPhoneValid } from '../../../services/form';
 import './Pemesan.css';
 
 export default function Pemesan(props) {
   const {
     name,
-    context,
-    tokoId,
+    user,
+    storeId,
     action,
+    set,
+    clear,
   } = props;
-
-  const user = context.state[name];
 
   const isUserInvalid = (user) =>
     !user.name ||
@@ -26,16 +26,18 @@ export default function Pemesan(props) {
     !user.address;
 
   const onChange = (field, value) => {
-    update(context, name, field, value);
+    // update(context, name, field, value);
+    set(field, value);
   }
 
   const onReset = (field, value) => {
-    clear(context, name);
+    // clear(context, name);
+    clear();
   }
 
-  const onSubmit = (e, tokoId) => {
+  const onSubmit = (e, storeId) => {
     e.preventDefault();
-    action(tokoId);
+    action(storeId);
   }
 
   return (
@@ -43,7 +45,7 @@ export default function Pemesan(props) {
       name={name}
       title="Data Pemesan"
       icon={<i className="fa fa-lg fa-address-card" aria-hidden="true"></i>}
-      onSubmit={(e) => onSubmit(e, tokoId)}
+      onSubmit={(e) => onSubmit(e, storeId)}
       footer={
         <div>
           <Button
@@ -61,7 +63,7 @@ export default function Pemesan(props) {
             className="Pemesan-footer-done"
             type="submit"
             display="content"
-            action={(e) => onSubmit(e, tokoId)}
+            action={(e) => onSubmit(e, storeId)}
             icon="cart-arrow-down"
             text="Selesai"
             disabled={isUserInvalid(user)}
@@ -139,7 +141,9 @@ export default function Pemesan(props) {
 
 Pemesan.propTypes = {
   name: T.string.isRequired,
-  context: T.object.isRequired,
-  tokoId: T.string.isRequired,
+  user: T.object.isRequired,
+  storeId: T.string.isRequired,
   action: T.func.isRequired,
+  set: T.func.isRequired,
+  clear: T.func.isRequired,
 }

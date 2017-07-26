@@ -1,93 +1,91 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { orderLoad, setCost, userLoad } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Pesanan from './Pesanan';
-import Pemesan from './Pemesan';
-import { fetch, save, set } from '../../services/form';
-import { tokos } from '../../models';
+import PemesanContainer from '../../containers/PemesanContainer';
+import { fetch, save } from '../../services/form';
+import { stores } from '../../models';
 import '../pages.css';
 import './Pesan.css';
 
-export default class Pesan extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      order: {},
-      user: {}
-    }
-  }
-
+class Pesan extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.tokoId}`);
+    const order = fetch(`order-${this.props.params.storeId}`);
+    
     if (order) {
-      set(this, 'order', order);
+      // set(this, 'order', order);
+      this.props.updateOrder(order);
+      this.props.updateCost();
     } else {
       // No ordered Item, go back to Toko page
-      this.goToToko(this.props.params.tokoId);
+      this.goToToko(this.props.params.storeId);
     }
 
     // Fetch 'user' from Local Storage
     const user = fetch('user');
+    
     if (user) {
-      set(this, 'user', user);
+      // set(this, 'user', user);
+      this.props.updateUser(user);
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
-    // Save 'order' to Local Storage
-    save(`order-${this.props.params.tokoId}`, nextState.order);
-
-    // Save 'user' to Local Storage
-    save('user', nextState.user);
-
-    if (!Object.keys(nextState.order).length) {
+    if (!Object.keys(nextProps.order).length) {
       // No ordered Item, go back to Toko page
-      this.goToToko(this.props.params.tokoId);
+      this.goToToko(this.props.params.storeId);
     }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Save 'order' to Local Storage
+    save(`order-${this.props.params.storeId}`, this.props.order);
+    // Save 'user' to Local Storage
+    save('user', this.props.user);
   }
 
   /*** Methods ***/
 
-  goToToko = (tokoId) => {
-    console.log(`Kembali ke Toko ${tokoId}`);
-    this.context.router.transitionTo(`/toko/${tokoId}`);
+  goToToko = (storeId) => {
+    console.log(`Kembali ke Toko ${storeId}`);
+    this.context.router.transitionTo(`/toko/${storeId}`);
   }
 
-  goToThankYou = (tokoId) => {
-    console.log(`Melanjutkan Pesanan di Toko ${tokoId}`);
-    this.context.router.transitionTo(`/thankyou/${tokoId}`);
+  goToThankYou = (storeId) => {
+    console.log(`Melanjutkan Pesanan di Toko ${storeId}`);
+    this.context.router.transitionTo(`/thankyou/${storeId}`);
   }
 
   /*** Render ***/
 
   render() {
-    const tokoId = this.props.params.tokoId;
+    const storeId = this.props.params.storeId;
 
     return (
       <div className="l-fullwidth">
         <div className="l-wrapper-MainNav">
           <MainNav />
         </div>
-        <Header heading={"Toko " + tokos[tokoId].name} />
+        <Header heading={"Toko " + stores[storeId].name} />
         <main className="l-main">
           <div className="l-Pesan">
             <Pesanan
               name={"order"}
-              context={this}
-              tokoId={tokoId}
+              order={this.props.order}
+              storeId={storeId}
               action={this.goToToko}
               />
           </div>
           <div className="l-Pesan">
-            <Pemesan
+            <PemesanContainer
               name={"user"}
-              context={this}
-              tokoId={tokoId}
+              storeId={storeId}
               action={this.goToThankYou}
               />
           </div>
@@ -101,3 +99,31 @@ export default class Pesan extends Component {
 Pesan.contextTypes = {
   router: React.PropTypes.object
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    order: state.order,
+    user: state.user
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    updateOrder: (order) => {
+      dispatch(orderLoad(order));
+    },
+    updateCost: () => {
+      dispatch(setCost(stores[ownProps.params.storeId].cost));
+    },
+    updateUser: (user) => {
+      dispatch(userLoad(user));
+    }
+  };
+};
+
+Pesan = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Pesan);
+
+export default Pesan;

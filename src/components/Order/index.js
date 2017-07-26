@@ -1,12 +1,12 @@
 import React, { PropTypes as T } from 'react';
 
-import Button from '../../../components/Button';
-import '../../pages.css';
+import Button from '../Button';
+import { total } from '../../services/product';
+import '../../pages/pages.css';
 import './Order.css';
 
 export default function Order(props) {
   const {
-    tokoId,
     order,
     products,
     deliveryFee,
@@ -14,14 +14,7 @@ export default function Order(props) {
 
   // Calculate Price
   const orderKeys = Object.keys(order);
-  const totalPrice =
-    orderKeys
-      .reduce(
-      (sum, key) =>
-        sum + (products[key].price * products[key].step * order[key])
-      ,
-      0
-      );
+  const totalPrice = total(order, products);
 
   return (
     <div className="l-Order">
@@ -50,7 +43,7 @@ export default function Order(props) {
           />
         <Button
           display="content"
-          action={(e) => props.checkout(tokoId)}
+          action={(e) => props.checkout()}
           icon="shopping-cart"
           text="Pesan"
           disabled={!orderKeys.length}
@@ -61,7 +54,6 @@ export default function Order(props) {
 }
 
 Order.propTypes = {
-  tokoId: T.string.isRequired,
   order: T.objectOf(T.number).isRequired,
   products: T.objectOf(T.shape({
     name: T.string.isRequired,
