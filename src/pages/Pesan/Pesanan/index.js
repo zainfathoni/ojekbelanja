@@ -1,7 +1,7 @@
 import React, { PropTypes as T } from 'react';
 
 import Form from '../../../components/Form';
-import ListItem from '../../../components/ListItem';
+import ProductListItem from '../../../containers/ProductListItem';
 import Button from '../../../components/Button';
 import { total } from '../../../services/product';
 import { stores, products } from '../../../models';
@@ -10,12 +10,10 @@ import './Pesanan.css';
 export default function Pesanan(props) {
   const {
     name,
-    context,
+    order,
     storeId,
     action,
   } = props;
-
-  const order = context.state[name];
 
   return (
     <Form
@@ -59,11 +57,10 @@ export default function Pesanan(props) {
         .map(key => {
           const item = products[key];
           return (
-            <ListItem
+            <ProductListItem
               key={key}
               id={key}
               item={item}
-              order={order}
             />
           )
         })
@@ -74,7 +71,7 @@ export default function Pesanan(props) {
 
 Pesanan.propTypes = {
   name: T.string.isRequired,
-  context: T.object.isRequired,
+  order: T.object.isRequired,
   storeId: T.string.isRequired,
   action: T.func.isRequired,
 }

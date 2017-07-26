@@ -8,14 +8,14 @@ import { escapeFloatingPoint, quantify, subtotal } from '../../services/product'
 export default function ListItem({
   id,
   item,
-  order
+  count
 }) {
   const onChange = (field, value) => {
     // update(context, name, field, escapeFloatingPoint(value));
   }
 
   const onBlur = (productId) => {
-    if (order[productId] <= 0) {
+    if (count <= 0) {
       // remove(context, name, productId);
     }
   }
@@ -54,14 +54,14 @@ export default function ListItem({
                       {`/${item.unit}`}
                     </span>
                     <div className="Pesanan-item-order-quantified">
-                      {quantify(order[id], item.step, item.unit)}
+                      {quantify(count, item.step, item.unit)}
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <div className="Pesanan-item-total-price">
-                      {subtotal(order[id], item.step, item.price)}
+                      {subtotal(count, item.step, item.price)}
                     </div>
                   </td>
                 </tr>
@@ -74,7 +74,7 @@ export default function ListItem({
               name={id}
               type="number"
               display="fixed"
-              value={escapeFloatingPoint(order[id] * item.step)}
+              value={escapeFloatingPoint(count * item.step)}
               onChange={(name, value) => onChange(id, value / item.step)}
               onBlur={(name, value) => onBlur(id)}
               noValidation
@@ -104,5 +104,5 @@ export default function ListItem({
 ListItem.propTypes = {
   id: T.string.isRequired,
   item: T.object.isRequired,
-  order: T.object.isRequired
+  count: T.number.isRequired
 }

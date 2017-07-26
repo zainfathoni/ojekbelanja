@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+import { orderSet, setCost } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
@@ -9,12 +11,11 @@ import { stores } from '../../models';
 import '../pages.css';
 import './Pesan.css';
 
-export default class Pesan extends Component {
+class Pesan extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      order: {},
       user: {}
     }
   }
@@ -24,8 +25,11 @@ export default class Pesan extends Component {
   componentWillMount() {
     // Fetch 'order' from Local Storage
     const order = fetch(`order-${this.props.params.storeId}`);
+    
     if (order) {
-      set(this, 'order', order);
+      // set(this, 'order', order);
+      this.props.updateOrder(order);
+      this.props.updateCost();
     } else {
       // No ordered Item, go back to Toko page
       this.goToToko(this.props.params.storeId);
@@ -39,16 +43,18 @@ export default class Pesan extends Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    // Save 'order' to Local Storage
-    save(`order-${this.props.params.storeId}`, nextState.order);
-
     // Save 'user' to Local Storage
     save('user', nextState.user);
 
-    if (!Object.keys(nextState.order).length) {
+    if (!Object.keys(nextProps.order).length) {
       // No ordered Item, go back to Toko page
       this.goToToko(this.props.params.storeId);
     }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    // Save 'order' to Local Storage
+    save(`order-${this.props.params.storeId}`, this.props.order);
   }
 
   /*** Methods ***/
@@ -78,7 +84,7 @@ export default class Pesan extends Component {
           <div className="l-Pesan">
             <Pesanan
               name={"order"}
-              context={this}
+              order={this.props.order}
               storeId={storeId}
               action={this.goToToko}
               />
@@ -101,3 +107,27 @@ export default class Pesan extends Component {
 Pesan.contextTypes = {
   router: React.PropTypes.object
 }
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    order: state.order
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    updateOrder: (order) => {
+      dispatch(orderSet(order));
+    },
+    updateCost: () => {
+      dispatch(setCost(stores[ownProps.params.storeId].cost));
+    }
+  };
+};
+
+Pesan = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Pesan);
+
+export default Pesan;
