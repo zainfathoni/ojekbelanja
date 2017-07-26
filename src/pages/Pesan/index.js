@@ -1,25 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { orderLoad, setCost } from "../../actions";
+import { orderLoad, setCost, userLoad } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Pesanan from './Pesanan';
 import Pemesan from './Pemesan';
-import { fetch, save, set } from '../../services/form';
+import { fetch, save } from '../../services/form';
 import { stores } from '../../models';
 import '../pages.css';
 import './Pesan.css';
 
 class Pesan extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      user: {}
-    }
-  }
-
   /*** Lifecycle ***/
 
   componentWillMount() {
@@ -37,15 +29,14 @@ class Pesan extends Component {
 
     // Fetch 'user' from Local Storage
     const user = fetch('user');
+    
     if (user) {
-      set(this, 'user', user);
+      // set(this, 'user', user);
+      this.props.updateUser(user);
     }
   }
 
   componentWillUpdate(nextProps, nextState) {
-    // Save 'user' to Local Storage
-    save('user', nextState.user);
-
     if (!Object.keys(nextProps.order).length) {
       // No ordered Item, go back to Toko page
       this.goToToko(this.props.params.storeId);
@@ -55,6 +46,8 @@ class Pesan extends Component {
   componentDidUpdate(prevProps, prevState) {
     // Save 'order' to Local Storage
     save(`order-${this.props.params.storeId}`, this.props.order);
+    // Save 'user' to Local Storage
+    save('user', this.props.user);
   }
 
   /*** Methods ***/
@@ -92,7 +85,7 @@ class Pesan extends Component {
           <div className="l-Pesan">
             <Pemesan
               name={"user"}
-              context={this}
+              user={this.props.user}
               storeId={storeId}
               action={this.goToThankYou}
               />
@@ -110,7 +103,8 @@ Pesan.contextTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    order: state.order
+    order: state.order,
+    user: state.user
   };
 };
 
@@ -121,6 +115,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     updateCost: () => {
       dispatch(setCost(stores[ownProps.params.storeId].cost));
+    },
+    updateUser: (user) => {
+      dispatch(userLoad(user));
     }
   };
 };

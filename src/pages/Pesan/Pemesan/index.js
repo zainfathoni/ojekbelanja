@@ -4,19 +4,17 @@ import Form from '../../../components/Form';
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
 import TextArea from '../../../components/TextArea';
-import { update, clear } from '../../../services/form';
+// import { update, clear } from '../../../services/form';
 import { isEmailValid, isPhoneValid } from '../../../services/form';
 import './Pemesan.css';
 
 export default function Pemesan(props) {
   const {
     name,
-    context,
+    user,
     storeId,
     action,
   } = props;
-
-  const user = context.state[name];
 
   const isUserInvalid = (user) =>
     !user.name ||
@@ -26,11 +24,11 @@ export default function Pemesan(props) {
     !user.address;
 
   const onChange = (field, value) => {
-    update(context, name, field, value);
+    // update(context, name, field, value);
   }
 
   const onReset = (field, value) => {
-    clear(context, name);
+    // clear(context, name);
   }
 
   const onSubmit = (e, storeId) => {
@@ -139,7 +137,7 @@ export default function Pemesan(props) {
 
 Pemesan.propTypes = {
   name: T.string.isRequired,
-  context: T.object.isRequired,
+  user: T.object.isRequired,
   storeId: T.string.isRequired,
   action: T.func.isRequired,
 }
