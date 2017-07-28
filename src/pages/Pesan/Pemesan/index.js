@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropTypes as T } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Form from '../../../components/Form';
 import Button from '../../../components/Button';
@@ -14,7 +15,6 @@ export default function Pemesan(props) {
     name,
     user,
     storeId,
-    action,
     set,
     clear,
   } = props;
@@ -38,7 +38,6 @@ export default function Pemesan(props) {
 
   const onSubmit = (e, storeId) => {
     e.preventDefault();
-    action(storeId);
   }
 
   return (
@@ -60,7 +59,7 @@ export default function Pemesan(props) {
             title={!Object.keys(user).length ? "Data sudah bersih" : "Bersihkan data"}
             isSecondary
             />
-          <Button
+          {/*<Button
             className="Pemesan-footer-done"
             type="submit"
             display="content"
@@ -69,7 +68,13 @@ export default function Pemesan(props) {
             text="Selesai"
             disabled={isUserInvalid(user)}
             title={isUserInvalid(user) ? "Masih ditemukan data yang tidak valid" : "Konfirmasi Pemesanan"}
-            />
+            />*/}
+          <Link
+            to={`/thankyou/${storeId}`}
+            disabled={isUserInvalid(user)}
+          >
+            Selesai
+          </Link>
         </div>
       }
       >
@@ -144,7 +149,6 @@ Pemesan.propTypes = {
   name: T.string.isRequired,
   user: T.object.isRequired,
   storeId: T.string.isRequired,
-  action: T.func.isRequired,
   set: T.func.isRequired,
   clear: T.func.isRequired,
 }

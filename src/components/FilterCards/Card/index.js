@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropTypes as T } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Button from '../../Button';
 import { quantify } from '../../../services/product';
@@ -67,12 +68,17 @@ export default function Card(props) {
             </span>
           </div>
           {!actionReverse ?
-            <Button
+            /*<Button
               display="fullwidth"
               action={(e) => action(id)}
               icon="shopping-cart"
               text="Mulai Belanja"
-              />
+              />*/
+            <Link
+              to={`/toko/${id}`}
+            >
+              Mulai Belanja
+            </Link>
             :
             <div>
               {disabled ?

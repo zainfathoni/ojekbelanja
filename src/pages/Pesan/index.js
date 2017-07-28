@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { PropTypes as T } from 'prop-types';
 import { connect } from "react-redux";
 import { orderLoad, setCost, userLoad } from "../../actions";
 
@@ -17,7 +16,7 @@ class Pesan extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.storeId}`);
+    const order = fetch(`order-${this.props.match.params.storeId}`);
     
     if (order) {
       // set(this, 'order', order);
@@ -25,7 +24,7 @@ class Pesan extends Component {
       this.props.updateCost();
     } else {
       // No ordered Item, go back to Toko page
-      this.goToToko(this.props.params.storeId);
+      this.goToToko(this.props.match.params.storeId);
     }
 
     // Fetch 'user' from Local Storage
@@ -40,33 +39,21 @@ class Pesan extends Component {
   componentWillUpdate(nextProps, nextState) {
     if (!Object.keys(nextProps.order).length) {
       // No ordered Item, go back to Toko page
-      this.goToToko(this.props.params.storeId);
+      this.goToToko(this.props.match.params.storeId);
     }
   }
 
   componentDidUpdate(prevProps, prevState) {
     // Save 'order' to Local Storage
-    save(`order-${this.props.params.storeId}`, this.props.order);
+    save(`order-${this.props.match.params.storeId}`, this.props.order);
     // Save 'user' to Local Storage
     save('user', this.props.user);
-  }
-
-  /*** Methods ***/
-
-  goToToko = (storeId) => {
-    console.log(`Kembali ke Toko ${storeId}`);
-    this.context.router.transitionTo(`/toko/${storeId}`);
-  }
-
-  goToThankYou = (storeId) => {
-    console.log(`Melanjutkan Pesanan di Toko ${storeId}`);
-    this.context.router.transitionTo(`/thankyou/${storeId}`);
   }
 
   /*** Render ***/
 
   render() {
-    const storeId = this.props.params.storeId;
+    const storeId = this.props.match.params.storeId;
 
     return (
       <div className="l-fullwidth">
@@ -80,14 +67,12 @@ class Pesan extends Component {
               name={"order"}
               order={this.props.order}
               storeId={storeId}
-              action={this.goToToko}
               />
           </div>
           <div className="l-Pesan">
             <PemesanContainer
               name={"user"}
               storeId={storeId}
-              action={this.goToThankYou}
               />
           </div>
 
@@ -95,10 +80,6 @@ class Pesan extends Component {
       </div>
     )
   }
-}
-
-Pesan.contextTypes = {
-  router: T.object
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -114,7 +95,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(orderLoad(order));
     },
     updateCost: () => {
-      dispatch(setCost(stores[ownProps.params.storeId].cost));
+      dispatch(setCost(stores[ownProps.match.params.storeId].cost));
     },
     updateUser: (user) => {
       dispatch(userLoad(user));

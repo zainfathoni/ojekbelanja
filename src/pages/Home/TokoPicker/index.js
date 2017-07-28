@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { PropTypes as T } from 'prop-types';
 
 import FilterInput from'../../../components/FilterInput';
 import FilterCards from '../../../components/FilterCards';
@@ -49,11 +48,6 @@ export default class TokoPicker extends Component {
     })
   }
 
-  goToToko = (storeId) => {
-    console.log(`Going to ${storeId}`);
-    this.context.router.transitionTo(`/toko/${storeId}`);
-  }
-
   /*** Render ***/
 
   render() {
@@ -79,8 +73,4 @@ export default class TokoPicker extends Component {
       </main>
     );
   }
-}
-
-TokoPicker.contextTypes = {
-  router: T.object
 }

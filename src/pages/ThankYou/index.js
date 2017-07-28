@@ -26,12 +26,12 @@ export default class ThankYou extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.storeId}`);
+    const order = fetch(`order-${this.props.match.params.storeId}`);
     if (order) {
       set(this, 'order', order);
     } else {
       // No ordered Item, go back to Toko page
-      this.goToToko(this.props.params.storeId);
+      this.goToToko(this.props.match.params.storeId);
     }
 
     // Fetch 'user' from Local Storage
@@ -51,7 +51,7 @@ export default class ThankYou extends Component {
   /*** Render ***/
 
   render() {
-    const storeId = this.props.params.storeId;
+    const storeId = this.props.match.params.storeId;
     const toko = stores[storeId];
     const {
       order,
