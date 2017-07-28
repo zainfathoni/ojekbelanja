@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
 import { orderLoad, setCost, userLoad } from "../../actions";
 
@@ -22,9 +23,6 @@ class Pesan extends Component {
       // set(this, 'order', order);
       this.props.updateOrder(order);
       this.props.updateCost();
-    } else {
-      // No ordered Item, go back to Toko page
-      this.goToToko(this.props.match.params.storeId);
     }
 
     // Fetch 'user' from Local Storage
@@ -33,13 +31,6 @@ class Pesan extends Component {
     if (user) {
       // set(this, 'user', user);
       this.props.updateUser(user);
-    }
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-    if (!Object.keys(nextProps.order).length) {
-      // No ordered Item, go back to Toko page
-      this.goToToko(this.props.match.params.storeId);
     }
   }
 
@@ -56,28 +47,33 @@ class Pesan extends Component {
     const storeId = this.props.match.params.storeId;
 
     return (
-      <div className="l-fullwidth">
-        <div className="l-wrapper-MainNav">
-          <MainNav />
-        </div>
-        <Header heading={"Toko " + stores[storeId].name} />
-        <main className="l-main">
-          <div className="l-Pesan">
-            <Pesanan
-              name={"order"}
-              order={this.props.order}
-              storeId={storeId}
-              />
+      !this.props.order || Object.keys(this.props.order).length === 0 ? (
+        // No ordered Item, go back to Toko page
+        <Redirect to={`/toko/${this.props.match.params.storeId}`}/>
+      ) : (
+        <div className="l-fullwidth">
+          <div className="l-wrapper-MainNav">
+            <MainNav />
           </div>
-          <div className="l-Pesan">
-            <PemesanContainer
-              name={"user"}
-              storeId={storeId}
-              />
-          </div>
+          <Header heading={"Toko " + stores[storeId].name} />
+          <main className="l-main">
+            <div className="l-Pesan">
+              <Pesanan
+                name={"order"}
+                order={this.props.order}
+                storeId={storeId}
+                />
+            </div>
+            <div className="l-Pesan">
+              <PemesanContainer
+                name={"user"}
+                storeId={storeId}
+                />
+            </div>
 
-        </main>
-      </div>
+          </main>
+        </div>
+      )
     )
   }
 }

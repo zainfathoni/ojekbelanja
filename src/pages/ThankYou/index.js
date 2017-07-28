@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PropTypes as T } from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
@@ -29,9 +29,6 @@ export default class ThankYou extends Component {
     const order = fetch(`order-${this.props.match.params.storeId}`);
     if (order) {
       set(this, 'order', order);
-    } else {
-      // No ordered Item, go back to Toko page
-      this.goToToko(this.props.match.params.storeId);
     }
 
     // Fetch 'user' from Local Storage
@@ -39,13 +36,6 @@ export default class ThankYou extends Component {
     if (user) {
       set(this, 'user', user);
     }
-  }
-
-  /*** Methods ***/
-
-  goToToko = (storeId) => {
-    console.log(`Kembali ke Toko ${storeId}`);
-    this.context.router.transitionTo(`/toko/${storeId}`);
   }
 
   /*** Render ***/
@@ -127,39 +117,40 @@ export default class ThankYou extends Component {
     ]
 
     return (
-      <div className="l-fullwidth">
-        <div className="l-wrapper-MainNav">
-          <MainNav />
+      !this.state.order || Object.keys(this.state.order).length === 0 ? (
+        // No ordered Item, go back to Toko page
+        <Redirect to={`/toko/${this.props.match.params.storeId}`}/>
+      ) : (
+        <div className="l-fullwidth">
+          <div className="l-wrapper-MainNav">
+            <MainNav />
+          </div>
+          <Header heading={"Toko " + toko.name} />
+          <main className="l-ThankYou">
+            <p>Terima kasih telah berbelanja di toko {toko.name}, berikut detil transaksi Anda:</p>
+            <DescriptionList
+              list={pemesanList}
+              />
+            <Table
+              type={type}
+              body={body}
+              footerColSpan={footerColSpan}
+              footerClassName={footerClassName}
+              footer={footer}
+              />
+            <h4>Cara Pembayaran</h4>
+            <ol>
+              <li>Pastikan Anda telah menerima email konfirmasi pesanan dari <Brand />.</li>
+              <li>Untuk pertanyaan lebih lanjut, berikut detil informasi toko tempat Anda memesan:
+                <DescriptionList
+                  list={tokoList}
+                  />
+              </li>
+              <li>Pembayaran dilakukan dengan cara <i>COD (Cash On Delivery)</i>.</li>
+            </ol>
+          </main>
         </div>
-        <Header heading={"Toko " + toko.name} />
-        <main className="l-ThankYou">
-          <p>Terima kasih telah berbelanja di toko {toko.name}, berikut detil transaksi Anda:</p>
-          <DescriptionList
-            list={pemesanList}
-            />
-          <Table
-            type={type}
-            body={body}
-            footerColSpan={footerColSpan}
-            footerClassName={footerClassName}
-            footer={footer}
-            />
-          <h4>Cara Pembayaran</h4>
-          <ol>
-            <li>Pastikan Anda telah menerima email konfirmasi pesanan dari <Brand />.</li>
-            <li>Untuk pertanyaan lebih lanjut, berikut detil informasi toko tempat Anda memesan:
-              <DescriptionList
-                list={tokoList}
-                />
-            </li>
-            <li>Pembayaran dilakukan dengan cara <i>COD (Cash On Delivery)</i>.</li>
-          </ol>
-        </main>
-      </div>
+      )
     );
   }
-}
-
-ThankYou.contextTypes = {
-  router: T.object
 }
