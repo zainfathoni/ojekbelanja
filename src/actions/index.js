@@ -2,12 +2,11 @@ export const ORDER_PLUS = "ORDER_PLUS";
 export const ORDER_MINUS = "ORDER_MINUS";
 export const ORDER_SET = "ORDER_SET";
 export const ORDER_REMOVE = "ORDER_REMOVE";
-export const ORDER_LOAD = "ORDER_LOAD";
+export const ORDER_CLEAN = "ORDER_CLEAN";
 export const ORDER_CLEAR = "ORDER_CLEAR";
 export const KEYWORD_SET = "KEYWORD_SET";
 export const KEYWORD_CLEAR = "KEYWORD_CLEAR";
 export const USER_SET = "USER_SET";
-export const USER_LOAD = "USER_LOAD";
 export const USER_CLEAR = "USER_CLEAR";
 
 export const orderPlus = (id) => ({
@@ -31,9 +30,9 @@ export const orderRemove = (id) => ({
   id
 });
 
-export const orderLoad = (order) => ({
-  type: ORDER_LOAD,
-  order
+export const orderClean = (products) => ({
+  type: ORDER_CLEAN,
+  products
 });
 
 export const orderClear = () => ({
@@ -53,11 +52,6 @@ export const userSet = (field, value) => ({
   type: USER_SET,
   field,
   value
-});
-
-export const userLoad = (user) => ({
-  type: USER_LOAD,
-  user
 });
 
 export const userClear = () => ({

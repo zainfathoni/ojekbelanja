@@ -3,7 +3,7 @@ import {
   ORDER_MINUS,
   ORDER_SET,
   ORDER_REMOVE,
-  ORDER_LOAD,
+  ORDER_CLEAN,
   ORDER_CLEAR
 } from "../actions";
 
@@ -31,8 +31,19 @@ const order = (state = {}, action) => {
       let newState = { ...state };
       delete newState[id];
       return newState; 
-    case ORDER_LOAD:
-      return action.order ? action.order : {};
+    case ORDER_CLEAN:
+      // Clean empty products from order
+      return Object.keys(state)
+          .filter(key =>
+            !action.products[key].empty
+          )
+          .reduce((res, key) =>
+            ({
+              ...res,
+              [key]: state[key],
+            }),
+            {}
+          );
     case ORDER_CLEAR:
       return {};
     default:

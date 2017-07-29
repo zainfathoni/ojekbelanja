@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { orderLoad } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Products from '../../containers/Products';
 import FooterOrder from '../../containers/FooterOrder';
-import { fetch, save } from '../../services/form';
+import { orderClean } from '../../actions';
 import { stores, products } from '../../models';
 import '../pages.css';
 
@@ -14,32 +13,7 @@ class Toko extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
-    // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.match.params.storeId}`);
-
-    let cleanedOrder;
-    if (order) {
-      // Clean empty products from order
-      cleanedOrder =
-        Object.keys(order)
-          .filter(key =>
-            !products[key].empty
-          )
-          .reduce((res, key) =>
-            ({
-              ...res,
-              [key]: order[key],
-            }),
-            {}
-          );
-    }
-    
-    this.props.updateOrder(cleanedOrder);
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    // Save 'order' to Local Storage
-    save(`order-${this.props.match.params.storeId}`, this.props.order);
+    this.props.clean(products);
   }
 
   /*** Render ***/
@@ -75,12 +49,12 @@ class Toko extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  order: state.order
+  order: state.order,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  updateOrder(order) {
-    dispatch(orderLoad(order));
+  clean(products) {
+    dispatch(orderClean(products));
   },
 });
 
