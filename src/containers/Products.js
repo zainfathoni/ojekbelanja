@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { PropTypes as T } from 'prop-types';
 import { connect } from "react-redux";
-import { keywordClear } from "../actions";
 
+import { keywordClear } from "../actions";
 import ProductInput from './ProductInput';
-import ProductCards from './/ProductCards';
+import ProductCards from './ProductCards';
 import { products, categories } from '../models';
 
 class Products extends Component {

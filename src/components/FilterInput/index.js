@@ -71,7 +71,6 @@ export default class FilterInput extends Component {
   }
 }
 
-
 FilterInput.propTypes = {
   placeholder: T.string.isRequired,
   keyword: T.string.isRequired,
