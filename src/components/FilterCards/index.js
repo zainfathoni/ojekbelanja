@@ -77,15 +77,7 @@ export default function FilterCards(props) {
                       return <ProductCard
                         key={key}
                         id={key}
-                        title={item[fields.title]}
-                        description={item[fields.description]}
-                        image={require(`../../css/images/${item[fields.image]}`)}
-                        ribbon={item[fields.ribbon]}
-                        tooltip={item[fields.tooltip]}
-                        disabled={item[fields.disabled]}
-                        unit={item.unit}
-                        step={item.step}
-                        price={item.price}
+                        product={item}
                         />
                     })
                   }

@@ -3,7 +3,6 @@ import { PropTypes as T } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Button from '../../Button';
-import { quantify } from '../../../services/product';
 import { markHelper } from '../../../services/matches.js'
 import './Card.css';
 
@@ -14,26 +13,25 @@ export default function Card(props) {
     title,
     description,
     image,
+    overlay,
     ribbon,
     tooltip,
     disabled,
     unit,
-    step,
     price,
     action,
     actionReverse,
-    count,
   } = props;
 
   return (
     <li>
-      <div className={"Card" + (count ? " Card-is-selected" : "")}>
+      <div className={"Card" + (overlay ? " Card-is-selected" : "")}>
         <div className="Card-image">
           <img src={image} alt={title} />
-          {count &&
+          {overlay &&
             <div className="Card-image-overlay">
               <div className="Card-image-overlay-qty">
-                {quantify(count, step, unit)}
+                {overlay}
               </div>
             </div>
           }
@@ -89,7 +87,7 @@ export default function Card(props) {
                   />
                 :
                 <div>
-                  {count ?
+                  {overlay ?
                     <div>
                       <Button
                         className="Card-action-minus"
@@ -131,13 +129,12 @@ Card.propTypes = {
   title: T.string.isRequired,
   description: T.string.isRequired,
   image: T.string.isRequired,
+  overlay: T.string,
   ribbon: T.string,
   tooltip: T.string,
   isDisabled: T.bool,
   unit: T.string,
-  step: T.number,
   price: T.number,
   action: T.func,
   actionReverse: T.func,
-  count: T.number,
 }

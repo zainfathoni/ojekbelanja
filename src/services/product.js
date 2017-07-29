@@ -3,11 +3,15 @@ export const escapeFloatingPoint = (value) =>
   Math.round(value * 100) / 100;
 
 export const quantify = (count, step, unit) => {
-  const steps = escapeFloatingPoint(count * step);
-  return (steps < 1 && unit === "kg") ?
-    `${steps * 1000} gram`
-    :
-    `${steps} ${unit}`;
+  if (count > 0) {
+    const steps = escapeFloatingPoint(count * step);
+    return (steps < 1 && unit === "kg") ?
+      `${steps * 1000} gram`
+      :
+      `${steps} ${unit}`;
+  } else {
+    return undefined;
+  }
 }
 
 export const subtotal = (count, step, price) =>
