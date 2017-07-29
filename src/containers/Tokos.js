@@ -57,10 +57,8 @@ Tokos.propTypes = {
   clear: T.func.isRequired,
 }
 
-const mapStateToProps = (state, ownProps) => ({});
-
 Tokos = connect(
-  mapStateToProps,
+  null,
   {
     clear: keywordClear,
   },
