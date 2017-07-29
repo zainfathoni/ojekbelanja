@@ -87,7 +87,7 @@ let ThankYou = ({ match, order, user }) => {
   return (
     !order || Object.keys(order).length === 0 ? (
       // No ordered Item, go back to Toko page
-      <Redirect to={`/toko/${match.params.storeId}`}/>
+      <Redirect to={`/toko/${storeId}`}/>
     ) : (
       <div className="l-fullwidth">
         <div className="l-wrapper-MainNav">

@@ -39,7 +39,7 @@ class Toko extends Component {
         <footer className="l-wrapper-footer">
           <FooterOrder
             products={products}
-            id={this.props.match.params.storeId}
+            id={storeId}
             deliveryFee={toko.cost}
             />
         </footer>
