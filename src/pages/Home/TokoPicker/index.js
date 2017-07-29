@@ -68,7 +68,6 @@ export default class TokoPicker extends Component {
             description: 'area',
             image: 'image',
           }}
-          action={this.goToToko}
           />
       </main>
     );

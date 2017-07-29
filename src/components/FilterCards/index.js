@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes as T } from 'prop-types';
 
-import Card from './Card';
+import TokoCard from '../../containers/TokoCard';
 import ProductCard from '../../containers/ProductCard';
 import Section from './Section';
 import './FilterCards.css';
@@ -12,7 +12,6 @@ export default function FilterCards(props) {
     items,
     sections,
     fields,
-    action,
   } = props
   const ids = Object.keys(items);
 
@@ -91,20 +90,11 @@ export default function FilterCards(props) {
           {Object.keys(filteredItems)
             .map(key => {
               const item = filteredItems[key];
-              return <Card
+              return <TokoCard
                 key={key}
                 id={key}
+                toko={item}
                 keyword={keyword}
-                title={item[fields.title]}
-                description={item[fields.description]}
-                image={require(`../../css/images/${item[fields.image]}`)}
-                ribbon={item[fields.ribbon]}
-                tooltip={item[fields.tooltip]}
-                disabled={item[fields.disabled]}
-                unit="pengiriman"
-                step={1}
-                price={item.cost}
-                action={action}
                 />
             })
           }
@@ -128,6 +118,5 @@ FilterCards.propTypes = {
     section: T.string,
     isDisabled: T.bool,
   }).isRequired,
-  action: T.func,
   collection: T.objectOf(T.number),
 }
