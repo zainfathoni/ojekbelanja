@@ -4,9 +4,8 @@ import FilterInput from "../components/FilterInput";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    placeholder: "Cari Produk",
+    placeholder: "Cari Nama atau Area Layanan",
     keyword: state.keyword,
-    withButton: true,
   };
 };
 
@@ -18,9 +17,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const ProductInput = connect(
+const TokoInput = connect(
   mapStateToProps,
   mapDispatchToProps
 )(FilterInput);
 
-export default ProductInput;
+export default TokoInput;

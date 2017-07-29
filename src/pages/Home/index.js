@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
-import TokoPicker from './TokoPicker';
+import Tokos from '../../containers/Tokos';
 import '../pages.css';
 
 export default class Home extends Component {
@@ -16,7 +16,7 @@ export default class Home extends Component {
         <p>
           Pilih Toko <strong>Ojek Belanja</strong> Anda
         </p>
-        <TokoPicker />
+        <Tokos />
       </div>
     );
   }

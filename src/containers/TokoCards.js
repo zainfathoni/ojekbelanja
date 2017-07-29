@@ -6,14 +6,13 @@ const mapStateToProps = (state, ownProps) => {
     keyword: state.keyword,
     fields: {
       title: 'name',
-      description: 'desc',
-      section: 'category',
+      description: 'area',
     },
   };
 };
 
-const ProductCards = connect(
+const TokoCards = connect(
   mapStateToProps
 )(FilterCards);
 
-export default ProductCards;
+export default TokoCards;

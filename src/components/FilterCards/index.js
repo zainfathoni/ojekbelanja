@@ -1,7 +1,7 @@
 import React from 'react';
 import { PropTypes as T } from 'prop-types';
 
-import Card from './Card';
+import TokoCard from '../../containers/TokoCard';
 import ProductCard from '../../containers/ProductCard';
 import Section from './Section';
 import './FilterCards.css';
@@ -12,7 +12,6 @@ export default function FilterCards(props) {
     items,
     sections,
     fields,
-    action,
   } = props
   const ids = Object.keys(items);
 
@@ -30,30 +29,25 @@ export default function FilterCards(props) {
     .filter(key =>
       items[key][fields.title].toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
       items[key][fields.description].toLowerCase().indexOf(keyword.toLowerCase()) !== -1)
-    .reduce(
-    (res, key) =>
-      Object.assign(
-        {},
-        res,
-        { [key]: items[key] }),
-    {}
+    .reduce((res, key) =>
+      ({
+        ...res,
+        [key]: items[key],
+      }),
+      {}
     );
 
   const sectionedItems = Object.keys(filteredItems)
     .reduce(
     (res, key) => {
       const section = items[key][fields.section];
-      return Object.assign(
-        {},
-        res,
-        {
-          [section]: Object.assign(
-            {},
-            res[section],
-            { [key]: items[key] }
-          )
-        }
-      )
+      return ({
+        ...res,
+        [section]: ({
+          ...res[section],
+          [key]: items[key],
+        })
+      });
     },
     {}
     );
@@ -77,15 +71,7 @@ export default function FilterCards(props) {
                       return <ProductCard
                         key={key}
                         id={key}
-                        title={item[fields.title]}
-                        description={item[fields.description]}
-                        image={require(`../../css/images/${item[fields.image]}`)}
-                        ribbon={item[fields.ribbon]}
-                        tooltip={item[fields.tooltip]}
-                        disabled={item[fields.disabled]}
-                        unit={item.unit}
-                        step={item.step}
-                        price={item.price}
+                        product={item}
                         />
                     })
                   }
@@ -99,20 +85,11 @@ export default function FilterCards(props) {
           {Object.keys(filteredItems)
             .map(key => {
               const item = filteredItems[key];
-              return <Card
+              return <TokoCard
                 key={key}
                 id={key}
+                toko={item}
                 keyword={keyword}
-                title={item[fields.title]}
-                description={item[fields.description]}
-                image={require(`../../css/images/${item[fields.image]}`)}
-                ribbon={item[fields.ribbon]}
-                tooltip={item[fields.tooltip]}
-                disabled={item[fields.disabled]}
-                unit="pengiriman"
-                step={1}
-                price={item.cost}
-                action={action}
                 />
             })
           }
@@ -130,12 +107,7 @@ FilterCards.propTypes = {
   fields: T.shape({
     title: T.string.isRequired,
     description: T.string.isRequired,
-    image: T.string.isRequired,
-    ribbon: T.string,
-    tooltip: T.string,
     section: T.string,
-    isDisabled: T.bool,
   }).isRequired,
-  action: T.func,
   collection: T.objectOf(T.number),
 }

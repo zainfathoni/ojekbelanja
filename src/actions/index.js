@@ -4,8 +4,8 @@ export const ORDER_SET = "ORDER_SET";
 export const ORDER_REMOVE = "ORDER_REMOVE";
 export const ORDER_LOAD = "ORDER_LOAD";
 export const ORDER_CLEAR = "ORDER_CLEAR";
-export const SET_COST = "SET_COST";
-export const SET_KEYWORD = "SET_KEYWORD";
+export const KEYWORD_SET = "KEYWORD_SET";
+export const KEYWORD_CLEAR = "KEYWORD_CLEAR";
 export const USER_SET = "USER_SET";
 export const USER_LOAD = "USER_LOAD";
 export const USER_CLEAR = "USER_CLEAR";
@@ -52,17 +52,16 @@ export const orderClear = () => {
   }
 }
 
-export const setCost = (cost) => {
+export const keywordSet = (keyword) => {
   return {
-    type: SET_COST,
-    cost
+    type: KEYWORD_SET,
+    keyword
   }
 }
 
-export const setKeyword = (keyword) => {
+export const keywordClear = () => {
   return {
-    type: SET_KEYWORD,
-    keyword
+    type: KEYWORD_CLEAR,
   }
 }
 
