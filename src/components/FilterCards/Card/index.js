@@ -68,16 +68,14 @@ export default function Card(props) {
             </span>
           </div>
           {!actionReverse ?
-            /*<Button
-              display="fullwidth"
-              action={(e) => action(id)}
-              icon="shopping-cart"
-              text="Mulai Belanja"
-              />*/
             <Link
               to={`/toko/${id}`}
             >
-              Mulai Belanja
+              <Button
+                display="fullwidth"
+                icon="shopping-cart"
+                text="Mulai Belanja"
+              />
             </Link>
             :
             <div>
@@ -139,7 +137,7 @@ Card.propTypes = {
   unit: T.string,
   step: T.number,
   price: T.number,
-  action: T.func.isRequired,
+  action: T.func,
   actionReverse: T.func,
   count: T.number,
 }

@@ -47,15 +47,14 @@ export default function Order(props) {
         <Link
           to={`/pesan/${id}`}
         >
-          Pesan
+          <Button
+            display="content"
+            icon="shopping-cart"
+            text="Pesan"
+            disabled={!orderKeys.length}
+          />
         </Link>
-        {/*<Button
-          display="content"
-          action={(e) => props.checkout()}
-          icon="shopping-cart"
-          text="Pesan"
-          disabled={!orderKeys.length}
-          />*/}
+        {/**/}
       </div>
     </div>
   )

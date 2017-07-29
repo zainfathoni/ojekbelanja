@@ -6,7 +6,6 @@ import Form from '../../../components/Form';
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
 import TextArea from '../../../components/TextArea';
-// import { update, clear } from '../../../services/form';
 import { isEmailValid, isPhoneValid } from '../../../services/form';
 import './Pemesan.css';
 
@@ -59,21 +58,19 @@ export default function Pemesan(props) {
             title={!Object.keys(user).length ? "Data sudah bersih" : "Bersihkan data"}
             isSecondary
             />
-          {/*<Button
-            className="Pemesan-footer-done"
-            type="submit"
-            display="content"
-            action={(e) => onSubmit(e, storeId)}
-            icon="cart-arrow-down"
-            text="Selesai"
-            disabled={isUserInvalid(user)}
-            title={isUserInvalid(user) ? "Masih ditemukan data yang tidak valid" : "Konfirmasi Pemesanan"}
-            />*/}
+          {/**/}
           <Link
             to={`/thankyou/${storeId}`}
-            disabled={isUserInvalid(user)}
           >
-            Selesai
+            <Button
+              className="Pemesan-footer-done"
+              type="submit"
+              display="content"
+              icon="cart-arrow-down"
+              text="Selesai"
+              disabled={isUserInvalid(user)}
+              title={isUserInvalid(user) ? "Masih ditemukan data yang tidak valid" : "Konfirmasi Pemesanan"}
+            />
           </Link>
         </div>
       }

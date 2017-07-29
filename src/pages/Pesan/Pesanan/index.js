@@ -3,6 +3,7 @@ import { PropTypes as T } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Form from '../../../components/Form';
+import Button from '../../../components/Button';
 import ProductListItem from '../../../containers/ProductListItem';
 import { total } from '../../../services/product';
 import { stores, products } from '../../../models';
@@ -21,19 +22,18 @@ export default function Pesanan(props) {
       title="Pesanan Anda"
       icon={<i className="fa fa-lg fa-shopping-cart" aria-hidden="true"></i>}
       header={
-        /*<Button
-          className="Pesanan-heading-action"
-          display="content"
-          action={(e) => action(storeId)}
-          icon="arrow-left"
-          text="Kembali"
-          isSecondary
-          isSmall
-          />*/
+        /**/
         <Link
           to={`/toko/${storeId}`}
         >
-          Kembali
+          <Button
+            className="Pesanan-heading-action"
+            display="content"
+            icon="arrow-left"
+            text="Kembali"
+            isSecondary
+            isSmall
+          />
         </Link>
       }
       footer={
