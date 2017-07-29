@@ -2,16 +2,13 @@ import { PropTypes as T } from 'prop-types';
 import { connect } from "react-redux";
 import Card from "../components/FilterCards/Card";
 
-const mapStateToProps = (state, ownProps) => {
-  const { toko: t } = ownProps;
-  return {
-    title: t.name,
-    description: t.area,
-    image: require(`../css/images/${t.image}`),
-    unit: "pengiriman",
-    price: t.cost,
-  };
-};
+const mapStateToProps = (state, { toko: t }) => ({
+  title: t.name,
+  description: t.area,
+  image: require(`../css/images/${t.image}`),
+  unit: "pengiriman",
+  price: t.cost,
+});
 
 const TokoCard = connect(
   mapStateToProps,

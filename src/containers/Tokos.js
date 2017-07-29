@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { PropTypes as T } from 'prop-types';
 import { connect } from "react-redux";
 
 import { keywordClear } from "../actions";
@@ -35,7 +36,7 @@ class Tokos extends Component {
   }
 
   componentWillUnmount() {
-    this.props.clearKeyword();
+    this.props.clear();
   }
 
   /*** Render ***/
@@ -52,21 +53,21 @@ class Tokos extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {};
-};
+Tokos.propTypes = {
+  clear: T.func.isRequired,
+}
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    clearKeyword: () => {
-      dispatch(keywordClear());
-    }
-  };
-};
+const mapStateToProps = (state, ownProps) => ({});
+
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  clear: () => {
+    dispatch(keywordClear());
+  }
+});
 
 Tokos = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Tokos);
 
 export default Tokos;

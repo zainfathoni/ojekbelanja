@@ -74,19 +74,15 @@ class Toko extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    order: state.order
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  order: state.order
+});
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    updateOrder: (order) => {
-      dispatch(orderLoad(order));
-    },
-  };
-};
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  updateOrder(order) {
+    dispatch(orderLoad(order));
+  },
+});
 
 Toko = connect(
   mapStateToProps,

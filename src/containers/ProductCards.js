@@ -1,19 +1,17 @@
 import { connect } from "react-redux";
 import FilterCards from "../components/FilterCards";
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    keyword: state.keyword,
-    fields: {
-      title: 'name',
-      description: 'desc',
-      section: 'category',
-    },
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  keyword: state.keyword,
+  fields: {
+    title: 'name',
+    description: 'desc',
+    section: 'category',
+  },
+});
 
 const ProductCards = connect(
-  mapStateToProps
+  mapStateToProps,
 )(FilterCards);
 
 export default ProductCards;

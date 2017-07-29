@@ -11,7 +11,7 @@ class Products extends Component {
   /*** Lifecycle ***/
 
   componentWillUnmount() {
-    this.props.clearKeyword();
+    this.props.clear();
   }
 
   /*** Render ***/
@@ -31,26 +31,22 @@ class Products extends Component {
 
 Products.propTypes = {
   order: T.objectOf(T.number).isRequired,
-  clearKeyword: T.func.isRequired,
+  clear: T.func.isRequired,
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    order: state.order
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  order: state.order,
+});
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    clearKeyword: () => {
-      dispatch(keywordClear());
-    }
-  };
-};
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  clear() {
+    dispatch(keywordClear());
+  },
+});
 
 Products = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Products);
 
 export default Products;

@@ -77,27 +77,23 @@ class Pesan extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    order: state.order,
-    user: state.user
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  order: state.order,
+  user: state.user,
+});
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    updateOrder: (order) => {
-      dispatch(orderLoad(order));
-    },
-    updateUser: (user) => {
-      dispatch(userLoad(user));
-    }
-  };
-};
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  updateOrder(order) {
+    dispatch(orderLoad(order));
+  },
+  updateUser(user) {
+    dispatch(userLoad(user));
+  },
+});
 
 Pesan = connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Pesan);
 
 export default Pesan;
