@@ -26,12 +26,10 @@ export default function Pemesan(props) {
     !user.address;
 
   const onChange = (field, value) => {
-    // update(context, name, field, value);
     set(field, value);
   }
 
   const onReset = (field, value) => {
-    // clear(context, name);
     clear();
   }
 
