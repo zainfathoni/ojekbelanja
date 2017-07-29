@@ -8,6 +8,7 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "firebase": "^4.2.0",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "re-base": "^3.0.3",
     "react": "^15.6.1",
