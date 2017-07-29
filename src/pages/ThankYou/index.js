@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { Redirect } from 'react-router-dom';
 
 import MainNav from '../../components/MainNav';
@@ -6,47 +7,16 @@ import Header from '../../components/Header';
 import DescriptionList from '../../components/DescriptionList';
 import Table from '../../components/Table';
 import Brand from '../../components/Brand';
-import { fetch, set } from '../../services/form';
 import { quantify, subtotal, total } from '../../services/product';
 import { stores, products } from '../../models';
 import '../pages.css';
 import './ThankYou.css';
 
-export default class ThankYou extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      order: {},
-      user: {}
-    }
-  }
-
-  /*** Lifecycle ***/
-
-  componentWillMount() {
-    // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.match.params.storeId}`);
-    if (order) {
-      set(this, 'order', order);
-    }
-
-    // Fetch 'user' from Local Storage
-    const user = fetch('user');
-    if (user) {
-      set(this, 'user', user);
-    }
-  }
-
-  /*** Render ***/
-
+class ThankYou extends Component {
   render() {
-    const storeId = this.props.match.params.storeId;
+    const { match, order, user } = this.props;
+    const storeId = match.params.storeId;
     const toko = stores[storeId];
-    const {
-      order,
-      user,
-    } = this.state;
 
     const pemesanList = [
       { term: 'No. Pesanan', definition: '' },
@@ -117,9 +87,9 @@ export default class ThankYou extends Component {
     ]
 
     return (
-      !this.state.order || Object.keys(this.state.order).length === 0 ? (
+      !order || Object.keys(order).length === 0 ? (
         // No ordered Item, go back to Toko page
-        <Redirect to={`/toko/${this.props.match.params.storeId}`}/>
+        <Redirect to={`/toko/${match.params.storeId}`}/>
       ) : (
         <div className="l-fullwidth">
           <div className="l-wrapper-MainNav">
@@ -152,5 +122,16 @@ export default class ThankYou extends Component {
         </div>
       )
     );
-  }
-}
+  };
+};
+
+const mapStateToProps = (state, ownProps) => ({
+  order: state.order,
+  user: state.user,
+});
+
+ThankYou = connect(
+  mapStateToProps,
+)(ThankYou);
+
+export default ThankYou;
