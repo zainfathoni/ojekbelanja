@@ -8,24 +8,10 @@ import ProductCards from './/ProductCards';
 import { products, categories } from '../models';
 
 class Products extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      tempKeyword: '',
-    }
-  }
+  /*** Lifecycle ***/
 
   componentWillUnmount() {
     this.props.clearKeyword();
-  }
-
-  /*** Methods ***/
-
-  actionTemp = (tempKeyword) => {
-    this.setState({
-      tempKeyword,
-    })
   }
 
   /*** Render ***/
@@ -35,8 +21,6 @@ class Products extends Component {
       <div>
         <ProductInput
           placeholder="Cari Produk"
-          tempKeyword={this.state.tempKeyword}
-          actionTemp={this.actionTemp}
           withButton
           />
         <ProductCards
@@ -45,11 +29,7 @@ class Products extends Component {
           fields={{
             title: 'name',
             description: 'desc',
-            image: 'image',
-            ribbon: 'promo',
-            tooltip: 'promo_desc',
             section: 'category',
-            disabled: 'empty'
           }}
           />
       </div>

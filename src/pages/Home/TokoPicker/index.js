@@ -5,14 +5,13 @@ import FilterCards from '../../../components/FilterCards';
 import base from '../../../services/base';
 import '../../pages.css';
 
-export default class TokoPicker extends Component {
+class TokoPicker extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
       stores: {},
       keyword: '',
-      tempKeyword: ''
     }
   }
 
@@ -42,12 +41,6 @@ export default class TokoPicker extends Component {
     })
   }
 
-  updateTempKeyword = (tempKeyword) => {
-    this.setState({
-      tempKeyword
-    })
-  }
-
   /*** Render ***/
 
   render() {
@@ -57,8 +50,6 @@ export default class TokoPicker extends Component {
           placeholder="Cari Nama atau Area Layanan"
           keyword={this.state.keyword}
           action={this.updateKeyword}
-          tempKeyword={this.state.tempKeyword}
-          actionTemp={this.updateTempKeyword}
           />
         <FilterCards
           keyword={this.state.keyword}
@@ -66,10 +57,11 @@ export default class TokoPicker extends Component {
           fields={{
             title: 'name',
             description: 'area',
-            image: 'image',
           }}
           />
       </main>
     );
   }
 }
+
+export default TokoPicker;

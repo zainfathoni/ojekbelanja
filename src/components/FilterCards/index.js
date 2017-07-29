@@ -112,11 +112,7 @@ FilterCards.propTypes = {
   fields: T.shape({
     title: T.string.isRequired,
     description: T.string.isRequired,
-    image: T.string.isRequired,
-    ribbon: T.string,
-    tooltip: T.string,
     section: T.string,
-    isDisabled: T.bool,
   }).isRequired,
   collection: T.objectOf(T.number),
 }
