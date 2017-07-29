@@ -4,7 +4,9 @@ import FilterInput from "../components/FilterInput";
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    keyword: state.keyword
+    placeholder: "Cari Produk",
+    keyword: state.keyword,
+    withButton: true,
   };
 };
 

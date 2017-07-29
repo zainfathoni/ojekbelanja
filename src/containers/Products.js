@@ -19,19 +19,11 @@ class Products extends Component {
   render() {
     return (
       <div>
-        <ProductInput
-          placeholder="Cari Produk"
-          withButton
-          />
+        <ProductInput />
         <ProductCards
           items={products}
           sections={categories}
-          fields={{
-            title: 'name',
-            description: 'desc',
-            section: 'category',
-          }}
-          />
+        />
       </div>
     )
   }
@@ -39,7 +31,7 @@ class Products extends Component {
 
 Products.propTypes = {
   order: T.objectOf(T.number).isRequired,
-  clearKeyword: T.func.isRequired
+  clearKeyword: T.func.isRequired,
 }
 
 const mapStateToProps = (state, ownProps) => {
