@@ -29,30 +29,25 @@ export default function FilterCards(props) {
     .filter(key =>
       items[key][fields.title].toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
       items[key][fields.description].toLowerCase().indexOf(keyword.toLowerCase()) !== -1)
-    .reduce(
-    (res, key) =>
-      Object.assign(
-        {},
-        res,
-        { [key]: items[key] }),
-    {}
+    .reduce((res, key) =>
+      ({
+        ...res,
+        [key]: items[key],
+      }),
+      {}
     );
 
   const sectionedItems = Object.keys(filteredItems)
     .reduce(
     (res, key) => {
       const section = items[key][fields.section];
-      return Object.assign(
-        {},
-        res,
-        {
-          [section]: Object.assign(
-            {},
-            res[section],
-            { [key]: items[key] }
-          )
-        }
-      )
+      return ({
+        ...res,
+        [section]: ({
+          ...res[section],
+          [key]: items[key],
+        })
+      });
     },
     {}
     );

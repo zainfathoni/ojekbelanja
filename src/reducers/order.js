@@ -21,14 +21,14 @@ const order = (state = {}, action) => {
       if (count > 1) {
         return { ...state, [id]: count - 1 };
       } else {
-        let newState = Object.assign({}, state);
+        let newState = { ...state };
         delete newState[id];
         return newState; 
       }
     case ORDER_SET:
       return { ...state, [id]: action.count };
     case ORDER_REMOVE:
-      let newState = Object.assign({}, state);
+      let newState = { ...state };
       delete newState[id];
       return newState; 
     case ORDER_LOAD:

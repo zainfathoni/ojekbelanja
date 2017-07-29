@@ -25,13 +25,12 @@ class Toko extends Component {
           .filter(key =>
             !products[key].empty
           )
-          .reduce(
-          (res, key) =>
-            Object.assign(
-              {},
-              res,
-              { [key]: order[key] }),
-          {}
+          .reduce((res, key) =>
+            ({
+              ...res,
+              [key]: order[key],
+            }),
+            {}
           );
     }
     
