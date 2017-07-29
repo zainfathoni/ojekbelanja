@@ -17,18 +17,12 @@ const mapStateToProps = (state, { id, product: p }) => ({
   tooltip: p.promo_desc,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  action(id) {
-    dispatch(orderPlus(id));
-  },
-  actionReverse(id) {
-    dispatch(orderMinus(id));
-  },
-});
-
 const ProductCard = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  {
+    action: orderPlus,
+    actionReverse: orderMinus,
+  },
 )(Card);
 
 ProductCard.propTypes = {

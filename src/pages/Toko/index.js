@@ -52,15 +52,11 @@ const mapStateToProps = (state, ownProps) => ({
   order: state.order,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  clean(products) {
-    dispatch(orderClean(products));
-  },
-});
-
 Toko = connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    clean: orderClean,
+  },
 )(Toko);
 
 export default Toko;

@@ -6,15 +6,11 @@ const mapStateToProps = (state, ownProps) => ({
   order: state.order,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  clear() {
-    dispatch(orderClear());
-  },
-});
-
 const FooterOrder = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  {
+    clear: orderClear,
+  },
 )(Order);
 
 export default FooterOrder;

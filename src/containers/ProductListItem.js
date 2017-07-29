@@ -6,18 +6,12 @@ const mapStateToProps = (state, ownProps) => ({
   count: state.order[ownProps.id]
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  set(id, count) {
-    dispatch(orderSet(id, count));
-  },
-  remove(id) {
-    dispatch(orderRemove(id));
-  },
-});
-
 const ProductListItem = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  {
+    set: orderSet,
+    remove: orderRemove,
+  },
 )(ListItem);
 
 export default ProductListItem;

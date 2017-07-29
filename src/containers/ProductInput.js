@@ -8,15 +8,11 @@ const mapStateToProps = (state, ownProps) => ({
   withButton: true,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  action(id) {
-    dispatch(keywordSet(id));
-  },
-});
-
 const ProductInput = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  {
+    action: keywordSet,
+  },
 )(FilterInput);
 
 export default ProductInput;

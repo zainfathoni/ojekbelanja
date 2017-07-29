@@ -6,18 +6,12 @@ const mapStateToProps = (state, ownProps) => ({
   user: state.user
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  set(field, value) {
-    dispatch(userSet(field, value));
-  },
-  clear() {
-    dispatch(userClear());
-  },
-});
-
 const PemesanContainer = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  {
+    set: userSet,
+    clear: userClear,
+  },
 )(Pemesan);
 
 export default PemesanContainer;

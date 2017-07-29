@@ -38,15 +38,11 @@ const mapStateToProps = (state, ownProps) => ({
   order: state.order,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  clear() {
-    dispatch(keywordClear());
-  },
-});
-
 Products = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  {
+    clear: keywordClear,
+  },
 )(Products);
 
 export default Products;

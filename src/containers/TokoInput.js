@@ -7,15 +7,11 @@ const mapStateToProps = (state, ownProps) => ({
   keyword: state.keyword,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  action(id) {
-    dispatch(keywordSet(id));
-  }
-});
-
 const TokoInput = connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    action: keywordSet,
+  },
 )(FilterInput);
 
 export default TokoInput;

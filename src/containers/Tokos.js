@@ -59,15 +59,11 @@ Tokos.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({});
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-  clear: () => {
-    dispatch(keywordClear());
-  }
-});
-
 Tokos = connect(
   mapStateToProps,
-  mapDispatchToProps,
+  {
+    clear: keywordClear,
+  },
 )(Tokos);
 
 export default Tokos;
