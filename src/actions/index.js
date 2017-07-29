@@ -10,78 +10,56 @@ export const USER_SET = "USER_SET";
 export const USER_LOAD = "USER_LOAD";
 export const USER_CLEAR = "USER_CLEAR";
 
-export const orderPlus = (id) => {
-  return {
-    type: ORDER_PLUS,
-    id
-  }
-}
+export const orderPlus = (id) => ({
+  type: ORDER_PLUS,
+  id
+});
 
-export const orderMinus = (id) => {
-  return {
-    type: ORDER_MINUS,
-    id
-  }
-}
+export const orderMinus = (id) => ({
+  type: ORDER_MINUS,
+  id
+});
 
-export const orderSet = (id, count) => {
-  return {
-    type: ORDER_SET,
-    id,
-    count
-  }
-}
+export const orderSet = (id, count) => ({
+  type: ORDER_SET,
+  id,
+  count
+});
 
-export const orderRemove = (id) => {
-  return {
-    type: ORDER_REMOVE,
-    id
-  }
-}
+export const orderRemove = (id) => ({
+  type: ORDER_REMOVE,
+  id
+});
 
-export const orderLoad = (order) => {
-  return {
-    type: ORDER_LOAD,
-    order
-  }
-}
+export const orderLoad = (order) => ({
+  type: ORDER_LOAD,
+  order
+});
 
-export const orderClear = () => {
-  return {
-    type: ORDER_CLEAR,
-  }
-}
+export const orderClear = () => ({
+  type: ORDER_CLEAR,
+});
 
-export const keywordSet = (keyword) => {
-  return {
-    type: KEYWORD_SET,
-    keyword
-  }
-}
+export const keywordSet = (keyword) => ({
+  type: KEYWORD_SET,
+  keyword
+});
 
-export const keywordClear = () => {
-  return {
-    type: KEYWORD_CLEAR,
-  }
-}
+export const keywordClear = () => ({
+  type: KEYWORD_CLEAR,
+});
 
-export const userSet = (field, value) => {
-  return {
-    type: USER_SET,
-    field,
-    value
-  }
-}
+export const userSet = (field, value) => ({
+  type: USER_SET,
+  field,
+  value
+});
 
-export const userLoad = (user) => {
-  return {
-    type: USER_LOAD,
-    user
-  }
-}
+export const userLoad = (user) => ({
+  type: USER_LOAD,
+  user
+});
 
-export const userClear = () => {
-  return {
-    type: USER_CLEAR,
-  }
-}
+export const userClear = () => ({
+  type: USER_CLEAR,
+});
