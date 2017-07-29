@@ -15,7 +15,7 @@ class Toko extends Component {
 
   componentWillMount() {
     // Fetch 'order' from Local Storage
-    const order = fetch(`order-${this.props.params.storeId}`);
+    const order = fetch(`order-${this.props.match.params.storeId}`);
 
     let cleanedOrder;
     if (order) {
@@ -41,21 +41,13 @@ class Toko extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     // Save 'order' to Local Storage
-    save(`order-${this.props.params.storeId}`, this.props.order);
-  }
-
-  /*** Methods ***/
-
-  checkout = () => {
-    const { storeId } = this.props.params;
-    console.log(`Checkout ${storeId} Order`);
-    this.context.router.transitionTo(`/pesan/${storeId}`);
+    save(`order-${this.props.match.params.storeId}`, this.props.order);
   }
 
   /*** Render ***/
 
   render() {
-    const { storeId } = this.props.params;
+    const { storeId } = this.props.match.params;
     const toko = stores[storeId];
 
     return (
@@ -75,16 +67,12 @@ class Toko extends Component {
         <footer className="l-wrapper-footer">
           <FooterOrder
             products={products}
-            checkout={this.checkout}
+            id={this.props.match.params.storeId}
             />
         </footer>
       </div>
     );
   }
-}
-
-Toko.contextTypes = {
-  router: React.PropTypes.object
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -99,7 +87,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(orderLoad(order));
     },
     updateCost: () => {
-      dispatch(setCost(stores[ownProps.params.storeId].cost));
+      dispatch(setCost(stores[ownProps.match.params.storeId].cost));
     }
   };
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter, Match, Miss } from 'react-router';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from "react-redux";
 
 import configureStore from "./configureStore";
@@ -20,17 +20,19 @@ const store = configureStore();
 const Root = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <Router>
         <div>
-          <Match exactly pattern="/" component={Home} />
-          <Match pattern="/toko/:storeId" component={Toko} />
-          <Match pattern="/pesan/:storeId" component={Pesan} />
-          <Match pattern="/thankyou/:storeId" component={ThankYou} />
-          <Match pattern="/login" component={Login} />
-          <Match pattern="/styleguide" component={StyleGuide} />
-          <Miss component={NotFound} />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path="/toko/:storeId" component={Toko} />
+            <Route path="/pesan/:storeId" component={Pesan} />
+            <Route path="/thankyou/:storeId" component={ThankYou} />
+            <Route path="/login" component={Login} />
+            <Route path="/styleguide" component={StyleGuide} />
+            <Route component={NotFound} />
+          </Switch>
         </div>
-      </BrowserRouter>
+      </Router>
     </Provider>
   )
 }

@@ -1,4 +1,6 @@
-import React, { PropTypes as T } from 'react';
+import React from 'react';
+import { PropTypes as T } from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import Button from '../Button';
 import { total } from '../../services/product';
@@ -7,6 +9,7 @@ import './Order.css';
 
 export default function Order(props) {
   const {
+    id,
     order,
     products,
     deliveryFee,
@@ -41,13 +44,17 @@ export default function Order(props) {
           isSecondary
           disabled={!orderKeys.length}
           />
-        <Button
-          display="content"
-          action={(e) => props.checkout()}
-          icon="shopping-cart"
-          text="Pesan"
-          disabled={!orderKeys.length}
+        <Link
+          to={`/pesan/${id}`}
+        >
+          <Button
+            display="content"
+            icon="shopping-cart"
+            text="Pesan"
+            disabled={!orderKeys.length}
           />
+        </Link>
+        {/**/}
       </div>
     </div>
   )
@@ -66,5 +73,4 @@ Order.propTypes = {
   })).isRequired,
   deliveryFee: T.number.isRequired,
   clear: T.func.isRequired,
-  checkout: T.func.isRequired,
 }

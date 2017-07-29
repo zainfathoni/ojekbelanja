@@ -48,11 +48,6 @@ export default class TokoPicker extends Component {
     })
   }
 
-  goToToko = (storeId) => {
-    console.log(`Going to ${storeId}`);
-    this.context.router.transitionTo(`/toko/${storeId}`);
-  }
-
   /*** Render ***/
 
   render() {
@@ -78,8 +73,4 @@ export default class TokoPicker extends Component {
       </main>
     );
   }
-}
-
-TokoPicker.contextTypes = {
-  router: React.PropTypes.object
 }
