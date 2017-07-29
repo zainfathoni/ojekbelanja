@@ -4,7 +4,6 @@ export const ORDER_SET = "ORDER_SET";
 export const ORDER_REMOVE = "ORDER_REMOVE";
 export const ORDER_LOAD = "ORDER_LOAD";
 export const ORDER_CLEAR = "ORDER_CLEAR";
-export const SET_COST = "SET_COST";
 export const SET_KEYWORD = "SET_KEYWORD";
 export const USER_SET = "USER_SET";
 export const USER_LOAD = "USER_LOAD";
@@ -49,13 +48,6 @@ export const orderLoad = (order) => {
 export const orderClear = () => {
   return {
     type: ORDER_CLEAR,
-  }
-}
-
-export const setCost = (cost) => {
-  return {
-    type: SET_COST,
-    cost
   }
 }
 

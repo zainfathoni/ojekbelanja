@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from "react-redux";
-import { orderLoad, setCost, userLoad } from "../../actions";
+import { orderLoad, userLoad } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
@@ -22,7 +22,6 @@ class Pesan extends Component {
     if (order) {
       // set(this, 'order', order);
       this.props.updateOrder(order);
-      this.props.updateCost();
     }
 
     // Fetch 'user' from Local Storage
@@ -89,9 +88,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     updateOrder: (order) => {
       dispatch(orderLoad(order));
-    },
-    updateCost: () => {
-      dispatch(setCost(stores[ownProps.match.params.storeId].cost));
     },
     updateUser: (user) => {
       dispatch(userLoad(user));

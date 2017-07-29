@@ -5,7 +5,6 @@ import Order from "../components/Order";
 const mapStateToProps = (state, ownProps) => {
   return {
     order: state.order,
-    deliveryFee: state.cost
   };
 };
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { orderLoad, setCost } from "../../actions";
+import { orderLoad } from "../../actions";
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
@@ -36,7 +36,6 @@ class Toko extends Component {
     }
     
     this.props.updateOrder(cleanedOrder);
-    this.props.updateCost();
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -68,6 +67,7 @@ class Toko extends Component {
           <FooterOrder
             products={products}
             id={this.props.match.params.storeId}
+            deliveryFee={toko.cost}
             />
         </footer>
       </div>
@@ -86,9 +86,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     updateOrder: (order) => {
       dispatch(orderLoad(order));
     },
-    updateCost: () => {
-      dispatch(setCost(stores[ownProps.match.params.storeId].cost));
-    }
   };
 };
 
