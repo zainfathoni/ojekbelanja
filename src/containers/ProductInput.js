@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { setKeyword } from "../actions";
+import { keywordSet } from "../actions";
 import FilterInput from "../components/FilterInput";
 
 const mapStateToProps = (state, ownProps) => {
@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     action: (id) => {
-      dispatch(setKeyword(id));
+      dispatch(keywordSet(id));
     }
   };
 };

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PropTypes as T } from 'prop-types';
 import { connect } from "react-redux";
-import { setKeyword } from "../actions";
+import { keywordClear } from "../actions";
 
 import ProductInput from './ProductInput';
 import ProductCards from './/ProductCards';
@@ -71,7 +71,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     clearKeyword: () => {
-      dispatch(setKeyword(""));
+      dispatch(keywordClear());
     }
   };
 };
