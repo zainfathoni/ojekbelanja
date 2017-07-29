@@ -35,7 +35,7 @@ const order = (state = {}, action) => {
       // Clean empty products from order
       return Object.keys(state)
           .filter(key =>
-            !action.products[key].empty
+            action.products[key] !== undefined && !action.products[key].empty
           )
           .reduce((res, key) =>
             ({
