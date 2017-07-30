@@ -1,11 +1,11 @@
 import order from './order';
-import { orderPlus, orderMinus, orderSet, orderRemove, orderClean, orderClear } from '../actions';
+import { incOrder, decOrder, setOrder, removeOrder, cleanOrder, clearOrder } from '../actions';
 
 test('INC_ORDER', () => {
   const before = {
     kecap: 1,
   };
-  const action = orderPlus("kecap");
+  const action = incOrder("kecap");
   const after = {
     kecap: 2,
   };
@@ -17,7 +17,7 @@ test('INC_ORDER', () => {
 
 test('INC_ORDER Empty', () => {
   const before = {};
-  const action = orderPlus("kecap");
+  const action = incOrder("kecap");
   const after = {
     kecap: 1,
   };
@@ -31,7 +31,7 @@ test('DEC_ORDER', () => {
   const before = {
     kecap: 2,
   };
-  const action = orderMinus("kecap");
+  const action = decOrder("kecap");
   const after = {
     kecap: 1,
   };
@@ -45,7 +45,7 @@ test('DEC_ORDER Empty', () => {
   const before = {
     kecap: 1,
   };
-  const action = orderMinus("kecap");
+  const action = decOrder("kecap");
   const after = {};
 
   expect(
@@ -55,7 +55,7 @@ test('DEC_ORDER Empty', () => {
 
 test('SET_ORDER', () => {
   const before = {};
-  const action = orderSet("kecap", 3);
+  const action = setOrder("kecap", 3);
   const after = {
     kecap: 3,
   };
@@ -69,7 +69,7 @@ test('REMOVE_ORDER', () => {
   const before = {
     kecap: 3,
   };
-  const action = orderRemove("kecap");
+  const action = removeOrder("kecap");
   const after = {};
 
   expect(
@@ -82,7 +82,7 @@ test('CLEAN_ORDER', () => {
     kecap: 3,
     saos: 2,
   };
-  const action = orderClean({
+  const action = cleanOrder({
     kecap: {
       empty: false,
     },
@@ -104,7 +104,7 @@ test('CLEAN_ORDER No Product', () => {
     kecap: 3,
     saos: 2,
   };
-  const action = orderClean({
+  const action = cleanOrder({
     kecap: {
       empty: false,
     },
@@ -123,7 +123,7 @@ test('CLEAR_ORDER', () => {
     kecap: 3,
     saos: 2,
   };
-  const action = orderClear();
+  const action = clearOrder();
   const after = {};
 
   expect(

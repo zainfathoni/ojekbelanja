@@ -1,7 +1,7 @@
 import { PropTypes as T } from 'prop-types';
 import { connect } from 'react-redux';
 
-import { orderPlus, orderMinus } from '../actions';
+import { incOrder, decOrder } from '../actions';
 import { getProductKeyword } from '../reducers';
 import { quantify } from '../services/product';
 import Card from "../components/FilterCards/Card";
@@ -22,8 +22,8 @@ const mapStateToProps = (state, { id, product: p }) => ({
 const ProductCard = connect(
   mapStateToProps,
   {
-    action: orderPlus,
-    actionReverse: orderMinus,
+    action: incOrder,
+    actionReverse: decOrder,
   },
 )(Card);
 

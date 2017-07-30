@@ -12,7 +12,7 @@ class Tokos extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
-    this.props.storesFetch();
+    this.props.fetchStores();
   }
 
   /*** Render ***/
@@ -38,7 +38,7 @@ Tokos.propTypes = {
         cost: T.number.isRequired,
       }).isRequired
     ).isRequired,
-    storesFetch: T.func.isRequired,
+    fetchStores: T.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({

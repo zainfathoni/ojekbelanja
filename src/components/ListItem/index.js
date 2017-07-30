@@ -9,21 +9,21 @@ export default function ListItem({
   id,
   item,
   count,
-  orderSet,
-  orderRemove
+  setOrder,
+  removeOrder
 }) {
   const onChange = (field, value) => {
-    orderSet(field, escapeFloatingPoint(value));
+    setOrder(field, escapeFloatingPoint(value));
   }
 
   const onBlur = (productId) => {
     if (count <= 0) {
-      orderRemove(productId);
+      removeOrder(productId);
     }
   }
 
-  const orderRemoveOrder = (productId) => {
-    orderRemove(productId);
+  const removeOrderOrder = (productId) => {
+    removeOrder(productId);
   }
 
   return (
@@ -90,7 +90,7 @@ export default function ListItem({
           <td className="Pesanan-item-order-qty-action">
             <Button
               display="icon"
-              action={(e) => orderRemoveOrder(id)}
+              action={(e) => removeOrderOrder(id)}
               icon="trash"
               text="Hapus"
               isSecondary
@@ -107,6 +107,6 @@ ListItem.propTypes = {
   id: T.string.isRequired,
   item: T.object.isRequired,
   count: T.number.isRequired,
-  orderSet: T.func.isRequired,
-  orderRemove: T.func.isRequired
+  setOrder: T.func.isRequired,
+  removeOrder: T.func.isRequired
 }

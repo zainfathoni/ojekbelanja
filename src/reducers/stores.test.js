@@ -1,9 +1,9 @@
 import stores from './stores';
-import { storesReceive } from '../actions';
+import { receiveStores } from '../actions';
 
 test('FETCH_STORES_SUCCESS', () => {
   const before = {};
-  const action = storesReceive({
+  const action = receiveStores({
       jejen: {
       name: 'Jejen',
       phone: '081234567890',

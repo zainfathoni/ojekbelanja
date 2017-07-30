@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { productsKeywordSet } from '../actions';
+import { setProductKeyword } from '../actions';
 import { getProductKeyword } from '../reducers';
 import FilterInput from "../components/FilterInput";
 
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const ProductInput = connect(
   mapStateToProps,
-  { keywordSet: productsKeywordSet },
+  { keywordSet: setProductKeyword },
 )(FilterInput);
 
 export default ProductInput;

@@ -16,74 +16,74 @@ export const FETCH_STORE_SUCCESS = "FETCH_STORE_SUCCESS";
 
 export const SET_PRODUCT_KEYWORD = "SET_PRODUCT_KEYWORD";
 
-export const orderPlus = (id) => ({
+export const incOrder = (id) => ({
   type: INC_ORDER,
   id
 });
 
-export const orderMinus = (id) => ({
+export const decOrder = (id) => ({
   type: DEC_ORDER,
   id
 });
 
-export const orderSet = (id, count) => ({
+export const setOrder = (id, count) => ({
   type: SET_ORDER,
   id,
   count
 });
 
-export const orderRemove = (id) => ({
+export const removeOrder = (id) => ({
   type: REMOVE_ORDER,
   id
 });
 
-export const orderClean = (products) => ({
+export const cleanOrder = (products) => ({
   type: CLEAN_ORDER,
   products
 });
 
-export const orderClear = () => ({
+export const clearOrder = () => ({
   type: CLEAR_ORDER,
 });
 
-export const userSet = (field, value) => ({
+export const setUser = (field, value) => ({
   type: SET_USER,
   field,
   value
 });
 
-export const userClear = () => ({
+export const clearUser = () => ({
   type: CLEAR_USER,
 });
 
-export const storesKeywordSet = (keyword) => ({
+export const setStoreKeyword = (keyword) => ({
   type: SET_STORE_KEYWORD,
   keyword
 });
 
-export const storesReceive = (stores) => ({
+export const receiveStores = (stores) => ({
   type: FETCH_STORES_SUCCESS,
   stores
 });
 
 // Fetch stores from Firebase
-export const storesFetch = () => base
+export const fetchStores = () => base
   .fetch(`/stores`, { context: this })
-  .then(stores => storesReceive(stores))
+  .then(stores => receiveStores(stores))
   .catch(error => {console.error(error);});
 
-const storeReceive = (id, store) => ({
+const receiveStore = (id, store) => ({
   type: FETCH_STORE_SUCCESS,
   id,
   store
 });
 
-export const storeFetch = (id) => base
+export const fetchStore = (id) => base
   .fetch(`/stores/${id}`, { context: this })
-  .then(store => storeReceive(id, store))
+  .then(store => receiveStore(id, store))
   .catch(error => {console.error(error);});
 
-export const productsKeywordSet = (keyword) => ({
+export const setProductKeyword = (keyword) => ({
   type: SET_PRODUCT_KEYWORD,
   keyword
 });

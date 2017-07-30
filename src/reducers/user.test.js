@@ -1,11 +1,11 @@
 import user from './user';
-import { userSet, userClear } from '../actions';
+import { setUser, clearUser } from '../actions';
 
 test('SET_USER', () => {
   const before = {
     name: "Zain",
   };
-  const action = userSet("name", "Zain Fathoni");
+  const action = setUser("name", "Zain Fathoni");
   const after = {
     name: "Zain Fathoni",
   };
@@ -19,7 +19,7 @@ test('CLEAR_USER', () => {
   const before = {
     name: "Zain",
   };
-  const action = userClear();
+  const action = clearUser();
   const after = {};
 
   expect(

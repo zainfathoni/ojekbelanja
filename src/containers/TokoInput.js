@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { storesKeywordSet } from '../actions';
+import { setStoreKeyword } from '../actions';
 import { getStoreKeyword } from '../reducers';
 import FilterInput from "../components/FilterInput";
 
@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const TokoInput = connect(
   mapStateToProps,
-  { keywordSet: storesKeywordSet },
+  { keywordSet: setStoreKeyword },
 )(FilterInput);
 
 export default TokoInput;
