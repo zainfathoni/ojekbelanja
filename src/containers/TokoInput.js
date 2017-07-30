@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import { keywordSet } from "../actions";
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import FilterInput from "../components/FilterInput";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -9,7 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const TokoInput = connect(
   mapStateToProps,
-  { keywordSet },
+  actions,
 )(FilterInput);
 
 export default TokoInput;

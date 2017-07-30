@@ -1,5 +1,5 @@
 import { PropTypes as T } from 'prop-types';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import Card from "../components/FilterCards/Card";
 
 const mapStateToProps = (state, { toko: t }) => ({

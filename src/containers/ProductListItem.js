@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import { orderSet, orderRemove } from "../actions";
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import ListItem from "../components/ListItem";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const ProductListItem = connect(
   mapStateToProps,
-  { orderSet, orderRemove },
+  actions,
 )(ListItem);
 
 export default ProductListItem;

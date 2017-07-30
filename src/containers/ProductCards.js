@@ -1,4 +1,4 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import FilterCards from "../components/FilterCards";
 
 const mapStateToProps = (state, ownProps) => ({

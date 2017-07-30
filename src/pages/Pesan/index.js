@@ -1,6 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
@@ -26,14 +26,14 @@ let Pesan = ({ match, order }) => {
         <main className="l-main">
           <div className="l-Pesan">
             <Pesanan
-              name={"order"}
+              name="order"
               order={order}
               storeId={storeId}
               />
           </div>
           <div className="l-Pesan">
             <PemesanContainer
-              name={"user"}
+              name="user"
               storeId={storeId}
               />
           </div>

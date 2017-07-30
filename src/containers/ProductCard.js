@@ -1,6 +1,6 @@
 import { PropTypes as T } from 'prop-types';
-import { connect } from "react-redux";
-import { orderPlus, orderMinus } from "../actions";
+import { connect } from 'react-redux';
+import { orderPlus, orderMinus } from '../actions';
 import { quantify } from '../services/product';
 import Card from "../components/FilterCards/Card";
 

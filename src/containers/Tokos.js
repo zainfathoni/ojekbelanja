@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { PropTypes as T } from 'prop-types';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { storesReceive, keywordClear } from "../actions";
+import * as actions from '../actions';
 import TokoInput from './TokoInput';
 import TokoCards from './TokoCards';
 import base from '../services/base';
@@ -52,6 +52,7 @@ Tokos.propTypes = {
         cost: T.number.isRequired,
       }).isRequired
     ).isRequired,
+    storesReceive: T.func.isRequired,
     keywordClear: T.func.isRequired,
 }
 
@@ -61,7 +62,7 @@ const mapStateToProps = (state) => ({
 
 Tokos = connect(
   mapStateToProps,
-  { keywordClear, storesReceive },
+  actions,
 )(Tokos);
 
 export default Tokos;

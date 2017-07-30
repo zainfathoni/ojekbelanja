@@ -1,6 +1,6 @@
 import {
   STORES_RECEIVE
-} from "../actions";
+} from '../actions';
 
 const stores = (state = {}, action) => {
   switch (action.type) {

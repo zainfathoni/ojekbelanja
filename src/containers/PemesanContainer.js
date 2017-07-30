@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import { userSet, userClear } from "../actions";
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import Pemesan from "../pages/Pesan/Pemesan";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const PemesanContainer = connect(
   mapStateToProps,
-  { userSet, userClear },
+  actions,
 )(Pemesan);
 
 export default PemesanContainer;

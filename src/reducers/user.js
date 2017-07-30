@@ -1,7 +1,7 @@
 import {
   USER_SET,
   USER_CLEAR
-} from "../actions";
+} from '../actions';
 
 const user = (state = {}, action) => {
   switch (action.type) {

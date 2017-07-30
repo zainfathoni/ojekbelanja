@@ -5,7 +5,7 @@ import {
   ORDER_REMOVE,
   ORDER_CLEAN,
   ORDER_CLEAR
-} from "../actions";
+} from '../actions';
 
 const order = (state = {}, action) => {
   const { id } = action

@@ -1,7 +1,7 @@
 import {
   KEYWORD_SET,
   KEYWORD_CLEAR,
-} from "../actions";
+} from '../actions';
 
 const keyword = (state = "", action) => {
   switch (action.type) {

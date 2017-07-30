@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
+import { PropTypes as T } from 'prop-types';
+import { connect } from 'react-redux';
 
+import * as actions from '../../actions';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Products from '../../containers/Products';
 import FooterOrder from '../../containers/FooterOrder';
-import { orderClean } from '../../actions';
 import { stores, products } from '../../models';
 import '../pages.css';
 
@@ -48,13 +49,13 @@ class Toko extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  order: state.order,
-});
+Toko.propTypes = {
+  orderClean: T.func.isRequired,
+}
 
 Toko = connect(
-  mapStateToProps,
-  { orderClean },
+  null,
+  actions,
 )(Toko);
 
 export default Toko;

@@ -1,5 +1,5 @@
-import { connect } from "react-redux";
-import { orderClear } from "../actions";
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import Order from "../components/Order";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const FooterOrder = connect(
   mapStateToProps,
-  { orderClear },
+  actions,
 )(Order);
 
 export default FooterOrder;
