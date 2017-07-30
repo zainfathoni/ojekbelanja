@@ -6,12 +6,12 @@ export const ORDER_SET = "ORDER_SET";
 export const ORDER_REMOVE = "ORDER_REMOVE";
 export const ORDER_CLEAN = "ORDER_CLEAN";
 export const ORDER_CLEAR = "ORDER_CLEAR";
-export const KEYWORD_SET = "KEYWORD_SET";
-export const KEYWORD_CLEAR = "KEYWORD_CLEAR";
 export const USER_SET = "USER_SET";
 export const USER_CLEAR = "USER_CLEAR";
+export const STORES_KEYWORD_SET = "STORES_KEYWORD_SET";
 export const STORES_RECEIVE = "STORES_RECEIVE";
 export const STORE_RECEIVE = "STORE_RECEIVE";
+export const PRODUCTS_KEYWORD_SET = "PRODUCTS_KEYWORD_SET";
 
 export const orderPlus = (id) => ({
   type: ORDER_PLUS,
@@ -43,15 +43,6 @@ export const orderClear = () => ({
   type: ORDER_CLEAR,
 });
 
-export const keywordSet = (keyword) => ({
-  type: KEYWORD_SET,
-  keyword
-});
-
-export const keywordClear = () => ({
-  type: KEYWORD_CLEAR,
-});
-
 export const userSet = (field, value) => ({
   type: USER_SET,
   field,
@@ -60,6 +51,11 @@ export const userSet = (field, value) => ({
 
 export const userClear = () => ({
   type: USER_CLEAR,
+});
+
+export const storesKeywordSet = (keyword) => ({
+  type: STORES_KEYWORD_SET,
+  keyword
 });
 
 export const storesReceive = (stores) => ({
@@ -83,3 +79,8 @@ export const storeFetch = (id) => base
   .fetch(`/stores/${id}`, { context: this })
   .then(store => storeReceive(id, store))
   .catch(error => {console.error(error);});
+
+export const productsKeywordSet = (keyword) => ({
+  type: PRODUCTS_KEYWORD_SET,
+  keyword
+});

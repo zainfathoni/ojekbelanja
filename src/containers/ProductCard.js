@@ -1,11 +1,13 @@
 import { PropTypes as T } from 'prop-types';
 import { connect } from 'react-redux';
+
 import { orderPlus, orderMinus } from '../actions';
+import { getProductKeyword } from '../reducers';
 import { quantify } from '../services/product';
 import Card from "../components/FilterCards/Card";
 
 const mapStateToProps = (state, { id, product: p }) => ({
-  keyword: state.keyword,
+  keyword: getProductKeyword(state),
   title: p.name,
   description: p.desc,
   image: require(`../css/images/${p.image}`),

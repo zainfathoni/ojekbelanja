@@ -1,5 +1,4 @@
 {
-  "keyword": "",
   "stores": {
     "items": {
       "jejen": {
@@ -10,6 +9,7 @@
         "phone": "081234567890"
       }
     },
+    "keyword": "je",
     "isFetching": false,
     "errorMessage": null
   },
@@ -36,6 +36,7 @@
         "promo_desc": "Diskon Akhir Pekan"
       }
     },
+    "keyword": "say",
     "isFetching": false,
     "errorMessage": null
   },

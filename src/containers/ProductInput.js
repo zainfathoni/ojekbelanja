@@ -1,16 +1,18 @@
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+
+import { productsKeywordSet } from '../actions';
+import { getProductKeyword } from '../reducers';
 import FilterInput from "../components/FilterInput";
 
 const mapStateToProps = (state, ownProps) => ({
   placeholder: "Cari Produk",
-  keyword: state.keyword,
+  keyword: getProductKeyword(state),
   withButton: true,
 });
 
 const ProductInput = connect(
   mapStateToProps,
-  actions,
+  { keywordSet: productsKeywordSet },
 )(FilterInput);
 
 export default ProductInput;

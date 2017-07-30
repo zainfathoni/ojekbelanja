@@ -15,10 +15,6 @@ class Tokos extends Component {
     this.props.storesFetch();
   }
 
-  componentWillUnmount() {
-    this.props.keywordClear();
-  }
-
   /*** Render ***/
 
   render() {
@@ -43,7 +39,6 @@ Tokos.propTypes = {
       }).isRequired
     ).isRequired,
     storesFetch: T.func.isRequired,
-    keywordClear: T.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({

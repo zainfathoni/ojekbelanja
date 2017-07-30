@@ -9,7 +9,7 @@ export default class FilterInput extends Component {
     super(props);
 
     this.state = {
-      tempKeyword: '',
+      tempKeyword: this.props.keyword,
     }
   }
 
