@@ -11,6 +11,7 @@ export const KEYWORD_CLEAR = "KEYWORD_CLEAR";
 export const USER_SET = "USER_SET";
 export const USER_CLEAR = "USER_CLEAR";
 export const STORES_RECEIVE = "STORES_RECEIVE";
+export const STORE_RECEIVE = "STORE_RECEIVE";
 
 export const orderPlus = (id) => ({
   type: ORDER_PLUS,
@@ -70,4 +71,15 @@ export const storesReceive = (stores) => ({
 export const storesFetch = () => base
   .fetch(`/stores`, { context: this })
   .then(stores => storesReceive(stores))
+  .catch(error => {console.error(error);});
+
+const storeReceive = (id, store) => ({
+  type: STORE_RECEIVE,
+  id,
+  store
+});
+
+export const storeFetch = (id) => base
+  .fetch(`/stores/${id}`, { context: this })
+  .then(store => storeReceive(id, store))
   .catch(error => {console.error(error);});
