@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import {
-  PRODUCTS_KEYWORD_SET,
+  SET_PRODUCT_KEYWORD,
 } from '../actions';
 
 const keyword = (state = "", action) => {
   switch (action.type) {
-    case PRODUCTS_KEYWORD_SET:
+    case SET_PRODUCT_KEYWORD:
       return action.keyword
     default:
       return state;

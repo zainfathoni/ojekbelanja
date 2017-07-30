@@ -1,7 +1,7 @@
 import user from './user';
 import { userSet, userClear } from '../actions';
 
-test('USER_SET', () => {
+test('SET_USER', () => {
   const before = {
     name: "Zain",
   };
@@ -15,7 +15,7 @@ test('USER_SET', () => {
   ).toEqual(after);
 });
 
-test('USER_CLEAR', () => {
+test('CLEAR_USER', () => {
   const before = {
     name: "Zain",
   };

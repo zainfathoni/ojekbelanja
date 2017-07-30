@@ -1,7 +1,7 @@
 import stores from './stores';
 import { storesReceive } from '../actions';
 
-test('STORES_RECEIVE', () => {
+test('FETCH_STORES_SUCCESS', () => {
   const before = {};
   const action = storesReceive({
       jejen: {

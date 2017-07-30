@@ -1,7 +1,7 @@
 import order from './order';
 import { orderPlus, orderMinus, orderSet, orderRemove, orderClean, orderClear } from '../actions';
 
-test('ORDER_PLUS', () => {
+test('INC_ORDER', () => {
   const before = {
     kecap: 1,
   };
@@ -15,7 +15,7 @@ test('ORDER_PLUS', () => {
   ).toEqual(after);
 });
 
-test('ORDER_PLUS Empty', () => {
+test('INC_ORDER Empty', () => {
   const before = {};
   const action = orderPlus("kecap");
   const after = {
@@ -27,7 +27,7 @@ test('ORDER_PLUS Empty', () => {
   ).toEqual(after);
 });
 
-test('ORDER_MINUS', () => {
+test('DEC_ORDER', () => {
   const before = {
     kecap: 2,
   };
@@ -41,7 +41,7 @@ test('ORDER_MINUS', () => {
   ).toEqual(after);
 });
 
-test('ORDER_MINUS Empty', () => {
+test('DEC_ORDER Empty', () => {
   const before = {
     kecap: 1,
   };
@@ -53,7 +53,7 @@ test('ORDER_MINUS Empty', () => {
   ).toEqual(after);
 });
 
-test('ORDER_SET', () => {
+test('SET_ORDER', () => {
   const before = {};
   const action = orderSet("kecap", 3);
   const after = {
@@ -65,7 +65,7 @@ test('ORDER_SET', () => {
   ).toEqual(after);
 });
 
-test('ORDER_REMOVE', () => {
+test('REMOVE_ORDER', () => {
   const before = {
     kecap: 3,
   };
@@ -77,7 +77,7 @@ test('ORDER_REMOVE', () => {
   ).toEqual(after);
 });
 
-test('ORDER_CLEAN', () => {
+test('CLEAN_ORDER', () => {
   const before = {
     kecap: 3,
     saos: 2,
@@ -99,7 +99,7 @@ test('ORDER_CLEAN', () => {
   ).toEqual(after);
 });
 
-test('ORDER_CLEAN No Product', () => {
+test('CLEAN_ORDER No Product', () => {
   const before = {
     kecap: 3,
     saos: 2,
@@ -118,7 +118,7 @@ test('ORDER_CLEAN No Product', () => {
   ).toEqual(after);
 });
 
-test('ORDER_CLEAR', () => {
+test('CLEAR_ORDER', () => {
   const before = {
     kecap: 3,
     saos: 2,

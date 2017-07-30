@@ -1,15 +1,15 @@
 import { combineReducers } from "redux";
 import {
-  STORES_KEYWORD_SET,
-  STORES_RECEIVE,
-  STORE_RECEIVE,
+  SET_STORE_KEYWORD,
+  FETCH_STORES_SUCCESS,
+  FETCH_STORE_SUCCESS,
 } from '../actions';
 
 const items = (state = {}, action) => {
   switch (action.type) {
-    case STORES_RECEIVE:
+    case FETCH_STORES_SUCCESS:
       return action.stores;
-    case STORE_RECEIVE:
+    case FETCH_STORE_SUCCESS:
       return { ...state, [action.id]: action.store };
     default:
       return state;
@@ -18,7 +18,7 @@ const items = (state = {}, action) => {
 
 const keyword = (state = "", action) => {
   switch (action.type) {
-    case STORES_KEYWORD_SET:
+    case SET_STORE_KEYWORD:
       return action.keyword
     default:
       return state;
