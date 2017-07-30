@@ -8,10 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const PemesanContainer = connect(
   mapStateToProps,
-  {
-    set: userSet,
-    clear: userClear,
-  },
+  { userSet, userClear },
 )(Pemesan);
 
 export default PemesanContainer;

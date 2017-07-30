@@ -11,7 +11,7 @@ class Products extends Component {
   /*** Lifecycle ***/
 
   componentWillUnmount() {
-    this.props.clear();
+    this.props.keywordClear();
   }
 
   /*** Render ***/
@@ -31,7 +31,7 @@ class Products extends Component {
 
 Products.propTypes = {
   order: T.objectOf(T.number).isRequired,
-  clear: T.func.isRequired,
+  keywordClear: T.func.isRequired,
 }
 
 const mapStateToProps = (state, ownProps) => ({
@@ -40,9 +40,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 Products = connect(
   mapStateToProps,
-  {
-    clear: keywordClear,
-  },
+  { keywordClear },
 )(Products);
 
 export default Products;

@@ -13,7 +13,7 @@ class Toko extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
-    this.props.clean(products);
+    this.props.orderClean(products);
   }
 
   /*** Render ***/
@@ -54,9 +54,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 Toko = connect(
   mapStateToProps,
-  {
-    clean: orderClean,
-  },
+  { orderClean },
 )(Toko);
 
 export default Toko;

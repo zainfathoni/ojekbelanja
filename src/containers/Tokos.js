@@ -26,7 +26,7 @@ class Tokos extends Component {
   }
 
   componentWillUnmount() {
-    this.props.clear();
+    this.props.keywordClear();
   }
 
   /*** Render ***/
@@ -52,7 +52,7 @@ Tokos.propTypes = {
         cost: T.number.isRequired,
       }).isRequired
     ).isRequired,
-    clear: T.func.isRequired,
+    keywordClear: T.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
@@ -61,10 +61,7 @@ const mapStateToProps = (state) => ({
 
 Tokos = connect(
   mapStateToProps,
-  {
-    clear: keywordClear,
-    storesReceive,
-  },
+  { keywordClear, storesReceive },
 )(Tokos);
 
 export default Tokos;

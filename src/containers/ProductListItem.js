@@ -8,10 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const ProductListItem = connect(
   mapStateToProps,
-  {
-    set: orderSet,
-    remove: orderRemove,
-  },
+  { orderSet, orderRemove },
 )(ListItem);
 
 export default ProductListItem;

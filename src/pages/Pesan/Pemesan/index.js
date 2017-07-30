@@ -14,8 +14,8 @@ export default function Pemesan(props) {
     name,
     user,
     storeId,
-    set,
-    clear,
+    userSet,
+    userClear,
   } = props;
 
   const isUserInvalid = (user) =>
@@ -26,11 +26,11 @@ export default function Pemesan(props) {
     !user.address;
 
   const onChange = (field, value) => {
-    set(field, value);
+    userSet(field, value);
   }
 
   const onReset = (field, value) => {
-    clear();
+    userClear();
   }
 
   const onSubmit = (e, storeId) => {
@@ -144,6 +144,6 @@ Pemesan.propTypes = {
   name: T.string.isRequired,
   user: T.object.isRequired,
   storeId: T.string.isRequired,
-  set: T.func.isRequired,
-  clear: T.func.isRequired,
+  userSet: T.func.isRequired,
+  userClear: T.func.isRequired,
 }

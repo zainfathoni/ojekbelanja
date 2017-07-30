@@ -9,9 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const TokoInput = connect(
   mapStateToProps,
-  {
-    action: keywordSet,
-  },
+  { keywordSet },
 )(FilterInput);
 
 export default TokoInput;

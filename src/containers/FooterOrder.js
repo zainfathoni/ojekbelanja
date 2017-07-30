@@ -8,9 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const FooterOrder = connect(
   mapStateToProps,
-  {
-    clear: orderClear,
-  },
+  { orderClear },
 )(Order);
 
 export default FooterOrder;

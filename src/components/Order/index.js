@@ -13,6 +13,7 @@ export default function Order(props) {
     order,
     products,
     deliveryFee,
+    orderClear,
   } = props;
 
   // Calculate Price
@@ -38,7 +39,7 @@ export default function Order(props) {
       <div className="Order-action-wrapper">
         <Button
           display="content"
-          action={(e) => props.clear()}
+          action={(e) => orderClear()}
           icon="times"
           text="Kosongkan"
           isSecondary
@@ -72,5 +73,5 @@ Order.propTypes = {
     category: T.string.isRequired,
   })).isRequired,
   deliveryFee: T.number.isRequired,
-  clear: T.func.isRequired,
+  orderClear: T.func.isRequired,
 }

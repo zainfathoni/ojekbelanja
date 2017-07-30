@@ -10,9 +10,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const ProductInput = connect(
   mapStateToProps,
-  {
-    action: keywordSet,
-  },
+  { keywordSet },
 )(FilterInput);
 
 export default ProductInput;
