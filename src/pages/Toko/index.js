@@ -23,7 +23,7 @@ class Toko extends Component {
   render() {
     const { id, toko } = this.props;
     // Render Loading Bars
-    if (toko === undefined) {
+    if (!toko) {
       return (
         <div className="l-fullwidth">
           <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
