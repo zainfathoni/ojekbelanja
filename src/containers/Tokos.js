@@ -3,6 +3,7 @@ import { PropTypes as T } from 'prop-types';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions';
+import { getStores } from '../reducers';
 import TokoInput from './TokoInput';
 import TokoCards from './TokoCards';
 import '../pages/pages.css';
@@ -46,7 +47,7 @@ Tokos.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  stores: state.stores,
+  stores: getStores(state),
 });
 
 Tokos = connect(

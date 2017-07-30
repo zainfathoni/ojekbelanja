@@ -3,6 +3,7 @@ import { PropTypes as T } from 'prop-types';
 import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
+import { getStore } from '../../reducers';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Products from '../../containers/Products';
@@ -70,10 +71,13 @@ Toko.propTypes = {
   orderClean: T.func.isRequired,
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  id: ownProps.match.params.storeId,
-  toko: state.stores[ownProps.match.params.storeId],
-});
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.match.params.storeId;
+  return {
+    id,
+    toko: getStore(state, id),
+  }
+};
 
 Toko = connect(
   mapStateToProps,

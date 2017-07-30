@@ -1,10 +1,10 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import promise from "redux-promise";
-import { createLogger } from "redux-logger";
+import { createStore, applyMiddleware, compose } from 'redux';
+import promise from 'redux-promise';
+import { createLogger } from 'redux-logger';
 import { loadState, saveState } from './services/localStorage'; 
 import throttle from 'lodash/throttle'; 
 
-import ojekBelanja from "./reducers";
+import ojekBelanja from './reducers';
 
 const configureStore = () => {
   const middlewares = [promise];
