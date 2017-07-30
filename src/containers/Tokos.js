@@ -11,7 +11,6 @@ class Tokos extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
-    // Fetch stores from Firebase
     this.props.storesFetch();
   }
 
