@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import TokoInput from './TokoInput';
 import TokoCards from './TokoCards';
-import base from '../services/base';
 import '../pages/pages.css';
 
 class Tokos extends Component {
@@ -13,16 +12,7 @@ class Tokos extends Component {
 
   componentWillMount() {
     // Fetch stores from Firebase
-    base
-      .fetch(`/stores`, {
-        context: this
-      })
-      .then(stores => {
-        this.props.storesReceive(stores);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    this.props.storesFetch();
   }
 
   componentWillUnmount() {
@@ -52,7 +42,7 @@ Tokos.propTypes = {
         cost: T.number.isRequired,
       }).isRequired
     ).isRequired,
-    storesReceive: T.func.isRequired,
+    storesFetch: T.func.isRequired,
     keywordClear: T.func.isRequired,
 }
 

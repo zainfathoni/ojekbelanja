@@ -1,3 +1,5 @@
+import base from '../services/base';
+
 export const ORDER_PLUS = "ORDER_PLUS";
 export const ORDER_MINUS = "ORDER_MINUS";
 export const ORDER_SET = "ORDER_SET";
@@ -63,3 +65,9 @@ export const storesReceive = (stores) => ({
   type: STORES_RECEIVE,
   stores
 });
+
+// Fetch stores from Firebase
+export const storesFetch = () => base
+  .fetch(`/stores`, { context: this })
+  .then(stores => storesReceive(stores))
+  .catch(error => {console.error(error);});

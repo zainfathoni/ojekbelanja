@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from "redux";
+import promise from "redux-promise";
 import { createLogger } from "redux-logger";
 import { loadState, saveState } from './services/localStorage'; 
 import throttle from 'lodash/throttle'; 
@@ -6,7 +7,7 @@ import throttle from 'lodash/throttle';
 import ojekBelanja from "./reducers";
 
 const configureStore = () => {
-  const middlewares = [];
+  const middlewares = [promise];
   if (process.env.NODE_ENV !== 'production') {
     middlewares.push(createLogger());
   }
