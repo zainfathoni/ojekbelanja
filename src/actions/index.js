@@ -8,6 +8,7 @@ export const KEYWORD_SET = "KEYWORD_SET";
 export const KEYWORD_CLEAR = "KEYWORD_CLEAR";
 export const USER_SET = "USER_SET";
 export const USER_CLEAR = "USER_CLEAR";
+export const STORES_RECEIVE = "STORES_RECEIVE";
 
 export const orderPlus = (id) => ({
   type: ORDER_PLUS,
@@ -56,4 +57,9 @@ export const userSet = (field, value) => ({
 
 export const userClear = () => ({
   type: USER_CLEAR,
+});
+
+export const storesReceive = (stores) => ({
+  type: STORES_RECEIVE,
+  stores
 });

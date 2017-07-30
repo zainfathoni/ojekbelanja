@@ -2,21 +2,13 @@ import React, { Component } from 'react';
 import { PropTypes as T } from 'prop-types';
 import { connect } from "react-redux";
 
-import { keywordClear } from "../actions";
+import { storesReceive, keywordClear } from "../actions";
 import TokoInput from './TokoInput';
 import TokoCards from './TokoCards';
 import base from '../services/base';
 import '../pages/pages.css';
 
 class Tokos extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      stores: {},
-    }
-  }
-
   /*** Lifecycle ***/
 
   componentWillMount() {
@@ -25,10 +17,8 @@ class Tokos extends Component {
       .fetch(`/stores`, {
         context: this
       })
-      .then(data => {
-        this.setState({
-          stores: data
-        })
+      .then(stores => {
+        this.props.storesReceive(stores);
       })
       .catch(error => {
         console.log(error);
@@ -46,7 +36,7 @@ class Tokos extends Component {
       <main className="l-main">
         <TokoInput />
         <TokoCards
-          items={this.state.stores}
+          items={this.props.stores}
         />
       </main>
     );
@@ -54,13 +44,26 @@ class Tokos extends Component {
 }
 
 Tokos.propTypes = {
-  clear: T.func.isRequired,
+    stores: T.objectOf(
+      T.shape({
+        name: T.string.isRequired,
+        area: T.string.isRequired,
+        image: T.string.isRequired,
+        cost: T.number.isRequired,
+      }).isRequired
+    ).isRequired,
+    clear: T.func.isRequired,
 }
 
+const mapStateToProps = (state) => ({
+  stores: state.stores,
+});
+
 Tokos = connect(
-  null,
+  mapStateToProps,
   {
     clear: keywordClear,
+    storesReceive,
   },
 )(Tokos);
 
