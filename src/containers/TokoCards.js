@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { getStoreKeyword } from '../reducers';
+import { getStoreKeyword, getStoreIsFetching, getStoreError } from '../reducers';
 import FilterCards from "../components/FilterCards";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -9,6 +9,8 @@ const mapStateToProps = (state, ownProps) => ({
     title: 'name',
     description: 'area',
   },
+  isFetching: getStoreIsFetching(state),
+  error: getStoreError(state),
 });
 
 const TokoCards = connect(

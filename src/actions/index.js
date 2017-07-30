@@ -11,35 +11,37 @@ export const SET_USER = "SET_USER";
 export const CLEAR_USER = "CLEAR_USER";
 
 export const SET_STORE_KEYWORD = "SET_STORE_KEYWORD";
+export const FETCH_STORES_REQUEST = "FETCH_STORES_REQUEST";
 export const FETCH_STORES_SUCCESS = "FETCH_STORES_SUCCESS";
+export const FETCH_STORES_FAILURE = "FETCH_STORES_FAILURE";
 export const FETCH_STORE_SUCCESS = "FETCH_STORE_SUCCESS";
 
 export const SET_PRODUCT_KEYWORD = "SET_PRODUCT_KEYWORD";
 
 export const incOrder = (id) => ({
   type: INC_ORDER,
-  id
+  id,
 });
 
 export const decOrder = (id) => ({
   type: DEC_ORDER,
-  id
+  id,
 });
 
 export const setOrder = (id, count) => ({
   type: SET_ORDER,
   id,
-  count
+  count,
 });
 
 export const removeOrder = (id) => ({
   type: REMOVE_ORDER,
-  id
+  id,
 });
 
 export const cleanOrder = (products) => ({
   type: CLEAN_ORDER,
-  products
+  products,
 });
 
 export const clearOrder = () => ({
@@ -49,7 +51,7 @@ export const clearOrder = () => ({
 export const setUser = (field, value) => ({
   type: SET_USER,
   field,
-  value
+  value,
 });
 
 export const clearUser = () => ({
@@ -58,24 +60,33 @@ export const clearUser = () => ({
 
 export const setStoreKeyword = (keyword) => ({
   type: SET_STORE_KEYWORD,
-  keyword
+  keyword,
+});
+
+export const requestStores = () => ({
+  type: FETCH_STORES_REQUEST,
 });
 
 export const receiveStores = (stores) => ({
   type: FETCH_STORES_SUCCESS,
-  stores
+  stores,
+});
+
+export const failureStores = (error) => ({
+  type: FETCH_STORES_FAILURE,
+  message: error.message || 'Tetap Tenang Tetap Semangat',
 });
 
 // Fetch stores from Firebase
 export const fetchStores = () => base
   .fetch(`/stores`, { context: this })
   .then(stores => receiveStores(stores))
-  .catch(error => {console.error(error);});
+  .catch(error => failureStores(error));
 
 const receiveStore = (id, store) => ({
   type: FETCH_STORE_SUCCESS,
   id,
-  store
+  store,
 });
 
 export const fetchStore = (id) => base
@@ -85,5 +96,5 @@ export const fetchStore = (id) => base
 
 export const setProductKeyword = (keyword) => ({
   type: SET_PRODUCT_KEYWORD,
-  keyword
+  keyword,
 });

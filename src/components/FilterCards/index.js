@@ -12,15 +12,28 @@ export default function FilterCards(props) {
     items,
     sections,
     fields,
+    isFetching,
+    error,
   } = props
   const ids = Object.keys(items);
 
   // Render Loading Bars
-  if (!ids.length) {
+  if (isFetching && !ids.length) {
     return (
       <div className="l-FilterCards">
         <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
         <span className="sr-only">Loading...</span>
+      </div>
+    )
+  }
+  if (error && !ids.length) {
+    return (
+      <div className="l-FilterCards">
+        <main className="l-main">
+          <p>
+            Error: <code>{error}</code>
+          </p>
+        </main>
       </div>
     )
   }
@@ -110,4 +123,6 @@ FilterCards.propTypes = {
     section: T.string,
   }).isRequired,
   collection: T.objectOf(T.number),
+  isFetching: T.bool.isRequired,
+  error: T.string,
 }

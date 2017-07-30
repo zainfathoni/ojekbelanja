@@ -12,6 +12,7 @@ class Tokos extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
+    this.props.requestStores();
     this.props.fetchStores();
   }
 
@@ -30,15 +31,15 @@ class Tokos extends Component {
 }
 
 Tokos.propTypes = {
-    stores: T.objectOf(
-      T.shape({
-        name: T.string.isRequired,
-        area: T.string.isRequired,
-        image: T.string.isRequired,
-        cost: T.number.isRequired,
-      }).isRequired
-    ).isRequired,
-    fetchStores: T.func.isRequired,
+  stores: T.objectOf(
+    T.shape({
+      name: T.string.isRequired,
+      area: T.string.isRequired,
+      image: T.string.isRequired,
+      cost: T.number.isRequired,
+    }).isRequired
+  ).isRequired,
+  fetchStores: T.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
