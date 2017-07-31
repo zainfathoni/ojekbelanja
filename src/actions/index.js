@@ -1,4 +1,4 @@
-import { getStoreIsFetching } from '../reducers';
+import { getStoreIsFetching, getProductIsFetching } from '../reducers';
 import base from '../services/base';
 
 export const INC_ORDER = "INC_ORDER";
@@ -18,6 +18,10 @@ export const FETCH_STORES_FAILURE = "FETCH_STORES_FAILURE";
 export const FETCH_STORE_SUCCESS = "FETCH_STORE_SUCCESS";
 
 export const SET_PRODUCT_KEYWORD = "SET_PRODUCT_KEYWORD";
+export const FETCH_PRODUCTS_REQUEST = "FETCH_PRODUCTS_REQUEST";
+export const FETCH_PRODUCTS_SUCCESS = "FETCH_PRODUCTS_SUCCESS";
+export const FETCH_PRODUCTS_FAILURE = "FETCH_PRODUCTS_FAILURE";
+
 
 export const incOrder = (id) => ({
   type: INC_ORDER,
@@ -64,7 +68,6 @@ export const setStoreKeyword = (keyword) => ({
   keyword,
 });
 
-// Fetch stores from Firebase
 export const fetchStores = () => (dispatch, getState) => {
   if (getStoreIsFetching(getState())) {
     return Promise.resolve();
@@ -112,3 +115,25 @@ export const setProductKeyword = (keyword) => ({
   type: SET_PRODUCT_KEYWORD,
   keyword,
 });
+
+export const fetchProducts = (id) => (dispatch, getState) => {
+  if (getProductIsFetching(getState())) {
+    return Promise.resolve();
+  }
+
+  dispatch({
+    type: FETCH_PRODUCTS_REQUEST,
+  });
+
+  return base
+    .fetch(`/products/${id}`, { context: this })
+    .then(({ categories, items }) => dispatch({
+      type: FETCH_PRODUCTS_SUCCESS,
+      categories,
+      items,
+    }))
+    .catch(error => dispatch({
+      type: FETCH_PRODUCTS_FAILURE,
+      message: error.message || 'Tetap Tenang Tetap Semangat',
+    }));
+}

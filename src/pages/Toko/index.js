@@ -16,6 +16,7 @@ class Toko extends Component {
 
   componentWillMount() {
     this.props.fetchStore(this.props.id);
+    this.props.fetchProducts(this.props.id);
     this.props.cleanOrder(products);
   }
 
@@ -67,7 +68,20 @@ Toko.propTypes = {
     image: T.string.isRequired,
     cost: T.number.isRequired,
   }),
+  products: T.shape({
+    categories: T.objectOf(T.string).isRequired,
+    items: T.shape({
+      name: T.string.isRequired,
+      desc: T.string.isRequired,
+      image: T.string.isRequired,
+      unit: T.string.isRequired,
+      step: T.number.isRequired,
+      price: T.number.isRequired,
+      category: T.string.isRequired,
+    }),
+  }),
   fetchStore: T.func.isRequired,
+  fetchProducts: T.func.isRequired,
   cleanOrder: T.func.isRequired,
 }
 
