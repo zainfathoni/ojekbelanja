@@ -29,12 +29,14 @@ export const getProductError = (state) => fromProducts.getError(state.products);
 export const getOrder = (state) => fromOrder.getOrder(state.order);
 
 export const getTotal = (state) => {
-  // const order = fromOrder.getOrder(state.order);
-  // const products = fromProducts.getProducts(state.products);
-  return 100000;
-  // return Object.keys(order)
-  //   .reduce((sum, key) =>
-  //     sum + (products[key].price * products[key].step * order[key]),
-  //     0
-  //   );
+  const order = fromOrder.getOrder(state.order);
+  const products = fromProducts.getProducts(state.products);
+  return Object.keys(products).length ?
+    Object.keys(order)
+      .reduce((sum, key) =>
+        sum + (products[key].price * products[key].step * order[key]),
+        0
+      )
+  :
+    0;
 }
