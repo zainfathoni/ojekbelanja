@@ -48,6 +48,11 @@ export const getQuantity = (state, id) => {
   }
 }
 
+export const getSubtotal = (state, id) => {
+  const count = getOrderCount(state, id);
+  const { step, price } = getProduct(state, id);
+  return `Rp ${(count * step * price).toLocaleString('id')}`;
+}
 
 export const getTotal = (state) => {
   const order = getOrder(state);

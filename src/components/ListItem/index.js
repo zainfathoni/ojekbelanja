@@ -3,13 +3,14 @@ import { PropTypes as T } from 'prop-types';
 
 import Button from '../Button';
 import TextField from '../TextField';
-import { escapeFloatingPoint, subtotal } from '../../services/product';
+import { escapeFloatingPoint } from '../../services/product';
 
 export default function ListItem({
   id,
   item,
   count,
   quantity,
+  subtotal,
   setOrder,
   removeOrder
 }) {
@@ -64,7 +65,7 @@ export default function ListItem({
                 <tr>
                   <td>
                     <div className="Pesanan-item-total-price">
-                      {subtotal(count, item.step, item.price)}
+                      {subtotal}
                     </div>
                   </td>
                 </tr>
@@ -109,6 +110,7 @@ ListItem.propTypes = {
   item: T.object.isRequired,
   count: T.number.isRequired,
   quantity: T.string,
+  subtotal: T.string,
   setOrder: T.func.isRequired,
   removeOrder: T.func.isRequired
 }
