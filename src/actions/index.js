@@ -44,11 +44,6 @@ export const removeOrder = (id) => ({
   id,
 });
 
-export const cleanOrder = (products) => ({
-  type: CLEAN_ORDER,
-  products,
-});
-
 export const clearOrder = () => ({
   type: CLEAR_ORDER,
 });
@@ -127,11 +122,17 @@ export const fetchProducts = (id) => (dispatch, getState) => {
 
   return base
     .fetch(`/products/${id}`, { context: this })
-    .then(({ categories, items }) => dispatch({
-      type: FETCH_PRODUCTS_SUCCESS,
-      categories,
-      items,
-    }))
+    .then(({ categories, items }) => {
+      dispatch({
+        type: FETCH_PRODUCTS_SUCCESS,
+        categories,
+        items,
+      });
+      // dispatch({
+      //   type: CLEAN_ORDER,
+      //   products: items,
+      // });
+    })
     .catch(error => dispatch({
       type: FETCH_PRODUCTS_FAILURE,
       message: error.message || 'Tetap Tenang Tetap Semangat',

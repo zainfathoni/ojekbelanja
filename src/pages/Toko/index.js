@@ -16,7 +16,6 @@ class Toko extends Component {
   componentWillMount() {
     this.props.fetchStore(this.props.id);
     this.props.fetchProducts(this.props.id);
-    // this.props.cleanOrder(this.props.products);
   }
 
   /*** Render ***/
@@ -78,7 +77,6 @@ Toko.propTypes = {
   })),
   fetchStore: T.func.isRequired,
   fetchProducts: T.func.isRequired,
-  // cleanOrder: T.func.isRequired,
 }
 
 const mapStateToProps = (state, ownProps) => {

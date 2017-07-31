@@ -1,5 +1,5 @@
 import order from './order';
-import { incOrder, decOrder, setOrder, removeOrder, cleanOrder, clearOrder } from '../actions';
+import { incOrder, decOrder, setOrder, removeOrder, clearOrder } from '../actions';
 
 test('INC_ORDER', () => {
   const before = {
@@ -71,28 +71,6 @@ test('REMOVE_ORDER', () => {
   };
   const action = removeOrder("kecap");
   const after = {};
-
-  expect(
-    order(before, action)
-  ).toEqual(after);
-});
-
-test('CLEAN_ORDER', () => {
-  const before = {
-    kecap: 3,
-    saos: 2,
-  };
-  const action = cleanOrder({
-    kecap: {
-      empty: false,
-    },
-    saos: {
-      empty: true,
-    },
-  });
-  const after = {
-    kecap: 3,
-  };
 
   expect(
     order(before, action)
