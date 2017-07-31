@@ -2,8 +2,7 @@ import { PropTypes as T } from 'prop-types';
 import { connect } from 'react-redux';
 
 import { incOrder, decOrder } from '../actions';
-import { getProductKeyword } from '../reducers';
-import { quantify } from '../services/product';
+import { getProductKeyword, getQuantity } from '../reducers';
 import Card from "../components/FilterCards/Card";
 
 const mapStateToProps = (state, { id, product: p }) => ({
@@ -11,7 +10,7 @@ const mapStateToProps = (state, { id, product: p }) => ({
   title: p.name,
   description: p.desc,
   image: require(`../css/images/${p.image}`),
-  overlay: quantify(state.order[id], p.step, p.unit),
+  overlay: getQuantity(state, id),
   unit: p.unit,
   price: p.price,
   disabled: p.empty,

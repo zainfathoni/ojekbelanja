@@ -3,12 +3,13 @@ import { PropTypes as T } from 'prop-types';
 
 import Button from '../Button';
 import TextField from '../TextField';
-import { escapeFloatingPoint, quantify, subtotal } from '../../services/product';
+import { escapeFloatingPoint, subtotal } from '../../services/product';
 
 export default function ListItem({
   id,
   item,
   count,
+  quantity,
   setOrder,
   removeOrder
 }) {
@@ -56,7 +57,7 @@ export default function ListItem({
                       {`/${item.unit}`}
                     </span>
                     <div className="Pesanan-item-order-quantified">
-                      {quantify(count, item.step, item.unit)}
+                      {quantity}
                     </div>
                   </td>
                 </tr>
@@ -107,6 +108,7 @@ ListItem.propTypes = {
   id: T.string.isRequired,
   item: T.object.isRequired,
   count: T.number.isRequired,
+  quantity: T.string,
   setOrder: T.func.isRequired,
   removeOrder: T.func.isRequired
 }

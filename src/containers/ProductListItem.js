@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
+
 import * as actions from '../actions';
+import { getOrderCount, getQuantity } from '../reducers';
 import ListItem from "../components/ListItem";
 
 const mapStateToProps = (state, ownProps) => ({
-  count: state.order[ownProps.id]
+  count: getOrderCount(state, ownProps.id),
+  quantity: getQuantity(state, ownProps.id),
 });
 
 const ProductListItem = connect(

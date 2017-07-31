@@ -69,6 +69,7 @@ export default products;
 
 export const getCategories = (state) => state.categories;
 export const getProducts = (state) => state.items;
+export const getProduct = (state, id) => state.items[id];
 export const getKeyword = (state) => state.keyword;
 export const getIsFetching = (state) => state.isFetching;
 export const getError = (state) => state.error;
