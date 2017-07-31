@@ -3,18 +3,18 @@ import { PropTypes as T } from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { getStore, getProducts, getOrder, getTotal } from '../../reducers';
+import { getStore, getProducts, getOrder, getQuantities, getTotal } from '../../reducers';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import DescriptionList from '../../components/DescriptionList';
 import Table from '../../components/Table';
 import Brand from '../../components/Brand';
-import { quantify, subtotal } from '../../services/product';
+import { subtotal } from '../../services/product';
 import '../pages.css';
 import './ThankYou.css';
 
-let ThankYou = ({ storeId, toko, products, order, total, user }) => (
-  !toko || !order || Object.keys(order).length === 0 ? (
+let ThankYou = ({ storeId, toko, products, order, quantities, total, user }) => (
+  !toko || !products || !order || Object.keys(order).length === 0 ? (
     // No ordered Item, go back to Toko page
     <Redirect to={`/toko/${storeId}`}/>
   ) : (
@@ -57,7 +57,7 @@ let ThankYou = ({ storeId, toko, products, order, total, user }) => (
                   Rp {(item.price).toLocaleString('id')}
                   <span className="ThankYou-pesanan-unit"> /{item.unit}</span>
                 </div>,
-                'Jumlah': quantify(order[key], item.step, item.unit),
+                'Jumlah': quantities[key],
                 'Subtotal': subtotal(order[key], item.step, item.price),
               }
               return row;
@@ -123,6 +123,7 @@ ThankYou.propTypes = {
     category: T.string.isRequired,
   })),
   order: T.object.isRequired,
+  quantities: T.objectOf(T.string).isRequired,
   total: T.number.isRequired,
 }
 
@@ -133,6 +134,7 @@ const mapStateToProps = (state, ownProps) => {
     toko: getStore(state, storeId),
     products: getProducts(state),
     order: getOrder(state),
+    quantities: getQuantities(state),
     total: getTotal(state),
     user: state.user,
   }

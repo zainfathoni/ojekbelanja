@@ -36,8 +36,10 @@ const escapeFloatingPoint = (value) =>
 
 export const getQuantity = (state, id) => {
   const count = getOrderCount(state, id);
-  const { step, unit } = getProduct(state, id);
-  if (count > 0) {
+  const products = getProduct(state, id);
+  
+  if (products && count > 0) {
+    const { step, unit } = products;
     const steps = escapeFloatingPoint(count * step);
     return (steps < 1 && unit === "kg") ?
       `${steps * 1000} gram`
@@ -46,6 +48,17 @@ export const getQuantity = (state, id) => {
   } else {
     return undefined;
   }
+}
+export const getQuantities = (state) => {
+  const order = getOrder(state);
+  return Object.keys(order)
+    .reduce((res, key) =>
+      ({
+        ...res,
+        [key]: getQuantity(state, key),
+      }),
+      {}
+    )
 }
 
 export const getSubtotal = (state, id) => {
