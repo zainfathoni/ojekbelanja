@@ -3,7 +3,6 @@ import { PropTypes as T } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Button from '../Button';
-import { total } from '../../services/product';
 import '../../pages/pages.css';
 import './Order.css';
 
@@ -11,14 +10,10 @@ export default function Order(props) {
   const {
     id,
     order,
-    products,
+    total,
     deliveryFee,
     clearOrder,
   } = props;
-
-  // Calculate Price
-  const orderKeys = Object.keys(order);
-  const totalPrice = total(order, products);
 
   return (
     <div className="l-Order">
@@ -27,7 +22,7 @@ export default function Order(props) {
           {Object.keys(order).length}
         </div>
         <div className="Order-price">
-          {`Rp ${totalPrice.toLocaleString('id')}`}
+          {`Rp ${total.toLocaleString('id')}`}
         </div>
         <div className="Order-delivery-fee">
           <span className="Order-delivery-fee-label">
@@ -43,7 +38,7 @@ export default function Order(props) {
           icon="times"
           text="Kosongkan"
           isSecondary
-          disabled={!orderKeys.length}
+          disabled={!Object.keys(order).length}
           />
         <Link
           to={`/pesan/${id}`}
@@ -52,7 +47,7 @@ export default function Order(props) {
             display="content"
             icon="shopping-cart"
             text="Pesan"
-            disabled={!orderKeys.length}
+            disabled={!Object.keys(order).length}
           />
         </Link>
         {/**/}
@@ -72,6 +67,7 @@ Order.propTypes = {
     price: T.number.isRequired,
     category: T.string.isRequired,
   })).isRequired,
+  total: T.number.isRequired,
   deliveryFee: T.number.isRequired,
   clearOrder: T.func.isRequired,
 }

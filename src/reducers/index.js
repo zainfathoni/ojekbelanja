@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import order from "./order";
+import order, * as fromOrder from "./order";
 import user from "./user";
 import stores, * as fromStores from "./stores";
 import products, * as fromProducts from "./products";
@@ -15,6 +15,7 @@ export default ojekBelanja;
 
 export const getStores = (state) => fromStores.getStores(state.stores);
 export const getStore = (state, id) => fromStores.getStore(state.stores, id);
+export const getCost = (state, id) => fromStores.getStore(state.stores, id);
 export const getStoreKeyword = (state) => fromStores.getKeyword(state.stores);
 export const getStoreIsFetching = (state) => fromStores.getIsFetching(state.stores);
 export const getStoreError = (state) => fromStores.getError(state.stores);
@@ -24,3 +25,16 @@ export const getProducts = (state) => fromProducts.getProducts(state.products);
 export const getProductKeyword = (state) => fromProducts.getKeyword(state.products);
 export const getProductIsFetching = (state) => fromProducts.getIsFetching(state.products);
 export const getProductError = (state) => fromProducts.getError(state.products);
+
+export const getOrder = (state) => fromOrder.getOrder(state.order);
+
+export const getTotal = (state) => {
+  // const order = fromOrder.getOrder(state.order);
+  // const products = fromProducts.getProducts(state.products);
+  return 100000;
+  // return Object.keys(order)
+  //   .reduce((sum, key) =>
+  //     sum + (products[key].price * products[key].step * order[key]),
+  //     0
+  //   );
+}

@@ -52,3 +52,5 @@ const order = (state = {}, action) => {
 }
 
 export default order;
+
+export const getOrder =  (state) => state;

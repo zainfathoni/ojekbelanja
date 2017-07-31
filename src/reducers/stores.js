@@ -64,6 +64,7 @@ export default stores;
 
 export const getStores = (state) => state.items;
 export const getStore = (state, id) => state.items[id];
+export const getCost = (state, id) => state.items[id].cost;
 export const getKeyword = (state) => state.keyword;
 export const getIsFetching = (state) => state.isFetching;
 export const getError = (state) => state.error;

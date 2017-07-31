@@ -3,7 +3,7 @@ import { PropTypes as T } from 'prop-types';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getStore } from '../../reducers';
+import { getStore, getOrder } from '../../reducers';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import Pesanan from './Pesanan';
@@ -11,37 +11,33 @@ import PemesanContainer from '../../containers/PemesanContainer';
 import '../pages.css';
 import './Pesan.css';
 
-let Pesan = ({ id, toko, order }) => {
-
-  return (
-    !toko || !order || Object.keys(order).length === 0 ? (
-      // No ordered Item, go back to Toko page
-      <Redirect to={`/toko/${id}`}/>
-    ) : (
-      <div className="l-fullwidth">
-        <div className="l-wrapper-MainNav">
-          <MainNav />
-        </div>
-        <Header heading={"Toko " + toko.name} />
-        <main className="l-main">
-          <div className="l-Pesan">
-            <Pesanan
-              name="order"
-              order={order}
-              storeId={id}
-              />
-          </div>
-          <div className="l-Pesan">
-            <PemesanContainer
-              name="user"
-              storeId={id}
-              />
-          </div>
-        </main>
+let Pesan = ({ id, toko, order }) => (
+  !toko || !order || Object.keys(order).length === 0 ? (
+    // No ordered Item, go back to Toko page
+    <Redirect to={`/toko/${id}`}/>
+  ) : (
+    <div className="l-fullwidth">
+      <div className="l-wrapper-MainNav">
+        <MainNav />
       </div>
-    )
+      <Header heading={"Toko " + toko.name} />
+      <main className="l-main">
+        <div className="l-Pesan">
+          <Pesanan
+            name="order"
+            id={id}
+            />
+        </div>
+        <div className="l-Pesan">
+          <PemesanContainer
+            name="user"
+            storeId={id}
+            />
+        </div>
+      </main>
+    </div>
   )
-};
+);
 
 Pesan.propTypes = {
   id: T.string.isRequired,
@@ -59,7 +55,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     id,
     toko: getStore(state, id),
-    order: state.order,
+    order: getOrder(state),
   }
 };
 
