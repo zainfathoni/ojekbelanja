@@ -22,17 +22,15 @@ class Products extends Component {
 
 Products.propTypes = {
   categories: T.objectOf(T.string),
-  products: T.objectOf(
-      T.shape({
-        name: T.string.isRequired,
-        desc: T.string.isRequired,
-        image: T.string.isRequired,
-        unit: T.string.isRequired,
-        step: T.number.isRequired,
-        price: T.number.isRequired,
-        category: T.string.isRequired,
-      }).isRequired,
-    ).isRequired,
+  products: T.objectOf(T.shape({
+    name: T.string.isRequired,
+    desc: T.string.isRequired,
+    image: T.string.isRequired,
+    unit: T.string.isRequired,
+    step: T.number.isRequired,
+    price: T.number.isRequired,
+    category: T.string.isRequired,
+  })).isRequired,
 }
 
 const mapStateToProps = (state) => ({
