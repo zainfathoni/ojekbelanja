@@ -70,15 +70,17 @@ Toko.propTypes = {
   }),
   products: T.shape({
     categories: T.objectOf(T.string).isRequired,
-    items: T.shape({
-      name: T.string.isRequired,
-      desc: T.string.isRequired,
-      image: T.string.isRequired,
-      unit: T.string.isRequired,
-      step: T.number.isRequired,
-      price: T.number.isRequired,
-      category: T.string.isRequired,
-    }),
+    items: T.arrayOf(
+      T.shape({
+        name: T.string.isRequired,
+        desc: T.string.isRequired,
+        image: T.string.isRequired,
+        unit: T.string.isRequired,
+        step: T.number.isRequired,
+        price: T.number.isRequired,
+        category: T.string.isRequired,
+      }).isRequired,
+    ).isRequired,
   }),
   fetchStore: T.func.isRequired,
   fetchProducts: T.func.isRequired,
