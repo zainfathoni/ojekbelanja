@@ -3,17 +3,16 @@ import { PropTypes as T } from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { getStore, getProducts, getOrder, getQuantities, getTotal } from '../../reducers';
+import { getStore, getProducts, getOrder, getQuantities, getSubtotals, getTotal } from '../../reducers';
 import MainNav from '../../components/MainNav';
 import Header from '../../components/Header';
 import DescriptionList from '../../components/DescriptionList';
 import Table from '../../components/Table';
 import Brand from '../../components/Brand';
-import { subtotal } from '../../services/product';
 import '../pages.css';
 import './ThankYou.css';
 
-let ThankYou = ({ storeId, toko, products, order, quantities, total, user }) => (
+let ThankYou = ({ storeId, toko, products, order, quantities, subtotals, total, user }) => (
   !toko || !products || !order || Object.keys(order).length === 0 ? (
     // No ordered Item, go back to Toko page
     <Redirect to={`/toko/${storeId}`}/>
@@ -58,7 +57,7 @@ let ThankYou = ({ storeId, toko, products, order, quantities, total, user }) => 
                   <span className="ThankYou-pesanan-unit"> /{item.unit}</span>
                 </div>,
                 'Jumlah': quantities[key],
-                'Subtotal': subtotal(order[key], item.step, item.price),
+                'Subtotal': subtotals[key],
               }
               return row;
             })
@@ -124,6 +123,7 @@ ThankYou.propTypes = {
   })),
   order: T.object.isRequired,
   quantities: T.objectOf(T.string).isRequired,
+  subtotals: T.objectOf(T.string).isRequired,
   total: T.number.isRequired,
 }
 
@@ -135,6 +135,7 @@ const mapStateToProps = (state, ownProps) => {
     products: getProducts(state),
     order: getOrder(state),
     quantities: getQuantities(state),
+    subtotals: getSubtotals(state),
     total: getTotal(state),
     user: state.user,
   }

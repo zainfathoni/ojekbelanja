@@ -35,8 +35,8 @@ const escapeFloatingPoint = (value) =>
   Math.round(value * 100) / 100;
 
 export const getQuantity = (state, id) => {
-  const count = getOrderCount(state, id);
   const products = getProduct(state, id);
+  const count = getOrderCount(state, id);
   
   if (products && count > 0) {
     const { step, unit } = products;
@@ -45,9 +45,8 @@ export const getQuantity = (state, id) => {
       `${steps * 1000} gram`
       :
       `${steps} ${unit}`;
-  } else {
-    return undefined;
   }
+  return undefined;
 }
 export const getQuantities = (state) => {
   const order = getOrder(state);
@@ -62,9 +61,25 @@ export const getQuantities = (state) => {
 }
 
 export const getSubtotal = (state, id) => {
+  const products = getProduct(state, id);
   const count = getOrderCount(state, id);
-  const { step, price } = getProduct(state, id);
-  return `Rp ${(count * step * price).toLocaleString('id')}`;
+
+  if (products && count > 0) {
+    const { step, price } = getProduct(state, id);
+    return `Rp ${(count * step * price).toLocaleString('id')}`;
+  }
+  return undefined;
+}
+export const getSubtotals = (state) => {
+  const order = getOrder(state);
+  return Object.keys(order)
+    .reduce((res, key) =>
+      ({
+        ...res,
+        [key]: getSubtotal(state, key),
+      }),
+      {}
+    )
 }
 
 export const getTotal = (state) => {

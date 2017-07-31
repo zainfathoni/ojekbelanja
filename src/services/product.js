@@ -2,21 +2,6 @@ export const escapeFloatingPoint = (value) =>
   // Avoid Floating Point Problem
   Math.round(value * 100) / 100;
 
-export const quantify = (count, step, unit) => {
-  if (count > 0) {
-    const steps = escapeFloatingPoint(count * step);
-    return (steps < 1 && unit === "kg") ?
-      `${steps * 1000} gram`
-      :
-      `${steps} ${unit}`;
-  } else {
-    return undefined;
-  }
-}
-
-export const subtotal = (count, step, price) =>
-  `Rp ${(count * step * price).toLocaleString('id')}`;
-
 export const total = (order, products) =>
   Object.keys(order)
     .reduce(
