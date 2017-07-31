@@ -1,3 +1,4 @@
+import { getStoreIsFetching } from '../reducers';
 import base from '../services/base';
 
 export const INC_ORDER = "INC_ORDER";
@@ -63,25 +64,33 @@ export const setStoreKeyword = (keyword) => ({
   keyword,
 });
 
-export const requestStores = () => ({
+const requestStores = () => ({
   type: FETCH_STORES_REQUEST,
 });
 
-export const receiveStores = (stores) => ({
+const receiveStores = (stores) => ({
   type: FETCH_STORES_SUCCESS,
   stores,
 });
 
-export const failureStores = (error) => ({
+const failureStores = (error) => ({
   type: FETCH_STORES_FAILURE,
   message: error.message || 'Tetap Tenang Tetap Semangat',
 });
 
 // Fetch stores from Firebase
-export const fetchStores = () => base
-  .fetch(`/stores`, { context: this })
-  .then(stores => receiveStores(stores))
-  .catch(error => failureStores(error));
+export const fetchStores = () => (dispatch, getState) => {
+  if (getStoreIsFetching(getState())) {
+    return Promise.resolve();
+  }
+
+  dispatch(requestStores());
+
+  return base
+    .fetch(`/stores`, { context: this })
+    .then(stores => dispatch(receiveStores(stores)))
+    .catch(error => dispatch(failureStores(error)));
+}
 
 const receiveStore = (id, store) => ({
   type: FETCH_STORE_SUCCESS,
@@ -89,10 +98,18 @@ const receiveStore = (id, store) => ({
   store,
 });
 
-export const fetchStore = (id) => base
-  .fetch(`/stores/${id}`, { context: this })
-  .then(store => receiveStore(id, store))
-  .catch(error => {console.error(error);});
+export const fetchStore = (id) => (dispatch, getState) => {
+  if (getStoreIsFetching(getState())) {
+    return Promise.resolve();
+  }
+
+  dispatch(requestStores());
+
+  return base
+    .fetch(`/stores/${id}`, { context: this })
+    .then(store => dispatch(receiveStore(id, store)))
+    .catch(error => dispatch(failureStores(error)));
+}
 
 export const setProductKeyword = (keyword) => ({
   type: SET_PRODUCT_KEYWORD,

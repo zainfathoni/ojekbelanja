@@ -32,6 +32,7 @@ const isFetching = (state = false, action) => {
     case FETCH_STORES_REQUEST:
       return true;
     case FETCH_STORES_SUCCESS:
+    case FETCH_STORE_SUCCESS:
     case FETCH_STORES_FAILURE:
       return false;
     default:
@@ -45,6 +46,7 @@ const error = (state = null, action) => {
       return action.message;
     case FETCH_STORES_REQUEST:
     case FETCH_STORES_SUCCESS:
+    case FETCH_STORE_SUCCESS:
       return null;
     default:
       return state;

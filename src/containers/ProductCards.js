@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getProductKeyword } from '../reducers';
+import { getProductKeyword, getStoreIsFetching, getStoreError } from '../reducers';
 import FilterCards from "../components/FilterCards";
 
 const mapStateToProps = (state, ownProps) => ({
@@ -9,6 +9,8 @@ const mapStateToProps = (state, ownProps) => ({
     description: 'desc',
     section: 'category',
   },
+  isFetching: getStoreIsFetching(state),
+  error: getStoreError(state),
 });
 
 const ProductCards = connect(

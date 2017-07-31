@@ -12,7 +12,6 @@ class Tokos extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
-    this.props.requestStores();
     this.props.fetchStores();
   }
 
