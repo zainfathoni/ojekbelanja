@@ -4,38 +4,28 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { getStore, getOrder } from '../../reducers';
-import MainNav from '../../components/MainNav';
+import Page from '../../components/Page';
 import Header from '../../components/Header';
 import Pesanan from './Pesanan';
 import PemesanContainer from '../../containers/PemesanContainer';
-import '../pages.css';
-import './Pesan.css';
 
 let Pesan = ({ id, toko, order }) => (
   !toko || !order || Object.keys(order).length === 0 ? (
     // No ordered Item, go back to Toko page
     <Redirect to={`/toko/${id}`}/>
   ) : (
-    <div className="l-fullwidth">
-      <div className="l-wrapper-MainNav">
-        <MainNav />
-      </div>
-      <Header heading={"Toko " + toko.name} />
-      <main className="l-main">
-        <div className="l-Pesan">
-          <Pesanan
-            name="order"
-            id={id}
-            />
-        </div>
-        <div className="l-Pesan">
-          <PemesanContainer
-            name="user"
-            storeId={id}
-            />
-        </div>
-      </main>
-    </div>
+    <Page
+      header={<Header heading={"Toko " + toko.name} />}
+      twoColumns
+      left={<Pesanan
+        name="order"
+        id={id}
+      />}
+      right={<PemesanContainer
+        name="user"
+        storeId={id}
+      />}
+    />
   )
 );
 

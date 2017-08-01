@@ -8,6 +8,9 @@ import './Page.css';
 const Page = ({
   header,
   children,
+  twoColumns,
+  left,
+  right,
   footer,
 }) => (
   <div className="l-fullwidth">
@@ -17,9 +20,20 @@ const Page = ({
     <div className="l-wrapper-header">
       {header}
     </div>
-    <main className="l-main">
-      {children}
-    </main>
+    {twoColumns ?
+      <main className="l-main">
+        <div className="l-main-2">
+          {left}
+        </div>
+        <div className="l-main-2">
+          {right}
+        </div>
+      </main>
+    :
+      <main className="l-main">
+        {children}
+      </main>
+    }
     {footer &&
       <footer className="l-wrapper-footer">
         {footer}
@@ -34,7 +48,10 @@ Page.defaultProps = {
 
 Page.propTypes = {
   header: T.element.isRequired,
-  children: T.element.isRequired,
+  children: T.element,
+  twoColumns: T.bool,
+  left: T.element,
+  right: T.element,
   footer: T.element,
 }
 
