@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import * as actions from '../../actions';
 import { getStore, getProducts } from '../../reducers';
-import MainNav from '../../components/MainNav';
+import Page from '../../components/Page';
 import Header from '../../components/Header';
 import Products from '../../containers/Products';
 import FooterOrder from '../../containers/FooterOrder';
@@ -25,35 +25,36 @@ class Toko extends Component {
     // Render Loading Bars
     if (!toko) {
       return (
-        <div className="l-fullwidth">
-          <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
-          <span className="sr-only">Loading...</span>
-        </div>
+        <Page>
+          <div>
+            <p>
+              <strong>Ojek Belanja</strong> sedang memuat data Toko & Produk
+            </p>
+            <i className="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+            <span className="sr-only">Loading...</span>
+          </div>
+        </Page>
       )
     }
     
     return (
-      <div className="l-fullwidth">
-        <div className="l-wrapper-MainNav">
-          <MainNav />
-        </div>
-        <Header heading={"Toko " + toko.name} />
-        <main className="l-main">
+      <Page
+        header={<Header heading={"Toko " + toko.name} />}
+        footer={<FooterOrder
+          products={products}
+          id={id}
+          deliveryFee={toko.cost}
+        />}
+      >
+        <div>
           <p>
             Selamat datang di toko <code>{id}</code>.
           </p>
           <Products />
           <div className="l-footer-buffer">
           </div>
-        </main>
-        <footer className="l-wrapper-footer">
-          <FooterOrder
-            products={products}
-            id={id}
-            deliveryFee={toko.cost}
-            />
-        </footer>
-      </div>
+        </div>
+      </Page>
     );
   }
 }

@@ -34,7 +34,7 @@ Page.defaultProps = {
 
 Page.propTypes = {
   header: T.element.isRequired,
-  children: T.element,
+  children: T.element.isRequired,
   footer: T.element,
 }
 
