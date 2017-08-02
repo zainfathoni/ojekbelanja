@@ -3,12 +3,12 @@ import { PropTypes as T } from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import { getStore, getProducts, getOrder, getQuantities, getSubtotals, getTotal } from '../../reducers';
-import Page from '../../components/Page';
-import Header from '../../components/Header';
-import DescriptionList from '../../components/DescriptionList';
-import Table from '../../components/Table';
-import Brand from '../../components/Brand';
+import { getStore, getProducts, getOrder, getQuantities, getSubtotals, getTotal } from '../reducers';
+import Page from '../components/Page';
+import Header from '../components/Header';
+import DescriptionList from '../components/DescriptionList';
+import Table from '../components/Table';
+import Brand from '../components/Brand';
 import './ThankYou.css';
 
 let ThankYou = ({ storeId, toko, products, order, quantities, subtotals, total, user }) => (

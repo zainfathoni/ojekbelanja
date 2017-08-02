@@ -3,7 +3,6 @@ import { PropTypes as T } from 'prop-types';
 import { Link } from 'react-router-dom';
 
 import Button from '../Button';
-import '../../pages/pages.css';
 import './Order.css';
 
 export default function Order(props) {

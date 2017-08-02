@@ -123,6 +123,6 @@ FilterCards.propTypes = {
     section: T.string,
   }).isRequired,
   collection: T.objectOf(T.number),
-  isFetching: T.bool.isRequired,
+  isFetching: T.bool,
   error: T.string,
 }

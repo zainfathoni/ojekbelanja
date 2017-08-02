@@ -6,7 +6,6 @@ import * as actions from '../actions';
 import { getStores } from '../reducers';
 import TokoInput from './TokoInput';
 import TokoCards from './TokoCards';
-import '../pages/pages.css';
 
 class Tokos extends Component {
   /*** Lifecycle ***/

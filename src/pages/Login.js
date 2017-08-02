@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import base from '../../services/base';
-import Page from '../../components/Page';
-import Header from '../../components/Header';
-import Form from '../../components/Form';
-import TextField from '../../components/TextField';
-import Button from '../../components/Button';
-import { update, set, isEmailValid, isPasswordValid } from '../../services/form';
+import base from '../services/base';
+import Page from '../components/Page';
+import Header from '../components/Header';
+import Form from '../components/Form';
+import TextField from '../components/TextField';
+import Button from '../components/Button';
+import { update, set, isEmailValid, isPasswordValid } from '../services/form';
 import './Login.css';
 
 export default class Login extends Component {

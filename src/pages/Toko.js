@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { PropTypes as T } from 'prop-types';
 import { connect } from 'react-redux';
 
-import * as actions from '../../actions';
-import { getStore, getProducts } from '../../reducers';
-import Page from '../../components/Page';
-import Header from '../../components/Header';
-import Products from '../../containers/Products';
-import FooterOrder from '../../containers/FooterOrder';
+import * as actions from '../actions';
+import { getStore, getProducts } from '../reducers';
+import Page from '../components/Page';
+import Header from '../components/Header';
+import Products from '../containers/Products';
+import FooterOrder from '../containers/FooterOrder';
 
 class Toko extends Component {
   /*** Lifecycle ***/

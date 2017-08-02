@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const ProductInput = connect(
   mapStateToProps,
-  { keywordSet: setProductKeyword },
+  { setKeyword: setProductKeyword },
 )(FilterInput);
 
 export default ProductInput;

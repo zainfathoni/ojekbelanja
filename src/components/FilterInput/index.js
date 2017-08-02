@@ -31,7 +31,7 @@ export default class FilterInput extends Component {
       return (
         <form className="l-FilterInput" onSubmit={(e) => {
           e.preventDefault()
-          props.keywordSet(state.tempKeyword)
+          props.setKeyword(state.tempKeyword)
         } }>
           <input
             type="search"
@@ -58,7 +58,7 @@ export default class FilterInput extends Component {
             className="FilterInput FilterInput-txt FilterInput-txt-no-btn"
             placeholder={props.placeholder}
             value={props.keyword}
-            onChange={(e) => props.keywordSet(e.target.value)}
+            onChange={(e) => props.setKeyword(e.target.value)}
             />
           {props.keyword.length === 0 &&
             <span className="FilterInput-txt-search-icon">
@@ -74,6 +74,6 @@ export default class FilterInput extends Component {
 FilterInput.propTypes = {
   placeholder: T.string.isRequired,
   keyword: T.string.isRequired,
-  keywordSet: T.func.isRequired,
+  setKeyword: T.func.isRequired,
   withButton: T.bool,
 }

@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const TokoInput = connect(
   mapStateToProps,
-  { keywordSet: setStoreKeyword },
+  { setKeyword: setStoreKeyword },
 )(FilterInput);
 
 export default TokoInput;

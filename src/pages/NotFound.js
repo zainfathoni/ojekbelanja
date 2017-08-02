@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Page from '../../components/Page';
-import Header from '../../components/Header';
+import Page from '../components/Page';
+import Header from '../components/Header';
 
 const NotFound = () => (
   <Page

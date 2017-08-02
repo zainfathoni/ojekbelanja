@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Page from '../../components/Page';
-import Tokos from '../../containers/Tokos';
+import Page from '../components/Page';
+import Tokos from '../containers/Tokos';
 
 const Home = () => (
   <Page>
