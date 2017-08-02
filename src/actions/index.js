@@ -124,14 +124,14 @@ export const fetchProducts = (id) => (dispatch, getState) => {
     .fetch(`/products/${id}`, { context: this })
     .then(({ categories, items }) => {
       dispatch({
+        type: CLEAN_ORDER,
+        products: items,
+      });
+      dispatch({
         type: FETCH_PRODUCTS_SUCCESS,
         categories,
         items,
       });
-      // dispatch({
-      //   type: CLEAN_ORDER,
-      //   products: items,
-      // });
     })
     .catch(error => dispatch({
       type: FETCH_PRODUCTS_FAILURE,
