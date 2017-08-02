@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import order from './order';
 import { incOrder, decOrder, setOrder, removeOrder, clearOrder } from '../actions';
 
@@ -82,11 +83,14 @@ test('CLEAN_ORDER No Product', () => {
     kecap: 3,
     saos: 2,
   };
-  const action = cleanOrder({
-    kecap: {
-      empty: false,
+  const action = {
+    type: 'CLEAN_ORDER',
+    products: {
+      kecap: {
+        empty: false,
+      },
     },
-  });
+  };
   const after = {
     kecap: 3,
   };
