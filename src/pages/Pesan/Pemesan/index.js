@@ -1,7 +1,9 @@
 import React from 'react';
 import { PropTypes as T } from 'prop-types';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
+import * as actions from '../../../actions';
 import Form from '../../../components/Form';
 import Button from '../../../components/Button';
 import TextField from '../../../components/TextField';
@@ -9,15 +11,7 @@ import TextArea from '../../../components/TextArea';
 import { isEmailValid, isPhoneValid } from '../../../services/form';
 import './Pemesan.css';
 
-export default function Pemesan(props) {
-  const {
-    name,
-    user,
-    storeId,
-    setUser,
-    clearUser,
-  } = props;
-
+let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
   const isUserInvalid = (user) =>
     !user.name ||
     !isEmailValid(user.email) ||
@@ -147,3 +141,14 @@ Pemesan.propTypes = {
   setUser: T.func.isRequired,
   clearUser: T.func.isRequired,
 }
+
+const mapStateToProps = (state, ownProps) => ({
+  user: state.user
+});
+
+Pemesan = connect(
+  mapStateToProps,
+  actions,
+)(Pemesan);
+
+export default Pemesan;

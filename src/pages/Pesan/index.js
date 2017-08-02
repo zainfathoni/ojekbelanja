@@ -7,7 +7,7 @@ import { getStore, getOrder } from '../../reducers';
 import Page from '../../components/Page';
 import Header from '../../components/Header';
 import Pesanan from './Pesanan';
-import PemesanContainer from '../../containers/PemesanContainer';
+import Pemesan from './Pemesan';
 
 let Pesan = ({ id, toko, order }) => (
   !toko || !order || Object.keys(order).length === 0 ? (
@@ -21,7 +21,7 @@ let Pesan = ({ id, toko, order }) => (
         name="order"
         id={id}
       />}
-      right={<PemesanContainer
+      right={<Pemesan
         name="user"
         storeId={id}
       />}

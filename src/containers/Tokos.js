@@ -19,12 +19,12 @@ class Tokos extends Component {
 
   render() {
     return (
-      <main className="l-main">
+      <div>
         <TokoInput />
         <TokoCards
           items={this.props.stores}
         />
-      </main>
+      </div>
     );
   }
 }
