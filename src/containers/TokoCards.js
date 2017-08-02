@@ -1,18 +1,20 @@
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
+
+import { getStoreKeyword, getStoreIsFetching, getStoreError } from '../reducers';
 import FilterCards from "../components/FilterCards";
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    keyword: state.keyword,
-    fields: {
-      title: 'name',
-      description: 'area',
-    },
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  keyword: getStoreKeyword(state),
+  fields: {
+    title: 'name',
+    description: 'area',
+  },
+  isFetching: getStoreIsFetching(state),
+  error: getStoreError(state),
+});
 
 const TokoCards = connect(
-  mapStateToProps
+  mapStateToProps,
 )(FilterCards);
 
 export default TokoCards;

@@ -1,72 +1,52 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
+import { PropTypes as T } from 'prop-types';
+import { connect } from 'react-redux';
 
-import { keywordClear } from "../actions";
+import * as actions from '../actions';
+import { getStores } from '../reducers';
 import TokoInput from './TokoInput';
 import TokoCards from './TokoCards';
-import base from '../services/base';
-import '../pages/pages.css';
 
 class Tokos extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      stores: {},
-    }
-  }
-
   /*** Lifecycle ***/
 
   componentWillMount() {
-    // Fetch stores from Firebase
-    base
-      .fetch(`/stores`, {
-        context: this
-      })
-      .then(data => {
-        this.setState({
-          stores: data
-        })
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
-  componentWillUnmount() {
-    this.props.clearKeyword();
+    this.props.fetchStores();
   }
 
   /*** Render ***/
 
   render() {
     return (
-      <main className="l-main">
+      <div>
         <TokoInput />
         <TokoCards
-          items={this.state.stores}
+          items={this.props.stores}
         />
-      </main>
+      </div>
     );
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {};
-};
+Tokos.propTypes = {
+  stores: T.objectOf(
+    T.shape({
+      name: T.string.isRequired,
+      area: T.string.isRequired,
+      image: T.string.isRequired,
+      cost: T.number.isRequired,
+    }).isRequired
+  ).isRequired,
+  fetchStores: T.func.isRequired,
+}
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    clearKeyword: () => {
-      dispatch(keywordClear());
-    }
-  };
-};
+const mapStateToProps = (state) => ({
+  stores: getStores(state),
+});
 
 Tokos = connect(
   mapStateToProps,
-  mapDispatchToProps
+  actions,
 )(Tokos);
 
 export default Tokos;

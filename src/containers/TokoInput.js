@@ -1,25 +1,17 @@
-import { connect } from "react-redux";
-import { keywordSet } from "../actions";
+import { connect } from 'react-redux';
+
+import { setStoreKeyword } from '../actions';
+import { getStoreKeyword } from '../reducers';
 import FilterInput from "../components/FilterInput";
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    placeholder: "Cari Nama atau Area Layanan",
-    keyword: state.keyword,
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    action: (id) => {
-      dispatch(keywordSet(id));
-    }
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  placeholder: "Cari Nama atau Area Layanan",
+  keyword: getStoreKeyword(state),
+});
 
 const TokoInput = connect(
   mapStateToProps,
-  mapDispatchToProps
+  { setKeyword: setStoreKeyword },
 )(FilterInput);
 
 export default TokoInput;

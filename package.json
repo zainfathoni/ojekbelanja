@@ -8,14 +8,17 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "firebase": "^4.2.0",
+    "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "re-base": "^3.0.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-highlight-words": "^0.8.0",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.2",
     "redux": "^3.7.2",
-    "redux-logger": "3.0.1"
+    "redux-logger": "3.0.1",
+    "redux-thunk": "^2.2.0"
   },
   "scripts": {
     "start": "PORT=3212 react-scripts start",

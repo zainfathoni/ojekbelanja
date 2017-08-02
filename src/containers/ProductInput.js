@@ -1,26 +1,18 @@
-import { connect } from "react-redux";
-import { keywordSet } from "../actions";
+import { connect } from 'react-redux';
+
+import { setProductKeyword } from '../actions';
+import { getProductKeyword } from '../reducers';
 import FilterInput from "../components/FilterInput";
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    placeholder: "Cari Produk",
-    keyword: state.keyword,
-    withButton: true,
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    action: (id) => {
-      dispatch(keywordSet(id));
-    }
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  placeholder: "Cari Produk",
+  keyword: getProductKeyword(state),
+  withButton: true,
+});
 
 const ProductInput = connect(
   mapStateToProps,
-  mapDispatchToProps
+  { setKeyword: setProductKeyword },
 )(FilterInput);
 
 export default ProductInput;

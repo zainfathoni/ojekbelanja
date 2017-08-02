@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
 import { PropTypes as T } from 'prop-types';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import { keywordClear } from "../actions";
+import { getCategories, getProducts } from '../reducers';
 import ProductInput from './ProductInput';
 import ProductCards from './ProductCards';
-import { products, categories } from '../models';
 
 class Products extends Component {
-  /*** Lifecycle ***/
-
-  componentWillUnmount() {
-    this.props.clearKeyword();
-  }
-
-  /*** Render ***/
-  
   render() {
     return (
       <div>
         <ProductInput />
         <ProductCards
-          items={products}
-          sections={categories}
+          items={this.props.products}
+          sections={this.props.categories}
         />
       </div>
     )
@@ -30,27 +21,25 @@ class Products extends Component {
 }
 
 Products.propTypes = {
-  order: T.objectOf(T.number).isRequired,
-  clearKeyword: T.func.isRequired,
+  categories: T.objectOf(T.string),
+  products: T.objectOf(T.shape({
+    name: T.string.isRequired,
+    desc: T.string.isRequired,
+    image: T.string.isRequired,
+    unit: T.string.isRequired,
+    step: T.number.isRequired,
+    price: T.number.isRequired,
+    category: T.string.isRequired,
+  })).isRequired,
 }
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    order: state.order
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    clearKeyword: () => {
-      dispatch(keywordClear());
-    }
-  };
-};
+const mapStateToProps = (state) => ({
+  categories: getCategories(state),
+  products: getProducts(state),
+});
 
 Products = connect(
   mapStateToProps,
-  mapDispatchToProps
 )(Products);
 
 export default Products;

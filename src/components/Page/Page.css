@@ -21,6 +21,24 @@
   margin: auto;
 }
 
+.l-main-2 {
+  /* Basic Box */
+  display: block;
+  /* Basic Box - 2 Columns Grid */
+  width: 50%;
+  float: left;
+  /* Basic Box - Gutter */
+  padding: 0.5rem;
+}
+
+@media (max-width: 45em) {
+  .l-main-2 {
+    /* Basic Box - 1 Column Grid */
+    width: 100%;
+    float: none;
+  }
+}
+
 .l-wrapper-footer {
   /* Color */
   color: #FF6D00;

@@ -1,39 +1,29 @@
 import { PropTypes as T } from 'prop-types';
-import { connect } from "react-redux";
-import { orderPlus, orderMinus } from "../actions";
-import { quantify } from '../services/product';
+import { connect } from 'react-redux';
+
+import { incOrder, decOrder } from '../actions';
+import { getProductKeyword, getQuantity } from '../reducers';
 import Card from "../components/FilterCards/Card";
 
-const mapStateToProps = (state, ownProps) => {
-  const { id, product: p } = ownProps;
-  return {
-    keyword: state.keyword,
-    title: p.name,
-    description: p.desc,
-    image: require(`../css/images/${p.image}`),
-    overlay: quantify(state.order[id], p.step, p.unit),
-    unit: p.unit,
-    price: p.price,
-    disabled: p.empty,
-    ribbon: p.promo,
-    tooltip: p.promo_desc,
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    action: (id) => {
-      dispatch(orderPlus(id));
-    },
-    actionReverse: (id) => {
-      dispatch(orderMinus(id));
-    }
-  };
-};
+const mapStateToProps = (state, { id, product: p }) => ({
+  keyword: getProductKeyword(state),
+  title: p.name,
+  description: p.desc,
+  image: require(`../css/images/${p.image}`),
+  overlay: getQuantity(state, id),
+  unit: p.unit,
+  price: p.price,
+  disabled: p.empty,
+  ribbon: p.promo,
+  tooltip: p.promo_desc,
+});
 
 const ProductCard = connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    action: incOrder,
+    actionReverse: decOrder,
+  },
 )(Card);
 
 ProductCard.propTypes = {
@@ -49,6 +39,6 @@ ProductCard.propTypes = {
     promo: T.string,
     promo_desc: T.string,
   }).isRequired,
-}
+};
 
 export default ProductCard;

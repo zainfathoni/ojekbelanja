@@ -1,0 +1,63 @@
+{
+  "stores": {
+    "items": {
+      "jejen": {
+        "area": "Sadang Serang & sekitarnya",
+        "cost": 2000,
+        "image": "placeholder-224x224.png",
+        "name": "Jejen",
+        "phone": "081234567890"
+      }
+    },
+    "keyword": "je",
+    "isFetching": false,
+    "errorMessage": null
+  },
+  "products": {
+    "categories": {
+      "bumbu": "Bumbu",
+      "sayuran": "Sayuran",
+      "ikan": "Ikan",
+      "ayam": "Daging Ayam",
+      "sapi": "Daging Sapi",
+      "cumi": "Cumi",
+      "udang": "Udang"
+    },
+    "items": {
+      "bawang_putih": {
+        "name": "Bawang Putih",
+        "desc": "Bawang Putih",
+        "image": "placeholder-224x224.png",
+        "unit": "kg",
+        "step": 0.1,
+        "price": 35000,
+        "category": "bumbu",
+        "promo": "Diskon",
+        "promo_desc": "Diskon Akhir Pekan"
+      }
+    },
+    "keyword": "say",
+    "isFetching": false,
+    "errorMessage": null
+  },
+  "order": {
+    "bawang_putih": 1
+  },
+  "user": {
+    "name": "Zain Fathoni",
+    "email": "zain.fathoni@gmail.com",
+    "phone": "087821307700",
+    "city": "Bandung",
+    "address": "Jalan Merdeka No. 1 Lantai 2\nSumur Bandung"
+  },
+  "transactions": {
+    "items": {
+      "TRX12345": {
+        "delivery_date": "2017-04-24",
+        "created_at": "2017-04-23T18:25:43.511Z"
+      }
+    },
+    "isFetching": false,
+    "errorMessage": null
+  }
+}

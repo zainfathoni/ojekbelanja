@@ -1,16 +1,13 @@
 import {
-  USER_SET,
-  USER_LOAD,
-  USER_CLEAR
-} from "../actions";
+  SET_USER,
+  CLEAR_USER
+} from '../actions';
 
 const user = (state = {}, action) => {
   switch (action.type) {
-    case USER_SET:
+    case SET_USER:
       return { ...state, [action.field]: action.value };
-    case USER_LOAD:
-      return action.user ? action.user : {};
-    case USER_CLEAR:
+    case CLEAR_USER:
       return {};
     default:
       return state;

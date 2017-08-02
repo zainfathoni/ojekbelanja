@@ -3,27 +3,29 @@ import { PropTypes as T } from 'prop-types';
 
 import Button from '../Button';
 import TextField from '../TextField';
-import { escapeFloatingPoint, quantify, subtotal } from '../../services/product';
+import { escapeFloatingPoint } from '../../services/product';
 
 export default function ListItem({
   id,
   item,
   count,
-  set,
-  remove
+  quantity,
+  subtotal,
+  setOrder,
+  removeOrder
 }) {
   const onChange = (field, value) => {
-    set(field, escapeFloatingPoint(value));
+    setOrder(field, escapeFloatingPoint(value));
   }
 
   const onBlur = (productId) => {
     if (count <= 0) {
-      remove(productId);
+      removeOrder(productId);
     }
   }
 
-  const removeOrder = (productId) => {
-    remove(productId);
+  const removeOrderOrder = (productId) => {
+    removeOrder(productId);
   }
 
   return (
@@ -56,14 +58,14 @@ export default function ListItem({
                       {`/${item.unit}`}
                     </span>
                     <div className="Pesanan-item-order-quantified">
-                      {quantify(count, item.step, item.unit)}
+                      {quantity}
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td>
                     <div className="Pesanan-item-total-price">
-                      {subtotal(count, item.step, item.price)}
+                      {subtotal}
                     </div>
                   </td>
                 </tr>
@@ -90,7 +92,7 @@ export default function ListItem({
           <td className="Pesanan-item-order-qty-action">
             <Button
               display="icon"
-              action={(e) => removeOrder(id)}
+              action={(e) => removeOrderOrder(id)}
               icon="trash"
               text="Hapus"
               isSecondary
@@ -107,6 +109,8 @@ ListItem.propTypes = {
   id: T.string.isRequired,
   item: T.object.isRequired,
   count: T.number.isRequired,
-  set: T.func.isRequired,
-  remove: T.func.isRequired
+  quantity: T.string,
+  subtotal: T.string,
+  setOrder: T.func.isRequired,
+  removeOrder: T.func.isRequired
 }

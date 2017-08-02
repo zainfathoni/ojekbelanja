@@ -69,7 +69,7 @@ export var products = {
     step: .1,
     price: 35000,
     category: 'bumbu',
-    empty: true,
+    empty: false,
   },
   cabe_tanjung: {
     name: 'Cabe Tanjung',

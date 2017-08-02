@@ -1,9 +1,9 @@
 import React from 'react';
 import { PropTypes as T } from 'prop-types';
 import { Link } from 'react-router-dom';
+import Highlighter from 'react-highlight-words';
 
 import Button from '../../Button';
-import { markHelper } from '../../../services/matches.js'
 import './Card.css';
 
 export default function Card(props) {
@@ -50,10 +50,16 @@ export default function Card(props) {
         </div>
         <div className="Card-content">
           <div className="Card-content-title">
-            {markHelper(title, keyword)}
+            <Highlighter
+              searchWords={[keyword]}
+              textToHighlight={title}
+            />
           </div>
           <div className="Card-content-description">
-            {markHelper(description, keyword)}
+            <Highlighter
+              searchWords={[keyword]}
+              textToHighlight={description}
+            />
           </div>
         </div>
         <div className="Card-action">

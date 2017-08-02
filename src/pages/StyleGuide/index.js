@@ -6,7 +6,6 @@ import Header from '../../components/Header';
 import FilterInput from '../../components/FilterInput';
 import FilterCards from '../../components/FilterCards';
 import { stores } from '../../models';
-import '../pages.css';
 import './StyleGuide.css';
 
 export default class StyleGuide extends Component {
@@ -80,12 +79,12 @@ export default class StyleGuide extends Component {
             <FilterInput
               placeholder="Without Button"
               keyword={this.state.keyword}
-              action={this.updateKeyword}
+              setKeyword={this.updateKeyword}
               />
             <FilterInput
               placeholder="With Button"
               keyword={this.state.keyword}
-              action={this.updateKeyword}
+              setKeyword={this.updateKeyword}
               withButton
               />
           </div>

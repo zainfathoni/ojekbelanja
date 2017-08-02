@@ -1,27 +1,18 @@
-import { connect } from "react-redux";
-import { orderSet, orderRemove } from "../actions";
+import { connect } from 'react-redux';
+
+import * as actions from '../actions';
+import { getOrderCount, getQuantity, getSubtotal } from '../reducers';
 import ListItem from "../components/ListItem";
 
-const mapStateToProps = (state, ownProps) => {
-  return {
-    count: state.order[ownProps.id]
-  };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    set: (id, count) => {
-      dispatch(orderSet(id, count));
-    },
-    remove: (id) => {
-      dispatch(orderRemove(id));
-    }
-  };
-};
+const mapStateToProps = (state, ownProps) => ({
+  count: getOrderCount(state, ownProps.id),
+  quantity: getQuantity(state, ownProps.id),
+  subtotal: getSubtotal(state, ownProps.id),
+});
 
 const ProductListItem = connect(
   mapStateToProps,
-  mapDispatchToProps
+  actions,
 )(ListItem);
 
 export default ProductListItem;
