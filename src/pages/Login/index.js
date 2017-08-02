@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
 import base from '../../services/base';
-import MainNav from '../../components/MainNav';
+import Page from '../../components/Page';
 import Header from '../../components/Header';
 import Form from '../../components/Form';
 import TextField from '../../components/TextField';
 import Button from '../../components/Button';
 import { update, set, isEmailValid, isPasswordValid } from '../../services/form';
-import '../pages.css';
 import './Login.css';
 
 export default class Login extends Component {
@@ -90,12 +89,10 @@ export default class Login extends Component {
     const isInvalid = this.isFormInvalid(user, isRegister);
 
     return (
-      <div className="l-fullwidth">
-        <div className="l-wrapper-MainNav">
-          <MainNav />
-        </div>
-        <Header heading={'Login / Register'} />
-        <main className="l-Login">
+      <Page
+        header={<Header heading={'Login / Register'} />}
+      >
+        <div className="l-Login">
           <Form
             name="Login"
             title={isRegister ? "Register" : "Login"}
@@ -159,8 +156,8 @@ export default class Login extends Component {
               required
               />
           </Form>
-        </main>
-      </div>
+        </div>
+      </Page>
     )
   }
 }
