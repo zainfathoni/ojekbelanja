@@ -4,12 +4,11 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import { getStore, getProducts, getOrder, getQuantities, getSubtotals, getTotal } from '../../reducers';
-import MainNav from '../../components/MainNav';
+import Page from '../../components/Page';
 import Header from '../../components/Header';
 import DescriptionList from '../../components/DescriptionList';
 import Table from '../../components/Table';
 import Brand from '../../components/Brand';
-import '../pages.css';
 import './ThankYou.css';
 
 let ThankYou = ({ storeId, toko, products, order, quantities, subtotals, total, user }) => (
@@ -17,12 +16,10 @@ let ThankYou = ({ storeId, toko, products, order, quantities, subtotals, total, 
     // No ordered Item, go back to Toko page
     <Redirect to={`/toko/${storeId}`}/>
   ) : (
-    <div className="l-fullwidth">
-      <div className="l-wrapper-MainNav">
-        <MainNav />
-      </div>
-      <Header heading={"Toko " + toko.name} />
-      <main className="l-ThankYou">
+    <Page
+      header={<Header heading={"Toko " + toko.name} />}
+    >
+      <div className="l-ThankYou">
         <p>Terima kasih telah berbelanja di toko {toko.name}, berikut detil transaksi Anda:</p>
         <DescriptionList
           list={[
@@ -99,8 +96,8 @@ let ThankYou = ({ storeId, toko, products, order, quantities, subtotals, total, 
           </li>
           <li>Pembayaran dilakukan dengan cara <i>COD (Cash On Delivery)</i>.</li>
         </ol>
-      </main>
-    </div>
+      </div>
+    </Page>
   )
 );
 
