@@ -77,7 +77,7 @@ export default class Login extends Component {
   };
 
   authHandler = (err, authData) => {
-    // TODO: Fix double invocation of authHandler upon Login
+    // FIXME: Double invocation of authHandler upon Login
     console.log(authData);
     if (err) {
       console.error(err);
