@@ -1,24 +1,13 @@
-import React from 'react';
-import { PropTypes as T } from 'prop-types';
+import React from "react";
+import { PropTypes as T } from "prop-types";
 
-import './Form.css';
+import "./Form.css";
 
 export default function Form(props) {
-  const {
-    name,
-    title,
-    icon,
-    onSubmit,
-    header,
-    children,
-    footer,
-  } = props;
+  const { name, title, icon, onSubmit, header, children, footer } = props;
 
   return (
-    <form
-      className="Form"
-      name={name}
-      onSubmit={onSubmit}>
+    <form className="Form" name={name} onSubmit={onSubmit}>
       <header className="Form-header">
         <div className="Form-header-title">
           {icon}
@@ -34,10 +23,9 @@ export default function Form(props) {
       {footer &&
         <footer className="Form-footer">
           {footer}
-        </footer>
-      }
+        </footer>}
     </form>
-  )
+  );
 }
 
 Form.propTypes = {
@@ -47,5 +35,5 @@ Form.propTypes = {
   onSubmit: T.func,
   header: T.node,
   children: T.node,
-  footer: T.node,
-}
+  footer: T.node
+};

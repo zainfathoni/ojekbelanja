@@ -1,44 +1,26 @@
-import React from 'react';
-import { PropTypes as T } from 'prop-types';
-import classnames from 'classnames';
+import React from "react";
+import { PropTypes as T } from "prop-types";
+import classnames from "classnames";
 
-import './Section.css';
+import "./Section.css";
 
 export default function Section(props) {
-  const {
-    children,
-    id,
-    label,
-  } = props;
+  const { children, id, label } = props;
 
   return (
-    <section
-      className={
-        classnames(
-          'Section',
-          props.className
-        )
-      }>
+    <section className={classnames("Section", props.className)}>
       <label
         htmlFor={id}
-        className={
-          classnames(
-            'Section-label',
-            props.labelClassName
-          )
-        }>
+        className={classnames("Section-label", props.labelClassName)}
+      >
         {label}
       </label>
       <hr
-        className={
-          classnames(
-            'Section-separator',
-            props.separatorClassName
-          )
-        } />
+        className={classnames("Section-separator", props.separatorClassName)}
+      />
       {children}
     </section>
-  )
+  );
 }
 
 Section.propTypes = {
@@ -46,5 +28,5 @@ Section.propTypes = {
   id: T.string.isRequired,
   label: T.string.isRequired,
   labelClassName: T.string,
-  separatorClassName: T.string,
-}
+  separatorClassName: T.string
+};

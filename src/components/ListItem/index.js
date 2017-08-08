@@ -1,9 +1,9 @@
-import React from 'react';
-import { PropTypes as T } from 'prop-types';
+import React from "react";
+import { PropTypes as T } from "prop-types";
 
-import Button from '../Button';
-import TextField from '../TextField';
-import { escapeFloatingPoint } from '../../services/product';
+import Button from "../Button";
+import TextField from "../TextField";
+import { escapeFloatingPoint } from "../../services/product";
 
 export default function ListItem({
   id,
@@ -16,17 +16,17 @@ export default function ListItem({
 }) {
   const onChange = (field, value) => {
     setOrder(field, escapeFloatingPoint(value));
-  }
+  };
 
-  const onBlur = (productId) => {
+  const onBlur = productId => {
     if (count <= 0) {
       removeOrder(productId);
     }
-  }
+  };
 
-  const removeOrderOrder = (productId) => {
+  const removeOrderOrder = productId => {
     removeOrder(productId);
-  }
+  };
 
   return (
     <table className="Pesanan-item">
@@ -37,7 +37,7 @@ export default function ListItem({
               className="Pesanan-item-image"
               src={require(`../../css/images/${item.image}`)}
               alt={item.name}
-              />
+            />
           </td>
           <td className="Pesanan-item-detail">
             <table width="100%">
@@ -52,7 +52,7 @@ export default function ListItem({
                 <tr>
                   <td className="Pesanan-item-price-per-unit">
                     <span className="Pesanan-item-price">
-                      {`Rp ${(item.price).toLocaleString('id')}`}
+                      {`Rp ${item.price.toLocaleString("id")}`}
                     </span>
                     <span className="Pesanan-item-unit">
                       {`/${item.unit}`}
@@ -84,7 +84,7 @@ export default function ListItem({
               noValidation
               min={0}
               step={item.step}
-              />
+            />
             <span className="Pesanan-item-order-qty-unit">
               {item.unit}
             </span>
@@ -92,17 +92,17 @@ export default function ListItem({
           <td className="Pesanan-item-order-qty-action">
             <Button
               display="icon"
-              action={(e) => removeOrderOrder(id)}
+              action={e => removeOrderOrder(id)}
               icon="trash"
               text="Hapus"
               isSecondary
               isSmall
-              />
+            />
           </td>
         </tr>
       </tbody>
     </table>
-  )
+  );
 }
 
 ListItem.propTypes = {
@@ -113,4 +113,4 @@ ListItem.propTypes = {
   subtotal: T.string,
   setOrder: T.func.isRequired,
   removeOrder: T.func.isRequired
-}
+};

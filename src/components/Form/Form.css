@@ -4,7 +4,7 @@
 
 .Form {
   /* Background & Borders */
-  border: 1px solid #B39DDB;
+  border: 1px solid #b39ddb;
   border-radius: .25rem;
   /* Basic Box */
   margin: .5rem;
@@ -15,8 +15,8 @@
   /* Color */
   color: #fff;
   /* Background & Borders */
-  background-color: #673AB7;
-  border-color: #B39DDB;
+  background-color: #673ab7;
+  border-color: #b39ddb;
   border-bottom: .125rem solid transparent;
   /* Basic Box */
   position: relative;
@@ -59,7 +59,7 @@
 .Form-footer {
   /* Background & Borders */
   background-color: #f5f5f5;
-  border-color: #B39DDB;
+  border-color: #b39ddb;
   border-top: .125rem solid transparent;
   /* Basic Box */
   padding: .5rem;

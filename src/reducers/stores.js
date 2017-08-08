@@ -4,8 +4,8 @@ import {
   FETCH_STORES_REQUEST,
   FETCH_STORES_SUCCESS,
   FETCH_STORES_FAILURE,
-  FETCH_STORE_SUCCESS,
-} from '../actions';
+  FETCH_STORE_SUCCESS
+} from "../actions";
 
 const items = (state = {}, action) => {
   switch (action.type) {
@@ -16,16 +16,16 @@ const items = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 const keyword = (state = "", action) => {
   switch (action.type) {
     case SET_STORE_KEYWORD:
-      return action.keyword
+      return action.keyword;
     default:
       return state;
   }
-}
+};
 
 const isFetching = (state = false, action) => {
   switch (action.type) {
@@ -38,7 +38,7 @@ const isFetching = (state = false, action) => {
     default:
       return state;
   }
-}
+};
 
 const error = (state = null, action) => {
   switch (action.type) {
@@ -51,20 +51,20 @@ const error = (state = null, action) => {
     default:
       return state;
   }
-}
+};
 
 const stores = combineReducers({
   items,
   keyword,
   isFetching,
-  error,
-})
+  error
+});
 
 export default stores;
 
-export const getStores = (state) => state.items;
+export const getStores = state => state.items;
 export const getStore = (state, id) => state.items[id];
 export const getCost = (state, id) => state.items[id].cost;
-export const getKeyword = (state) => state.keyword;
-export const getIsFetching = (state) => state.isFetching;
-export const getError = (state) => state.error;
+export const getKeyword = state => state.keyword;
+export const getIsFetching = state => state.isFetching;
+export const getError = state => state.error;

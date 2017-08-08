@@ -14,7 +14,7 @@
 
 .Section-label {
   /* Background & Borders */
-  background-color: #EDE7F6;
+  background-color: #ede7f6;
   /* Basic Box */
   display: inline-block;
   position: static;
@@ -27,7 +27,7 @@
 
 .Section-separator {
   /* Background & Borders */
-  border-top: .125rem solid #673AB7;
+  border-top: .125rem solid #673ab7;
   border-bottom: none;
   /* Basic Box */
   position: absolute;

@@ -31,7 +31,7 @@
   /* Background & Borders */
   border-top-left-radius: 1.5rem;
   border-bottom-left-radius: 1.5rem;
-  border-color: #BDBDBD;
+  border-color: #bdbdbd;
   /* Basic Box */
   width: 27rem;
   padding: 0.125rem 1rem;
@@ -44,14 +44,14 @@
   /* Background & Borders */
   border-top-right-radius: 1.5rem;
   border-bottom-right-radius: 1.5rem;
-  border-right: 2px solid #BDBDBD;
+  border-right: 2px solid #bdbdbd;
   /* Basic Box */
   width: 30rem;
 }
 
 .FilterInput-txt-search-icon {
   /* Color */
-  color: #BDBDBD;
+  color: #bdbdbd;
   /* Basic Box */
   position: absolute;
   right: 2rem;
@@ -61,7 +61,6 @@
 }
 
 @media (max-width: 36em) {
-
   .l-FilterInput {
     /* Basic Box */
     width: 90%;
@@ -81,9 +80,9 @@
 
 .FilterInput-btn {
   /* Background & Borders */
-  background-color: #673AB7;
+  background-color: #673ab7;
   border-radius: 0 1.5rem 1.5rem 0;
-  border-color: #673AB7;
+  border-color: #673ab7;
   /* Basic Box */
   width: 3rem;
   padding: 0.125rem 0.625rem;
@@ -95,7 +94,7 @@
 
 .FilterInput-txt:focus {
   /* Background & Borders */
-  border: 2px solid #673AB7;
+  border: 2px solid #673ab7;
 }
 
 .FilterInput-txt,
@@ -106,16 +105,16 @@
 
 .FilterInput-txt.FilterInput-txt-no-btn:focus {
   /* Background & Borders */
-  border-right: 2px solid #673AB7;
+  border-right: 2px solid #673ab7;
 }
 
 .FilterInput-btn:active,
 .FilterInput-btn:focus {
   /* Background & Borders */
-  border-color: #FF6D00;
+  border-color: #ff6d00;
 }
 
 .FilterInput-btn:active {
   /* Background & Borders */
-  background-color: #FF6D00;
+  background-color: #ff6d00;
 }

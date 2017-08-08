@@ -20,7 +20,7 @@
   /* Background & Borders */
   border-width: 1px 0;
   border-style: solid;
-  border-color: #673AB7;
+  border-color: #673ab7;
   /* Basic Box */
   padding: .5rem 0;
 }
@@ -32,7 +32,7 @@
 
 .Table > tfoot {
   /* Color */
-  color: #673AB7;
+  color: #673ab7;
 }
 
 .Table-header-number {
@@ -64,9 +64,9 @@
 
 tfoot td.Table-reverse {
   /* Color */
-  color: #FF6D00;
+  color: #ff6d00;
   /* Background & Borders */
-  border-color: #FF6D00;
+  border-color: #ff6d00;
 }
 
 .Table-price.Table-reverse:before {

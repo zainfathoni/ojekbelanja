@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { PropTypes as T } from 'prop-types';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import { PropTypes as T } from "prop-types";
+import { connect } from "react-redux";
 
-import * as actions from '../actions';
-import { getStores } from '../reducers';
-import TokoInput from './TokoInput';
-import TokoCards from './TokoCards';
+import * as actions from "../actions";
+import { getStores } from "../reducers";
+import TokoInput from "./TokoInput";
+import TokoCards from "./TokoCards";
 
 class Tokos extends Component {
   /*** Lifecycle ***/
@@ -20,9 +20,7 @@ class Tokos extends Component {
     return (
       <div>
         <TokoInput />
-        <TokoCards
-          items={this.props.stores}
-        />
+        <TokoCards items={this.props.stores} />
       </div>
     );
   }
@@ -34,19 +32,16 @@ Tokos.propTypes = {
       name: T.string.isRequired,
       area: T.string.isRequired,
       image: T.string.isRequired,
-      cost: T.number.isRequired,
+      cost: T.number.isRequired
     }).isRequired
   ).isRequired,
-  fetchStores: T.func.isRequired,
-}
+  fetchStores: T.func.isRequired
+};
 
-const mapStateToProps = (state) => ({
-  stores: getStores(state),
+const mapStateToProps = state => ({
+  stores: getStores(state)
 });
 
-Tokos = connect(
-  mapStateToProps,
-  actions,
-)(Tokos);
+Tokos = connect(mapStateToProps, actions)(Tokos);
 
 export default Tokos;
