@@ -10,7 +10,8 @@
   margin: .5rem 0;
   overflow: visible;
   /* Background & Borders */
-  box-shadow: 0 .125rem .25rem 0 rgba(0,0,0,.16), 0 .125rem .25rem 0 rgba(0,0,0,.12);
+  box-shadow: 0 .125rem .25rem 0 rgba(0, 0, 0, .16),
+    0 .125rem .25rem 0 rgba(0, 0, 0, .12);
 }
 
 /** Module - Card Image **/
@@ -34,9 +35,9 @@
 
 .Card-image-overlay {
   /* Color */
-  color: #FFF;
+  color: #fff;
   /* Background & Borders */
-  background-color: rgba(21,21,21,.45);
+  background-color: rgba(21, 21, 21, .45);
   border-radius: .25rem .25rem 0 0;
   /* Basic Box */
   position: absolute;
@@ -57,7 +58,7 @@
 
 .Card-ribbon-wrapper {
   /* Color */
-  color: #FFF;
+  color: #fff;
   /* Basic Box */
   width: 7rem;
   height: 7rem;
@@ -72,8 +73,8 @@
 
 .Card-ribbon {
   /* Background & Borders */
-  background-color: #FF6D00;
-  box-shadow: 0 0 .125rem rgba(0,0,0,.12);
+  background-color: #ff6d00;
+  box-shadow: 0 0 .125rem rgba(0, 0, 0, .12);
   /* Basic Box */
   position: relative;
   top: 1rem;
@@ -86,11 +87,11 @@
 
 .Card-tooltip {
   /* Color */
-  color: #FFF;
+  color: #fff;
   /* Background & Borders */
-  background-color: #FF6D00;
+  background-color: #ff6d00;
   border-radius: .25rem;
-  box-shadow: .125rem .125rem .375rem rgba(0,0,0,.12);
+  box-shadow: .125rem .125rem .375rem rgba(0, 0, 0, .12);
   /* Basic Box */
   position: absolute;
   top: 80px;
@@ -141,7 +142,7 @@
 
 .Card-action {
   /* Background & Borders */
-  border-top: 1px solid rgba(160,160,160,.2);
+  border-top: 1px solid rgba(160, 160, 160, .2);
   /* Basic Box */
   padding: .25rem .5rem .5rem .5rem;
 }
@@ -156,7 +157,7 @@
 
 .Card-action-price {
   /* Color */
-  color: #FF6D00;
+  color: #ff6d00;
   /* Fonts */
   font-weight: 700;
   font-size: 1.125rem;
@@ -196,5 +197,5 @@
 
 .Card-is-selected {
   /* Background & Borders */
-  box-shadow: inset 0 0 .75rem #673AB7;
+  box-shadow: inset 0 0 .75rem #673ab7;
 }

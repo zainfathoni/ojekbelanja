@@ -4,7 +4,7 @@
 
 .TextArea {
   /* Color */
-  color: rgba(0,0,0,.54);
+  color: rgba(0, 0, 0, .54);
   /* Basic Box */
   padding: .5rem 0;
   /* Text */
@@ -28,10 +28,10 @@
 
 .TextArea-input {
   /* Color */
-  color: rgba(0,0,0,.78);
+  color: rgba(0, 0, 0, .78);
   /* Background & Borders */
   border-radius: .375rem;
-  border: 1px solid rgba(0,0,0,.12);
+  border: 1px solid rgba(0, 0, 0, .12);
   padding: .375rem .625rem;
   /* Text */
   line-height: 1.5rem;
@@ -49,7 +49,7 @@
 
 .TextArea-message {
   /* Color */
-  color: #FF6D00;
+  color: #ff6d00;
   /* Basic Box */
   float: right;
   /* Text */
@@ -62,11 +62,12 @@
 
 .TextArea-input:focus {
   /* Background & Border */
-  border: 1px solid #673AB7;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,.12),0 0 5px rgba(103,58,183,.54);
+  border: 1px solid #673ab7;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .12),
+    0 0 5px rgba(103, 58, 183, .54);
 }
 
 .TextArea-input-is-error {
   /* Background & Border */
-  border-color: #FF6D00;
+  border-color: #ff6d00;
 }

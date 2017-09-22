@@ -1,8 +1,8 @@
-import { PropTypes as T } from 'prop-types';
-import { connect } from 'react-redux';
+import { PropTypes as T } from "prop-types";
+import { connect } from "react-redux";
 
-import { incOrder, decOrder } from '../actions';
-import { getProductKeyword, getQuantity } from '../reducers';
+import { incOrder, decOrder } from "../actions";
+import { getProductKeyword, getQuantity } from "../reducers";
 import Card from "../components/FilterCards/Card";
 
 const mapStateToProps = (state, { id, product: p }) => ({
@@ -15,16 +15,13 @@ const mapStateToProps = (state, { id, product: p }) => ({
   price: p.price,
   disabled: p.empty,
   ribbon: p.promo,
-  tooltip: p.promo_desc,
+  tooltip: p.promo_desc
 });
 
-const ProductCard = connect(
-  mapStateToProps,
-  {
-    action: incOrder,
-    actionReverse: decOrder,
-  },
-)(Card);
+const ProductCard = connect(mapStateToProps, {
+  action: incOrder,
+  actionReverse: decOrder
+})(Card);
 
 ProductCard.propTypes = {
   id: T.string.isRequired,
@@ -37,8 +34,8 @@ ProductCard.propTypes = {
     price: T.number.isRequired,
     empty: T.bool,
     promo: T.string,
-    promo_desc: T.string,
-  }).isRequired,
+    promo_desc: T.string
+  }).isRequired
 };
 
 export default ProductCard;

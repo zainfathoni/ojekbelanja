@@ -26,9 +26,9 @@
 
 .Order-product-count {
   /* Color */
-  color: #FFF;
+  color: #fff;
   /* Background & Borders */
-  background-color: #673AB7;
+  background-color: #673ab7;
   border-radius: .125rem;
   /* Basic Box */
   display: inline-block;
@@ -61,7 +61,7 @@
 
 .Order-delivery-fee-label {
   /* Color */
-  color: #673AB7;
+  color: #673ab7;
   /* Fonts */
   font-weight: 300;
 }
@@ -76,12 +76,12 @@
 
 .Order-action {
   /* Color */
-  color: #FFFFFF;
+  color: #ffffff;
   /* Background & Borders */
-  background-color: #673AB7;
+  background-color: #673ab7;
   border-style: solid;
   border-radius: .25rem;
-  border-color: #673AB7;
+  border-color: #673ab7;
   /* Basic Box */
   padding: .625rem 1rem;
   /* Fonts */
@@ -92,8 +92,8 @@
 
 .Order-action-clear {
   /* Background & Borders */
-  background-color: #FF6D00;
-  border-color: #FF6D00;
+  background-color: #ff6d00;
+  border-color: #ff6d00;
   /* Basic Box */
   margin-right: .375rem;
 }
@@ -106,7 +106,6 @@
 /** Module - 2 Columns Grid **/
 
 @media (max-width: 30em) {
-
   .Order-price-wrapper {
     /* Basic Box */
     display: block;
@@ -136,7 +135,7 @@
 
   .Order-action {
     /* Basic Box */
-    margin-bottom: .375rem
+    margin-bottom: .375rem;
   }
 
   /** Layout **/
@@ -152,21 +151,21 @@
 .Order-action-clear:active,
 .Order-action-clear:focus {
   /* Background & Borders */
-  border-color: #673AB7;
+  border-color: #673ab7;
 }
 
 .Order-action-clear:active {
   /* Background & Borders */
-  background-color: #673AB7;
+  background-color: #673ab7;
 }
 
 .Order-action-checkout:active,
 .Order-action-checkout:focus {
   /* Background & Borders */
-  border-color: #FF6D00;
+  border-color: #ff6d00;
 }
 
 .Order-action-checkout:active {
   /* Background & Borders */
-  background-color: #FF6D00;
+  background-color: #ff6d00;
 }

@@ -5,16 +5,10 @@
 		// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
     "andischerer.theme-atom-one-dark",
     "dzannotti.vscode-babel-coloring",
-    "msjsdiag.debugger-for-chrome",
-		"EditorConfig.EditorConfig",
+    "EditorConfig.EditorConfig",
     "dbaeumer.vscode-eslint",
-    "donjayamanne.githistory",
-    "abusaidm.html-snippets",
-    "TwentyChung.jsx",
     "christian-kohler.path-intellisense",
     "eamodio.gitlens",
-    "vsmobile.vscode-react-native",
-    "robertohuertasm.vscode-icons",
-    "MattiasPernhult.vscode-todo"
+    "robertohuertasm.vscode-icons"
 	]
 }

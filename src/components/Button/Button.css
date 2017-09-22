@@ -4,10 +4,10 @@
 
 .Button {
   /* Color */
-  color: #FFFFFF;
+  color: #ffffff;
   /* Background & Border */
-  background-color: #673AB7;
-  border: .125rem solid #673AB7;
+  background-color: #673ab7;
+  border: .125rem solid #673ab7;
   border-radius: .25rem;
   /* Basic Box */
   padding: .625rem 1rem;
@@ -47,8 +47,8 @@
 
 .Button-secondary {
   /* Background & Borders */
-  background-color: #FF6D00;
-  border-color: #FF6D00;
+  background-color: #ff6d00;
+  border-color: #ff6d00;
 }
 
 /** State **/
@@ -56,23 +56,23 @@
 .Button:active,
 .Button:focus {
   /* Background & Borders */
-  border-color: #FF6D00;
+  border-color: #ff6d00;
 }
 
 .Button:active {
   /* Background & Borders */
-  background-color: #FF6D00;
+  background-color: #ff6d00;
 }
 
 .Button-secondary:active,
 .Button-secondary:focus {
   /* Background & Borders */
-  border-color: #673AB7;
+  border-color: #673ab7;
 }
 
 .Button-secondary:active {
   /* Background & Borders */
-  background-color: #673AB7;
+  background-color: #673ab7;
 }
 
 .Button:disabled {

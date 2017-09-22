@@ -1,17 +1,17 @@
-import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Provider } from "react-redux";
 
-import Home from './Home';
-import Toko from './Toko';
-import Pesan from './Pesan';
-import Login from './Login';
-import ThankYou from './ThankYou';
-import StyleGuide from './StyleGuide';
-import NotFound from './NotFound';
-import '../css/index.css';
-import '../css/fonts.css';
-import '../css/font-awesome.css';
+import Home from "./Home";
+import Toko from "./Toko";
+import Pesan from "./Pesan";
+import Login from "./Login";
+import ThankYou from "./ThankYou";
+import StyleGuide from "./StyleGuide";
+import NotFound from "./NotFound";
+import "../css/index.css";
+import "../css/fonts.css";
+import "../css/font-awesome.css";
 
 const Root = ({ store }) => {
   return (
@@ -19,7 +19,7 @@ const Root = ({ store }) => {
       <Router>
         <div>
           <Switch>
-            <Route exact path='/' component={Home} />
+            <Route exact path="/" component={Home} />
             <Route path="/toko/:storeId" component={Toko} />
             <Route path="/pesan/:storeId" component={Pesan} />
             <Route path="/thankyou/:storeId" component={ThankYou} />
@@ -30,7 +30,7 @@ const Root = ({ store }) => {
         </div>
       </Router>
     </Provider>
-  )
-}
+  );
+};
 
 export default Root;
