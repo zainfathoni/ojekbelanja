@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "codecov": "^2.3.0",
     "firebase": "^4.2.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
