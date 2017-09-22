@@ -4,7 +4,6 @@
   "private": true,
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
-    "codecov": "^2.3.0",
     "react-scripts": "0.7.0"
   },
   "dependencies": {
@@ -30,5 +29,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
   }
 }
