@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.7.0",
-    "@kadira/storybook": "^2.21.0"
+    "@kadira/storybook": "^2.21.0",
+    "codecov": "^2.3.0",
+    "react-scripts": "0.7.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
