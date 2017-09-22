@@ -103,6 +103,17 @@ test("CLEAR_ORDER", () => {
   expect(order(before, action)).toEqual(after);
 });
 
+test("default", () => {
+  const before = {
+    kecap: 3
+  };
+  const action = {
+    type: "UNKNOWN"
+  };
+
+  expect(order(before, action)).toEqual(before);
+});
+
 test("getOrder", () => {
   expect(getOrder({ kecap: 1 })).toEqual({ kecap: 1 });
 });
