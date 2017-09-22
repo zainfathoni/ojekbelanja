@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 import Page from '../components/Page';
 import Brand from '../components/Brand';
 import Tokos from '../containers/Tokos';
 
-const Home = () => (
+const Home = () =>
   <Page>
     <div>
       <p>
@@ -12,7 +12,6 @@ const Home = () => (
       </p>
       <Tokos />
     </div>
-  </Page>
-);
+  </Page>;
 
 export default Home;

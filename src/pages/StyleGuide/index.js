@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Section from '../../components/FilterCards/Section'
-import MainNav from '../../components/MainNav';
-import Header from '../../components/Header';
-import FilterInput from '../../components/FilterInput';
-import FilterCards from '../../components/FilterCards';
-import { stores } from '../../models';
-import './StyleGuide.css';
+import Section from "../../components/FilterCards/Section";
+import MainNav from "../../components/MainNav";
+import Header from "../../components/Header";
+import FilterInput from "../../components/FilterInput";
+import FilterCards from "../../components/FilterCards";
+import { stores } from "../../models";
+import "./StyleGuide.css";
 
 export default class StyleGuide extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      keyword: ''
-    }
+      keyword: ""
+    };
   }
 
   /*** Methods ***/
 
-  updateKeyword = (keyword) => {
+  updateKeyword = keyword => {
     this.setState({
       keyword
-    })
-  }
+    });
+  };
 
   /*** Render ***/
 
@@ -34,7 +34,8 @@ export default class StyleGuide extends Component {
           id="main-navigation"
           label="Main Navigation"
           labelClassName="StyleGuide-label"
-          separatorClassName="StyleGuide-separator">
+          separatorClassName="StyleGuide-separator"
+        >
           <div id="main-navigation" className="l-wrapper-MainNav">
             <MainNav />
           </div>
@@ -45,7 +46,8 @@ export default class StyleGuide extends Component {
           id="header"
           label="Header"
           labelClassName="StyleGuide-label"
-          separatorClassName="StyleGuide-separator">
+          separatorClassName="StyleGuide-separator"
+        >
           <Header />
         </Section>
 
@@ -54,7 +56,8 @@ export default class StyleGuide extends Component {
           id="header-not-found"
           label="Header-Not-Found"
           labelClassName="StyleGuide-label"
-          separatorClassName="StyleGuide-separator">
+          separatorClassName="StyleGuide-separator"
+        >
           <Header is404 />
         </Section>
 
@@ -63,7 +66,8 @@ export default class StyleGuide extends Component {
           id="paragraph"
           label="Paragraph"
           labelClassName="StyleGuide-label"
-          separatorClassName="StyleGuide-separator">
+          separatorClassName="StyleGuide-separator"
+        >
           <p>
             Pilih Toko <strong>Ojek Belanja</strong> Anda
           </p>
@@ -74,19 +78,20 @@ export default class StyleGuide extends Component {
           id="filter-input"
           label="Filter Input"
           labelClassName="StyleGuide-label"
-          separatorClassName="StyleGuide-separator">
+          separatorClassName="StyleGuide-separator"
+        >
           <div id="filter-input" className="l-main">
             <FilterInput
               placeholder="Without Button"
               keyword={this.state.keyword}
               setKeyword={this.updateKeyword}
-              />
+            />
             <FilterInput
               placeholder="With Button"
               keyword={this.state.keyword}
               setKeyword={this.updateKeyword}
               withButton
-              />
+            />
           </div>
         </Section>
 
@@ -95,21 +100,21 @@ export default class StyleGuide extends Component {
           id="filter-cards"
           label="Filter Cards"
           labelClassName="StyleGuide-label"
-          separatorClassName="StyleGuide-separator">
+          separatorClassName="StyleGuide-separator"
+        >
           <div id="filter-cards" className="l-main">
             <FilterCards
               keyword=""
               items={stores}
               fields={{
-                title: 'name',
-                description: 'area',
-                image: 'image',
+                title: "name",
+                description: "area",
+                image: "image"
               }}
               action={() => true}
-              />
+            />
           </div>
         </Section>
-
       </div>
     );
   }

@@ -1,5 +1,5 @@
-import { getStoreIsFetching, getProductIsFetching } from '../reducers';
-import base from '../services/base';
+import { getStoreIsFetching, getProductIsFetching } from "../reducers";
+import base from "../services/base";
 
 export const INC_ORDER = "INC_ORDER";
 export const DEC_ORDER = "DEC_ORDER";
@@ -22,45 +22,44 @@ export const FETCH_PRODUCTS_REQUEST = "FETCH_PRODUCTS_REQUEST";
 export const FETCH_PRODUCTS_SUCCESS = "FETCH_PRODUCTS_SUCCESS";
 export const FETCH_PRODUCTS_FAILURE = "FETCH_PRODUCTS_FAILURE";
 
-
-export const incOrder = (id) => ({
+export const incOrder = id => ({
   type: INC_ORDER,
-  id,
+  id
 });
 
-export const decOrder = (id) => ({
+export const decOrder = id => ({
   type: DEC_ORDER,
-  id,
+  id
 });
 
 export const setOrder = (id, count) => ({
   type: SET_ORDER,
   id,
-  count,
+  count
 });
 
-export const removeOrder = (id) => ({
+export const removeOrder = id => ({
   type: REMOVE_ORDER,
-  id,
+  id
 });
 
 export const clearOrder = () => ({
-  type: CLEAR_ORDER,
+  type: CLEAR_ORDER
 });
 
 export const setUser = (field, value) => ({
   type: SET_USER,
   field,
-  value,
+  value
 });
 
 export const clearUser = () => ({
-  type: CLEAR_USER,
+  type: CLEAR_USER
 });
 
-export const setStoreKeyword = (keyword) => ({
+export const setStoreKeyword = keyword => ({
   type: SET_STORE_KEYWORD,
-  keyword,
+  keyword
 });
 
 export const fetchStores = () => (dispatch, getState) => {
@@ -69,55 +68,63 @@ export const fetchStores = () => (dispatch, getState) => {
   }
 
   dispatch({
-    type: FETCH_STORES_REQUEST,
+    type: FETCH_STORES_REQUEST
   });
 
   return base
     .fetch(`/stores`, { context: this })
-    .then(stores => dispatch({
-      type: FETCH_STORES_SUCCESS,
-      stores,
-    }))
-    .catch(error => dispatch({
-      type: FETCH_STORES_FAILURE,
-      message: error.message || 'Tetap Tenang Tetap Semangat',
-    }));
-}
+    .then(stores =>
+      dispatch({
+        type: FETCH_STORES_SUCCESS,
+        stores
+      })
+    )
+    .catch(error =>
+      dispatch({
+        type: FETCH_STORES_FAILURE,
+        message: error.message || "Tetap Tenang Tetap Semangat"
+      })
+    );
+};
 
-export const fetchStore = (id) => (dispatch, getState) => {
+export const fetchStore = id => (dispatch, getState) => {
   if (getStoreIsFetching(getState())) {
     return Promise.resolve();
   }
 
   dispatch({
-    type: FETCH_STORES_REQUEST,
+    type: FETCH_STORES_REQUEST
   });
 
   return base
     .fetch(`/stores/${id}`, { context: this })
-    .then(store => dispatch({
-      type: FETCH_STORE_SUCCESS,
-      id,
-      store,
-    }))
-    .catch(error => dispatch({
-      type: FETCH_STORES_FAILURE,
-      message: error.message || 'Tetap Tenang Tetap Semangat',
-    }));
-}
+    .then(store =>
+      dispatch({
+        type: FETCH_STORE_SUCCESS,
+        id,
+        store
+      })
+    )
+    .catch(error =>
+      dispatch({
+        type: FETCH_STORES_FAILURE,
+        message: error.message || "Tetap Tenang Tetap Semangat"
+      })
+    );
+};
 
-export const setProductKeyword = (keyword) => ({
+export const setProductKeyword = keyword => ({
   type: SET_PRODUCT_KEYWORD,
-  keyword,
+  keyword
 });
 
-export const fetchProducts = (id) => (dispatch, getState) => {
+export const fetchProducts = id => (dispatch, getState) => {
   if (getProductIsFetching(getState())) {
     return Promise.resolve();
   }
 
   dispatch({
-    type: FETCH_PRODUCTS_REQUEST,
+    type: FETCH_PRODUCTS_REQUEST
   });
 
   return base
@@ -125,16 +132,18 @@ export const fetchProducts = (id) => (dispatch, getState) => {
     .then(({ categories, items }) => {
       dispatch({
         type: CLEAN_ORDER,
-        products: items,
+        products: items
       });
       dispatch({
         type: FETCH_PRODUCTS_SUCCESS,
         categories,
-        items,
+        items
       });
     })
-    .catch(error => dispatch({
-      type: FETCH_PRODUCTS_FAILURE,
-      message: error.message || 'Tetap Tenang Tetap Semangat',
-    }));
-}
+    .catch(error =>
+      dispatch({
+        type: FETCH_PRODUCTS_FAILURE,
+        message: error.message || "Tetap Tenang Tetap Semangat"
+      })
+    );
+};

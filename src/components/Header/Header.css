@@ -4,9 +4,9 @@
 
 .Header {
   /* Color */
-  color: #FFFFFF;
+  color: #ffffff;
   /* Background & Color */
-  background-color: #673AB7;
+  background-color: #673ab7;
   /* Basic Box */
   height: 10.5rem;
   padding: 1.5rem;
@@ -18,5 +18,5 @@
 
 .Header-is-error {
   /* Color */
-  color: #FF9800;
+  color: #ff9800;
 }

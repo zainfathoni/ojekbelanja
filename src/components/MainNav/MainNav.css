@@ -2,7 +2,7 @@
 
 /** Layout **/
 
-.l-MainNav{
+.l-MainNav {
   /* Basic Box - Center Horizontally on 60rem x 3rem */
   display: block;
   max-width: 60em;
@@ -24,15 +24,15 @@
 .MainNav {
   /* Fonts */
   font-weight: 700;
-  font-size: 0.9rem;  
+  font-size: 0.9rem;
 }
 
 .MainNav-item {
   /* Color */
   color: #212121;
   /* Background & Borders */
-  border: 1px solid #D1C4E9;
-  border-right-color: rgba(0,0,0,.12);
+  border: 1px solid #d1c4e9;
+  border-right-color: rgba(0, 0, 0, .12);
   /* Basic Box */
   float: left;
   padding: 0 0.75rem;
@@ -49,7 +49,7 @@
 
 .MainNav-login {
   /* Background & Borders */
-  border-right-color: #D1C4E9;
+  border-right-color: #d1c4e9;
   /* Basic Box */
   float: right;
   /* Fonts */
@@ -61,16 +61,16 @@
 .MainNav-item:hover,
 .MainNav-is-active {
   /* Color */
-  color: #FF6D00;
+  color: #ff6d00;
   /* Background & Borders */
-  background-color: #EDE7F6;
-  border-color: #EDE7F6;
-  border-right-color: rgba(0,0,0,.12);
+  background-color: #ede7f6;
+  border-color: #ede7f6;
+  border-right-color: rgba(0, 0, 0, .12);
 }
 
 .MainNav-item:focus {
   /* Background & Borders */
-  border: 1px solid #673AB7;
+  border: 1px solid #673ab7;
   /* Animation */
   transition: none;
 }

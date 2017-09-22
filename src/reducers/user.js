@@ -1,7 +1,4 @@
-import {
-  SET_USER,
-  CLEAR_USER
-} from '../actions';
+import { SET_USER, CLEAR_USER } from "../actions";
 
 const user = (state = {}, action) => {
   switch (action.type) {
@@ -12,6 +9,6 @@ const user = (state = {}, action) => {
     default:
       return state;
   }
-}
+};
 
 export default user;

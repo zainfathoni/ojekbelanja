@@ -21,8 +21,8 @@
 
 /* Different Card Heights Fix: http://stackoverflow.com/a/11811937/3187014 */
 /* 4 Columns Grid */
-.l-FilterCards-grid > li:nth-child(4n+1) {
-    clear: both;
+.l-FilterCards-grid > li:nth-child(4n + 1) {
+  clear: both;
 }
 
 .l-FilterCards-grid:after {
@@ -43,11 +43,11 @@
     width: 33.333333%;
   }
 
-  .l-FilterCards-grid > li:nth-child(4n+1) {
+  .l-FilterCards-grid > li:nth-child(4n + 1) {
     clear: none;
   }
 
-  .l-FilterCards-grid > li:nth-child(3n+1) {
+  .l-FilterCards-grid > li:nth-child(3n + 1) {
     clear: both;
   }
 
@@ -65,11 +65,11 @@
     width: 50%;
   }
 
-  .l-FilterCards-grid > li:nth-child(3n+1) {
+  .l-FilterCards-grid > li:nth-child(3n + 1) {
     clear: none;
   }
 
-  .l-FilterCards-grid > li:nth-child(2n+1) {
+  .l-FilterCards-grid > li:nth-child(2n + 1) {
     clear: both;
   }
 }

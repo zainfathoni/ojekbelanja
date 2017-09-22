@@ -1,18 +1,18 @@
-import React from 'react';
-import { PropTypes as T } from 'prop-types';
-import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
+import React from "react";
+import { PropTypes as T } from "prop-types";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-import * as actions from '../../../actions';
-import Form from '../../../components/Form';
-import Button from '../../../components/Button';
-import TextField from '../../../components/TextField';
-import TextArea from '../../../components/TextArea';
-import { isEmailValid, isPhoneValid } from '../../../services/form';
-import './Pemesan.css';
+import * as actions from "../../../actions";
+import Form from "../../../components/Form";
+import Button from "../../../components/Button";
+import TextField from "../../../components/TextField";
+import TextArea from "../../../components/TextArea";
+import { isEmailValid, isPhoneValid } from "../../../services/form";
+import "./Pemesan.css";
 
 let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
-  const isUserInvalid = (user) =>
+  const isUserInvalid = user =>
     !user.name ||
     !isEmailValid(user.email) ||
     !isPhoneValid(user.phone) ||
@@ -21,39 +21,39 @@ let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
 
   const onChange = (field, value) => {
     setUser(field, value);
-  }
+  };
 
   const onReset = (field, value) => {
     clearUser();
-  }
+  };
 
   const onSubmit = (e, storeId) => {
     e.preventDefault();
-  }
+  };
 
   return (
     <Form
       name={name}
       title="Data Pemesan"
-      icon={<i className="fa fa-lg fa-address-card" aria-hidden="true"></i>}
-      onSubmit={(e) => onSubmit(e, storeId)}
+      icon={<i className="fa fa-lg fa-address-card" aria-hidden="true" />}
+      onSubmit={e => onSubmit(e, storeId)}
       footer={
         <div>
           <Button
             className="Pemesan-footer-clear"
             type="reset"
             display="content"
-            action={(e) => onReset(e)}
+            action={e => onReset(e)}
             icon="times"
             text="Bersihkan"
             disabled={!Object.keys(user).length}
-            title={!Object.keys(user).length ? "Data sudah bersih" : "Bersihkan data"}
+            title={
+              !Object.keys(user).length ? "Data sudah bersih" : "Bersihkan data"
+            }
             isSecondary
-            />
+          />
           {/**/}
-          <Link
-            to={`/thankyou/${storeId}`}
-          >
+          <Link to={`/thankyou/${storeId}`}>
             <Button
               className="Pemesan-footer-done"
               type="submit"
@@ -61,12 +61,16 @@ let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
               icon="cart-arrow-down"
               text="Selesai"
               disabled={isUserInvalid(user)}
-              title={isUserInvalid(user) ? "Masih ditemukan data yang tidak valid" : "Konfirmasi Pemesanan"}
+              title={
+                isUserInvalid(user)
+                  ? "Masih ditemukan data yang tidak valid"
+                  : "Konfirmasi Pemesanan"
+              }
             />
           </Link>
         </div>
       }
-      >
+    >
       <TextField
         name="name"
         label="Nama"
@@ -74,14 +78,14 @@ let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
         value={user.name}
         onChange={onChange}
         required
-        />
+      />
       <TextField
         name="nickname"
         label="Panggilan"
         placeholder="Nama Panggilan"
         value={user.nickname}
         onChange={onChange}
-        />
+      />
       <TextField
         type="email"
         name="email"
@@ -92,7 +96,7 @@ let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
         validate={isEmailValid}
         message="Alamat Email tidak valid"
         required
-        />
+      />
       <TextField
         type="tel"
         display="content"
@@ -104,7 +108,7 @@ let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
         validate={isPhoneValid}
         message="No. HP tidak valid"
         required
-        />
+      />
       <TextField
         type="text"
         name="city"
@@ -113,7 +117,7 @@ let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
         value={user.city}
         onChange={onChange}
         required
-        />
+      />
       <TextArea
         name="address"
         label="Alamat"
@@ -122,33 +126,30 @@ let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
         rows={4}
         onChange={onChange}
         required
-        />
+      />
       <TextArea
         name="notes"
         label="Catatan"
         placeholder="Catatan Tambahan"
         value={user.notes}
         onChange={onChange}
-        />
+      />
     </Form>
-  )
-}
+  );
+};
 
 Pemesan.propTypes = {
   name: T.string.isRequired,
   user: T.object.isRequired,
   storeId: T.string.isRequired,
   setUser: T.func.isRequired,
-  clearUser: T.func.isRequired,
-}
+  clearUser: T.func.isRequired
+};
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.user
 });
 
-Pemesan = connect(
-  mapStateToProps,
-  actions,
-)(Pemesan);
+Pemesan = connect(mapStateToProps, actions)(Pemesan);
 
 export default Pemesan;

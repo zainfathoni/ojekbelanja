@@ -11,7 +11,7 @@
 
 .l-wrapper-MainNav {
   /* Background & Borders */
-  background-color: #D1C4E9;
+  background-color: #d1c4e9;
 }
 
 .l-main {
@@ -41,7 +41,7 @@
 
 .l-wrapper-footer {
   /* Color */
-  color: #FF6D00;
+  color: #ff6d00;
   /* Basic Box - Stick to the bottom of the page */
   display: block;
   position: fixed;
@@ -50,6 +50,6 @@
   bottom: 0;
   z-index: 2;
   /* Background & Borders */
-  background-color: #EDE7F6;
-  box-shadow: 0 0 .625rem rgba(0,0,0,.8);
+  background-color: #ede7f6;
+  box-shadow: 0 0 .625rem rgba(0, 0, 0, .8);
 }

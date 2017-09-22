@@ -1,10 +1,10 @@
-import React from 'react';
-import { PropTypes as T } from 'prop-types';
-import { Link } from 'react-router-dom';
-import Highlighter from 'react-highlight-words';
+import React from "react";
+import { PropTypes as T } from "prop-types";
+import { Link } from "react-router-dom";
+import Highlighter from "react-highlight-words";
 
-import Button from '../../Button';
-import './Card.css';
+import Button from "../../Button";
+import "./Card.css";
 
 export default function Card(props) {
   const {
@@ -20,7 +20,7 @@ export default function Card(props) {
     unit,
     price,
     action,
-    actionReverse,
+    actionReverse
   } = props;
 
   return (
@@ -33,27 +33,22 @@ export default function Card(props) {
               <div className="Card-image-overlay-qty">
                 {overlay}
               </div>
-            </div>
-          }
+            </div>}
           {ribbon &&
             <div className="Card-ribbon-wrapper">
               <div className="Card-ribbon">
                 {ribbon}
               </div>
-            </div>
-          }
-          {ribbon && tooltip &&
+            </div>}
+          {ribbon &&
+            tooltip &&
             <div className="Card-tooltip">
               {tooltip}
-            </div>
-          }
+            </div>}
         </div>
         <div className="Card-content">
           <div className="Card-content-title">
-            <Highlighter
-              searchWords={[keyword]}
-              textToHighlight={title}
-            />
+            <Highlighter searchWords={[keyword]} textToHighlight={title} />
           </div>
           <div className="Card-content-description">
             <Highlighter
@@ -65,68 +60,60 @@ export default function Card(props) {
         <div className="Card-action">
           <div className="Card-action-price-parent">
             <span className="Card-action-price">
-              {`Rp ${price.toLocaleString('id')}`}
+              {`Rp ${price.toLocaleString("id")}`}
             </span>
             <span className="Card-action-unit">
               {` / ${unit}`}
             </span>
           </div>
-          {!actionReverse ?
-            <Link
-              to={`/toko/${id}`}
-            >
-              <Button
-                display="fullwidth"
-                icon="shopping-cart"
-                text="Mulai Belanja"
-              />
-            </Link>
-            :
-            <div>
-              {disabled ?
+          {!actionReverse
+            ? <Link to={`/toko/${id}`}>
                 <Button
                   display="fullwidth"
-                  action={(e) => action(id)}
-                  icon="ban"
-                  text="Stok Habis"
-                  disabled
-                  />
-                :
-                <div>
-                  {overlay ?
-                    <div>
-                      <Button
-                        className="Card-action-minus"
-                        display="icon"
-                        action={(e) => actionReverse(id)}
-                        icon="minus"
-                        text="Kurangi"
-                        isSecondary
-                        />
-                      <Button
-                        className="Card-action-plus"
-                        display="icon"
-                        action={(e) => action(id)}
-                        icon="plus"
-                        text="Tambahkan"
-                        />
-                    </div>
-                    :
-                    <Button
+                  icon="shopping-cart"
+                  text="Mulai Belanja"
+                />
+              </Link>
+            : <div>
+                {disabled
+                  ? <Button
                       display="fullwidth"
-                      action={(e) => action(id)}
-                      icon="cart-plus"
-                      text="Beli"
-                      />
-                  }
-                </div>
-              }
-            </div>
-          }
+                      action={e => action(id)}
+                      icon="ban"
+                      text="Stok Habis"
+                      disabled
+                    />
+                  : <div>
+                      {overlay
+                        ? <div>
+                            <Button
+                              className="Card-action-minus"
+                              display="icon"
+                              action={e => actionReverse(id)}
+                              icon="minus"
+                              text="Kurangi"
+                              isSecondary
+                            />
+                            <Button
+                              className="Card-action-plus"
+                              display="icon"
+                              action={e => action(id)}
+                              icon="plus"
+                              text="Tambahkan"
+                            />
+                          </div>
+                        : <Button
+                            display="fullwidth"
+                            action={e => action(id)}
+                            icon="cart-plus"
+                            text="Beli"
+                          />}
+                    </div>}
+              </div>}
         </div>
       </div>
     </li>
-  )
+  );
 }
 
 Card.propTypes = {
@@ -142,5 +129,5 @@ Card.propTypes = {
   unit: T.string,
   price: T.number,
   action: T.func,
-  actionReverse: T.func,
-}
+  actionReverse: T.func
+};
