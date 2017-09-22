@@ -15,9 +15,6 @@ jobs:
       # - image: circleci/mongo:3.4.4
 
     working_directory: ~/repo
-    
-    environment:
-      NODE_ENV: "test"
 
     steps:
       - checkout
@@ -37,7 +34,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
         
       # run tests!
-      - run: yarn coverage && node_modules/codecov/bin/codecov
+      - run: yarn test && node_modules/codecov/bin/codecov
 
       - run: bash <(curl -s https://codecov.io/bash)
 

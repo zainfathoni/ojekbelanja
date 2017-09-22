@@ -4,12 +4,11 @@
   "private": true,
   "devDependencies": {
     "@kadira/storybook": "^2.21.0",
-    "codecov": "^2.3.0",
-    "jest": "^21.1.0",
     "react-scripts": "0.7.0"
   },
   "dependencies": {
     "classnames": "^2.2.5",
+    "codecov": "^2.3.0",
     "firebase": "^4.2.0",
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
@@ -28,7 +27,6 @@
     "build": "react-scripts build",
     "deploy": "react-scripts build && firebase deploy",
     "test": "react-scripts test --env=jsdom",
-    "coverage": "react-scripts test --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"
