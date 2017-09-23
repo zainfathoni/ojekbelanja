@@ -1,6 +1,11 @@
-import { combineReducers } from 'redux';
-import order from './order';
-import { incOrder, decOrder, setOrder, removeOrder, clearOrder } from '../actions';
+import order, { getOrder, getOrderCount } from "./order";
+import {
+  incOrder,
+  decOrder,
+  setOrder,
+  removeOrder,
+  clearOrder
+} from "../actions";
 
 test("INC_ORDER", () => {
   const before = {
@@ -72,12 +77,12 @@ test("CLEAN_ORDER No Product", () => {
     saos: 2
   };
   const action = {
-    type: 'CLEAN_ORDER',
+    type: "CLEAN_ORDER",
     products: {
       kecap: {
-        empty: false,
-      },
-    },
+        empty: false
+      }
+    }
   };
   const after = {
     kecap: 3
@@ -95,4 +100,23 @@ test("CLEAR_ORDER", () => {
   const after = {};
 
   expect(order(before, action)).toEqual(after);
+});
+
+test("default", () => {
+  const before = {
+    kecap: 3
+  };
+  const action = {
+    type: "UNKNOWN"
+  };
+
+  expect(order(before, action)).toEqual(before);
+});
+
+test("getOrder", () => {
+  expect(getOrder({ kecap: 1 })).toEqual({ kecap: 1 });
+});
+
+test("getOrderCount", () => {
+  expect(getOrderCount({ kecap: 1 }, "kecap")).toEqual(1);
 });
