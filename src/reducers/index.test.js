@@ -10,7 +10,9 @@ import {
   getProduct,
   getProductKeyword,
   getProductIsFetching,
-  getProductError
+  getProductError,
+  getOrder,
+  getOrderCount
 } from ".";
 
 const state = {
@@ -47,6 +49,9 @@ const state = {
     error: null,
     isFetching: false,
     keyword: "jah"
+  },
+  order: {
+    jahe: 3
   }
 };
 
@@ -96,4 +101,12 @@ test("getSProductsFetching", () => {
 
 test("getProductError", () => {
   expect(getProductError(state)).toEqual(null);
+});
+
+test("getOrder", () => {
+  expect(getOrder(state)).toEqual(state.order);
+});
+
+test("getOrderCount", () => {
+  expect(getOrderCount(state, "jahe")).toEqual(state.order.jahe);
 });
