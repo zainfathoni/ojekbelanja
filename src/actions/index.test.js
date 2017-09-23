@@ -68,8 +68,9 @@ test("setProductKeyword", () => {
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const emptyStores = {
-  stores: {}
+const empty = {
+  stores: {},
+  products: {}
 };
 
 describe("fetchStores", () => {
@@ -96,7 +97,7 @@ describe("fetchStores", () => {
   });
 
   it("success", () => {
-    const store = mockStore(emptyStores);
+    const store = mockStore(empty);
 
     const fetch = () =>
       Promise.resolve({
@@ -119,7 +120,7 @@ describe("fetchStores", () => {
   });
 
   it("fails with error message", () => {
-    const store = mockStore(emptyStores);
+    const store = mockStore(empty);
 
     const fetch = () =>
       Promise.reject({
@@ -140,7 +141,7 @@ describe("fetchStores", () => {
   });
 
   it("fails without error message", () => {
-    const store = mockStore(emptyStores);
+    const store = mockStore(empty);
 
     const fetch = () => Promise.reject({});
 
@@ -181,7 +182,7 @@ describe("fetchStore", () => {
   });
 
   it("success", () => {
-    const store = mockStore(emptyStores);
+    const store = mockStore(empty);
 
     const fetch = () =>
       Promise.resolve({
@@ -203,7 +204,7 @@ describe("fetchStore", () => {
   });
 
   it("fails with error message", () => {
-    const store = mockStore(emptyStores);
+    const store = mockStore(empty);
 
     const fetch = () =>
       Promise.reject({
@@ -224,7 +225,7 @@ describe("fetchStore", () => {
   });
 
   it("fails without error message", () => {
-    const store = mockStore(emptyStores);
+    const store = mockStore(empty);
 
     const fetch = () => Promise.reject({});
 
@@ -237,6 +238,103 @@ describe("fetchStore", () => {
     ];
 
     return store.dispatch(act.fetchStore(fetch)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+});
+
+describe("fetchProducts", () => {
+  const id = "jejen";
+  const categories = {
+    ayam: "Daging Ayam",
+    bumbu: "Bumbu"
+  };
+  const items = {
+    jahe: {
+      category: "bumbu",
+      desc: "Jahe",
+      image: "placeholder-224x224.png",
+      name: "Jahe",
+      price: 16000,
+      step: 0.25,
+      unit: "kg"
+    }
+  };
+
+  it("is fetching", () => {
+    const store = mockStore({
+      products: {
+        isFetching: true
+      }
+    });
+
+    return store.dispatch(act.fetchProducts()).then(() => {
+      expect(store.getActions()).toEqual([]);
+    });
+  });
+
+  it("success", () => {
+    const store = mockStore(empty);
+
+    const fetch = () =>
+      Promise.resolve({
+        categories,
+        items
+      });
+
+    const expectedActions = [
+      { type: act.FETCH_PRODUCTS_REQUEST },
+      {
+        type: act.CLEAN_ORDER,
+        products: items
+      },
+      {
+        type: act.FETCH_PRODUCTS_SUCCESS,
+        categories,
+        items
+      }
+    ];
+
+    return store.dispatch(act.fetchProducts(fetch, id)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it("fails with error message", () => {
+    const store = mockStore(empty);
+
+    const fetch = () =>
+      Promise.reject({
+        message: "Failed to fetch products."
+      });
+
+    const expectedActions = [
+      { type: act.FETCH_PRODUCTS_REQUEST },
+      {
+        type: act.FETCH_PRODUCTS_FAILURE,
+        message: "Failed to fetch products."
+      }
+    ];
+
+    return store.dispatch(act.fetchProducts(fetch)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it("fails without error message", () => {
+    const store = mockStore(empty);
+
+    const fetch = () => Promise.reject({});
+
+    const expectedActions = [
+      { type: act.FETCH_PRODUCTS_REQUEST },
+      {
+        type: act.FETCH_PRODUCTS_FAILURE,
+        message: "Tetap Tenang Tetap Semangat"
+      }
+    ];
+
+    return store.dispatch(act.fetchProducts(fetch)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
