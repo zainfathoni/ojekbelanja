@@ -15,7 +15,7 @@ export default ojekBelanja;
 
 export const getStores = state => fromStores.getStores(state.stores);
 export const getStore = (state, id) => fromStores.getStore(state.stores, id);
-export const getCost = (state, id) => fromStores.getStore(state.stores, id);
+export const getCost = (state, id) => fromStores.getCost(state.stores, id);
 export const getStoreKeyword = state => fromStores.getKeyword(state.stores);
 export const getStoreIsFetching = state =>
   fromStores.getIsFetching(state.stores);
