@@ -64,6 +64,23 @@ test("FETCH_STORES_SUCCESS", () => {
   expect(stores(before, action)).toEqual(after);
 });
 
+test("FETCH_STORE_SUCCESS", () => {
+  const before = {};
+  const action = {
+    type: "FETCH_STORE_SUCCESS",
+    id: "jejen",
+    store: items.jejen
+  };
+  const after = {
+    items,
+    error: null,
+    isFetching: false,
+    keyword: ""
+  };
+
+  expect(stores(before, action)).toEqual(after);
+});
+
 test("SET_STERE_KEYWORD", () => {
   const action = {
     type: "SET_STORE_KEYWORD",
