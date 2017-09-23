@@ -154,4 +154,7 @@ test("getSubtotals", () => {
 
 test("getTotal", () => {
   expect(getTotal(state)).toEqual(54000);
+  let productlessState = { ...state };
+  productlessState.products.items = {};
+  expect(getTotal(productlessState)).toEqual(0);
 });
