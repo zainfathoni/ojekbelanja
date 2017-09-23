@@ -1,78 +1,67 @@
 import configureMockStore from "redux-mock-store";
 import thunk from "redux-thunk";
 
-import {
-  incOrder,
-  decOrder,
-  setOrder,
-  removeOrder,
-  clearOrder,
-  setUser,
-  clearUser,
-  setStoreKeyword,
-  setProductKeyword,
-  fetchStores
-} from ".";
+import * as act from ".";
 
 test("incOrder", () => {
-  expect(incOrder("kecap")).toEqual({
-    type: "INC_ORDER",
+  expect(act.incOrder("kecap")).toEqual({
+    type: act.INC_ORDER,
     id: "kecap"
   });
 });
 
 test("decOrder", () => {
-  expect(decOrder("kecap")).toEqual({
-    type: "DEC_ORDER",
+  expect(act.decOrder("kecap")).toEqual({
+    type: act.DEC_ORDER,
     id: "kecap"
   });
 });
 
 test("setOrder", () => {
-  expect(setOrder("kecap", 2)).toEqual({
-    type: "SET_ORDER",
+  expect(act.setOrder("kecap", 2)).toEqual({
+    type: act.SET_ORDER,
     id: "kecap",
     count: 2
   });
 });
 
 test("removeOrder", () => {
-  expect(removeOrder("kecap")).toEqual({
-    type: "REMOVE_ORDER",
+  expect(act.removeOrder("kecap")).toEqual({
+    type: act.REMOVE_ORDER,
     id: "kecap"
   });
 });
 
 test("clearOrder", () => {
-  expect(clearOrder()).toEqual({
-    type: "CLEAR_ORDER"
+  expect(act.clearOrder()).toEqual({
+    type: act.CLEAR_ORDER
   });
 });
 
 test("setUser", () => {
-  expect(setUser("name", "Zain Fathoni")).toEqual({
-    type: "SET_USER",
+  expect(act.setUser("name", "Zain Fathoni")).toEqual({
+    type: act.SET_USER,
     field: "name",
     value: "Zain Fathoni"
   });
 });
 
 test("clearUser", () => {
-  expect(clearUser()).toEqual({
-    type: "CLEAR_USER"
+  expect(act.clearUser()).toEqual({
+    type: act.CLEAR_USER
   });
 });
 
 test("setStoreKeyword", () => {
-  expect(setStoreKeyword("jej")).toEqual({
-    type: "SET_STORE_KEYWORD",
+  expect(act.setStoreKeyword("jej")).toEqual({
+    type: act.SET_STORE_KEYWORD,
     keyword: "jej"
   });
 });
 
 test("setProductKeyword", () => {
-  expect(setProductKeyword("jah")).toEqual({
-    type: "SET_PRODUCT_KEYWORD",
+  expect(act.setProductKeyword("jah")).toEqual({
+    type: act.SET_PRODUCT_KEYWORD,
     keyword: "jah"
   });
 });
@@ -98,7 +87,7 @@ describe("fetchStores", () => {
       }
     });
 
-    return store.dispatch(fetchStores()).then(() => {
+    return store.dispatch(act.fetchStores()).then(() => {
       expect(store.getActions()).toEqual([]);
     });
   });
@@ -117,16 +106,16 @@ describe("fetchStores", () => {
     );
 
     const expectedActions = [
-      { type: "FETCH_STORES_REQUEST" },
+      { type: act.FETCH_STORES_REQUEST },
       {
-        type: "FETCH_STORES_SUCCESS",
+        type: act.FETCH_STORES_SUCCESS,
         stores: {
           stores
         }
       }
     ];
 
-    return store.dispatch(fetchStores(fetch)).then(() => {
+    return store.dispatch(act.fetchStores(fetch)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -145,14 +134,14 @@ describe("fetchStores", () => {
     );
 
     const expectedActions = [
-      { type: "FETCH_STORES_REQUEST" },
+      { type: act.FETCH_STORES_REQUEST },
       {
-        type: "FETCH_STORES_FAILURE",
+        type: act.FETCH_STORES_FAILURE,
         message: "Failed to fetch stores."
       }
     ];
 
-    return store.dispatch(fetchStores(fetch)).then(() => {
+    return store.dispatch(act.fetchStores(fetch)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -167,14 +156,14 @@ describe("fetchStores", () => {
     const fetch = jest.fn().mockImplementation(() => Promise.reject({}));
 
     const expectedActions = [
-      { type: "FETCH_STORES_REQUEST" },
+      { type: act.FETCH_STORES_REQUEST },
       {
-        type: "FETCH_STORES_FAILURE",
+        type: act.FETCH_STORES_FAILURE,
         message: "Tetap Tenang Tetap Semangat"
       }
     ];
 
-    return store.dispatch(fetchStores(fetch)).then(() => {
+    return store.dispatch(act.fetchStores(fetch)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
