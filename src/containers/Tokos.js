@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { PropTypes as T } from "prop-types";
 import { connect } from "react-redux";
+import base from "../services/base";
 
 import * as actions from "../actions";
 import { getStores } from "../reducers";
@@ -11,7 +12,7 @@ class Tokos extends Component {
   /*** Lifecycle ***/
 
   componentWillMount() {
-    this.props.fetchStores();
+    this.props.fetchStores(base.fetch);
   }
 
   /*** Render ***/
