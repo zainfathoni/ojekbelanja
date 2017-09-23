@@ -166,3 +166,99 @@ describe("fetchStores", () => {
     });
   });
 });
+
+describe("fetchStore", () => {
+  const id = "jejen";
+  const toko = {
+    area: "Sadang Serang & sekitarnya",
+    cost: 2000,
+    image: "placeholder-224x224.png",
+    name: "Jejen",
+    phone: "081234567890"
+  };
+
+  it("is fetching", () => {
+    const store = mockStore({
+      stores: {
+        isFetching: true
+      }
+    });
+
+    return store.dispatch(act.fetchStore()).then(() => {
+      expect(store.getActions()).toEqual([]);
+    });
+  });
+
+  it("success", () => {
+    const store = mockStore({
+      stores: {
+        isFetching: false
+      }
+    });
+
+    const fetch = () =>
+      Promise.resolve({
+        ...toko
+      });
+
+    const expectedActions = [
+      { type: act.FETCH_STORES_REQUEST },
+      {
+        type: act.FETCH_STORE_SUCCESS,
+        id,
+        store: toko
+      }
+    ];
+
+    return store.dispatch(act.fetchStore(fetch, id)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it("fails with error message", () => {
+    const store = mockStore({
+      stores: {
+        isFetching: false
+      }
+    });
+
+    const fetch = () =>
+      Promise.reject({
+        message: "Failed to fetch stores."
+      });
+
+    const expectedActions = [
+      { type: act.FETCH_STORES_REQUEST },
+      {
+        type: act.FETCH_STORES_FAILURE,
+        message: "Failed to fetch stores."
+      }
+    ];
+
+    return store.dispatch(act.fetchStore(fetch)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it("fails without error message", () => {
+    const store = mockStore({
+      stores: {
+        isFetching: false
+      }
+    });
+
+    const fetch = () => Promise.reject({});
+
+    const expectedActions = [
+      { type: act.FETCH_STORES_REQUEST },
+      {
+        type: act.FETCH_STORES_FAILURE,
+        message: "Tetap Tenang Tetap Semangat"
+      }
+    ];
+
+    return store.dispatch(act.fetchStore(fetch)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+});
