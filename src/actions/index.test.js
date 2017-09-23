@@ -98,7 +98,7 @@ describe("fetchStores", () => {
       }
     });
 
-    store.dispatch(fetchStores()).then(() => {
+    return store.dispatch(fetchStores()).then(() => {
       expect(store.getActions()).toEqual([]);
     });
   });
@@ -126,7 +126,7 @@ describe("fetchStores", () => {
       }
     ];
 
-    store.dispatch(fetchStores(fetch)).then(() => {
+    return store.dispatch(fetchStores(fetch)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -152,7 +152,7 @@ describe("fetchStores", () => {
       }
     ];
 
-    store.dispatch(fetchStores(fetch)).then(() => {
+    return store.dispatch(fetchStores(fetch)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
@@ -174,7 +174,7 @@ describe("fetchStores", () => {
       }
     ];
 
-    store.dispatch(fetchStores(fetch)).then(() => {
+    return store.dispatch(fetchStores(fetch)).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
     });
   });
