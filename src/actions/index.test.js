@@ -99,11 +99,10 @@ describe("fetchStores", () => {
       }
     });
 
-    const fetch = jest.fn().mockImplementation(() =>
+    const fetch = () =>
       Promise.resolve({
         stores
-      })
-    );
+      });
 
     const expectedActions = [
       { type: act.FETCH_STORES_REQUEST },
@@ -127,11 +126,10 @@ describe("fetchStores", () => {
       }
     });
 
-    const fetch = jest.fn().mockImplementation(() =>
+    const fetch = () =>
       Promise.reject({
         message: "Failed to fetch stores."
-      })
-    );
+      });
 
     const expectedActions = [
       { type: act.FETCH_STORES_REQUEST },
@@ -153,7 +151,7 @@ describe("fetchStores", () => {
       }
     });
 
-    const fetch = jest.fn().mockImplementation(() => Promise.reject({}));
+    const fetch = () => Promise.reject({});
 
     const expectedActions = [
       { type: act.FETCH_STORES_REQUEST },
