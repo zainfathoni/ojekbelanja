@@ -12,15 +12,6 @@ const categories = {
   bumbu: "Bumbu"
 };
 const items = {
-  ayam_fillet: {
-    category: "ayam",
-    desc: "Ayam Fillet",
-    image: "placeholder-224x224.png",
-    name: "Ayam Fillet",
-    price: 42000,
-    step: 0.25,
-    unit: "kg"
-  },
   jahe: {
     category: "bumbu",
     desc: "Jahe",
