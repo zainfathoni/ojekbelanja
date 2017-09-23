@@ -62,7 +62,7 @@ export const setStoreKeyword = keyword => ({
   keyword
 });
 
-export const fetchStores = () => (dispatch, getState) => {
+export const fetchStores = fetch => (dispatch, getState) => {
   if (getStoreIsFetching(getState())) {
     return Promise.resolve();
   }
@@ -71,8 +71,7 @@ export const fetchStores = () => (dispatch, getState) => {
     type: FETCH_STORES_REQUEST
   });
 
-  return base
-    .fetch(`/stores`, { context: this })
+  return fetch(`/stores`, { context: this })
     .then(stores =>
       dispatch({
         type: FETCH_STORES_SUCCESS,

@@ -1,3 +1,6 @@
+import configureMockStore from "redux-mock-store";
+import thunk from "redux-thunk";
+
 import {
   incOrder,
   decOrder,
@@ -7,7 +10,8 @@ import {
   setUser,
   clearUser,
   setStoreKeyword,
-  setProductKeyword
+  setProductKeyword,
+  fetchStores
 } from ".";
 
 test("incOrder", () => {
@@ -70,5 +74,108 @@ test("setProductKeyword", () => {
   expect(setProductKeyword("jah")).toEqual({
     type: "SET_PRODUCT_KEYWORD",
     keyword: "jah"
+  });
+});
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+
+describe("fetchStores", () => {
+  const stores = {
+    jejen: {
+      area: "Sadang Serang & sekitarnya",
+      cost: 2000,
+      image: "placeholder-224x224.png",
+      name: "Jejen",
+      phone: "081234567890"
+    }
+  };
+
+  it("is fetching", () => {
+    const store = mockStore({
+      stores: {
+        isFetching: true
+      }
+    });
+
+    store.dispatch(fetchStores()).then(() => {
+      expect(store.getActions()).toEqual([]);
+    });
+  });
+
+  it("success", () => {
+    const store = mockStore({
+      stores: {
+        isFetching: false
+      }
+    });
+
+    const fetch = jest.fn().mockImplementation(() =>
+      Promise.resolve({
+        stores
+      })
+    );
+
+    const expectedActions = [
+      { type: "FETCH_STORES_REQUEST" },
+      {
+        type: "FETCH_STORES_SUCCESS",
+        stores: {
+          stores
+        }
+      }
+    ];
+
+    store.dispatch(fetchStores(fetch)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it("fails with error message", () => {
+    const store = mockStore({
+      stores: {
+        isFetching: false
+      }
+    });
+
+    const fetch = jest.fn().mockImplementation(() =>
+      Promise.reject({
+        message: "Failed to fetch stores."
+      })
+    );
+
+    const expectedActions = [
+      { type: "FETCH_STORES_REQUEST" },
+      {
+        type: "FETCH_STORES_FAILURE",
+        message: "Failed to fetch stores."
+      }
+    ];
+
+    store.dispatch(fetchStores(fetch)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it("fails without error message", () => {
+    const store = mockStore({
+      stores: {
+        isFetching: false
+      }
+    });
+
+    const fetch = jest.fn().mockImplementation(() => Promise.reject({}));
+
+    const expectedActions = [
+      { type: "FETCH_STORES_REQUEST" },
+      {
+        type: "FETCH_STORES_FAILURE",
+        message: "Tetap Tenang Tetap Semangat"
+      }
+    ];
+
+    store.dispatch(fetchStores(fetch)).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
   });
 });
