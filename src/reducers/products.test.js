@@ -1,4 +1,11 @@
-import products from "./products";
+import products, {
+  getCategories,
+  getProducts,
+  getProduct,
+  getKeyword,
+  getIsFetching,
+  getError
+} from "./products";
 
 const categories = {
   ayam: "Daging Ayam",
@@ -83,4 +90,36 @@ test("SET_PRODUCT_KEYWORD", () => {
   };
 
   expect(products({}, action).keyword).toEqual("kecap");
+});
+
+const state = {
+  categories,
+  items,
+  error: null,
+  isFetching: false,
+  keyword: "jah"
+};
+
+test("getCategories", () => {
+  expect(getCategories(state)).toEqual(categories);
+});
+
+test("getProducts", () => {
+  expect(getProducts(state)).toEqual(items);
+});
+
+test("getProduct", () => {
+  expect(getProduct(state, "jahe")).toEqual(items.jahe);
+});
+
+test("getKeyword", () => {
+  expect(getKeyword(state)).toEqual("jah");
+});
+
+test("getIsFetching", () => {
+  expect(getIsFetching(state)).toEqual(false);
+});
+
+test("getError", () => {
+  expect(getError(state)).toEqual(null);
 });
