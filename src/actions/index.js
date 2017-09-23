@@ -1,5 +1,4 @@
 import { getStoreIsFetching, getProductIsFetching } from "../reducers";
-import base from "../services/base";
 
 export const INC_ORDER = "INC_ORDER";
 export const DEC_ORDER = "DEC_ORDER";
@@ -86,7 +85,7 @@ export const fetchStores = fetch => (dispatch, getState) => {
     );
 };
 
-export const fetchStore = id => (dispatch, getState) => {
+export const fetchStore = (fetch, id) => (dispatch, getState) => {
   if (getStoreIsFetching(getState())) {
     return Promise.resolve();
   }
@@ -95,8 +94,7 @@ export const fetchStore = id => (dispatch, getState) => {
     type: FETCH_STORES_REQUEST
   });
 
-  return base
-    .fetch(`/stores/${id}`, { context: this })
+  return fetch(`/stores/${id}`, { context: this })
     .then(store =>
       dispatch({
         type: FETCH_STORE_SUCCESS,
@@ -117,7 +115,7 @@ export const setProductKeyword = keyword => ({
   keyword
 });
 
-export const fetchProducts = id => (dispatch, getState) => {
+export const fetchProducts = (fetch, id) => (dispatch, getState) => {
   if (getProductIsFetching(getState())) {
     return Promise.resolve();
   }
@@ -126,8 +124,7 @@ export const fetchProducts = id => (dispatch, getState) => {
     type: FETCH_PRODUCTS_REQUEST
   });
 
-  return base
-    .fetch(`/products/${id}`, { context: this })
+  return fetch(`/products/${id}`, { context: this })
     .then(({ categories, items }) => {
       dispatch({
         type: CLEAN_ORDER,
