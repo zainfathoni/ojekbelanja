@@ -12,7 +12,12 @@ import {
   getProductIsFetching,
   getProductError,
   getOrder,
-  getOrderCount
+  getOrderCount,
+  getQuantity,
+  getQuantities,
+  getSubtotal,
+  getSubtotals,
+  getTotal
 } from ".";
 
 const state = {
@@ -36,6 +41,15 @@ const state = {
       bumbu: "Bumbu"
     },
     items: {
+      ayam_fillet: {
+        category: "ayam",
+        desc: "Ayam Fillet",
+        image: "placeholder-224x224.png",
+        name: "Ayam Fillet",
+        price: 42000,
+        step: 0.25,
+        unit: "kg"
+      },
       jahe: {
         category: "bumbu",
         desc: "Jahe",
@@ -51,6 +65,7 @@ const state = {
     keyword: "jah"
   },
   order: {
+    ayam_fillet: 4,
     jahe: 3
   }
 };
@@ -109,4 +124,34 @@ test("getOrder", () => {
 
 test("getOrderCount", () => {
   expect(getOrderCount(state, "jahe")).toEqual(state.order.jahe);
+});
+
+test("getQuantity", () => {
+  expect(getQuantity(state, "ayam_fillet")).toEqual("1 kg");
+  expect(getQuantity(state, "jahe")).toEqual("750 gram");
+  expect(getQuantity(state, "kue_bolu")).toEqual(undefined);
+});
+
+test("getQuantities", () => {
+  expect(getQuantities(state)).toEqual({
+    ayam_fillet: "1 kg",
+    jahe: "750 gram"
+  });
+});
+
+test("getSubtotal", () => {
+  expect(getSubtotal(state, "ayam_fillet")).toEqual("Rp 42,000");
+  expect(getSubtotal(state, "jahe")).toEqual("Rp 12,000");
+  expect(getSubtotal(state, "kue_bolu")).toEqual(undefined);
+});
+
+test("getSubtotals", () => {
+  expect(getSubtotals(state)).toEqual({
+    ayam_fillet: "Rp 42,000",
+    jahe: "Rp 12,000"
+  });
+});
+
+test("getTotal", () => {
+  expect(getTotal(state)).toEqual(54000);
 });
