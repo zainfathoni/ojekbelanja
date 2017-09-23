@@ -68,6 +68,9 @@ test("setProductKeyword", () => {
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
+const emptyStores = {
+  stores: {}
+};
 
 describe("fetchStores", () => {
   const stores = {
@@ -93,11 +96,7 @@ describe("fetchStores", () => {
   });
 
   it("success", () => {
-    const store = mockStore({
-      stores: {
-        isFetching: false
-      }
-    });
+    const store = mockStore(emptyStores);
 
     const fetch = () =>
       Promise.resolve({
@@ -120,11 +119,7 @@ describe("fetchStores", () => {
   });
 
   it("fails with error message", () => {
-    const store = mockStore({
-      stores: {
-        isFetching: false
-      }
-    });
+    const store = mockStore(emptyStores);
 
     const fetch = () =>
       Promise.reject({
@@ -145,11 +140,7 @@ describe("fetchStores", () => {
   });
 
   it("fails without error message", () => {
-    const store = mockStore({
-      stores: {
-        isFetching: false
-      }
-    });
+    const store = mockStore(emptyStores);
 
     const fetch = () => Promise.reject({});
 
@@ -190,11 +181,7 @@ describe("fetchStore", () => {
   });
 
   it("success", () => {
-    const store = mockStore({
-      stores: {
-        isFetching: false
-      }
-    });
+    const store = mockStore(emptyStores);
 
     const fetch = () =>
       Promise.resolve({
@@ -216,11 +203,7 @@ describe("fetchStore", () => {
   });
 
   it("fails with error message", () => {
-    const store = mockStore({
-      stores: {
-        isFetching: false
-      }
-    });
+    const store = mockStore(emptyStores);
 
     const fetch = () =>
       Promise.reject({
@@ -241,11 +224,7 @@ describe("fetchStore", () => {
   });
 
   it("fails without error message", () => {
-    const store = mockStore({
-      stores: {
-        isFetching: false
-      }
-    });
+    const store = mockStore(emptyStores);
 
     const fetch = () => Promise.reject({});
 
