@@ -52,3 +52,81 @@ exports[`Storyshots Button text 1`] = `
   </button>
 </div>
 `;
+
+exports[`Storyshots DescriptionList default 1`] = `
+<dl
+  className="DescriptionList">
+  <div>
+    <dt>
+      No. Pesanan
+    </dt>
+    <dd>
+      -
+    </dd>
+  </div>
+  <div>
+    <dt>
+      Tanggal Pengiriman
+    </dt>
+    <dd>
+      -
+    </dd>
+  </div>
+  <div>
+    <dt>
+      Nama
+    </dt>
+    <dd>
+      Zain Fathoni
+    </dd>
+  </div>
+  <div>
+    <dt>
+      Panggilan
+    </dt>
+    <dd>
+      zain
+    </dd>
+  </div>
+  <div>
+    <dt>
+      Email
+    </dt>
+    <dd>
+      zain.fathoni@gmail.com
+    </dd>
+  </div>
+  <div>
+    <dt>
+      No. HP
+    </dt>
+    <dd>
+      087821307700
+    </dd>
+  </div>
+  <div>
+    <dt>
+      Kota
+    </dt>
+    <dd>
+      Bandung
+    </dd>
+  </div>
+  <div>
+    <dt>
+      Alamat
+    </dt>
+    <dd>
+      Tubagus Ismail
+    </dd>
+  </div>
+  <div>
+    <dt>
+      Catatan
+    </dt>
+    <dd>
+      Telepon saja kalau sudah sampai lokasi
+    </dd>
+  </div>
+</dl>
+`;

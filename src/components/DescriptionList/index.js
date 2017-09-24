@@ -3,24 +3,16 @@ import { PropTypes as T } from "prop-types";
 
 import "./DescriptionList.css";
 
-export default function DescriptionList(props) {
-  const { list } = props;
-
-  return (
-    <dl className="DescriptionList">
-      {list.map(item =>
-        <div key={item.term}>
-          <dt>
-            {item.term}
-          </dt>
-          <dd>
-            {item.definition || "-"}
-          </dd>
-        </div>
-      )}
-    </dl>
-  );
-}
+const DescriptionList = ({ list }) => (
+  <dl className="DescriptionList">
+    {list.map(item => (
+      <div key={item.term}>
+        <dt>{item.term}</dt>
+        <dd>{item.definition || "-"}</dd>
+      </div>
+    ))}
+  </dl>
+);
 
 DescriptionList.propTypes = {
   list: T.arrayOf(
@@ -30,3 +22,5 @@ DescriptionList.propTypes = {
     })
   ).isRequired
 };
+
+export default DescriptionList;
