@@ -1,5 +1,12 @@
 import React from "react";
-import { storiesOf } from "@storybook/react";
+import { setAddon, storiesOf } from "@storybook/react";
+import JSXAddon from "storybook-addon-jsx";
+import { withNotes } from "@storybook/addon-notes";
 import Brand from "./index";
 
-storiesOf("Brand", module).add("default", () => <Brand />);
+setAddon(JSXAddon);
+
+storiesOf("Brand", module).addWithJSX(
+  "default",
+  withNotes("Ojek Belanja Brand component")(() => <Brand />)
+);
