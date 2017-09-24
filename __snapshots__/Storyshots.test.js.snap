@@ -22,7 +22,7 @@ exports[`Storyshots Button default 1`] = `
   <button
     className="Button Button-fullwidth"
     disabled={undefined}
-    onClick={undefined}
+    onClick={[Function]}
     title=""
     type="button">
     <i
@@ -43,8 +43,8 @@ exports[`Storyshots Button icon 1`] = `
   <button
     className="Button Button-icon"
     disabled={undefined}
-    onClick={undefined}
-    title="Hapus"
+    onClick={[Function]}
+    title="Button"
     type="button">
     <i
       aria-hidden="true"
@@ -63,7 +63,7 @@ exports[`Storyshots Button primary 1`] = `
   <button
     className="Button Button-fullwidth"
     disabled={undefined}
-    onClick={undefined}
+    onClick={[Function]}
     title=""
     type="button">
     <i
@@ -84,7 +84,7 @@ exports[`Storyshots Button secondary 1`] = `
   <button
     className="Button Button-content Button-secondary"
     disabled={undefined}
-    onClick={undefined}
+    onClick={[Function]}
     title=""
     type="button">
     <i
