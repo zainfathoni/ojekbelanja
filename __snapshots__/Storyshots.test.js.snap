@@ -12,27 +12,6 @@ exports[`Storyshots Brand default 1`] = `
 </span>
 `;
 
-exports[`Storyshots Button default 1`] = `
-<div
-  style={
-    Object {
-      "width": 200,
-    }
-  }>
-  <button
-    className="Button Button-fullwidth"
-    disabled={undefined}
-    onClick={[Function]}
-    title=""
-    type="button">
-    <i
-      aria-hidden="true"
-      className="fa fa-font-awesome fa-lg" />
-     Button
-  </button>
-</div>
-`;
-
 exports[`Storyshots Button icon 1`] = `
 <div
   style={
@@ -53,7 +32,7 @@ exports[`Storyshots Button icon 1`] = `
 </div>
 `;
 
-exports[`Storyshots Button primary 1`] = `
+exports[`Storyshots Button text 1`] = `
 <div
   style={
     Object {
@@ -62,35 +41,14 @@ exports[`Storyshots Button primary 1`] = `
   }>
   <button
     className="Button Button-fullwidth"
-    disabled={undefined}
+    disabled={false}
     onClick={[Function]}
     title=""
     type="button">
     <i
       aria-hidden="true"
       className="fa fa-shopping-cart fa-lg" />
-     Fullwidth
-  </button>
-</div>
-`;
-
-exports[`Storyshots Button secondary 1`] = `
-<div
-  style={
-    Object {
-      "width": 200,
-    }
-  }>
-  <button
-    className="Button Button-content Button-secondary"
-    disabled={undefined}
-    onClick={[Function]}
-    title=""
-    type="button">
-    <i
-      aria-hidden="true"
-      className="fa fa-shopping-cart fa-lg" />
-     Content
+     Button
   </button>
 </div>
 `;

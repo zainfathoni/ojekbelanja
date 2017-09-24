@@ -1,26 +1,24 @@
 import React from "react";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
+import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
 import Button from "./index";
 
 storiesOf("Button", module)
   .addDecorator(story => <div style={{ width: 200 }}>{story()}</div>)
-  .add("default", () => <Button action={action("button-click")} />)
-  .add("primary", () => (
+  .addDecorator(withKnobs)
+  .add("text", () => (
     <Button
       action={action("button-click")}
-      display="fullwidth"
       icon="shopping-cart"
-      text="Fullwidth"
-    />
-  ))
-  .add("secondary", () => (
-    <Button
-      action={action("button-click")}
-      display="content"
-      icon="shopping-cart"
-      text="Content"
-      isSecondary
+      display={select(
+        "Display Mode",
+        ["fullwidth", "content", "icon"],
+        "fullwidth"
+      )}
+      text={text("Text", "Button")}
+      isSecondary={boolean("isSecondary", false)}
+      disabled={boolean("Disabled", false)}
     />
   ))
   .add("icon", () => (
