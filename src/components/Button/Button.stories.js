@@ -10,4 +10,5 @@ storiesOf("Button", module)
   ))
   .add("secondary", () => (
     <Button display="content" icon="shopping-cart" text="Content" isSecondary />
-  ));
+  ))
+  .add("icon", () => <Button display="icon" icon="trash" text="Hapus" />);

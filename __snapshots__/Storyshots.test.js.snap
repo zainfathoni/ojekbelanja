@@ -1,0 +1,96 @@
+exports[`Storyshots Brand default 1`] = `
+<span
+  className="Brand">
+  Ojek 
+  <i
+    aria-hidden="true"
+    className="fa fa-motorcycle" />
+  <i
+    aria-hidden="true"
+    className="fa fa-shopping-cart" />
+   Belanja
+</span>
+`;
+
+exports[`Storyshots Button default 1`] = `
+<div
+  style={
+    Object {
+      "width": 200,
+    }
+  }>
+  <button
+    className="Button Button-fullwidth"
+    disabled={undefined}
+    onClick={undefined}
+    title=""
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-font-awesome fa-lg" />
+     Button
+  </button>
+</div>
+`;
+
+exports[`Storyshots Button icon 1`] = `
+<div
+  style={
+    Object {
+      "width": 200,
+    }
+  }>
+  <button
+    className="Button Button-icon"
+    disabled={undefined}
+    onClick={undefined}
+    title="Hapus"
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-trash fa-lg" />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Button primary 1`] = `
+<div
+  style={
+    Object {
+      "width": 200,
+    }
+  }>
+  <button
+    className="Button Button-fullwidth"
+    disabled={undefined}
+    onClick={undefined}
+    title=""
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-shopping-cart fa-lg" />
+     Fullwidth
+  </button>
+</div>
+`;
+
+exports[`Storyshots Button secondary 1`] = `
+<div
+  style={
+    Object {
+      "width": 200,
+    }
+  }>
+  <button
+    className="Button Button-content Button-secondary"
+    disabled={undefined}
+    onClick={undefined}
+    title=""
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-shopping-cart fa-lg" />
+     Content
+  </button>
+</div>
+`;

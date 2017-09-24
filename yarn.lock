@@ -23,6 +23,15 @@
   dependencies:
     "@storybook/addons" "^3.2.10"
 
+"@storybook/addon-storyshots@^3.2.10":
+  version "3.2.10"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-storyshots/-/addon-storyshots-3.2.10.tgz#45a889484667b068e03a53f21cd6e84cac1ad82a"
+  dependencies:
+    babel-runtime "^6.23.0"
+    global "^4.3.2"
+    prop-types "^15.5.10"
+    read-pkg-up "^2.0.0"
+
 "@storybook/addons@^3.2.10":
   version "3.2.10"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-3.2.10.tgz#dd71654674a417f62dcc91009c61e47dffdcac03"
@@ -7038,6 +7047,13 @@ react-style-proptype@^3.0.0:
   resolved "https://registry.yarnpkg.com/react-style-proptype/-/react-style-proptype-3.0.0.tgz#89e0b646f266c656abb0f0dd8202dbd5036c31e6"
   dependencies:
     prop-types "^15.5.4"
+
+react-test-renderer@^15.6.1:
+  version "15.6.1"
+  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-15.6.1.tgz#026f4a5bb5552661fd2cc4bbcd0d4bc8a35ebf7e"
+  dependencies:
+    fbjs "^0.8.9"
+    object-assign "^4.1.0"
 
 react-transition-group@^1.1.2:
   version "1.2.0"
