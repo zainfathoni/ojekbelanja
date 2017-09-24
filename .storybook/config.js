@@ -1,4 +1,4 @@
-import { configure } from "@kadira/storybook";
+import { configure } from "@storybook/react";
 
 import "../src/css/index.css";
 import "../src/css/fonts.css";
