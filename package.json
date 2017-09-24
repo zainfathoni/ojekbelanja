@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "@kadira/storybook": "^2.21.0",
     "codecov": "^2.3.0",
     "react-scripts": "0.7.0",
     "redux-mock-store": "^1.3.0"
@@ -29,9 +28,7 @@
     "deploy": "react-scripts build && firebase deploy",
     "test": "react-scripts test --env=jsdom",
     "coverage": "react-scripts test --env=jsdom --coverage",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "eject": "react-scripts eject"
   },
   "jest": {
     "coverageDirectory": "./coverage/",

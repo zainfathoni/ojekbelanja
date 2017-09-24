@@ -1,14 +1,13 @@
 import React from "react";
 
-import Page from '../components/Page';
-import Brand from '../components/Brand';
-import Tokos from '../containers/Tokos';
+import Page from "../components/Page";
+import Tokos from "../containers/Tokos";
 
 const Home = () =>
   <Page>
     <div>
       <p>
-        Pilih Toko <Brand /> Anda
+        Pilih Toko <strong>Ojek Belanja</strong> Anda
       </p>
       <Tokos />
     </div>
