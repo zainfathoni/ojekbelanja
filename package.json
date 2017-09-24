@@ -4,6 +4,7 @@
   "private": true,
   "devDependencies": {
     "@storybook/addon-knobs": "^3.2.10",
+    "@storybook/addon-notes": "^3.2.10",
     "@storybook/addon-storyshots": "^3.2.10",
     "@storybook/react": "^3.2.10",
     "codecov": "^2.3.0",

@@ -20,10 +20,10 @@ exports[`Storyshots Button icon 1`] = `
     }
   }>
   <button
-    className="Button Button-icon"
-    disabled={undefined}
+    className="Button Button-icon Button-secondary"
+    disabled={true}
     onClick={[Function]}
-    title="Button"
+    title="Hapus"
     type="button">
     <i
       aria-hidden="true"
@@ -48,7 +48,7 @@ exports[`Storyshots Button text 1`] = `
     <i
       aria-hidden="true"
       className="fa fa-shopping-cart fa-lg" />
-     Button
+     Beli
   </button>
 </div>
 `;
