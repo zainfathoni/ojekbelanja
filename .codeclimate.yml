@@ -1,3 +1,7 @@
 engines:
   duplication:
     enabled: false
+ratings:
+   paths:
+   - "src/**/*"
+   - "**.js"
