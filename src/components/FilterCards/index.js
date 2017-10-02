@@ -7,7 +7,16 @@ import Section from "./Section";
 import "./FilterCards.css";
 
 export default function FilterCards(props) {
-  const { keyword, items, sections, fields, isFetching, error } = props;
+  const {
+    keyword,
+    items,
+    sections,
+    titleField,
+    descriptionField,
+    sectionField,
+    isFetching,
+    error
+  } = props;
   const ids = Object.keys(items);
 
   // Render Loading Bars
@@ -34,10 +43,9 @@ export default function FilterCards(props) {
   const filteredItems = ids
     .filter(
       key =>
-        items[key][fields.title]
-          .toLowerCase()
-          .indexOf(keyword.toLowerCase()) !== -1 ||
-        items[key][fields.description]
+        items[key][titleField].toLowerCase().indexOf(keyword.toLowerCase()) !==
+          -1 ||
+        items[key][descriptionField]
           .toLowerCase()
           .indexOf(keyword.toLowerCase()) !== -1
     )
@@ -50,7 +58,7 @@ export default function FilterCards(props) {
     );
 
   const sectionedItems = Object.keys(filteredItems).reduce((res, key) => {
-    const section = items[key][fields.section];
+    const section = items[key][sectionField];
     return {
       ...res,
       [section]: {
@@ -62,32 +70,34 @@ export default function FilterCards(props) {
 
   return (
     <div className="l-FilterCards">
-      {fields.section
-        ? <div>
-            {Object.keys(sectionedItems).map(section =>
-              <Section
-                className="l-FilterCards-grid"
-                key={section}
-                id={section}
-                label={sections[section]}
-              >
-                <ul id={section} className="l-FilterCards-grid">
-                  {Object.keys(sectionedItems[section]).map(key => {
-                    const item = sectionedItems[section][key];
-                    return <ProductCard key={key} id={key} product={item} />;
-                  })}
-                </ul>
-              </Section>
-            )}
-          </div>
-        : <ul className="l-FilterCards-grid">
-            {Object.keys(filteredItems).map(key => {
-              const item = filteredItems[key];
-              return (
-                <TokoCard key={key} id={key} toko={item} keyword={keyword} />
-              );
-            })}
-          </ul>}
+      {sectionField ? (
+        <div>
+          {Object.keys(sectionedItems).map(section => (
+            <Section
+              className="l-FilterCards-grid"
+              key={section}
+              id={section}
+              label={sections[section]}
+            >
+              <ul id={section} className="l-FilterCards-grid">
+                {Object.keys(sectionedItems[section]).map(key => {
+                  const item = sectionedItems[section][key];
+                  return <ProductCard key={key} id={key} product={item} />;
+                })}
+              </ul>
+            </Section>
+          ))}
+        </div>
+      ) : (
+        <ul className="l-FilterCards-grid">
+          {Object.keys(filteredItems).map(key => {
+            const item = filteredItems[key];
+            return (
+              <TokoCard key={key} id={key} toko={item} keyword={keyword} />
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }
@@ -96,12 +106,9 @@ FilterCards.propTypes = {
   keyword: T.string.isRequired,
   items: T.object.isRequired,
   sections: T.objectOf(T.string),
-  fields: T.shape({
-    title: T.string.isRequired,
-    description: T.string.isRequired,
-    section: T.string
-  }).isRequired,
-  collection: T.objectOf(T.number),
+  titleField: T.string.isRequired,
+  descriptionField: T.string.isRequired,
+  sectionField: T.string,
   isFetching: T.bool,
   error: T.string
 };

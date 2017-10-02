@@ -8,11 +8,9 @@ import FilterCards from "../components/FilterCards";
 
 const mapStateToProps = (state, ownProps) => ({
   keyword: getProductKeyword(state),
-  fields: {
-    title: "name",
-    description: "desc",
-    section: "category"
-  },
+  titleField: "name",
+  descriptionField: "desc",
+  sectionField: "category",
   isFetching: getStoreIsFetching(state),
   error: getStoreError(state)
 });

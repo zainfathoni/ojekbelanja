@@ -1,0 +1,485 @@
+exports[`Storyshots Brand default 1`] = `
+<span
+  className="Brand">
+  Ojek 
+  <i
+    aria-hidden="true"
+    className="fa fa-motorcycle" />
+  <i
+    aria-hidden="true"
+    className="fa fa-shopping-cart" />
+   Belanja
+</span>
+`;
+
+exports[`Storyshots Button icon 1`] = `
+<div
+  style={
+    Object {
+      "width": 200,
+    }
+  }>
+  <button
+    className="Button Button-icon Button-secondary"
+    disabled={true}
+    onClick={[Function]}
+    title="Hapus"
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-trash fa-lg" />
+  </button>
+</div>
+`;
+
+exports[`Storyshots Button text 1`] = `
+<div
+  style={
+    Object {
+      "width": 200,
+    }
+  }>
+  <button
+    className="Button Button-fullwidth"
+    disabled={false}
+    onClick={[Function]}
+    title=""
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-shopping-cart fa-lg" />
+     Beli
+  </button>
+</div>
+`;
+
+exports[`Storyshots Card product empty 1`] = `
+<ul
+  style={
+    Object {
+      "textAlign": "center",
+      "width": 200,
+    }
+  }>
+  <li>
+    <div
+      className="Card">
+      <div
+        className="Card-image">
+        <img
+          alt="Ayam Fillet"
+          src="test-file-stub" />
+        <div
+          className="Card-ribbon-wrapper">
+          <div
+            className="Card-ribbon">
+            Diskon 10%
+          </div>
+        </div>
+        <div
+          className="Card-tooltip">
+          Minimum pembelian 1 kg
+        </div>
+      </div>
+      <div
+        className="Card-content">
+        <div
+          className="Card-content-title">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Ay
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              am Fillet
+            </span>
+          </span>
+        </div>
+        <div
+          className="Card-content-description">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Ay
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              am Fillet Paha
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        className="Card-action">
+        <div
+          className="Card-action-price-parent">
+          <span
+            className="Card-action-price">
+            Rp 42,000
+          </span>
+          <span
+            className="Card-action-unit">
+             / kg
+          </span>
+        </div>
+        <div>
+          <button
+            className="Button Button-fullwidth"
+            disabled={true}
+            onClick={[Function]}
+            title=""
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-ban fa-lg" />
+             Stok Habis
+          </button>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Card product with overlay 1`] = `
+<ul
+  style={
+    Object {
+      "textAlign": "center",
+      "width": 200,
+    }
+  }>
+  <li>
+    <div
+      className="Card Card-is-selected">
+      <div
+        className="Card-image">
+        <img
+          alt="Ayam Fillet"
+          src="test-file-stub" />
+        <div
+          className="Card-image-overlay">
+          <div
+            className="Card-image-overlay-qty">
+            750 gram
+          </div>
+        </div>
+        <div
+          className="Card-ribbon-wrapper">
+          <div
+            className="Card-ribbon">
+            Diskon 10%
+          </div>
+        </div>
+        <div
+          className="Card-tooltip">
+          Minimum pembelian 1 kg
+        </div>
+      </div>
+      <div
+        className="Card-content">
+        <div
+          className="Card-content-title">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Ay
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              am Fillet
+            </span>
+          </span>
+        </div>
+        <div
+          className="Card-content-description">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Ay
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              am Fillet Paha
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        className="Card-action">
+        <div
+          className="Card-action-price-parent">
+          <span
+            className="Card-action-price">
+            Rp 42,000
+          </span>
+          <span
+            className="Card-action-unit">
+             / kg
+          </span>
+        </div>
+        <div>
+          <div>
+            <div>
+              <button
+                className="Card-action-minus Button Button-icon Button-secondary"
+                disabled={undefined}
+                onClick={[Function]}
+                title="Kurangi"
+                type="button">
+                <i
+                  aria-hidden="true"
+                  className="fa fa-minus fa-lg" />
+              </button>
+              <button
+                className="Card-action-plus Button Button-icon"
+                disabled={undefined}
+                onClick={[Function]}
+                title="Tambahkan"
+                type="button">
+                <i
+                  aria-hidden="true"
+                  className="fa fa-plus fa-lg" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Card product without overlay 1`] = `
+<ul
+  style={
+    Object {
+      "textAlign": "center",
+      "width": 200,
+    }
+  }>
+  <li>
+    <div
+      className="Card">
+      <div
+        className="Card-image">
+        <img
+          alt="Ayam Fillet"
+          src="test-file-stub" />
+        
+        <div
+          className="Card-ribbon-wrapper">
+          <div
+            className="Card-ribbon">
+            Diskon 10%
+          </div>
+        </div>
+        <div
+          className="Card-tooltip">
+          Minimum pembelian 1 kg
+        </div>
+      </div>
+      <div
+        className="Card-content">
+        <div
+          className="Card-content-title">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Ay
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              am Fillet
+            </span>
+          </span>
+        </div>
+        <div
+          className="Card-content-description">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Ay
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              am Fillet Paha
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        className="Card-action">
+        <div
+          className="Card-action-price-parent">
+          <span
+            className="Card-action-price">
+            Rp 42,000
+          </span>
+          <span
+            className="Card-action-unit">
+             / kg
+          </span>
+        </div>
+        <div>
+          <div>
+            <button
+              className="Button Button-fullwidth"
+              disabled={undefined}
+              onClick={[Function]}
+              title=""
+              type="button">
+              <i
+                aria-hidden="true"
+                className="fa fa-cart-plus fa-lg" />
+               Beli
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Card store 1`] = `
+<ul
+  style={
+    Object {
+      "textAlign": "center",
+      "width": 200,
+    }
+  }>
+  <li>
+    <div
+      className="Card">
+      <div
+        className="Card-image">
+        <img
+          alt="Jejen"
+          src="test-file-stub" />
+        
+        
+        
+      </div>
+      <div
+        className="Card-content">
+        <div
+          className="Card-content-title">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Jeje
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              n
+            </span>
+          </span>
+        </div>
+        <div
+          className="Card-content-description">
+          <span
+            className={undefined}>
+            <span
+              className=""
+              style={undefined}>
+              Sadang Serang & Sekeloa
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        className="Card-action">
+        <div
+          className="Card-action-price-parent">
+          <span
+            className="Card-action-price">
+            Rp 2,000
+          </span>
+          <span
+            className="Card-action-unit">
+             / pengiriman
+          </span>
+        </div>
+        <a
+          href="/toko/jejen"
+          onClick={[Function]}>
+          <button
+            className="Button Button-fullwidth"
+            disabled={undefined}
+            onClick={undefined}
+            title=""
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-shopping-cart fa-lg" />
+             Mulai Belanja
+          </button>
+        </a>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots DescriptionList default 1`] = `
+<dl
+  className="DescriptionList">
+  <dt>
+    No. Pesanan
+  </dt>
+  <dd>
+    -
+  </dd>
+  <dt>
+    Nama
+  </dt>
+  <dd>
+    Ojek Belanja
+  </dd>
+</dl>
+`;
+
+exports[`Storyshots Section default 1`] = `
+<ul
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }>
+  <section
+    className="Section">
+    <label
+      className="Section-label"
+      htmlFor="section">
+      Section
+    </label>
+    <hr
+      className="Section-separator" />
+    <div />
+  </section>
+</ul>
+`;

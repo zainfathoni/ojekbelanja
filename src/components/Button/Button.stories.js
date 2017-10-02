@@ -1,28 +1,45 @@
-import React from 'react';
-import { storiesOf } from '@kadira/storybook';
-import Button from './index';
+import React from "react";
+import { setAddon, storiesOf } from "@storybook/react";
+import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
+import JSXAddon from "storybook-addon-jsx";
+import { withNotes } from "@storybook/addon-notes";
+import { action } from "@storybook/addon-actions";
+import Button from "./index";
 
-storiesOf('Button', module)
-  .addDecorator(story => (
-    <div style={{width: 200}}>
-      {story()}
-    </div>
-  ))
-  .add('default', () => (
-    <Button />
-  ))
-  .add('primary', () => (
-    <Button
-      display="fullwidth"
-      icon="shopping-cart"
-      text="Fullwidth"
-    />
-  ))
-  .add('secondary', () => (
-    <Button
-      display="content"
-      icon="shopping-cart"
-      text="Content"
-      isSecondary
-    />
-  ));
+setAddon(JSXAddon);
+
+const options = {
+  fullwidth: "Fullwidth",
+  content: "Content",
+  icon: "Icon"
+};
+
+storiesOf("Button", module)
+  .addDecorator(story => <div style={{ width: 200 }}>{story()}</div>)
+  .addDecorator(withKnobs)
+  .addWithJSX(
+    "text",
+    withNotes("Button with icon and text")(() => (
+      <Button
+        action={action("button-click")}
+        display={select("Display Mode", options, "fullwidth")}
+        icon={text("Icon", "shopping-cart")}
+        text={text("Text", "Beli")}
+        isSecondary={boolean("isSecondary", false)}
+        disabled={boolean("Disabled", false)}
+      />
+    ))
+  )
+  .addWithJSX(
+    "icon",
+    withNotes("Button with icon only")(() => (
+      <Button
+        action={action("button-click")}
+        display={select("Display Mode", options, "icon")}
+        icon={text("Icon", "trash")}
+        text={text("Text", "Hapus")}
+        isSecondary={boolean("isSecondary", true)}
+        disabled={boolean("Disabled", true)}
+      />
+    ))
+  );
