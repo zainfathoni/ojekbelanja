@@ -71,23 +71,21 @@ export default function FilterCards(props) {
   return (
     <div className="l-FilterCards">
       {sectionField ? (
-        <div>
-          {Object.keys(sectionedItems).map(section => (
-            <Section
-              className="l-FilterCards-grid"
-              key={section}
-              id={section}
-              label={sections[section]}
-            >
-              <ul id={section} className="l-FilterCards-grid">
-                {Object.keys(sectionedItems[section]).map(key => {
-                  const item = sectionedItems[section][key];
-                  return <ProductCard key={key} id={key} product={item} />;
-                })}
-              </ul>
-            </Section>
-          ))}
-        </div>
+        Object.keys(sectionedItems).map(section => (
+          <Section
+            className="l-FilterCards-grid"
+            key={section}
+            id={section}
+            label={sections[section]}
+          >
+            <ul id={section} className="l-FilterCards-grid">
+              {Object.keys(sectionedItems[section]).map(key => {
+                const item = sectionedItems[section][key];
+                return <ProductCard key={key} id={key} product={item} />;
+              })}
+            </ul>
+          </Section>
+        ))
       ) : (
         <ul className="l-FilterCards-grid">
           {Object.keys(filteredItems).map(key => {
