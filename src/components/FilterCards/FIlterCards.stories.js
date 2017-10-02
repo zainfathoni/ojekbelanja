@@ -1,6 +1,6 @@
 import React from "react";
 import { setAddon, storiesOf } from "@storybook/react";
-import { withKnobs, text, number, boolean } from "@storybook/addon-knobs";
+import { withKnobs, text, object, boolean } from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
@@ -18,11 +18,11 @@ storiesOf("FilterCards", module)
     withNotes("Filter Cards with Sections")(() => (
       <FilterCards
         keyword={text("Keyword", "a")}
-        sections={{
+        sections={object("Sections", {
           ayam: "Ayam",
           bumbu: "Bumbu"
-        }}
-        items={{
+        })}
+        items={object("Items", {
           ayam_fillet: {
             section: "ayam",
             title: "Ayam Fillet",
@@ -43,7 +43,7 @@ storiesOf("FilterCards", module)
             unit: "kg",
             disabled: true
           }
-        }}
+        })}
         action={action("plus")}
         actionReverse={action("minus")}
       />
@@ -55,7 +55,7 @@ storiesOf("FilterCards", module)
       <Router>
         <FilterCards
           keyword={text("Keyword", "an")}
-          items={{
+          items={object("Items", {
             jejen: {
               title: "Jejen",
               description: "Sadang Serang & Sekeloa",
@@ -74,7 +74,7 @@ storiesOf("FilterCards", module)
               overlay: "Cuti",
               disabled: true
             }
-          }}
+          })}
         />
       </Router>
     ))
@@ -82,16 +82,24 @@ storiesOf("FilterCards", module)
   .addWithJSX(
     "is Fetching",
     withNotes("Filter Cards is Fetching")(() => (
-      <FilterCards isFetching items={{}} keyword="" />
+      <Router>
+        <FilterCards
+          isFetching={boolean("is Fetching", true)}
+          items={object("Items", {})}
+          keyword=""
+        />
+      </Router>
     ))
   )
   .addWithJSX(
     "is Error",
     withNotes("Filter Cards is Error")(() => (
-      <FilterCards
-        error={text("Error Message", "Unable to establish connection")}
-        items={{}}
-        keyword=""
-      />
+      <Router>
+        <FilterCards
+          error={text("Error Message", "Unable to establish connection")}
+          items={object("Items", {})}
+          keyword=""
+        />
+      </Router>
     ))
   );
