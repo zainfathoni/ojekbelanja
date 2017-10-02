@@ -1,12 +1,6 @@
 import React from "react";
 import { setAddon, storiesOf } from "@storybook/react";
-import {
-  withKnobs,
-  text,
-  number,
-  boolean,
-  select
-} from "@storybook/addon-knobs";
+import { withKnobs, text, number, boolean } from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
