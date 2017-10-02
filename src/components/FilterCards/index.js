@@ -1,22 +1,12 @@
 import React from "react";
 import { PropTypes as T } from "prop-types";
 
-import TokoCard from "../../containers/TokoCard";
-import ProductCard from "../../containers/ProductCard";
 import Section from "./Section";
+import Card from "./Card";
 import "./FilterCards.css";
 
 export default function FilterCards(props) {
-  const {
-    keyword,
-    items,
-    sections,
-    titleField,
-    descriptionField,
-    sectionField,
-    isFetching,
-    error
-  } = props;
+  const { keyword, items, sections, isFetching, error } = props;
   const ids = Object.keys(items);
 
   // Render Loading Bars
@@ -43,11 +33,9 @@ export default function FilterCards(props) {
   const filteredItems = ids
     .filter(
       key =>
-        items[key][titleField].toLowerCase().indexOf(keyword.toLowerCase()) !==
-          -1 ||
-        items[key][descriptionField]
-          .toLowerCase()
-          .indexOf(keyword.toLowerCase()) !== -1
+        items[key].title.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
+        items[key].description.toLowerCase().indexOf(keyword.toLowerCase()) !==
+          -1
     )
     .reduce(
       (res, key) => ({
@@ -58,7 +46,7 @@ export default function FilterCards(props) {
     );
 
   const sectionedItems = Object.keys(filteredItems).reduce((res, key) => {
-    const section = items[key][sectionField];
+    const section = items[key].section;
     return {
       ...res,
       [section]: {
@@ -70,7 +58,7 @@ export default function FilterCards(props) {
 
   return (
     <div className="l-FilterCards">
-      {sectionField ? (
+      {Object.keys(sections).length ? (
         Object.keys(sectionedItems).map(section => (
           <Section
             className="l-FilterCards-grid"
@@ -81,7 +69,25 @@ export default function FilterCards(props) {
             <ul id={section} className="l-FilterCards-grid">
               {Object.keys(sectionedItems[section]).map(key => {
                 const item = sectionedItems[section][key];
-                return <ProductCard key={key} id={key} product={item} />;
+                return (
+                  <Card
+                    key={key}
+                    id={key}
+                    keyword={keyword}
+                    title={item.title}
+                    description={item.description}
+                    image={item.image}
+                    price={item.price}
+                    unit={item.unit}
+                    overlay={item.overlay}
+                    ribbon={item.ribbon}
+                    tooltip={item.tooltip}
+                    disabled={item.disabled}
+                    // FIXME: dispatch item.action & item.actionReverse
+                    action={item.action}
+                    actionReverse={item.actionReverse}
+                  />
+                );
               })}
             </ul>
           </Section>
@@ -90,7 +96,22 @@ export default function FilterCards(props) {
         <ul className="l-FilterCards-grid">
           {Object.keys(filteredItems).map(key => {
             const item = filteredItems[key];
-            return <TokoCard key={key} id={key} toko={item} />;
+            return (
+              <Card
+                key={key}
+                id={key}
+                keyword={keyword}
+                title={item.title}
+                description={item.description}
+                image={item.image}
+                price={item.price}
+                unit={item.unit}
+                overlay={item.overlay}
+                ribbon={item.ribbon}
+                tooltip={item.tooltip}
+                disabled={item.disabled}
+              />
+            );
           })}
         </ul>
       )}
@@ -100,11 +121,23 @@ export default function FilterCards(props) {
 
 FilterCards.propTypes = {
   keyword: T.string.isRequired,
-  items: T.object.isRequired,
-  sections: T.objectOf(T.string),
-  titleField: T.string.isRequired,
-  descriptionField: T.string.isRequired,
-  sectionField: T.string,
+  sections: T.objectOf(T.string).isRequired,
+  items: T.objectOf(
+    T.shape({
+      section: T.string,
+      title: T.string.isRequired,
+      description: T.string.isRequired,
+      image: T.string.isRequired,
+      price: T.number.isRequired,
+      unit: T.string.isRequired,
+      overlay: T.string,
+      disabled: T.bool,
+      ribbon: T.string,
+      tooltip: T.string,
+      action: T.func,
+      actionReverse: T.func
+    })
+  ).isRequired,
   isFetching: T.bool,
   error: T.string
 };

@@ -5,7 +5,7 @@ import { incOrder, decOrder } from "../actions";
 import { getProductKeyword, getQuantity } from "../reducers";
 import Card from "../components/FilterCards/Card";
 
-const mapStateToProps = (state, { dispatch, id, product: p }) => ({
+const mapStateToProps = (state, { id, product: p }) => ({
   keyword: getProductKeyword(state),
   title: p.name,
   description: p.desc,
