@@ -19,7 +19,7 @@
     "lodash": "^4.17.4",
     "prop-types": "^15.5.10",
     "re-base": "^3.0.3",
-    "react": "^15.6.1",
+    "react": "^16.0.0",
     "react-dom": "^15.6.1",
     "react-highlight-words": "^0.8.0",
     "react-redux": "^5.0.5",
