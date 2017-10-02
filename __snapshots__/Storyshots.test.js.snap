@@ -513,177 +513,261 @@ exports[`Storyshots FilterCards with Sections 1`] = `
   }>
   <div
     className="l-FilterCards">
-    <div>
-      <section
-        className="Section l-FilterCards-grid">
-        <label
-          className="Section-label"
-          htmlFor="ayam">
-          Ayam
-        </label>
-        <hr
-          className="Section-separator" />
-        <ul
-          className="l-FilterCards-grid"
-          id="ayam">
-          <li>
+    <section
+      className="Section l-FilterCards-grid">
+      <label
+        className="Section-label"
+        htmlFor="ayam">
+        Ayam
+      </label>
+      <hr
+        className="Section-separator" />
+      <ul
+        className="l-FilterCards-grid"
+        id="ayam">
+        <li>
+          <div
+            className="Card Card-is-selected">
             <div
-              className="Card">
+              className="Card-image">
+              <img
+                alt="Ayam Fillet"
+                src="test-file-stub" />
               <div
-                className="Card-image">
-                <img
-                  alt="Ayam Fillet"
-                  src="test-file-stub" />
-              </div>
-              <div
-                className="Card-content">
+                className="Card-image-overlay">
                 <div
-                  className="Card-content-title">
-                  <span
-                    className={undefined}>
-                    <span
-                      className=""
-                      style={undefined}>
-                      Ayam Fillet
-                    </span>
-                  </span>
-                </div>
-                <div
-                  className="Card-content-description">
-                  <span
-                    className={undefined}>
-                    <span
-                      className=""
-                      style={undefined}>
-                      Ayam Fillet
-                    </span>
-                  </span>
+                  className="Card-image-overlay-qty">
+                  750 gram
                 </div>
               </div>
               <div
-                className="Card-action">
+                className="Card-ribbon-wrapper">
                 <div
-                  className="Card-action-price-parent">
-                  <span
-                    className="Card-action-price">
-                    Rp 42,000
-                  </span>
-                  <span
-                    className="Card-action-unit">
-                     / kg
-                  </span>
+                  className="Card-ribbon">
+                  Diskon
                 </div>
+              </div>
+              <div
+                className="Card-tooltip">
+                Diskon Akhir Pekan
+              </div>
+            </div>
+            <div
+              className="Card-content">
+              <div
+                className="Card-content-title">
+                <span
+                  className={undefined}>
+                  <mark
+                    className=" "
+                    style={Object {}}>
+                    A
+                  </mark>
+                  <span
+                    className=""
+                    style={undefined}>
+                    y
+                  </span>
+                  <mark
+                    className=" "
+                    style={Object {}}>
+                    a
+                  </mark>
+                  <span
+                    className=""
+                    style={undefined}>
+                    m Fillet
+                  </span>
+                </span>
+              </div>
+              <div
+                className="Card-content-description">
+                <span
+                  className={undefined}>
+                  <mark
+                    className=" "
+                    style={Object {}}>
+                    A
+                  </mark>
+                  <span
+                    className=""
+                    style={undefined}>
+                    y
+                  </span>
+                  <mark
+                    className=" "
+                    style={Object {}}>
+                    a
+                  </mark>
+                  <span
+                    className=""
+                    style={undefined}>
+                    m Fillet
+                  </span>
+                </span>
+              </div>
+            </div>
+            <div
+              className="Card-action">
+              <div
+                className="Card-action-price-parent">
+                <span
+                  className="Card-action-price">
+                  Rp 42,000
+                </span>
+                <span
+                  className="Card-action-unit">
+                   / kg
+                </span>
+              </div>
+              <div>
                 <div>
                   <div>
                     <button
-                      className="Button Button-fullwidth"
+                      className="Card-action-minus Button Button-icon Button-secondary"
                       disabled={undefined}
                       onClick={[Function]}
-                      title=""
+                      title="Kurangi"
                       type="button">
                       <i
                         aria-hidden="true"
-                        className="fa fa-cart-plus fa-lg" />
-                       Beli
+                        className="fa fa-minus fa-lg" />
+                    </button>
+                    <button
+                      className="Card-action-plus Button Button-icon"
+                      disabled={undefined}
+                      onClick={[Function]}
+                      title="Tambahkan"
+                      type="button">
+                      <i
+                        aria-hidden="true"
+                        className="fa fa-plus fa-lg" />
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-          </li>
-        </ul>
-      </section>
-      <section
-        className="Section l-FilterCards-grid">
-        <label
-          className="Section-label"
-          htmlFor="bumbu">
-          Bumbu
-        </label>
-        <hr
-          className="Section-separator" />
-        <ul
-          className="l-FilterCards-grid"
-          id="bumbu">
-          <li>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <section
+      className="Section l-FilterCards-grid">
+      <label
+        className="Section-label"
+        htmlFor="bumbu">
+        Bumbu
+      </label>
+      <hr
+        className="Section-separator" />
+      <ul
+        className="l-FilterCards-grid"
+        id="bumbu">
+        <li>
+          <div
+            className="Card">
             <div
-              className="Card">
+              className="Card-image">
+              <img
+                alt="Bawang Putih"
+                src="test-file-stub" />
+            </div>
+            <div
+              className="Card-content">
               <div
-                className="Card-image">
-                <img
-                  alt="Bawang Putih"
-                  src="test-file-stub" />
-                <div
-                  className="Card-ribbon-wrapper">
-                  <div
-                    className="Card-ribbon">
-                    Diskon
-                  </div>
-                </div>
-                <div
-                  className="Card-tooltip">
-                  Diskon Akhir Pekan
-                </div>
+                className="Card-content-title">
+                <span
+                  className={undefined}>
+                  <span
+                    className=""
+                    style={undefined}>
+                    B
+                  </span>
+                  <mark
+                    className=" "
+                    style={Object {}}>
+                    a
+                  </mark>
+                  <span
+                    className=""
+                    style={undefined}>
+                    w
+                  </span>
+                  <mark
+                    className=" "
+                    style={Object {}}>
+                    a
+                  </mark>
+                  <span
+                    className=""
+                    style={undefined}>
+                    ng Putih
+                  </span>
+                </span>
               </div>
               <div
-                className="Card-content">
-                <div
-                  className="Card-content-title">
+                className="Card-content-description">
+                <span
+                  className={undefined}>
                   <span
-                    className={undefined}>
-                    <span
-                      className=""
-                      style={undefined}>
-                      Bawang Putih
-                    </span>
+                    className=""
+                    style={undefined}>
+                    B
                   </span>
-                </div>
-                <div
-                  className="Card-content-description">
+                  <mark
+                    className=" "
+                    style={Object {}}>
+                    a
+                  </mark>
                   <span
-                    className={undefined}>
-                    <span
-                      className=""
-                      style={undefined}>
-                      Bawang Putih
-                    </span>
+                    className=""
+                    style={undefined}>
+                    w
                   </span>
-                </div>
-              </div>
-              <div
-                className="Card-action">
-                <div
-                  className="Card-action-price-parent">
+                  <mark
+                    className=" "
+                    style={Object {}}>
+                    a
+                  </mark>
                   <span
-                    className="Card-action-price">
-                    Rp 35,000
+                    className=""
+                    style={undefined}>
+                    ng Putih
                   </span>
-                  <span
-                    className="Card-action-unit">
-                     / kg
-                  </span>
-                </div>
-                <div>
-                  <div>
-                    <button
-                      className="Button Button-fullwidth"
-                      disabled={undefined}
-                      onClick={[Function]}
-                      title=""
-                      type="button">
-                      <i
-                        aria-hidden="true"
-                        className="fa fa-cart-plus fa-lg" />
-                       Beli
-                    </button>
-                  </div>
-                </div>
+                </span>
               </div>
             </div>
-          </li>
-        </ul>
-      </section>
-    </div>
+            <div
+              className="Card-action">
+              <div
+                className="Card-action-price-parent">
+                <span
+                  className="Card-action-price">
+                  Rp 35,000
+                </span>
+                <span
+                  className="Card-action-unit">
+                   / kg
+                </span>
+              </div>
+              <div>
+                <button
+                  className="Button Button-fullwidth"
+                  disabled={true}
+                  onClick={[Function]}
+                  title=""
+                  type="button">
+                  <i
+                    aria-hidden="true"
+                    className="fa fa-ban fa-lg" />
+                   Stok Habis
+                </button>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
   </div>
 </ul>
 `;
@@ -711,12 +795,12 @@ exports[`Storyshots FilterCards without Sections 1`] = `
               className="Card-ribbon-wrapper">
               <div
                 className="Card-ribbon">
-                Diskon
+                Promo
               </div>
             </div>
             <div
               className="Card-tooltip">
-              Diskon Akhir Pekan
+              Promo Akhir Tahun
             </div>
           </div>
           <div
@@ -739,43 +823,28 @@ exports[`Storyshots FilterCards without Sections 1`] = `
                 <span
                   className=""
                   style={undefined}>
-                  S
+                  Sad
                 </span>
                 <mark
                   className=" "
                   style={Object {}}>
-                  a
+                  an
                 </mark>
                 <span
                   className=""
                   style={undefined}>
-                  d
+                  g Ser
                 </span>
                 <mark
                   className=" "
                   style={Object {}}>
-                  a
+                  an
                 </mark>
                 <span
                   className=""
                   style={undefined}>
-                  ng Ser
+                  g & Sekeloa
                 </span>
-                <mark
-                  className=" "
-                  style={Object {}}>
-                  a
-                </mark>
-                <span
-                  className=""
-                  style={undefined}>
-                  ng & Sekelo
-                </span>
-                <mark
-                  className=" "
-                  style={Object {}}>
-                  a
-                </mark>
               </span>
             </div>
           </div>
@@ -835,27 +904,7 @@ exports[`Storyshots FilterCards without Sections 1`] = `
                 <span
                   className=""
                   style={undefined}>
-                  Z
-                </span>
-                <mark
-                  className=" "
-                  style={Object {}}>
-                  a
-                </mark>
-                <span
-                  className=""
-                  style={undefined}>
-                  en
-                </span>
-                <mark
-                  className=" "
-                  style={Object {}}>
-                  a
-                </mark>
-                <span
-                  className=""
-                  style={undefined}>
-                  l
+                  Zaenal
                 </span>
               </span>
             </div>
@@ -866,63 +915,18 @@ exports[`Storyshots FilterCards without Sections 1`] = `
                 <span
                   className=""
                   style={undefined}>
-                  J
+                  Jatih
                 </span>
                 <mark
                   className=" "
                   style={Object {}}>
-                  a
+                  an
                 </mark>
                 <span
                   className=""
                   style={undefined}>
-                  tih
+                  dap & Padasuka
                 </span>
-                <mark
-                  className=" "
-                  style={Object {}}>
-                  a
-                </mark>
-                <span
-                  className=""
-                  style={undefined}>
-                  nd
-                </span>
-                <mark
-                  className=" "
-                  style={Object {}}>
-                  a
-                </mark>
-                <span
-                  className=""
-                  style={undefined}>
-                  p & P
-                </span>
-                <mark
-                  className=" "
-                  style={Object {}}>
-                  a
-                </mark>
-                <span
-                  className=""
-                  style={undefined}>
-                  d
-                </span>
-                <mark
-                  className=" "
-                  style={Object {}}>
-                  a
-                </mark>
-                <span
-                  className=""
-                  style={undefined}>
-                  suk
-                </span>
-                <mark
-                  className=" "
-                  style={Object {}}>
-                  a
-                </mark>
               </span>
             </div>
           </div>
