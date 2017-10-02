@@ -11,8 +11,8 @@ export default function FilterCards(props) {
     keyword,
     items,
     sections,
-    title,
-    description,
+    titleField,
+    descriptionField,
     sectionField,
     isFetching,
     error
@@ -43,9 +43,11 @@ export default function FilterCards(props) {
   const filteredItems = ids
     .filter(
       key =>
-        items[key][title].toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
-        items[key][description].toLowerCase().indexOf(keyword.toLowerCase()) !==
-          -1
+        items[key][titleField].toLowerCase().indexOf(keyword.toLowerCase()) !==
+          -1 ||
+        items[key][descriptionField]
+          .toLowerCase()
+          .indexOf(keyword.toLowerCase()) !== -1
     )
     .reduce(
       (res, key) => ({
@@ -104,8 +106,8 @@ FilterCards.propTypes = {
   keyword: T.string.isRequired,
   items: T.object.isRequired,
   sections: T.objectOf(T.string),
-  title: T.string.isRequired,
-  description: T.string.isRequired,
+  titleField: T.string.isRequired,
+  descriptionField: T.string.isRequired,
   sectionField: T.string,
   collection: T.objectOf(T.number),
   isFetching: T.bool,
