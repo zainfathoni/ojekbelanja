@@ -10,8 +10,8 @@ export default function FilterCards(props) {
     keyword,
     items,
     sections,
-    action,
-    actionReverse,
+    actions,
+    actionsReverse,
     isFetching,
     error
   } = props;
@@ -91,9 +91,8 @@ export default function FilterCards(props) {
                     ribbon={item.ribbon}
                     tooltip={item.tooltip}
                     disabled={item.disabled}
-                    // FIXME: make it testable
-                    action={() => action(key)}
-                    actionReverse={() => actionReverse(key)}
+                    action={actions[key]}
+                    actionReverse={actionsReverse[key]}
                   />
                 );
               })}
@@ -144,8 +143,8 @@ FilterCards.propTypes = {
       tooltip: T.string
     })
   ).isRequired,
-  action: T.func,
-  actionReverse: T.func,
+  actions: T.objectOf(T.func),
+  actionsReverse: T.objectOf(T.func),
   isFetching: T.bool,
   error: T.string
 };

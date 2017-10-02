@@ -38,13 +38,31 @@ const mapStateToProps = (state, ownProps) => ({
   error: getStoreError(state)
 });
 
-const mapDispatchToProps = dispatch => ({
-  action: id => {
-    dispatch(incOrder(id));
-  },
-  actionReverse: id => {
-    dispatch(decOrder(id));
-  }
+const mapDispatchToProps = (dispatch, ownProps) => ({
+  actions: Object.keys(ownProps.items)
+    .map(key => ({
+      id: key,
+      action: () => dispatch(incOrder(key))
+    }))
+    .reduce(
+      (res, a) => ({
+        ...res,
+        [a.id]: a.action
+      }),
+      {}
+    ),
+  actionsReverse: Object.keys(ownProps.items)
+    .map(key => ({
+      id: key,
+      action: () => dispatch(decOrder(key))
+    }))
+    .reduce(
+      (res, a) => ({
+        ...res,
+        [a.id]: a.action
+      }),
+      {}
+    )
 });
 
 const ProductCards = connect(mapStateToProps, mapDispatchToProps)(FilterCards);
