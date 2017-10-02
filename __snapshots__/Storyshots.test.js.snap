@@ -76,6 +76,17 @@ exports[`Storyshots Card product 1`] = `
             750 gram
           </div>
         </div>
+        <div
+          className="Card-ribbon-wrapper">
+          <div
+            className="Card-ribbon">
+            Diskon 10%
+          </div>
+        </div>
+        <div
+          className="Card-tooltip">
+          Minimum pembelian 1 kg
+        </div>
       </div>
       <div
         className="Card-content">
