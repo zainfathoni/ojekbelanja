@@ -24,9 +24,7 @@ const mapStateToProps = (state, ownProps) => ({
         overlay: getQuantity(state, key),
         disabled: p.empty,
         ribbon: p.promo,
-        tooltip: p.promo_desc,
-        action: incOrder,
-        actionReverse: decOrder
+        tooltip: p.promo_desc
       };
     })
     .reduce(
@@ -40,6 +38,15 @@ const mapStateToProps = (state, ownProps) => ({
   error: getStoreError(state)
 });
 
-const ProductCards = connect(mapStateToProps)(FilterCards);
+const mapDispatchToProps = dispatch => ({
+  action: id => {
+    dispatch(incOrder(id));
+  },
+  actionReverse: id => {
+    dispatch(decOrder(id));
+  }
+});
+
+const ProductCards = connect(mapStateToProps, mapDispatchToProps)(FilterCards);
 
 export default ProductCards;

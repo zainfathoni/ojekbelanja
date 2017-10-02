@@ -6,7 +6,15 @@ import Card from "./Card";
 import "./FilterCards.css";
 
 export default function FilterCards(props) {
-  const { keyword, items, sections, isFetching, error } = props;
+  const {
+    keyword,
+    items,
+    sections,
+    action,
+    actionReverse,
+    isFetching,
+    error
+  } = props;
   const ids = Object.keys(items);
 
   // Render Loading Bars
@@ -83,9 +91,9 @@ export default function FilterCards(props) {
                     ribbon={item.ribbon}
                     tooltip={item.tooltip}
                     disabled={item.disabled}
-                    // FIXME: dispatch item.action & item.actionReverse
-                    action={item.action}
-                    actionReverse={item.actionReverse}
+                    // FIXME: make it testable
+                    action={() => action(key)}
+                    actionReverse={() => actionReverse(key)}
                   />
                 );
               })}
@@ -133,11 +141,11 @@ FilterCards.propTypes = {
       overlay: T.string,
       disabled: T.bool,
       ribbon: T.string,
-      tooltip: T.string,
-      action: T.func,
-      actionReverse: T.func
+      tooltip: T.string
     })
   ).isRequired,
+  action: T.func,
+  actionReverse: T.func,
   isFetching: T.bool,
   error: T.string
 };
