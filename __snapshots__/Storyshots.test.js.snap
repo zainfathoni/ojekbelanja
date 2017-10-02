@@ -462,3 +462,17 @@ exports[`Storyshots DescriptionList default 1`] = `
   </dd>
 </dl>
 `;
+
+exports[`Storyshots Section default 1`] = `
+<section
+  className="Section">
+  <label
+    className="Section-label"
+    htmlFor="section">
+    Section
+  </label>
+  <hr
+    className="Section-separator" />
+  <div />
+</section>
+`;
