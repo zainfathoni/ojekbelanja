@@ -464,15 +464,22 @@ exports[`Storyshots DescriptionList default 1`] = `
 `;
 
 exports[`Storyshots Section default 1`] = `
-<section
-  className="Section">
-  <label
-    className="Section-label"
-    htmlFor="section">
-    Section
-  </label>
-  <hr
-    className="Section-separator" />
-  <div />
-</section>
+<ul
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }>
+  <section
+    className="Section">
+    <label
+      className="Section-label"
+      htmlFor="section">
+      Section
+    </label>
+    <hr
+      className="Section-separator" />
+    <div />
+  </section>
+</ul>
 `;
