@@ -89,7 +89,7 @@ storiesOf("FilterCards", module)
     "is Error",
     withNotes("Filter Cards is Error")(() => (
       <FilterCards
-        error="Unable to establish connection"
+        error={text("Error Message", "Unable to establish connection")}
         items={{}}
         keyword=""
       />
