@@ -90,9 +90,7 @@ export default function FilterCards(props) {
         <ul className="l-FilterCards-grid">
           {Object.keys(filteredItems).map(key => {
             const item = filteredItems[key];
-            return (
-              <TokoCard key={key} id={key} toko={item} keyword={keyword} />
-            );
+            return <TokoCard key={key} id={key} toko={item} />;
           })}
         </ul>
       )}
