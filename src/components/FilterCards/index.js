@@ -109,7 +109,6 @@ FilterCards.propTypes = {
   titleField: T.string.isRequired,
   descriptionField: T.string.isRequired,
   sectionField: T.string,
-  collection: T.objectOf(T.number),
   isFetching: T.bool,
   error: T.string
 };

@@ -83,7 +83,7 @@ export default function Card(props) {
                       <Button
                         className="Card-action-minus"
                         display="icon"
-                        action={action}
+                        action={actionReverse}
                         icon="minus"
                         text="Kurangi"
                         isSecondary
