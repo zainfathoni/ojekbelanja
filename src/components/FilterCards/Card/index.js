@@ -28,23 +28,17 @@ export default function Card(props) {
       <div className={"Card" + (overlay ? " Card-is-selected" : "")}>
         <div className="Card-image">
           <img src={image} alt={title} />
-          {overlay &&
+          {overlay && (
             <div className="Card-image-overlay">
-              <div className="Card-image-overlay-qty">
-                {overlay}
-              </div>
-            </div>}
-          {ribbon &&
+              <div className="Card-image-overlay-qty">{overlay}</div>
+            </div>
+          )}
+          {ribbon && (
             <div className="Card-ribbon-wrapper">
-              <div className="Card-ribbon">
-                {ribbon}
-              </div>
-            </div>}
-          {ribbon &&
-            tooltip &&
-            <div className="Card-tooltip">
-              {tooltip}
-            </div>}
+              <div className="Card-ribbon">{ribbon}</div>
+            </div>
+          )}
+          {ribbon && tooltip && <div className="Card-tooltip">{tooltip}</div>}
         </div>
         <div className="Card-content">
           <div className="Card-content-title">
@@ -62,54 +56,58 @@ export default function Card(props) {
             <span className="Card-action-price">
               {`Rp ${price.toLocaleString("id")}`}
             </span>
-            <span className="Card-action-unit">
-              {` / ${unit}`}
-            </span>
+            <span className="Card-action-unit">{` / ${unit}`}</span>
           </div>
-          {!actionReverse
-            ? <Link to={`/toko/${id}`}>
+          {!actionReverse ? (
+            <Link to={`/toko/${id}`}>
+              <Button
+                display="fullwidth"
+                icon="shopping-cart"
+                text="Mulai Belanja"
+              />
+            </Link>
+          ) : (
+            <div>
+              {disabled ? (
                 <Button
                   display="fullwidth"
-                  icon="shopping-cart"
-                  text="Mulai Belanja"
+                  action={e => action(id)}
+                  icon="ban"
+                  text="Stok Habis"
+                  disabled
                 />
-              </Link>
-            : <div>
-                {disabled
-                  ? <Button
+              ) : (
+                <div>
+                  {overlay ? (
+                    <div>
+                      <Button
+                        className="Card-action-minus"
+                        display="icon"
+                        action={e => actionReverse(id)}
+                        icon="minus"
+                        text="Kurangi"
+                        isSecondary
+                      />
+                      <Button
+                        className="Card-action-plus"
+                        display="icon"
+                        action={e => action(id)}
+                        icon="plus"
+                        text="Tambahkan"
+                      />
+                    </div>
+                  ) : (
+                    <Button
                       display="fullwidth"
                       action={e => action(id)}
-                      icon="ban"
-                      text="Stok Habis"
-                      disabled
+                      icon="cart-plus"
+                      text="Beli"
                     />
-                  : <div>
-                      {overlay
-                        ? <div>
-                            <Button
-                              className="Card-action-minus"
-                              display="icon"
-                              action={e => actionReverse(id)}
-                              icon="minus"
-                              text="Kurangi"
-                              isSecondary
-                            />
-                            <Button
-                              className="Card-action-plus"
-                              display="icon"
-                              action={e => action(id)}
-                              icon="plus"
-                              text="Tambahkan"
-                            />
-                          </div>
-                        : <Button
-                            display="fullwidth"
-                            action={e => action(id)}
-                            icon="cart-plus"
-                            text="Beli"
-                          />}
-                    </div>}
-              </div>}
+                  )}
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </li>
@@ -125,9 +123,9 @@ Card.propTypes = {
   overlay: T.string,
   ribbon: T.string,
   tooltip: T.string,
-  isDisabled: T.bool,
+  disabled: T.bool,
   unit: T.string,
-  price: T.number,
+  price: T.number.isRequired,
   action: T.func,
   actionReverse: T.func
 };
