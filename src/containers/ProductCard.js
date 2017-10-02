@@ -5,7 +5,7 @@ import { incOrder, decOrder } from "../actions";
 import { getProductKeyword, getQuantity } from "../reducers";
 import Card from "../components/FilterCards/Card";
 
-const mapStateToProps = (state, { id, product: p }) => ({
+const mapStateToProps = (state, { dispatch, id, product: p }) => ({
   keyword: getProductKeyword(state),
   title: p.name,
   description: p.desc,
@@ -18,10 +18,16 @@ const mapStateToProps = (state, { id, product: p }) => ({
   tooltip: p.promo_desc
 });
 
-const ProductCard = connect(mapStateToProps, {
-  action: incOrder,
-  actionReverse: decOrder
-})(Card);
+const mapDispatchToProps = (dispatch, { id }) => ({
+  action: () => {
+    dispatch(incOrder(id));
+  },
+  actionReverse: () => {
+    dispatch(decOrder(id));
+  }
+});
+
+const ProductCard = connect(mapStateToProps, mapDispatchToProps)(Card);
 
 ProductCard.propTypes = {
   id: T.string.isRequired,

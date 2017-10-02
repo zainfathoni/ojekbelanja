@@ -71,7 +71,7 @@ export default function Card(props) {
               {disabled ? (
                 <Button
                   display="fullwidth"
-                  action={e => action(id)}
+                  action={action}
                   icon="ban"
                   text="Stok Habis"
                   disabled
@@ -83,7 +83,7 @@ export default function Card(props) {
                       <Button
                         className="Card-action-minus"
                         display="icon"
-                        action={e => actionReverse(id)}
+                        action={action}
                         icon="minus"
                         text="Kurangi"
                         isSecondary
@@ -91,7 +91,7 @@ export default function Card(props) {
                       <Button
                         className="Card-action-plus"
                         display="icon"
-                        action={e => action(id)}
+                        action={action}
                         icon="plus"
                         text="Tambahkan"
                       />
@@ -99,7 +99,7 @@ export default function Card(props) {
                   ) : (
                     <Button
                       display="fullwidth"
-                      action={e => action(id)}
+                      action={action}
                       icon="cart-plus"
                       text="Beli"
                     />
