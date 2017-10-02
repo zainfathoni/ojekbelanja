@@ -966,6 +966,63 @@ exports[`Storyshots FilterCards without Sections 1`] = `
 </ul>
 `;
 
+exports[`Storyshots FilterInput with Button 1`] = `
+<ul
+  style={
+    Object {
+      "textAlign": "center",
+      "width": 200,
+    }
+  }>
+  <form
+    className="l-FilterInput"
+    onSubmit={[Function]}>
+    <input
+      className="FilterInput FilterInput-txt"
+      onChange={[Function]}
+      placeholder="Cari Produk"
+      type="search"
+      value="ay" />
+    <button
+      className="FilterInput FilterInput-btn Button Button-icon Button-small"
+      disabled={undefined}
+      onClick={undefined}
+      title="Cari"
+      type="submit">
+      <i
+        aria-hidden="true"
+        className="fa fa-search" />
+    </button>
+  </form>
+</ul>
+`;
+
+exports[`Storyshots FilterInput without Button 1`] = `
+<ul
+  style={
+    Object {
+      "textAlign": "center",
+      "width": 200,
+    }
+  }>
+  <div
+    className="l-FilterInput l-FilterInput-no-btn">
+    <input
+      className="FilterInput FilterInput-txt FilterInput-txt-no-btn"
+      onChange={[Function]}
+      placeholder="Cari Nama atau Area Layanan"
+      type="search"
+      value="" />
+    <span
+      className="FilterInput-txt-search-icon">
+      <i
+        aria-hidden="true"
+        className="fa fa-search" />
+    </span>
+  </div>
+</ul>
+`;
+
 exports[`Storyshots Section default 1`] = `
 <ul
   style={
