@@ -66,7 +66,7 @@ export default function FilterCards(props) {
 
   return (
     <div className="l-FilterCards">
-      {Object.keys(sections).length ? (
+      {sections ? (
         Object.keys(sectionedItems).map(section => (
           <Section
             className="l-FilterCards-grid"
@@ -129,7 +129,7 @@ export default function FilterCards(props) {
 
 FilterCards.propTypes = {
   keyword: T.string.isRequired,
-  sections: T.objectOf(T.string).isRequired,
+  sections: T.objectOf(T.string),
   items: T.objectOf(
     T.shape({
       section: T.string,

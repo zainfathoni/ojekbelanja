@@ -9,7 +9,6 @@ import FilterCards from "../components/FilterCards";
 
 const mapStateToProps = (state, ownProps) => ({
   keyword: getStoreKeyword(state),
-  sections: {},
   items: Object.keys(ownProps.items)
     .map(key => {
       const t = ownProps.items[key];
