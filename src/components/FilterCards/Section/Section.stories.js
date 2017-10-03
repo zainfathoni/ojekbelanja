@@ -13,7 +13,11 @@ storiesOf("Section", module)
   .addWithJSX(
     "default",
     withNotes("Section separates Cards")(() => (
-      <Section id="section" label={text("Label", "Section")}>
+      <Section
+        id="section"
+        label={text("Label", "Section")}
+        keyword={text("Keyword", "ect")}
+      >
         <div />
       </Section>
     ))

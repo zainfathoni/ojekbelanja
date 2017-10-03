@@ -509,7 +509,29 @@ exports[`Storyshots FilterCards with Sections 1`] = `
       <label
         className="Section-label"
         htmlFor="ayam">
-        Ayam
+        <span
+          className={undefined}>
+          <mark
+            className=" "
+            style={Object {}}>
+            A
+          </mark>
+          <span
+            className=""
+            style={undefined}>
+            y
+          </span>
+          <mark
+            className=" "
+            style={Object {}}>
+            a
+          </mark>
+          <span
+            className=""
+            style={undefined}>
+            m
+          </span>
+        </span>
       </label>
       <hr
         className="Section-separator" />
@@ -647,7 +669,14 @@ exports[`Storyshots FilterCards with Sections 1`] = `
       <label
         className="Section-label"
         htmlFor="bumbu">
-        Bumbu
+        <span
+          className={undefined}>
+          <span
+            className=""
+            style={undefined}>
+            Bumbu
+          </span>
+        </span>
       </label>
       <hr
         className="Section-separator" />
@@ -1102,7 +1131,24 @@ exports[`Storyshots Section default 1`] = `
     <label
       className="Section-label"
       htmlFor="section">
-      Section
+      <span
+        className={undefined}>
+        <span
+          className=""
+          style={undefined}>
+          S
+        </span>
+        <mark
+          className=" "
+          style={Object {}}>
+          ect
+        </mark>
+        <span
+          className=""
+          style={undefined}>
+          ion
+        </span>
+      </span>
     </label>
     <hr
       className="Section-separator" />

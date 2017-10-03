@@ -43,7 +43,10 @@ export default function FilterCards(props) {
       key =>
         items[key].title.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
         items[key].description.toLowerCase().indexOf(keyword.toLowerCase()) !==
-          -1
+          -1 ||
+        sections[items[key].section]
+          .toLowerCase()
+          .indexOf(keyword.toLowerCase()) !== -1
     )
     .reduce(
       (res, key) => ({
@@ -73,6 +76,7 @@ export default function FilterCards(props) {
             key={section}
             id={section}
             label={sections[section]}
+            keyword={keyword}
           >
             <ul id={section} className="l-FilterCards-grid">
               {Object.keys(sectionedItems[section]).map(key => {
