@@ -1,9 +1,8 @@
 import React from "react";
 import { PropTypes as T } from "prop-types";
 
-import TokoCard from "../../containers/TokoCard";
-import ProductCard from "../../containers/ProductCard";
 import Section from "./Section";
+import Card from "./Card";
 import "./FilterCards.css";
 
 export default function FilterCards(props) {
@@ -11,9 +10,8 @@ export default function FilterCards(props) {
     keyword,
     items,
     sections,
-    titleField,
-    descriptionField,
-    sectionField,
+    actions,
+    actionsReverse,
     isFetching,
     error
   } = props;
@@ -43,11 +41,9 @@ export default function FilterCards(props) {
   const filteredItems = ids
     .filter(
       key =>
-        items[key][titleField].toLowerCase().indexOf(keyword.toLowerCase()) !==
-          -1 ||
-        items[key][descriptionField]
-          .toLowerCase()
-          .indexOf(keyword.toLowerCase()) !== -1
+        items[key].title.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
+        items[key].description.toLowerCase().indexOf(keyword.toLowerCase()) !==
+          -1
     )
     .reduce(
       (res, key) => ({
@@ -58,7 +54,7 @@ export default function FilterCards(props) {
     );
 
   const sectionedItems = Object.keys(filteredItems).reduce((res, key) => {
-    const section = items[key][sectionField];
+    const section = items[key].section;
     return {
       ...res,
       [section]: {
@@ -70,30 +66,58 @@ export default function FilterCards(props) {
 
   return (
     <div className="l-FilterCards">
-      {sectionField ? (
-        <div>
-          {Object.keys(sectionedItems).map(section => (
-            <Section
-              className="l-FilterCards-grid"
-              key={section}
-              id={section}
-              label={sections[section]}
-            >
-              <ul id={section} className="l-FilterCards-grid">
-                {Object.keys(sectionedItems[section]).map(key => {
-                  const item = sectionedItems[section][key];
-                  return <ProductCard key={key} id={key} product={item} />;
-                })}
-              </ul>
-            </Section>
-          ))}
-        </div>
+      {sections ? (
+        Object.keys(sectionedItems).map(section => (
+          <Section
+            className="l-FilterCards-grid"
+            key={section}
+            id={section}
+            label={sections[section]}
+          >
+            <ul id={section} className="l-FilterCards-grid">
+              {Object.keys(sectionedItems[section]).map(key => {
+                const item = sectionedItems[section][key];
+                return (
+                  <Card
+                    key={key}
+                    id={key}
+                    keyword={keyword}
+                    title={item.title}
+                    description={item.description}
+                    image={item.image}
+                    price={item.price}
+                    unit={item.unit}
+                    overlay={item.overlay}
+                    ribbon={item.ribbon}
+                    tooltip={item.tooltip}
+                    disabled={item.disabled}
+                    action={actions[key]}
+                    actionReverse={actionsReverse[key]}
+                  />
+                );
+              })}
+            </ul>
+          </Section>
+        ))
       ) : (
         <ul className="l-FilterCards-grid">
           {Object.keys(filteredItems).map(key => {
             const item = filteredItems[key];
             return (
-              <TokoCard key={key} id={key} toko={item} keyword={keyword} />
+              <Card
+                key={key}
+                id={key}
+                keyword={keyword}
+                title={item.title}
+                description={item.description}
+                image={item.image}
+                price={item.price}
+                unit={item.unit}
+                overlay={item.overlay}
+                ribbon={item.ribbon}
+                tooltip={item.tooltip}
+                disabled={item.disabled}
+              />
             );
           })}
         </ul>
@@ -104,11 +128,23 @@ export default function FilterCards(props) {
 
 FilterCards.propTypes = {
   keyword: T.string.isRequired,
-  items: T.object.isRequired,
   sections: T.objectOf(T.string),
-  titleField: T.string.isRequired,
-  descriptionField: T.string.isRequired,
-  sectionField: T.string,
+  items: T.objectOf(
+    T.shape({
+      section: T.string,
+      title: T.string.isRequired,
+      description: T.string.isRequired,
+      image: T.string.isRequired,
+      price: T.number.isRequired,
+      unit: T.string.isRequired,
+      overlay: T.string,
+      disabled: T.bool,
+      ribbon: T.string,
+      tooltip: T.string
+    })
+  ).isRequired,
+  actions: T.objectOf(T.func),
+  actionsReverse: T.objectOf(T.func),
   isFetching: T.bool,
   error: T.string
 };
