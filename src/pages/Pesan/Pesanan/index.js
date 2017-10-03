@@ -9,13 +9,12 @@ import Button from "../../../components/Button";
 import ProductListItem from "../../../containers/ProductListItem";
 import "./Pesanan.css";
 
-let Pesanan = ({ id, toko, order, products, total }) =>
+let Pesanan = ({ id, toko, order, products, total }) => (
   <Form
     name={name}
     title="Pesanan Anda"
     icon={<i className="fa fa-lg fa-shopping-cart" aria-hidden="true" />}
     header={
-      /**/
       <Link to={`/toko/${id}`}>
         <Button
           className="Pesanan-heading-action"
@@ -49,7 +48,8 @@ let Pesanan = ({ id, toko, order, products, total }) =>
       const item = products[key];
       return <ProductListItem key={key} id={key} item={item} />;
     })}
-  </Form>;
+  </Form>
+);
 
 Pesanan.propTypes = {
   id: T.string.isRequired,

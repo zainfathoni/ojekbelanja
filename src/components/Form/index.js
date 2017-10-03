@@ -13,17 +13,10 @@ export default function Form(props) {
           {icon}
           {` ${title}`}
         </div>
-        <div className="Form-header-action">
-          {header}
-        </div>
+        <div className="Form-header-action">{header}</div>
       </header>
-      <main className="Form-body">
-        {children}
-      </main>
-      {footer &&
-        <footer className="Form-footer">
-          {footer}
-        </footer>}
+      <main className="Form-body">{children}</main>
+      {footer && <footer className="Form-footer">{footer}</footer>}
     </form>
   );
 }

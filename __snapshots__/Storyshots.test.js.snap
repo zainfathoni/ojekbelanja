@@ -1023,6 +1023,82 @@ exports[`Storyshots FilterInput without Button 1`] = `
 </ul>
 `;
 
+exports[`Storyshots Form with Footer 1`] = `
+<form
+  className="Form"
+  name="with-footer"
+  onSubmit={undefined}>
+  <header
+    className="Form-header">
+    <div
+      className="Form-header-title">
+      <i
+        aria-hidden="true"
+        className="fa fa-lg fa-shopping-cart" />
+       Pesanan Anda
+    </div>
+    <div
+      className="Form-header-action">
+      <div>
+        Header
+      </div>
+    </div>
+  </header>
+  <main
+    className="Form-body">
+    <div
+      style={
+        Object {
+          "height": 200,
+        }
+      }>
+      Content
+    </div>
+  </main>
+  <footer
+    className="Form-footer">
+    <div>
+      Footer
+    </div>
+  </footer>
+</form>
+`;
+
+exports[`Storyshots Form without Footer 1`] = `
+<form
+  className="Form"
+  name="with-footer"
+  onSubmit={undefined}>
+  <header
+    className="Form-header">
+    <div
+      className="Form-header-title">
+      <i
+        aria-hidden="true"
+        className="fa fa-lg fa-address-card" />
+       Data Pemesan
+    </div>
+    <div
+      className="Form-header-action">
+      <div>
+        Header
+      </div>
+    </div>
+  </header>
+  <main
+    className="Form-body">
+    <div
+      style={
+        Object {
+          "height": 200,
+        }
+      }>
+      Content
+    </div>
+  </main>
+</form>
+`;
+
 exports[`Storyshots Section default 1`] = `
 <ul
   style={
