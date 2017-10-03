@@ -1,5 +1,5 @@
 import React from "react";
-import { configure, shallow } from "enzyme";
+import { shallow } from "enzyme";
 import FilterInput from "./index";
 
 require("../../../.storybook/enzyme_setup.js");

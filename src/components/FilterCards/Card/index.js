@@ -71,7 +71,6 @@ export default function Card(props) {
               {disabled ? (
                 <Button
                   display="fullwidth"
-                  action={() => action(id)}
                   icon="ban"
                   text="Stok Habis"
                   disabled

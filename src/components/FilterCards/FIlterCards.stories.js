@@ -44,14 +44,8 @@ storiesOf("FilterCards", module)
             disabled: true
           }
         })}
-        actions={{
-          ayam_fillet: action("plus"),
-          bawang_putih: action("plus")
-        }}
-        actionsReverse={{
-          ayam_fillet: action("minus"),
-          bawang_putih: action("minus")
-        }}
+        action={action("plus")}
+        actionReverse={action("minus")}
       />
     ))
   )
