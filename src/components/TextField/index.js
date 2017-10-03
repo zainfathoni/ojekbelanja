@@ -67,12 +67,14 @@ export default class TextField extends Component {
 
     return (
       <div className={textFieldClass}>
-        {label &&
+        {label && (
           <label className={labelClass} htmlFor={name}>
             {label}
-            {!required &&
-              <span className="TextField-label-span"> - Opsional</span>}
-          </label>}
+            {!required && (
+              <span className="TextField-label-span"> - Opsional</span>
+            )}
+          </label>
+        )}
         <input
           className={inputClass}
           id={name}
@@ -91,10 +93,12 @@ export default class TextField extends Component {
         {!isPristine &&
           !isFocused &&
           (value
-            ? !validate(value) /* Validation Message */ &&
-              <span className="TextField-message">{`* ${message}`}</span>
-            : required /* Requiring Message */ &&
-              <span className="TextField-message">{`* ${label} harus diisi`}</span>)}
+            ? !validate(value) /* Validation Message */ && (
+                <span className="TextField-message">{`* ${message}`}</span>
+              )
+            : required /* Requiring Message */ && (
+                <span className="TextField-message">{`* ${label} harus diisi`}</span>
+              ))}
       </div>
     );
   }

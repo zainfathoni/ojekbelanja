@@ -4,6 +4,8 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
+
+import { isEmailValid } from "../../services/form";
 import FormFields from "./index";
 
 setAddon(JSXAddon);
@@ -19,8 +21,27 @@ storiesOf("FormFields", module)
         icon="address-card"
         header={<div>Header</div>}
         footer={<div>Footer</div>}
-      >
-        <div style={{ height: 200 }}>Content</div>
-      </FormFields>
+        fields={{
+          email: {
+            component: "TextField",
+            type: "email",
+            label: "Email",
+            placeholder: "Alamat Email",
+            value: text("Email", ""),
+            validate: isEmailValid,
+            message: "Alamat Email tidak valid",
+            required: true
+          },
+          address: {
+            component: "TextArea",
+            label: "Alamat",
+            placeholder: "Alamat Lengkap",
+            value: text("Alamat", ""),
+            rows: 4,
+            required: true
+          }
+        }}
+        onChange={action("email-change")}
+      />
     ))
   );
