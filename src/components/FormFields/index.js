@@ -21,7 +21,7 @@ export default function FormFields({
   fields,
   onChange
 }) {
-  onChange = (field, value) => {
+  const onUpdate = (field, value) => {
     onChange(field, value);
   };
   return (
@@ -38,7 +38,7 @@ export default function FormFields({
                 label={f.label}
                 placeholder={f.placeholder}
                 value={f.value}
-                onChange={onChange}
+                onChange={onUpdate}
                 validate={f.validate}
                 message={f.message}
                 required={f.required}
@@ -53,7 +53,7 @@ export default function FormFields({
                 placeholder={f.placeholder}
                 value={f.value}
                 rows={4}
-                onChange={onChange}
+                onChange={onUpdate}
                 required={f.required}
               />
             );
