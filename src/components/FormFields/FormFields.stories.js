@@ -13,10 +13,10 @@ setAddon(JSXAddon);
 storiesOf("FormFields", module)
   .addDecorator(withKnobs)
   .addWithJSX(
-    "with Footer",
-    withNotes("Form with Footer")(() => (
+    "with TextField & TextArea",
+    withNotes("Form Fields with TextField & TextArea")(() => (
       <FormFields
-        name="with-footer"
+        name="pemesan"
         title={text("Title", "Data Pemesan")}
         icon="address-card"
         header={<div>Header</div>}
