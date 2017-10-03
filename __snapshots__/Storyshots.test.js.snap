@@ -133,7 +133,7 @@ exports[`Storyshots Card product empty 1`] = `
           <button
             className="Button Button-fullwidth"
             disabled={true}
-            onClick={[Function]}
+            onClick={undefined}
             title=""
             type="button">
             <i
@@ -754,7 +754,7 @@ exports[`Storyshots FilterCards with Sections 1`] = `
                 <button
                   className="Button Button-fullwidth"
                   disabled={true}
-                  onClick={[Function]}
+                  onClick={undefined}
                   title=""
                   type="button">
                   <i
