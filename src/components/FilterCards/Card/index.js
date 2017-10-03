@@ -58,7 +58,7 @@ export default function Card(props) {
             </span>
             <span className="Card-action-unit">{` / ${unit}`}</span>
           </div>
-          {!actionReverse ? (
+          {!action ? (
             <Link to={`/toko/${id}`}>
               <Button
                 display="fullwidth"

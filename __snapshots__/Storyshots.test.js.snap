@@ -53,7 +53,7 @@ exports[`Storyshots Button text 1`] = `
 </div>
 `;
 
-exports[`Storyshots Card product empty 1`] = `
+exports[`Storyshots Card disabled 1`] = `
 <ul
   style={
     Object {
@@ -148,7 +148,96 @@ exports[`Storyshots Card product empty 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Card product with overlay 1`] = `
+exports[`Storyshots Card with 1 action button 1`] = `
+<ul
+  style={
+    Object {
+      "textAlign": "center",
+      "width": 200,
+    }
+  }>
+  <li>
+    <div
+      className="Card">
+      <div
+        className="Card-image">
+        <img
+          alt="Ayam Fillet"
+          src="test-file-stub" />
+        
+        
+        
+      </div>
+      <div
+        className="Card-content">
+        <div
+          className="Card-content-title">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Ay
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              am Fillet
+            </span>
+          </span>
+        </div>
+        <div
+          className="Card-content-description">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Ay
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              am Fillet Paha
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        className="Card-action">
+        <div
+          className="Card-action-price-parent">
+          <span
+            className="Card-action-price">
+            Rp 42,000
+          </span>
+          <span
+            className="Card-action-unit">
+             / kg
+          </span>
+        </div>
+        <div>
+          <div>
+            <button
+              className="Button Button-fullwidth"
+              disabled={undefined}
+              onClick={[Function]}
+              title=""
+              type="button">
+              <i
+                aria-hidden="true"
+                className="fa fa-cart-plus fa-lg" />
+               Beli
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Card with 2 action buttons 1`] = `
 <ul
   style={
     Object {
@@ -263,105 +352,7 @@ exports[`Storyshots Card product with overlay 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Card product without overlay 1`] = `
-<ul
-  style={
-    Object {
-      "textAlign": "center",
-      "width": 200,
-    }
-  }>
-  <li>
-    <div
-      className="Card">
-      <div
-        className="Card-image">
-        <img
-          alt="Ayam Fillet"
-          src="test-file-stub" />
-        
-        <div
-          className="Card-ribbon-wrapper">
-          <div
-            className="Card-ribbon">
-            Diskon 10%
-          </div>
-        </div>
-        <div
-          className="Card-tooltip">
-          Minimum pembelian 1 kg
-        </div>
-      </div>
-      <div
-        className="Card-content">
-        <div
-          className="Card-content-title">
-          <span
-            className={undefined}>
-            <mark
-              className=" "
-              style={Object {}}>
-              Ay
-            </mark>
-            <span
-              className=""
-              style={undefined}>
-              am Fillet
-            </span>
-          </span>
-        </div>
-        <div
-          className="Card-content-description">
-          <span
-            className={undefined}>
-            <mark
-              className=" "
-              style={Object {}}>
-              Ay
-            </mark>
-            <span
-              className=""
-              style={undefined}>
-              am Fillet Paha
-            </span>
-          </span>
-        </div>
-      </div>
-      <div
-        className="Card-action">
-        <div
-          className="Card-action-price-parent">
-          <span
-            className="Card-action-price">
-            Rp 42,000
-          </span>
-          <span
-            className="Card-action-unit">
-             / kg
-          </span>
-        </div>
-        <div>
-          <div>
-            <button
-              className="Button Button-fullwidth"
-              disabled={undefined}
-              onClick={[Function]}
-              title=""
-              type="button">
-              <i
-                aria-hidden="true"
-                className="fa fa-cart-plus fa-lg" />
-               Beli
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </li>
-</ul>
-`;
-
-exports[`Storyshots Card store 1`] = `
+exports[`Storyshots Card with link button 1`] = `
 <ul
   style={
     Object {

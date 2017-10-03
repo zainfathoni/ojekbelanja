@@ -17,8 +17,8 @@ storiesOf("Card", module)
   ))
   .addDecorator(withKnobs)
   .addWithJSX(
-    "product with overlay",
-    withNotes("Product Card with overlay")(() => (
+    "with 2 action buttons",
+    withNotes("Product Card with 2 action buttons")(() => (
       <Card
         keyword={text("Keyword", "ay")}
         id="ayam_fillet"
@@ -37,8 +37,8 @@ storiesOf("Card", module)
     ))
   )
   .addWithJSX(
-    "product without overlay",
-    withNotes("Product Card without overlay")(() => (
+    "with 1 action button",
+    withNotes("Product Card with 1 action button")(() => (
       <Card
         keyword={text("Keyword", "ay")}
         id="ayam_fillet"
@@ -48,16 +48,15 @@ storiesOf("Card", module)
         price={number("Price", 42000)}
         unit={text("Unit", "kg")}
         action={action("plus")}
-        actionReverse={action("minus")}
         overlay={text("Overlay", "")}
-        ribbon={text("Ribbon", "Diskon 10%")}
-        tooltip={text("Tooltip", "Minimum pembelian 1 kg")}
+        ribbon={text("Ribbon", "")}
+        tooltip={text("Tooltip", "")}
         disabled={boolean("Disabled", false)}
       />
     ))
   )
   .addWithJSX(
-    "product empty",
+    "disabled",
     withNotes("Product Card with empty stock")(() => (
       <Card
         keyword={text("Keyword", "ay")}
@@ -68,7 +67,6 @@ storiesOf("Card", module)
         price={number("Price", 42000)}
         unit={text("Unit", "kg")}
         action={action("plus")}
-        actionReverse={action("minus")}
         ribbon={text("Ribbon", "Diskon 10%")}
         tooltip={text("Tooltip", "Minimum pembelian 1 kg")}
         disabled={boolean("Disabled", true)}
@@ -76,8 +74,8 @@ storiesOf("Card", module)
     ))
   )
   .addWithJSX(
-    "store",
-    withNotes("Toko Card")(() => (
+    "with link button",
+    withNotes("Toko Card with link button")(() => (
       <Router>
         <Card
           keyword={text("Keyword", "je")}
