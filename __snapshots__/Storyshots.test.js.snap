@@ -1130,8 +1130,8 @@ exports[`Storyshots FormFields with Footer 1`] = `
       className="Form-header-title">
       <i
         aria-hidden="true"
-        className="fa fa-lg fa-shopping-cart" />
-       Pesanan Anda
+        className="fa fa-lg fa-address-card" />
+       Data Pemesan
     </div>
     <div
       className="Form-header-action">

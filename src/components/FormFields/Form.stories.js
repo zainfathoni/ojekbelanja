@@ -15,8 +15,8 @@ storiesOf("FormFields", module)
     withNotes("Form with Footer")(() => (
       <FormFields
         name="with-footer"
-        title={text("Title", "Pesanan Anda")}
-        icon="shopping-cart"
+        title={text("Title", "Data Pemesan")}
+        icon="address-card"
         header={<div>Header</div>}
         footer={<div>Footer</div>}
       >
