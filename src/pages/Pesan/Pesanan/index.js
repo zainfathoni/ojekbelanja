@@ -13,7 +13,7 @@ let Pesanan = ({ id, toko, order, products, total }) => (
   <Form
     name={name}
     title="Pesanan Anda"
-    icon={<i className="fa fa-lg fa-shopping-cart" aria-hidden="true" />}
+    icon="shopping-cart"
     header={
       <Link to={`/toko/${id}`}>
         <Button

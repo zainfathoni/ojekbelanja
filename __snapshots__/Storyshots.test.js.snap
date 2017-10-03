@@ -1119,6 +1119,8 @@ exports[`Storyshots Form without Footer 1`] = `
 </form>
 `;
 
+exports[`Storyshots FormFields with Footer 1`] = `null`;
+
 exports[`Storyshots Section default 1`] = `
 <ul
   style={

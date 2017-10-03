@@ -35,7 +35,7 @@ let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
     <Form
       name={name}
       title="Data Pemesan"
-      icon={<i className="fa fa-lg fa-address-card" aria-hidden="true" />}
+      icon="address-card"
       onSubmit={e => onSubmit(e, storeId)}
       footer={
         <div>
@@ -52,7 +52,6 @@ let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
             }
             isSecondary
           />
-          {/**/}
           <Link to={`/thankyou/${storeId}`}>
             <Button
               className="Pemesan-footer-done"

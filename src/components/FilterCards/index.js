@@ -5,16 +5,15 @@ import Section from "./Section";
 import Card from "./Card";
 import "./FilterCards.css";
 
-export default function FilterCards(props) {
-  const {
-    keyword,
-    items,
-    sections,
-    action,
-    actionReverse,
-    isFetching,
-    error
-  } = props;
+export default function FilterCards({
+  keyword,
+  items,
+  sections,
+  action,
+  actionReverse,
+  isFetching,
+  error
+}) {
   const ids = Object.keys(items);
 
   // Render Loading Bars
