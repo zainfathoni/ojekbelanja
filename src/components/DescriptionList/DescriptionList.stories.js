@@ -2,7 +2,7 @@ import React from "react";
 import { setAddon, storiesOf } from "@storybook/react";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
-import DescriptionList from "./index";
+import DescriptionList from ".";
 import Term from "./Term";
 import Description from "./Description";
 

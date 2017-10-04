@@ -4,7 +4,7 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
-import Form from "./index";
+import Form from ".";
 
 setAddon(JSXAddon);
 

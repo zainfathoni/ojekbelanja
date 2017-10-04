@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import FormFields from "./index";
+import FormFields from ".";
 
 require("../../../.storybook/enzyme_setup.js");
 

@@ -2,7 +2,7 @@ import React from "react";
 import { mount } from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Card from "./index";
+import Card from ".";
 import image from "../../../css/images/placeholder-224x224.png";
 
 require("../../../../.storybook/enzyme_setup.js");

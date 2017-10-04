@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import FilterInput from "./index";
+import FilterInput from ".";
 
 require("../../../.storybook/enzyme_setup.js");
 

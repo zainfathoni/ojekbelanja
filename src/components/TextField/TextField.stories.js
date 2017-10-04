@@ -6,7 +6,7 @@ import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
 
 import { isEmailValid } from "../../services/form";
-import TextField from "./index";
+import TextField from ".";
 
 setAddon(JSXAddon);
 

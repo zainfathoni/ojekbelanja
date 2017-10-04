@@ -6,7 +6,7 @@ import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import FilterInput from "./index";
+import FilterInput from ".";
 
 setAddon(JSXAddon);
 

@@ -3,7 +3,7 @@ import { setAddon, storiesOf } from "@storybook/react";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
-import Section from "./index";
+import Section from ".";
 
 setAddon(JSXAddon);
 

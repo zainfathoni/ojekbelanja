@@ -2,7 +2,7 @@ import React from "react";
 import { setAddon, storiesOf } from "@storybook/react";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
-import Brand from "./index";
+import Brand from ".";
 
 setAddon(JSXAddon);
 

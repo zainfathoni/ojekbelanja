@@ -6,7 +6,7 @@ import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Card from "./index";
+import Card from ".";
 import image from "../../../css/images/placeholder-224x224.png";
 
 setAddon(JSXAddon);
