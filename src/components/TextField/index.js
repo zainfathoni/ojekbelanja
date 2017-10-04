@@ -27,7 +27,7 @@ export default class TextField extends Component {
       isPristine: false, // Set Dirty
       isFocused: false // Set Blur
     });
-    if (!this.props.validate) {
+    if (this.props.onBlur) {
       this.props.onBlur(name, value); // Call onBlur props function
     }
   };
@@ -56,7 +56,6 @@ export default class TextField extends Component {
       label,
       placeholder,
       value,
-      validate,
       message,
       required,
       onChange,
@@ -64,7 +63,6 @@ export default class TextField extends Component {
       max,
       step
     } = this.props;
-    const { isPristine, isFocused } = this.state;
 
     const textFieldClass = classnames(className, "TextField");
     const labelClass = classnames("TextField-label");
