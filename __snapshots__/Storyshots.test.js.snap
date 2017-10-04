@@ -1231,6 +1231,76 @@ exports[`Storyshots Section default 1`] = `
 </ul>
 `;
 
+exports[`Storyshots TextArea default 1`] = `
+<div
+  className="TextArea">
+  <label
+    className="TextArea-label"
+    htmlFor={undefined}>
+    Default
+    <span
+      className="TextArea-label-span">
+       - Opsional
+    </span>
+  </label>
+  <textarea
+    className="TextArea-input TextArea-input-fullwidth"
+    id={undefined}
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    required={undefined}
+    rows={3}
+    value="" />
+</div>
+`;
+
+exports[`Storyshots TextArea required with validation 1`] = `
+<div
+  className="TextArea">
+  <label
+    className="TextArea-label"
+    htmlFor="email">
+    Email
+  </label>
+  <textarea
+    className="TextArea-input TextArea-input-content"
+    id="email"
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Alamat Email"
+    required={true}
+    rows={3}
+    value="" />
+</div>
+`;
+
+exports[`Storyshots TextArea required without validation 1`] = `
+<div
+  className="TextArea">
+  <label
+    className="TextArea-label"
+    htmlFor="email">
+    Email
+  </label>
+  <textarea
+    className="TextArea-input TextArea-input-content"
+    id="email"
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Alamat Email"
+    required={true}
+    rows={3}
+    value="" />
+</div>
+`;
+
 exports[`Storyshots TextField default 1`] = `
 <div
   className="TextField">

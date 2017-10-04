@@ -1,12 +1,18 @@
 import React from "react";
 import { setAddon, storiesOf } from "@storybook/react";
-import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  number,
+  boolean,
+  select
+} from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
 
 import { isEmailValid } from "../../services/form";
-import TextField from ".";
+import TextArea from ".";
 
 setAddon(JSXAddon);
 
@@ -16,12 +22,12 @@ const options = {
   fixed: "Fixed"
 };
 
-storiesOf("TextField", module)
+storiesOf("TextArea", module)
   .addDecorator(withKnobs)
   .addWithJSX(
     "default",
-    withNotes("TextField with default props")(() => (
-      <TextField
+    withNotes("TextArea with default props")(() => (
+      <TextArea
         value={text("Value", "")}
         label={text("Label", "Default")}
         onChange={action("default-change")}
@@ -30,8 +36,8 @@ storiesOf("TextField", module)
   )
   .addWithJSX(
     "required with validation",
-    withNotes("TextField required with validation")(() => (
-      <TextField
+    withNotes("TextArea required with validation")(() => (
+      <TextArea
         type={text("Type", "email")}
         display={select("Display Mode", options, "content")}
         name={text("Name", "email")}
@@ -41,6 +47,7 @@ storiesOf("TextField", module)
         onChange={action("email-change")}
         validate={isEmailValid}
         message={text("Validation Message", "Alamat Email tidak valid")}
+        rows={number("Rows", 3)}
         required={boolean("Required", true)}
       />
     ))
@@ -48,7 +55,7 @@ storiesOf("TextField", module)
   .addWithJSX(
     "required without validation",
     withNotes("TextField required without validation")(() => (
-      <TextField
+      <TextArea
         type={text("Type", "email")}
         display={select("Display Mode", options, "content")}
         name={text("Name", "email")}
@@ -56,6 +63,7 @@ storiesOf("TextField", module)
         placeholder={text("Placeholder", "Alamat Email")}
         value={text("Value", "")}
         onChange={action("email-change")}
+        rows={number("Rows", 3)}
         required={boolean("Required", true)}
       />
     ))
