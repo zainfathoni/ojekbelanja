@@ -30,7 +30,9 @@ export const isValid = (state, field) => {
 };
 
 export const isUserValid = state => {
-  return Object.keys(state).filter(field => !isValid(state, field)).length == 0;
+  return (
+    Object.keys(state).filter(field => !isValid(state, field)).length === 0
+  );
 };
 
 const requiredFields = ["name", "email", "phone", "city", "address"];
@@ -44,5 +46,5 @@ export const isRequirementFulfilled = (state, field) => {
 };
 
 export const areRequirementsFulfilled = state => {
-  return requiredFields.filter(field => !state[field]).length == 0;
+  return requiredFields.filter(field => !state[field]).length === 0;
 };
