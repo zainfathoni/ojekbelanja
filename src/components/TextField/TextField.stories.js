@@ -5,7 +5,6 @@ import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
 
-import { isEmailValid } from "../../services/form";
 import TextField from ".";
 
 setAddon(JSXAddon);
@@ -29,8 +28,8 @@ storiesOf("TextField", module)
     ))
   )
   .addWithJSX(
-    "required with validation",
-    withNotes("TextField required with validation")(() => (
+    "required",
+    withNotes("TextField required")(() => (
       <TextField
         type={text("Type", "email")}
         display={select("Display Mode", options, "content")}
@@ -39,15 +38,13 @@ storiesOf("TextField", module)
         placeholder={text("Placeholder", "Alamat Email")}
         value={text("Value", "")}
         onChange={action("email-change")}
-        validate={isEmailValid}
-        message={text("Validation Message", "Alamat Email tidak valid")}
         required={boolean("Required", true)}
       />
     ))
   )
   .addWithJSX(
-    "required without validation",
-    withNotes("TextField required without validation")(() => (
+    "with invalid message",
+    withNotes("TextField with invalid message")(() => (
       <TextField
         type={text("Type", "email")}
         display={select("Display Mode", options, "content")}
@@ -56,7 +53,8 @@ storiesOf("TextField", module)
         placeholder={text("Placeholder", "Alamat Email")}
         value={text("Value", "")}
         onChange={action("email-change")}
-        required={boolean("Required", true)}
+        message={text("Message", "Alamat Email tidak valid")}
+        required={boolean("Required", false)}
       />
     ))
   );

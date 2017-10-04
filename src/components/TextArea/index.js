@@ -33,17 +33,7 @@ export default class TextArea extends Component {
   };
 
   isInvalid = () =>
-    !this.state.isPristine &&
-    !this.state.isFocused &&
-    this.props.value &&
-    this.props.validate &&
-    !this.props.validate(this.props.value);
-
-  isRequired = () =>
-    !this.state.isPristine &&
-    !this.state.isFocused &&
-    !this.props.value &&
-    this.props.required;
+    !this.state.isPristine && !this.state.isFocused && this.props.message;
 
   /*** Render ***/
 
@@ -67,7 +57,7 @@ export default class TextArea extends Component {
       "TextArea-input",
       `TextArea-input-${display}`,
       {
-        "TextArea-input-is-error": this.isInvalid() || this.isRequired()
+        "TextArea-input-is-error": this.isInvalid()
       }
     );
 
@@ -93,12 +83,8 @@ export default class TextArea extends Component {
           onBlur={e => this.onBlur(name, e.target.value)}
           required={required}
         />
-        {this.isInvalid() ? (
+        {this.isInvalid() && (
           <span className="TextField-message">{`* ${message}`}</span>
-        ) : (
-          this.isRequired() && (
-            <span className="TextField-message">{`* ${label} harus diisi`}</span>
-          )
         )}
       </div>
     );
@@ -125,7 +111,6 @@ TextArea.propTypes = {
   value: T.any.isRequired, // Value
   onChange: T.func.isRequired, // onChange Function
   onBlur: T.func, // onBlur Function
-  validate: T.func, // Validation Function
   message: T.string, // Error Message
   required: T.bool, // is Required
   rows: T.number // Number of Rows

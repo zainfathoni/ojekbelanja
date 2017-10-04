@@ -43,7 +43,7 @@ describe("TextField", () => {
     email.simulate("focus");
     email.simulate("blur");
 
-    expect(message.text()).toEqual("Email* Email harus diisi");
+    expect(message.text()).toEqual("Email* Alamat Email tidak valid");
   });
 
   it("shows Validation Message correctly", () => {

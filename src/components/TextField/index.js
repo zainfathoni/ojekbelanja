@@ -33,17 +33,7 @@ export default class TextField extends Component {
   };
 
   isInvalid = () =>
-    !this.state.isPristine &&
-    !this.state.isFocused &&
-    this.props.value &&
-    this.props.validate &&
-    !this.props.validate(this.props.value);
-
-  isRequired = () =>
-    !this.state.isPristine &&
-    !this.state.isFocused &&
-    !this.props.value &&
-    this.props.required;
+    !this.state.isPristine && !this.state.isFocused && this.props.message;
 
   /*** Render ***/
 
@@ -70,7 +60,7 @@ export default class TextField extends Component {
       "TextField-input",
       `TextField-input-${display}`,
       {
-        "TextField-input-is-error": this.isInvalid() || this.isRequired()
+        "TextField-input-is-error": this.isInvalid()
       }
     );
 
@@ -99,12 +89,8 @@ export default class TextField extends Component {
           max={max}
           step={step}
         />
-        {this.isInvalid() ? (
+        {this.isInvalid() && (
           <span className="TextField-message">{`* ${message}`}</span>
-        ) : (
-          this.isRequired() && (
-            <span className="TextField-message">{`* ${label} harus diisi`}</span>
-          )
         )}
       </div>
     );
@@ -149,7 +135,6 @@ TextField.propTypes = {
   value: T.any.isRequired, // Value
   onChange: T.func.isRequired, // onChange Function
   onBlur: T.func, // onBlur Function
-  validate: T.func, // Validation Function
   message: T.string, // Error Message
   required: T.bool, // is Required
   min: T.number, // Minimum Value for Number/Range Type
