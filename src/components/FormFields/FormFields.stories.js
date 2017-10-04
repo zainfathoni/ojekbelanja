@@ -5,7 +5,6 @@ import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
 
-import { isEmailValid } from "../../services/form";
 import FormFields from ".";
 
 setAddon(JSXAddon);
@@ -28,7 +27,6 @@ storiesOf("FormFields", module)
             label: "Email",
             placeholder: "Alamat Email",
             value: text("Email", ""),
-            validate: isEmailValid,
             message: "Alamat Email tidak valid",
             required: true
           },
