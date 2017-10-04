@@ -68,6 +68,7 @@ describe("TextField", () => {
           field = f;
           value = v;
         }}
+        onBlur={() => {}}
       />
     );
     email = defaultTextField.find("#email");

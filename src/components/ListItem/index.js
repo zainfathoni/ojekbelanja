@@ -44,9 +44,7 @@ export default function ListItem({
               <tbody>
                 <tr>
                   <td width="100%">
-                    <div className="Pesanan-item-name">
-                      {item.name}
-                    </div>
+                    <div className="Pesanan-item-name">{item.name}</div>
                   </td>
                 </tr>
                 <tr>
@@ -54,9 +52,7 @@ export default function ListItem({
                     <span className="Pesanan-item-price">
                       {`Rp ${item.price.toLocaleString("id")}`}
                     </span>
-                    <span className="Pesanan-item-unit">
-                      {`/${item.unit}`}
-                    </span>
+                    <span className="Pesanan-item-unit">{`/${item.unit}`}</span>
                     <div className="Pesanan-item-order-quantified">
                       {quantity}
                     </div>
@@ -64,9 +60,7 @@ export default function ListItem({
                 </tr>
                 <tr>
                   <td>
-                    <div className="Pesanan-item-total-price">
-                      {subtotal}
-                    </div>
+                    <div className="Pesanan-item-total-price">{subtotal}</div>
                   </td>
                 </tr>
               </tbody>
@@ -81,13 +75,10 @@ export default function ListItem({
               value={escapeFloatingPoint(count * item.step)}
               onChange={(name, value) => onChange(id, value / item.step)}
               onBlur={(name, value) => onBlur(id)}
-              noValidation
               min={0}
               step={item.step}
             />
-            <span className="Pesanan-item-order-qty-unit">
-              {item.unit}
-            </span>
+            <span className="Pesanan-item-order-qty-unit">{item.unit}</span>
           </td>
           <td className="Pesanan-item-order-qty-action">
             <Button
