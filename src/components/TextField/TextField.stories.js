@@ -29,8 +29,8 @@ storiesOf("TextField", module)
     ))
   )
   .addWithJSX(
-    "required",
-    withNotes("TextField with email type & required")(() => (
+    "required with validation",
+    withNotes("TextField required with validation")(() => (
       <TextField
         type={text("Type", "email")}
         display={select("Display Mode", options, "content")}
@@ -41,6 +41,21 @@ storiesOf("TextField", module)
         onChange={action("email-change")}
         validate={isEmailValid}
         message={text("Validation Message", "Alamat Email tidak valid")}
+        required={boolean("Required", true)}
+      />
+    ))
+  )
+  .addWithJSX(
+    "required without validation",
+    withNotes("TextField required without validation")(() => (
+      <TextField
+        type={text("Type", "email")}
+        display={select("Display Mode", options, "content")}
+        name={text("Name", "email")}
+        label={text("Label", "Email")}
+        placeholder={text("Placeholder", "Alamat Email")}
+        value={text("Value", "")}
+        onChange={action("email-change")}
         required={boolean("Required", true)}
       />
     ))

@@ -23,13 +23,12 @@ export default class TextField extends Component {
   };
 
   onBlur = (name, value) => {
+    this.setState({
+      isPristine: false, // Set Dirty
+      isFocused: false // Set Blur
+    });
     if (!this.props.validate) {
       this.props.onBlur(name, value); // Call onBlur props function
-    } else {
-      this.setState({
-        isPristine: false, // Set Dirty
-        isFocused: false // Set Blur
-      });
     }
   };
 
