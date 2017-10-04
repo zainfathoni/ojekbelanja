@@ -511,25 +511,20 @@ exports[`Storyshots FilterCards with Sections 1`] = `
         htmlFor="ayam">
         <span
           className={undefined}>
-          <mark
-            className=" "
-            style={Object {}}>
-            A
-          </mark>
           <span
             className=""
             style={undefined}>
-            y
+            Dagi
           </span>
           <mark
             className=" "
             style={Object {}}>
-            a
+            ng
           </mark>
           <span
             className=""
             style={undefined}>
-            m
+             Ayam
           </span>
         </span>
       </label>
@@ -571,25 +566,10 @@ exports[`Storyshots FilterCards with Sections 1`] = `
                 className="Card-content-title">
                 <span
                   className={undefined}>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    A
-                  </mark>
                   <span
                     className=""
                     style={undefined}>
-                    y
-                  </span>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    a
-                  </mark>
-                  <span
-                    className=""
-                    style={undefined}>
-                    m Fillet
+                    Ayam Fillet
                   </span>
                 </span>
               </div>
@@ -597,25 +577,10 @@ exports[`Storyshots FilterCards with Sections 1`] = `
                 className="Card-content-description">
                 <span
                   className={undefined}>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    A
-                  </mark>
                   <span
                     className=""
                     style={undefined}>
-                    y
-                  </span>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    a
-                  </mark>
-                  <span
-                    className=""
-                    style={undefined}>
-                    m Fillet
+                    Ayam Fillet
                   </span>
                 </span>
               </div>
@@ -701,27 +666,17 @@ exports[`Storyshots FilterCards with Sections 1`] = `
                   <span
                     className=""
                     style={undefined}>
-                    B
+                    Bawa
                   </span>
                   <mark
                     className=" "
                     style={Object {}}>
-                    a
+                    ng
                   </mark>
                   <span
                     className=""
                     style={undefined}>
-                    w
-                  </span>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    a
-                  </mark>
-                  <span
-                    className=""
-                    style={undefined}>
-                    ng Putih
+                     Putih
                   </span>
                 </span>
               </div>
@@ -732,27 +687,17 @@ exports[`Storyshots FilterCards with Sections 1`] = `
                   <span
                     className=""
                     style={undefined}>
-                    B
+                    Bawa
                   </span>
                   <mark
                     className=" "
                     style={Object {}}>
-                    a
+                    ng
                   </mark>
                   <span
                     className=""
                     style={undefined}>
-                    w
-                  </span>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    a
-                  </mark>
-                  <span
-                    className=""
-                    style={undefined}>
-                    ng Putih
+                     Putih
                   </span>
                 </span>
               </div>
