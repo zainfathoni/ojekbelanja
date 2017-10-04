@@ -1231,7 +1231,36 @@ exports[`Storyshots Section default 1`] = `
 </ul>
 `;
 
-exports[`Storyshots TextField with email type 1`] = `
+exports[`Storyshots TextField default 1`] = `
+<div
+  className="TextField">
+  <label
+    className="TextField-label"
+    htmlFor={undefined}>
+    Default
+    <span
+      className="TextField-label-span">
+       - Opsional
+    </span>
+  </label>
+  <input
+    className="TextField-input TextField-input-fullwidth"
+    id={undefined}
+    max={100}
+    min={0}
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    required={undefined}
+    step={1}
+    type="text"
+    value="" />
+</div>
+`;
+
+exports[`Storyshots TextField required 1`] = `
 <div
   className="TextField">
   <label
@@ -1240,7 +1269,7 @@ exports[`Storyshots TextField with email type 1`] = `
     Email
   </label>
   <input
-    className="TextField-input TextField-input-fullwidth"
+    className="TextField-input TextField-input-content"
     id="email"
     max={100}
     min={0}

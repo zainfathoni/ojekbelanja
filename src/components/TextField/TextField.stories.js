@@ -1,6 +1,6 @@
 import React from "react";
 import { setAddon, storiesOf } from "@storybook/react";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean, select } from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
@@ -10,13 +10,30 @@ import TextField from "./index";
 
 setAddon(JSXAddon);
 
+const options = {
+  fullwidth: "Fullwidth",
+  content: "Content",
+  fixed: "Fixed"
+};
+
 storiesOf("TextField", module)
   .addDecorator(withKnobs)
   .addWithJSX(
-    "with email type",
-    withNotes("TextField with email type")(() => (
+    "default",
+    withNotes("TextField with default prors")(() => (
+      <TextField
+        value={text("Value", "")}
+        label={text("Label", "Default")}
+        onChange={action("default-change")}
+      />
+    ))
+  )
+  .addWithJSX(
+    "required",
+    withNotes("TextField with email type & required")(() => (
       <TextField
         type={text("Type", "email")}
+        display={select("Display Mode", options, "content")}
         name={text("Name", "email")}
         label={text("Label", "Email")}
         placeholder={text("Placeholder", "Alamat Email")}
@@ -24,7 +41,7 @@ storiesOf("TextField", module)
         onChange={action("email-change")}
         validate={isEmailValid}
         message={text("Validation Message", "Alamat Email tidak valid")}
-        required
+        required={boolean("Required", true)}
       />
     ))
   );
