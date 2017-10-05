@@ -5,6 +5,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Card from ".";
 import image from "../../../css/images/placeholder-224x224.png";
 
+require("../../../../.storybook/shim.js");
 require("../../../../.storybook/enzyme_setup.js");
 
 describe("Card", () => {

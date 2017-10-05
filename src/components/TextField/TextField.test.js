@@ -3,6 +3,7 @@ import { mount } from "enzyme";
 
 import TextField from ".";
 
+require("../../../.storybook/shim.js");
 require("../../../.storybook/enzyme_setup.js");
 
 describe("TextField", () => {

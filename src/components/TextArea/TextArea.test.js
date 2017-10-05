@@ -3,6 +3,7 @@ import { mount } from "enzyme";
 
 import TextArea from ".";
 
+require("../../../.storybook/shim.js");
 require("../../../.storybook/enzyme_setup.js");
 
 describe("TextArea", () => {
