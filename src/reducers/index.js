@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import order, * as fromOrder from "./order";
-import user from "./user";
+import user, * as fromUser from "./user";
 import stores, * as fromStores from "./stores";
 import products, * as fromProducts from "./products";
 
@@ -35,6 +35,14 @@ export const getProductError = state => fromProducts.getError(state.products);
 export const getOrder = state => fromOrder.getOrder(state.order);
 export const getOrderCount = (state, id) =>
   fromOrder.getOrderCount(state.order, id);
+
+export const isValid = (state, field) => fromUser.isValid(state.user, field);
+export const isUserValid = state => fromUser.isUserValid(state.user);
+export const isRequired = field => fromUser.isRequired(field);
+export const isRequirementFulfilled = (state, field) =>
+  fromUser.isRequirementFulfilled(state.user, field);
+export const areRequirementsFulfilled = state =>
+  fromUser.areRequirementsFulfilled(state.user);
 
 // Avoid Floating Point Problem
 const escapeFloatingPoint = value => Math.round(value * 100) / 100;
