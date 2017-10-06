@@ -19,13 +19,13 @@ export default function ListItem({
     setOrder(field, escapeFloatingPoint(value));
   };
 
-  const onBlur = productId => {
+  const onBlur = (productId, count) => {
     if (count <= 0) {
       removeOrder(productId);
     }
   };
 
-  const removeOrderOrder = productId => {
+  const remove = productId => {
     removeOrder(productId);
   };
 
@@ -73,7 +73,7 @@ export default function ListItem({
               display="fixed"
               value={escapeFloatingPoint(count * item.step)}
               onChange={(name, value) => onChange(name, value / item.step)}
-              onBlur={() => onBlur(id)}
+              onBlur={() => onBlur(id, count)}
               min={0}
               step={item.step}
             />
@@ -82,7 +82,7 @@ export default function ListItem({
           <td className="ListItem-order-qty-action">
             <Button
               display="icon"
-              action={e => removeOrderOrder(id)}
+              action={() => remove(id)}
               icon="trash"
               text="Hapus"
               isSecondary
