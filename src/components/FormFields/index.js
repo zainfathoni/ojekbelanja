@@ -39,6 +39,7 @@ export default function FormFields({
               <TextField
                 key={key}
                 type={f.type}
+                display={f.display}
                 name={key}
                 label={f.label}
                 placeholder={f.placeholder}
@@ -53,6 +54,7 @@ export default function FormFields({
             return (
               <TextArea
                 key={key}
+                display={f.display}
                 name={key}
                 label={f.label}
                 placeholder={f.placeholder}
@@ -79,6 +81,7 @@ FormFields.propTypes = {
     T.shape({
       component: T.oneOf(["TextField", "TextArea"]),
       type: T.oneOf(["email", "password"]),
+      display: T.string,
       label: T.string,
       placeholder: T.string,
       value: T.string,
