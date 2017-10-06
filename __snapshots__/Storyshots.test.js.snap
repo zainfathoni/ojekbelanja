@@ -1169,7 +1169,7 @@ exports[`Storyshots FormFooterButtons disabled 1`] = `
     className="FormFooterButtons-reset Button Button-content Button-secondary"
     disabled={true}
     onClick={[Function]}
-    title="Data sudah bersih"
+    title="Data kosong"
     type="button">
     <i
       aria-hidden="true"
@@ -1183,7 +1183,7 @@ exports[`Storyshots FormFooterButtons disabled 1`] = `
       className="FormFooterButtons-submit Button Button-content"
       disabled={true}
       onClick={undefined}
-      title="Masih ditemukan data yang tidak valid"
+      title="Masih ada data yang tidak valid"
       type="button">
       <i
         aria-hidden="true"
@@ -1198,7 +1198,7 @@ exports[`Storyshots FormFooterButtons enabled 1`] = `
 <div>
   <button
     className="FormFooterButtons-reset Button Button-content Button-secondary"
-    disabled={undefined}
+    disabled={false}
     onClick={[Function]}
     title="Bersihkan data"
     type="button">
@@ -1212,9 +1212,9 @@ exports[`Storyshots FormFooterButtons enabled 1`] = `
     onClick={[Function]}>
     <button
       className="FormFooterButtons-submit Button Button-content"
-      disabled={undefined}
+      disabled={false}
       onClick={undefined}
-      title="Konfirmasi Pemesanan"
+      title="Konfirmasi pemesanan"
       type="button">
       <i
         aria-hidden="true"

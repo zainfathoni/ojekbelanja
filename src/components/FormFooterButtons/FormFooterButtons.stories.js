@@ -1,6 +1,6 @@
 import React from "react";
 import { setAddon, storiesOf } from "@storybook/react";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
@@ -20,15 +20,17 @@ storiesOf("FormFooterButtons", module)
           buttons={{
             reset: {
               action: action("reset"),
-              icon: "times",
-              text: "Bersihkan",
-              title: "Bersihkan data"
+              icon: text("Reset Icon", "times"),
+              text: text("Reset Text", "Bersihkan"),
+              title: text("Reset Title", "Bersihkan data"),
+              disabled: boolean("Reset Disabled", false)
             },
             submit: {
               link: "/thankyou/jejen",
-              icon: "cart-arrow-down",
-              text: "Selesai",
-              title: "Konfirmasi Pemesanan"
+              icon: text("Submit Icon", "cart-arrow-down"),
+              text: text("Submit Text", "Selesai"),
+              title: text("Submit Title", "Konfirmasi pemesanan"),
+              disabled: boolean("Submit Disabled", false)
             }
           }}
         />
@@ -43,17 +45,17 @@ storiesOf("FormFooterButtons", module)
           buttons={{
             reset: {
               action: action("reset"),
-              icon: "times",
-              text: "Bersihkan",
-              title: "Data sudah bersih",
-              disabled: true
+              icon: text("Reset Icon", "times"),
+              text: text("Reset Text", "Bersihkan"),
+              title: text("Reset Title", "Data kosong"),
+              disabled: boolean("Reset Disabled", true)
             },
             submit: {
               link: "/thankyou/jejen",
-              icon: "cart-arrow-down",
-              text: "Selesai",
-              title: "Masih ditemukan data yang tidak valid",
-              disabled: true
+              icon: text("Submit Icon", "cart-arrow-down"),
+              text: text("Submit Text", "Selesai"),
+              title: text("Submit Title", "Masih ada data yang tidak valid"),
+              disabled: boolean("Submit Disabled", true)
             }
           }}
         />
