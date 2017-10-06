@@ -1138,6 +1138,65 @@ exports[`Storyshots FormFields with TextField & TextArea 1`] = `
 </form>
 `;
 
+exports[`Storyshots FormFooterButtons pemesan 1`] = `
+<div>
+  <div>
+    <button
+      className="FormFooterButtons-secondary Button Button-content Button-secondary"
+      disabled={undefined}
+      onClick={undefined}
+      title=""
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-font-awesome fa-lg" />
+       Button
+    </button>
+  </div>
+  <a
+    href="/thankyou/jejen"
+    onClick={[Function]}>
+    <button
+      className="FormFooterButtons-cta Button Button-content"
+      disabled={undefined}
+      onClick={undefined}
+      title=""
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-font-awesome fa-lg" />
+       Button
+    </button>
+  </a>
+  <button
+    className="FormFooterButtons-secondary Button Button-content Button-secondary"
+    disabled={false}
+    onClick={[Function]}
+    title="Bersihkan data"
+    type="reset">
+    <i
+      aria-hidden="true"
+      className="fa fa-times fa-lg" />
+     Bersihkan
+  </button>
+  <a
+    href="/thankyou/jejen"
+    onClick={[Function]}>
+    <button
+      className="FormFooterButtons-cta Button Button-content"
+      disabled={false}
+      onClick={undefined}
+      title="Konfirmasi Pemesanan"
+      type="submit">
+      <i
+        aria-hidden="true"
+        className="fa fa-cart-arrow-down fa-lg" />
+       Selesai
+    </button>
+  </a>
+</div>
+`;
+
 exports[`Storyshots Section default 1`] = `
 <ul
   style={

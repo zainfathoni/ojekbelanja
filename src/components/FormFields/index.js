@@ -7,8 +7,6 @@ import Button from "../Button";
 import TextField from "../TextField";
 import TextArea from "../TextArea";
 
-import "./FormFields.css";
-
 export default function FormFields({
   name,
   title,
