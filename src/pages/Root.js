@@ -7,7 +7,6 @@ import Toko from "./Toko";
 import Pesan from "./Pesan";
 import Login from "./Login";
 import ThankYou from "./ThankYou";
-import StyleGuide from "./StyleGuide";
 import NotFound from "./NotFound";
 import "../css/index.css";
 import "../css/fonts.css";
@@ -24,7 +23,6 @@ const Root = ({ store }) => {
             <Route path="/pesan/:storeId" component={Pesan} />
             <Route path="/thankyou/:storeId" component={ThankYou} />
             <Route path="/login" component={Login} />
-            <Route path="/styleguide" component={StyleGuide} />
             <Route component={NotFound} />
           </Switch>
         </div>
