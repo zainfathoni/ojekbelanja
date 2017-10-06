@@ -20,7 +20,7 @@ storiesOf("FormFooterButtons", module)
           buttons={{
             secondary: {
               category: "secondary",
-              action: () => {}
+              action: action("secondary")
             },
             cta: {
               category: "cta",
