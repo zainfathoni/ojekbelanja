@@ -117,14 +117,9 @@ td.ListItem-order-qty {
   font-weight: 300;
 }
 
-.Pesanan-heading > .order-action-clear,
 .ListItem-order-qty-action > .order-action-clear {
   /* Basic Box */
   margin-right: 0;
-}
-
-.ListItem-order-qty-action > .order-action-clear {
-  /* Basic Box */
   padding: 0.5rem;
 }
 
@@ -134,59 +129,6 @@ td.ListItem-order-qty {
   height: 0.75rem;
   /* Basic UI */
   content: "\00a0";
-}
-
-.Pesanan-footer-delivery-fee:after,
-.Pesanan-footer-total-price:after {
-  /* Basic Box */
-  display: table;
-  clear: both;
-  /* Basic UI */
-  content: "";
-}
-
-.Pesanan-footer-delivery-fee-label,
-.Pesanan-footer-total-price-label {
-  /* Basic Box */
-  float: left;
-}
-
-.Pesanan-footer-delivery-fee-amount,
-.Pesanan-footer-total-price-amount {
-  /* Color */
-  color: #ff6d00;
-  /* Basic Box */
-  float: right;
-  /* Fonts */
-  font-weight: 700;
-}
-
-.Pesanan-footer-delivery-fee {
-  /* Fonts */
-  font-style: italic;
-}
-
-.Pesanan-footer-delivery-fee-label {
-  /* Color */
-  color: #673ab7;
-}
-
-.Pesanan-footer-total-price {
-  /* Fonts */
-  font-size: 1.25rem;
-}
-
-.Pesanan-footer-total-price-label {
-  /* Color */
-  color: #ff6d00;
-  /* Fonts */
-  font-weight: 700;
-}
-
-.Pesanan-footer > hr {
-  /* Background & Borders*/
-  border: 1px solid #673ab7;
-  border-bottom: none;
 }
 
 @media (max-width: 22.5em) {

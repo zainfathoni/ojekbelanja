@@ -2,25 +2,6 @@
 
 /** Module **/
 
-.Pesanan-heading > .order-action-clear,
-.Pesanan-item-order-qty-action > .order-action-clear {
-  /* Basic Box */
-  margin-right: 0;
-}
-
-.Pesanan-item-order-qty-action > .order-action-clear {
-  /* Basic Box */
-  padding: 0.5rem;
-}
-
-.Pesanan-item-order-qty-action:after {
-  /* Basic Box */
-  display: block;
-  height: 0.75rem;
-  /* Basic UI */
-  content: "\00a0";
-}
-
 .Pesanan-footer-delivery-fee:after,
 .Pesanan-footer-total-price:after {
   /* Basic Box */
@@ -72,11 +53,4 @@
   /* Background & Borders*/
   border: 1px solid #673ab7;
   border-bottom: none;
-}
-
-@media (max-width: 22.5em) {
-  .Pesanan-item-image-wrapper {
-    /* Basic Box */
-    display: none;
-  }
 }
