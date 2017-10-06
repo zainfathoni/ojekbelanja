@@ -1,8 +1,6 @@
 import React from "react";
 import { PropTypes as T } from "prop-types";
 
-import * as actions from "../../actions";
-import Form from "../Form";
 import Button from "../Button";
 
 import "./FormFooterButtons.css";

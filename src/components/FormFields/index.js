@@ -1,9 +1,7 @@
 import React from "react";
 import { PropTypes as T } from "prop-types";
 
-import * as actions from "../../actions";
 import Form from "../Form";
-import Button from "../Button";
 import TextField from "../TextField";
 import TextArea from "../TextArea";
 
@@ -53,6 +51,8 @@ export default function FormFields({
                 required={f.required}
               />
             );
+          default:
+            return null;
         }
       })}
     </Form>

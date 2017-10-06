@@ -37,7 +37,8 @@ storiesOf("FormFields", module)
             value: text("Alamat", ""),
             rows: 4,
             required: true
-          }
+          },
+          empty: {}
         }}
         onChange={action("email-change")}
       />
