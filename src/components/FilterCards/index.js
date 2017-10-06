@@ -43,9 +43,10 @@ export default function FilterCards({
         items[key].title.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
         items[key].description.toLowerCase().indexOf(keyword.toLowerCase()) !==
           -1 ||
-        sections[items[key].section]
-          .toLowerCase()
-          .indexOf(keyword.toLowerCase()) !== -1
+        (sections &&
+          sections[items[key].section]
+            .toLowerCase()
+            .indexOf(keyword.toLowerCase()) !== -1)
     )
     .reduce(
       (res, key) => ({
