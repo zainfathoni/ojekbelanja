@@ -17,16 +17,16 @@ storiesOf("FormFooterButtons", module)
     withNotes("FormFooterButtons for pemesan")(() => (
       <Router>
         <FormFooterButtons
-          buttons={[
-            {
+          buttons={{
+            secondary: {
               category: "secondary",
               action: () => {}
             },
-            {
+            cta: {
               category: "cta",
               link: "/thankyou/jejen"
             }
-          ]}
+          }}
         />
       </Router>
     ))

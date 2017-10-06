@@ -1,6 +1,5 @@
 import React from "react";
 import { PropTypes as T } from "prop-types";
-import { Link } from "react-router-dom";
 
 import Button from "../Button";
 import "./Order.css";
@@ -14,9 +13,7 @@ export default function Order(props) {
         <div className="Order-product-count" title="Banyaknya Jenis Produk">
           {Object.keys(order).length}
         </div>
-        <div className="Order-price">
-          {`Rp ${total.toLocaleString("id")}`}
-        </div>
+        <div className="Order-price">{`Rp ${total.toLocaleString("id")}`}</div>
         <div className="Order-delivery-fee">
           <span className="Order-delivery-fee-label">+ Ongkos Kirim</span>
           {` Rp ${deliveryFee.toLocaleString("id")}`}
@@ -31,14 +28,13 @@ export default function Order(props) {
           isSecondary
           disabled={!Object.keys(order).length}
         />
-        <Link to={`/pesan/${id}`}>
-          <Button
-            display="content"
-            icon="shopping-cart"
-            text="Pesan"
-            disabled={!Object.keys(order).length}
-          />
-        </Link>
+        <Button
+          display="content"
+          link={`/pesan/${id}`}
+          icon="shopping-cart"
+          text="Pesan"
+          disabled={!Object.keys(order).length}
+        />
         {/**/}
       </div>
     </div>

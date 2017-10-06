@@ -4,7 +4,6 @@ import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
-import { BrowserRouter as Router } from "react-router-dom";
 
 import FilterInput from ".";
 
@@ -28,7 +27,7 @@ storiesOf("FilterInput", module)
   )
   .addWithJSX(
     "without Button",
-    withNotes("Filter Input with Button")(() => (
+    withNotes("Filter Input without Button")(() => (
       <FilterInput
         placeholder={text("Placeholder", "Cari Nama atau Area Layanan")}
         keyword={text("Keyword", "")}

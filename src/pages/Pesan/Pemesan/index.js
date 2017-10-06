@@ -1,6 +1,5 @@
 import React from "react";
 import { PropTypes as T } from "prop-types";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import * as actions from "../../../actions";
@@ -52,21 +51,20 @@ let Pemesan = ({ name, user, storeId, setUser, clearUser }) => {
             }
             isSecondary
           />
-          <Link to={`/thankyou/${storeId}`}>
-            <Button
-              className="Pemesan-footer-done"
-              type="submit"
-              display="content"
-              icon="cart-arrow-down"
-              text="Selesai"
-              disabled={isUserInvalid(user)}
-              title={
-                isUserInvalid(user)
-                  ? "Masih ditemukan data yang tidak valid"
-                  : "Konfirmasi Pemesanan"
-              }
-            />
-          </Link>
+          <Button
+            className="Pemesan-footer-done"
+            type="submit"
+            display="content"
+            link={`/thankyou/${storeId}`}
+            icon="cart-arrow-down"
+            text="Selesai"
+            disabled={isUserInvalid(user)}
+            title={
+              isUserInvalid(user)
+                ? "Masih ditemukan data yang tidak valid"
+                : "Konfirmasi Pemesanan"
+            }
+          />
         </div>
       }
     >

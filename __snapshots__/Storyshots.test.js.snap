@@ -32,6 +32,31 @@ exports[`Storyshots Button icon 1`] = `
 </div>
 `;
 
+exports[`Storyshots Button link 1`] = `
+<div
+  style={
+    Object {
+      "width": 200,
+    }
+  }>
+  <a
+    href="/relative/path"
+    onClick={[Function]}>
+    <button
+      className="Button Button-fullwidth"
+      disabled={false}
+      onClick={undefined}
+      title=""
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-shopping-cart fa-lg" />
+       Beli
+    </button>
+  </a>
+</div>
+`;
+
 exports[`Storyshots Button text 1`] = `
 <div
   style={
@@ -1140,19 +1165,17 @@ exports[`Storyshots FormFields with TextField & TextArea 1`] = `
 
 exports[`Storyshots FormFooterButtons pemesan 1`] = `
 <div>
-  <div>
-    <button
-      className="FormFooterButtons-secondary Button Button-content Button-secondary"
-      disabled={undefined}
-      onClick={undefined}
-      title=""
-      type="button">
-      <i
-        aria-hidden="true"
-        className="fa fa-font-awesome fa-lg" />
-       Button
-    </button>
-  </div>
+  <button
+    className="FormFooterButtons-secondary Button Button-content Button-secondary"
+    disabled={undefined}
+    onClick={undefined}
+    title=""
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-font-awesome fa-lg" />
+     Button
+  </button>
   <a
     href="/thankyou/jejen"
     onClick={[Function]}>

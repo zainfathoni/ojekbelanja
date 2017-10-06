@@ -1,6 +1,5 @@
 import React from "react";
 import { PropTypes as T } from "prop-types";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { getStore, getProducts, getOrder, getTotal } from "../../../reducers";
@@ -15,16 +14,15 @@ let Pesanan = ({ id, toko, order, products, total }) => (
     title="Pesanan Anda"
     icon="shopping-cart"
     header={
-      <Link to={`/toko/${id}`}>
-        <Button
-          className="Pesanan-heading-action"
-          display="content"
-          icon="arrow-left"
-          text="Kembali"
-          isSecondary
-          isSmall
-        />
-      </Link>
+      <Button
+        className="Pesanan-heading-action"
+        display="content"
+        link={`/toko/${id}`}
+        icon="arrow-left"
+        text="Kembali"
+        isSecondary
+        isSmall
+      />
     }
     footer={
       <div className="Pesanan-footer">

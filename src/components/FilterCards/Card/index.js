@@ -1,6 +1,5 @@
 import React from "react";
 import { PropTypes as T } from "prop-types";
-import { Link } from "react-router-dom";
 import Highlighter from "react-highlight-words";
 
 import Button from "../../Button";
@@ -59,13 +58,12 @@ export default function Card(props) {
             <span className="Card-action-unit">{` / ${unit}`}</span>
           </div>
           {!action ? (
-            <Link to={`/toko/${id}`}>
-              <Button
-                display="fullwidth"
-                icon="shopping-cart"
-                text="Mulai Belanja"
-              />
-            </Link>
+            <Button
+              display="fullwidth"
+              icon="shopping-cart"
+              text="Mulai Belanja"
+              link={`/toko/${id}`}
+            />
           ) : (
             <div>
               {disabled ? (
