@@ -1,29 +1,32 @@
 import React from "react";
 import { PropTypes as T } from "prop-types";
+import classnames from "classnames";
 
 import "./Form.css";
 
-export default function Form(props) {
-  const { name, title, icon, onSubmit, header, children, footer } = props;
-
+export default function Form({
+  name,
+  title,
+  icon,
+  onSubmit,
+  header,
+  children,
+  footer
+}) {
   return (
     <form className="Form" name={name} onSubmit={onSubmit}>
       <header className="Form-header">
         <div className="Form-header-title">
-          {icon}
+          <i
+            className={classnames("fa", "fa-lg", `fa-${icon}`)}
+            aria-hidden="true"
+          />
           {` ${title}`}
         </div>
-        <div className="Form-header-action">
-          {header}
-        </div>
+        <div className="Form-header-action">{header}</div>
       </header>
-      <main className="Form-body">
-        {children}
-      </main>
-      {footer &&
-        <footer className="Form-footer">
-          {footer}
-        </footer>}
+      <main className="Form-body">{children}</main>
+      {footer && <footer className="Form-footer">{footer}</footer>}
     </form>
   );
 }
@@ -31,7 +34,7 @@ export default function Form(props) {
 Form.propTypes = {
   name: T.string.isRequired,
   title: T.string.isRequired,
-  icon: T.element,
+  icon: T.string.isRequired,
   onSubmit: T.func,
   header: T.node,
   children: T.node,

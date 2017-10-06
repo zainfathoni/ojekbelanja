@@ -5,16 +5,15 @@ import Section from "./Section";
 import Card from "./Card";
 import "./FilterCards.css";
 
-export default function FilterCards(props) {
-  const {
-    keyword,
-    items,
-    sections,
-    action,
-    actionReverse,
-    isFetching,
-    error
-  } = props;
+export default function FilterCards({
+  keyword,
+  items,
+  sections,
+  action,
+  actionReverse,
+  isFetching,
+  error
+}) {
   const ids = Object.keys(items);
 
   // Render Loading Bars
@@ -43,7 +42,10 @@ export default function FilterCards(props) {
       key =>
         items[key].title.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
         items[key].description.toLowerCase().indexOf(keyword.toLowerCase()) !==
-          -1
+          -1 ||
+        sections[items[key].section]
+          .toLowerCase()
+          .indexOf(keyword.toLowerCase()) !== -1
     )
     .reduce(
       (res, key) => ({
@@ -73,6 +75,7 @@ export default function FilterCards(props) {
             key={section}
             id={section}
             label={sections[section]}
+            keyword={keyword}
           >
             <ul id={section} className="l-FilterCards-grid">
               {Object.keys(sectionedItems[section]).map(key => {

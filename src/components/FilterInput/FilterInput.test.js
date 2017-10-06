@@ -1,7 +1,8 @@
 import React from "react";
 import { mount } from "enzyme";
-import FilterInput from "./index";
+import FilterInput from ".";
 
+require("../../../.storybook/shim.js");
 require("../../../.storybook/enzyme_setup.js");
 
 describe("FilterInput", () => {

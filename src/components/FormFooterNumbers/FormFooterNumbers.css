@@ -1,0 +1,56 @@
+/*** FormFooterNumbers.css ***/
+
+/** Module **/
+
+.FormFooterNumbers-delivery-fee:after,
+.FormFooterNumbers-total-price:after {
+  /* Basic Box */
+  display: table;
+  clear: both;
+  /* Basic UI */
+  content: "";
+}
+
+.FormFooterNumbers-delivery-fee-label,
+.FormFooterNumbers-total-price-label {
+  /* Basic Box */
+  float: left;
+}
+
+.FormFooterNumbers-delivery-fee-amount,
+.FormFooterNumbers-total-price-amount {
+  /* Color */
+  color: #ff6d00;
+  /* Basic Box */
+  float: right;
+  /* Fonts */
+  font-weight: 700;
+}
+
+.FormFooterNumbers-delivery-fee {
+  /* Fonts */
+  font-style: italic;
+}
+
+.FormFooterNumbers-delivery-fee-label {
+  /* Color */
+  color: #673ab7;
+}
+
+.FormFooterNumbers-total-price {
+  /* Fonts */
+  font-size: 1.25rem;
+}
+
+.FormFooterNumbers-total-price-label {
+  /* Color */
+  color: #ff6d00;
+  /* Fonts */
+  font-weight: 700;
+}
+
+.FormFooterNumbers > hr {
+  /* Background & Borders*/
+  border: 1px solid #673ab7;
+  border-bottom: none;
+}

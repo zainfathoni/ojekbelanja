@@ -2,13 +2,14 @@ import React from "react";
 import { mount } from "enzyme";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import Card from "./index";
+import Card from ".";
 import image from "../../../css/images/placeholder-224x224.png";
 
+require("../../../../.storybook/shim.js");
 require("../../../../.storybook/enzyme_setup.js");
 
 describe("Card", () => {
-  it("Card with Two Buttons behaves without error", () => {
+  it("Card with 2 buttons behaves without error", () => {
     let plusAction, minusAction;
     const card = mount(
       <Card
@@ -39,7 +40,7 @@ describe("Card", () => {
     expect(minusAction).toBe("ayam_fillet");
   });
 
-  it("Card with One Button behaves without error", () => {
+  it("Card with 1 button behaves without error", () => {
     let plusAction;
     const card = mount(
       <Card
@@ -52,9 +53,6 @@ describe("Card", () => {
         unit="kg"
         action={id => {
           plusAction = id;
-        }}
-        actionReverse={id => {
-          minusAction = id;
         }}
       />
     );

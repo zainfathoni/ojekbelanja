@@ -16,22 +16,24 @@ export default class TextField extends Component {
 
   /*** Methods ***/
 
-  onFocus(name, value) {
+  onFocus = (name, value) => {
     this.setState({
       isFocused: true // Set Focused
     });
-  }
+  };
 
-  onBlur(name, value) {
-    if (this.props.noValidation) {
+  onBlur = (name, value) => {
+    this.setState({
+      isPristine: false, // Set Dirty
+      isFocused: false // Set Blur
+    });
+    if (this.props.onBlur) {
       this.props.onBlur(name, value); // Call onBlur props function
-    } else {
-      this.setState({
-        isPristine: false, // Set Dirty
-        isFocused: false // Set Blur
-      });
     }
-  }
+  };
+
+  isInvalid = () =>
+    !this.state.isPristine && !this.state.isFocused && this.props.message;
 
   /*** Render ***/
 
@@ -44,7 +46,6 @@ export default class TextField extends Component {
       label,
       placeholder,
       value,
-      validate,
       message,
       required,
       onChange,
@@ -52,7 +53,6 @@ export default class TextField extends Component {
       max,
       step
     } = this.props;
-    const { isPristine, isFocused } = this.state;
 
     const textFieldClass = classnames(className, "TextField");
     const labelClass = classnames("TextField-label");
@@ -60,19 +60,20 @@ export default class TextField extends Component {
       "TextField-input",
       `TextField-input-${display}`,
       {
-        "TextField-input-is-error":
-          !isPristine && !isFocused && (value ? !validate(value) : required)
+        "TextField-input-is-error": this.isInvalid()
       }
     );
 
     return (
       <div className={textFieldClass}>
-        {label &&
+        {label && (
           <label className={labelClass} htmlFor={name}>
             {label}
-            {!required &&
-              <span className="TextField-label-span"> - Opsional</span>}
-          </label>}
+            {!required && (
+              <span className="TextField-label-span"> - Opsional</span>
+            )}
+          </label>
+        )}
         <input
           className={inputClass}
           id={name}
@@ -88,13 +89,9 @@ export default class TextField extends Component {
           max={max}
           step={step}
         />
-        {!isPristine &&
-          !isFocused &&
-          (value
-            ? !validate(value) /* Validation Message */ &&
-              <span className="TextField-message">{`* ${message}`}</span>
-            : required /* Requiring Message */ &&
-              <span className="TextField-message">{`* ${label} harus diisi`}</span>)}
+        {this.isInvalid() && (
+          <span className="TextField-message">{`* ${message}`}</span>
+        )}
       </div>
     );
   }
@@ -104,7 +101,6 @@ TextField.defaultProps = {
   type: "text",
   display: "fullwidth",
   value: "",
-  validate: () => true,
   message: "",
   min: 0,
   max: 100,
@@ -139,9 +135,7 @@ TextField.propTypes = {
   value: T.any.isRequired, // Value
   onChange: T.func.isRequired, // onChange Function
   onBlur: T.func, // onBlur Function
-  noValidation: T.bool, // Flag to disable Validation
-  validate: T.func, // Validation Function
-  message: T.string, // Error Message
+  message: T.any, // Error Message
   required: T.bool, // is Required
   min: T.number, // Minimum Value for Number/Range Type
   max: T.number, // Maximum Value for Number/Range Type

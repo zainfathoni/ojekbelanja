@@ -1,32 +1,3 @@
-/*** Generic Form Fields Updates ***/
-
-export function update(component, stateName, field, value) {
-  component.setState({
-    [stateName]: {
-      ...component.state[stateName],
-      [field]: value
-    }
-  });
-}
-
-export function remove(component, stateName, field) {
-  const newState = component.state[stateName];
-  delete newState[field];
-  component.setState({
-    [stateName]: newState
-  });
-}
-
-export function set(component, stateName, obj) {
-  component.setState({
-    [stateName]: obj
-  });
-}
-
-export function clear(component, stateName) {
-  set(component, stateName, {});
-}
-
 /*** Generic Validations
  * Taken from https://html5hive.org/reactjs-form-validation-tutorial/
  * ***/

@@ -1,20 +1,20 @@
-/*** Pemesan.css ***/
+/*** FormFooterButtons.css ***/
 
 /** Module **/
 
-.Pemesan-footer-done,
-.Pemesan-footer-clear {
+.FormFooterButtons-submit,
+.FormFooterButtons-reset {
   /* Basic Box */
   width: 48.5%;
 }
 
-.Pemesan-footer-done {
+.FormFooterButtons-submit {
   /* Basic Box */
   margin-left: 1.5%;
   margin-right: 0;
 }
 
-.Pemesan-footer-clear {
+.FormFooterButtons-reset {
   /* Basic Box */
   margin-left: 0;
   margin-right: 1.5%;

@@ -6,7 +6,7 @@ import { withNotes } from "@storybook/addon-notes";
 import { action } from "@storybook/addon-actions";
 import { BrowserRouter as Router } from "react-router-dom";
 
-import FilterCards from "./index";
+import FilterCards from ".";
 
 setAddon(JSXAddon);
 
@@ -17,9 +17,9 @@ storiesOf("FilterCards", module)
     "with Sections",
     withNotes("Filter Cards with Sections")(() => (
       <FilterCards
-        keyword={text("Keyword", "a")}
+        keyword={text("Keyword", "ng")}
         sections={object("Sections", {
-          ayam: "Ayam",
+          ayam: "Daging Ayam",
           bumbu: "Bumbu"
         })}
         items={object("Items", {

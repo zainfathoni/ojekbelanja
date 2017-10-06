@@ -32,6 +32,31 @@ exports[`Storyshots Button icon 1`] = `
 </div>
 `;
 
+exports[`Storyshots Button link 1`] = `
+<div
+  style={
+    Object {
+      "width": 200,
+    }
+  }>
+  <a
+    href="/relative/path"
+    onClick={[Function]}>
+    <button
+      className="Button Button-fullwidth"
+      disabled={false}
+      onClick={undefined}
+      title=""
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-shopping-cart fa-lg" />
+       Beli
+    </button>
+  </a>
+</div>
+`;
+
 exports[`Storyshots Button text 1`] = `
 <div
   style={
@@ -53,7 +78,7 @@ exports[`Storyshots Button text 1`] = `
 </div>
 `;
 
-exports[`Storyshots Card product empty 1`] = `
+exports[`Storyshots Card disabled 1`] = `
 <ul
   style={
     Object {
@@ -148,7 +173,96 @@ exports[`Storyshots Card product empty 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Card product with overlay 1`] = `
+exports[`Storyshots Card with 1 action button 1`] = `
+<ul
+  style={
+    Object {
+      "textAlign": "center",
+      "width": 200,
+    }
+  }>
+  <li>
+    <div
+      className="Card">
+      <div
+        className="Card-image">
+        <img
+          alt="Ayam Fillet"
+          src="test-file-stub" />
+        
+        
+        
+      </div>
+      <div
+        className="Card-content">
+        <div
+          className="Card-content-title">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Ay
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              am Fillet
+            </span>
+          </span>
+        </div>
+        <div
+          className="Card-content-description">
+          <span
+            className={undefined}>
+            <mark
+              className=" "
+              style={Object {}}>
+              Ay
+            </mark>
+            <span
+              className=""
+              style={undefined}>
+              am Fillet Paha
+            </span>
+          </span>
+        </div>
+      </div>
+      <div
+        className="Card-action">
+        <div
+          className="Card-action-price-parent">
+          <span
+            className="Card-action-price">
+            Rp 42,000
+          </span>
+          <span
+            className="Card-action-unit">
+             / kg
+          </span>
+        </div>
+        <div>
+          <div>
+            <button
+              className="Button Button-fullwidth"
+              disabled={undefined}
+              onClick={[Function]}
+              title=""
+              type="button">
+              <i
+                aria-hidden="true"
+                className="fa fa-cart-plus fa-lg" />
+               Beli
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+`;
+
+exports[`Storyshots Card with 2 action buttons 1`] = `
 <ul
   style={
     Object {
@@ -263,105 +377,7 @@ exports[`Storyshots Card product with overlay 1`] = `
 </ul>
 `;
 
-exports[`Storyshots Card product without overlay 1`] = `
-<ul
-  style={
-    Object {
-      "textAlign": "center",
-      "width": 200,
-    }
-  }>
-  <li>
-    <div
-      className="Card">
-      <div
-        className="Card-image">
-        <img
-          alt="Ayam Fillet"
-          src="test-file-stub" />
-        
-        <div
-          className="Card-ribbon-wrapper">
-          <div
-            className="Card-ribbon">
-            Diskon 10%
-          </div>
-        </div>
-        <div
-          className="Card-tooltip">
-          Minimum pembelian 1 kg
-        </div>
-      </div>
-      <div
-        className="Card-content">
-        <div
-          className="Card-content-title">
-          <span
-            className={undefined}>
-            <mark
-              className=" "
-              style={Object {}}>
-              Ay
-            </mark>
-            <span
-              className=""
-              style={undefined}>
-              am Fillet
-            </span>
-          </span>
-        </div>
-        <div
-          className="Card-content-description">
-          <span
-            className={undefined}>
-            <mark
-              className=" "
-              style={Object {}}>
-              Ay
-            </mark>
-            <span
-              className=""
-              style={undefined}>
-              am Fillet Paha
-            </span>
-          </span>
-        </div>
-      </div>
-      <div
-        className="Card-action">
-        <div
-          className="Card-action-price-parent">
-          <span
-            className="Card-action-price">
-            Rp 42,000
-          </span>
-          <span
-            className="Card-action-unit">
-             / kg
-          </span>
-        </div>
-        <div>
-          <div>
-            <button
-              className="Button Button-fullwidth"
-              disabled={undefined}
-              onClick={[Function]}
-              title=""
-              type="button">
-              <i
-                aria-hidden="true"
-                className="fa fa-cart-plus fa-lg" />
-               Beli
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </li>
-</ul>
-`;
-
-exports[`Storyshots Card store 1`] = `
+exports[`Storyshots Card with link button 1`] = `
 <ul
   style={
     Object {
@@ -518,7 +534,24 @@ exports[`Storyshots FilterCards with Sections 1`] = `
       <label
         className="Section-label"
         htmlFor="ayam">
-        Ayam
+        <span
+          className={undefined}>
+          <span
+            className=""
+            style={undefined}>
+            Dagi
+          </span>
+          <mark
+            className=" "
+            style={Object {}}>
+            ng
+          </mark>
+          <span
+            className=""
+            style={undefined}>
+             Ayam
+          </span>
+        </span>
       </label>
       <hr
         className="Section-separator" />
@@ -558,25 +591,10 @@ exports[`Storyshots FilterCards with Sections 1`] = `
                 className="Card-content-title">
                 <span
                   className={undefined}>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    A
-                  </mark>
                   <span
                     className=""
                     style={undefined}>
-                    y
-                  </span>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    a
-                  </mark>
-                  <span
-                    className=""
-                    style={undefined}>
-                    m Fillet
+                    Ayam Fillet
                   </span>
                 </span>
               </div>
@@ -584,25 +602,10 @@ exports[`Storyshots FilterCards with Sections 1`] = `
                 className="Card-content-description">
                 <span
                   className={undefined}>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    A
-                  </mark>
                   <span
                     className=""
                     style={undefined}>
-                    y
-                  </span>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    a
-                  </mark>
-                  <span
-                    className=""
-                    style={undefined}>
-                    m Fillet
+                    Ayam Fillet
                   </span>
                 </span>
               </div>
@@ -656,7 +659,14 @@ exports[`Storyshots FilterCards with Sections 1`] = `
       <label
         className="Section-label"
         htmlFor="bumbu">
-        Bumbu
+        <span
+          className={undefined}>
+          <span
+            className=""
+            style={undefined}>
+            Bumbu
+          </span>
+        </span>
       </label>
       <hr
         className="Section-separator" />
@@ -681,27 +691,17 @@ exports[`Storyshots FilterCards with Sections 1`] = `
                   <span
                     className=""
                     style={undefined}>
-                    B
+                    Bawa
                   </span>
                   <mark
                     className=" "
                     style={Object {}}>
-                    a
+                    ng
                   </mark>
                   <span
                     className=""
                     style={undefined}>
-                    w
-                  </span>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    a
-                  </mark>
-                  <span
-                    className=""
-                    style={undefined}>
-                    ng Putih
+                     Putih
                   </span>
                 </span>
               </div>
@@ -712,27 +712,17 @@ exports[`Storyshots FilterCards with Sections 1`] = `
                   <span
                     className=""
                     style={undefined}>
-                    B
+                    Bawa
                   </span>
                   <mark
                     className=" "
                     style={Object {}}>
-                    a
+                    ng
                   </mark>
                   <span
                     className=""
                     style={undefined}>
-                    w
-                  </span>
-                  <mark
-                    className=" "
-                    style={Object {}}>
-                    a
-                  </mark>
-                  <span
-                    className=""
-                    style={undefined}>
-                    ng Putih
+                     Putih
                   </span>
                 </span>
               </div>
@@ -1023,6 +1013,357 @@ exports[`Storyshots FilterInput without Button 1`] = `
 </ul>
 `;
 
+exports[`Storyshots Form with Footer 1`] = `
+<form
+  className="Form"
+  name="with-footer"
+  onSubmit={undefined}>
+  <header
+    className="Form-header">
+    <div
+      className="Form-header-title">
+      <i
+        aria-hidden="true"
+        className="fa fa-lg fa-shopping-cart" />
+       Pesanan Anda
+    </div>
+    <div
+      className="Form-header-action">
+      <div>
+        Header
+      </div>
+    </div>
+  </header>
+  <main
+    className="Form-body">
+    <div
+      style={
+        Object {
+          "height": 200,
+        }
+      }>
+      Content
+    </div>
+  </main>
+  <footer
+    className="Form-footer">
+    <div>
+      Footer
+    </div>
+  </footer>
+</form>
+`;
+
+exports[`Storyshots Form without Footer 1`] = `
+<form
+  className="Form"
+  name="with-footer"
+  onSubmit={undefined}>
+  <header
+    className="Form-header">
+    <div
+      className="Form-header-title">
+      <i
+        aria-hidden="true"
+        className="fa fa-lg fa-address-card" />
+       Data Pemesan
+    </div>
+    <div
+      className="Form-header-action">
+      <div>
+        Header
+      </div>
+    </div>
+  </header>
+  <main
+    className="Form-body">
+    <div
+      style={
+        Object {
+          "height": 200,
+        }
+      }>
+      Content
+    </div>
+  </main>
+</form>
+`;
+
+exports[`Storyshots FormFields with TextField & TextArea 1`] = `
+<form
+  className="Form"
+  name="pemesan"
+  onSubmit={[Function]}>
+  <header
+    className="Form-header">
+    <div
+      className="Form-header-title">
+      <i
+        aria-hidden="true"
+        className="fa fa-lg fa-address-card" />
+       Data Pemesan
+    </div>
+    <div
+      className="Form-header-action">
+      <div>
+        Header
+      </div>
+    </div>
+  </header>
+  <main
+    className="Form-body">
+    <div
+      className="TextField">
+      <label
+        className="TextField-label"
+        htmlFor="email">
+        Email
+      </label>
+      <input
+        className="TextField-input TextField-input-fullwidth"
+        id="email"
+        max={100}
+        min={0}
+        name="email"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Alamat Email"
+        required={true}
+        step={1}
+        type="email"
+        value="" />
+    </div>
+    <div
+      className="TextArea">
+      <label
+        className="TextArea-label"
+        htmlFor="address">
+        Alamat
+      </label>
+      <textarea
+        className="TextArea-input TextArea-input-fullwidth"
+        id="address"
+        name="address"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Alamat Lengkap"
+        required={true}
+        rows={4}
+        value="" />
+    </div>
+  </main>
+  <footer
+    className="Form-footer">
+    <div>
+      Footer
+    </div>
+  </footer>
+</form>
+`;
+
+exports[`Storyshots FormFooterButtons disabled 1`] = `
+<div>
+  <button
+    className="FormFooterButtons-reset Button Button-content Button-secondary"
+    disabled={true}
+    onClick={[Function]}
+    title="Data kosong"
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-times fa-lg" />
+     Bersihkan
+  </button>
+  <a
+    href="/thankyou/jejen"
+    onClick={[Function]}>
+    <button
+      className="FormFooterButtons-submit Button Button-content"
+      disabled={true}
+      onClick={undefined}
+      title="Masih ada data yang tidak valid"
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-cart-arrow-down fa-lg" />
+       Selesai
+    </button>
+  </a>
+</div>
+`;
+
+exports[`Storyshots FormFooterButtons enabled 1`] = `
+<div>
+  <button
+    className="FormFooterButtons-reset Button Button-content Button-secondary"
+    disabled={false}
+    onClick={[Function]}
+    title="Bersihkan data"
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-times fa-lg" />
+     Bersihkan
+  </button>
+  <a
+    href="/thankyou/jejen"
+    onClick={[Function]}>
+    <button
+      className="FormFooterButtons-submit Button Button-content"
+      disabled={false}
+      onClick={undefined}
+      title="Konfirmasi pemesanan"
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-cart-arrow-down fa-lg" />
+       Selesai
+    </button>
+  </a>
+</div>
+`;
+
+exports[`Storyshots FormFooterNumbers default 1`] = `
+<div
+  style={
+    Object {
+      "width": 350,
+    }
+  }>
+  <div
+    className="FormFooterNumbers">
+    <div
+      className="FormFooterNumbers-delivery-fee">
+      <div
+        className="FormFooterNumbers-delivery-fee-label">
+        Ongkos Kirim
+      </div>
+      <div
+        className="FormFooterNumbers-delivery-fee-amount">
+        Rp 5.000
+      </div>
+    </div>
+    <hr />
+    <div
+      className="FormFooterNumbers-total-price">
+      <div
+        className="FormFooterNumbers-total-price-label">
+        Harga Total
+      </div>
+      <div
+        className="FormFooterNumbers-total-price-amount">
+        Rp 55.000
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots ListItem default 1`] = `
+<div
+  style={
+    Object {
+      "width": 350,
+    }
+  }>
+  <table
+    className="ListItem">
+    <tbody>
+      <tr>
+        <td
+          className="ListItem-image-wrapper">
+          <img
+            alt="Bawang Putih"
+            className="ListItem-image"
+            src="test-file-stub" />
+        </td>
+        <td
+          className="ListItem-detail">
+          <table
+            width="100%">
+            <tbody>
+              <tr>
+                <td
+                  width="100%">
+                  <div
+                    className="ListItem-name">
+                    Bawang Putih
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  className="ListItem-price-per-unit">
+                  <span
+                    className="ListItem-price">
+                    Rp 35,000
+                  </span>
+                  <span
+                    className="ListItem-unit">
+                    /kg
+                  </span>
+                  <div
+                    className="ListItem-order-quantified">
+                    100 gram
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div
+                    className="ListItem-total-price">
+                    Rp 15.500
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td
+          className="ListItem-order-qty">
+          <div
+            className="ListItem-order-qty-input TextField">
+            <input
+              className="TextField-input TextField-input-fixed"
+              id="bawang_putih"
+              max={100}
+              min={0}
+              name="bawang_putih"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              placeholder={undefined}
+              required={undefined}
+              step={0.1}
+              type="number"
+              value={0.1} />
+          </div>
+          <span
+            className="ListItem-order-qty-unit">
+            kg
+          </span>
+        </td>
+        <td
+          className="ListItem-order-qty-action">
+          <button
+            className="Button Button-icon Button-small Button-secondary"
+            disabled={undefined}
+            onClick={[Function]}
+            title="Hapus"
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-trash" />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`Storyshots Section default 1`] = `
 <ul
   style={
@@ -1035,11 +1376,181 @@ exports[`Storyshots Section default 1`] = `
     <label
       className="Section-label"
       htmlFor="section">
-      Section
+      <span
+        className={undefined}>
+        <span
+          className=""
+          style={undefined}>
+          S
+        </span>
+        <mark
+          className=" "
+          style={Object {}}>
+          ect
+        </mark>
+        <span
+          className=""
+          style={undefined}>
+          ion
+        </span>
+      </span>
     </label>
     <hr
       className="Section-separator" />
     <div />
   </section>
 </ul>
+`;
+
+exports[`Storyshots TextArea default 1`] = `
+<div
+  className="TextArea">
+  <label
+    className="TextArea-label"
+    htmlFor={undefined}>
+    Default
+    <span
+      className="TextArea-label-span">
+       - Opsional
+    </span>
+  </label>
+  <textarea
+    className="TextArea-input TextArea-input-fullwidth"
+    id={undefined}
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    required={undefined}
+    rows={3}
+    value="" />
+</div>
+`;
+
+exports[`Storyshots TextArea required 1`] = `
+<div
+  className="TextArea">
+  <label
+    className="TextArea-label"
+    htmlFor="email">
+    Email
+  </label>
+  <textarea
+    className="TextArea-input TextArea-input-content"
+    id="email"
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Alamat Email"
+    required={true}
+    rows={3}
+    value="" />
+</div>
+`;
+
+exports[`Storyshots TextArea with invalid message 1`] = `
+<div
+  className="TextArea">
+  <label
+    className="TextArea-label"
+    htmlFor="email">
+    Email
+  </label>
+  <textarea
+    className="TextArea-input TextArea-input-content"
+    id="email"
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Alamat Email"
+    required={true}
+    rows={3}
+    value="" />
+</div>
+`;
+
+exports[`Storyshots TextField default 1`] = `
+<div
+  className="TextField">
+  <label
+    className="TextField-label"
+    htmlFor={undefined}>
+    Default
+    <span
+      className="TextField-label-span">
+       - Opsional
+    </span>
+  </label>
+  <input
+    className="TextField-input TextField-input-fullwidth"
+    id={undefined}
+    max={100}
+    min={0}
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder={undefined}
+    required={undefined}
+    step={1}
+    type="text"
+    value="" />
+</div>
+`;
+
+exports[`Storyshots TextField required 1`] = `
+<div
+  className="TextField">
+  <label
+    className="TextField-label"
+    htmlFor="email">
+    Email
+  </label>
+  <input
+    className="TextField-input TextField-input-content"
+    id="email"
+    max={100}
+    min={0}
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Alamat Email"
+    required={true}
+    step={1}
+    type="email"
+    value="" />
+</div>
+`;
+
+exports[`Storyshots TextField with invalid message 1`] = `
+<div
+  className="TextField">
+  <label
+    className="TextField-label"
+    htmlFor="email">
+    Email
+    <span
+      className="TextField-label-span">
+       - Opsional
+    </span>
+  </label>
+  <input
+    className="TextField-input TextField-input-content"
+    id="email"
+    max={100}
+    min={0}
+    name="email"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    placeholder="Alamat Email"
+    required={false}
+    step={1}
+    type="email"
+    value="" />
+</div>
 `;

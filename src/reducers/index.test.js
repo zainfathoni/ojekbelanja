@@ -13,6 +13,11 @@ import {
   getProductError,
   getOrder,
   getOrderCount,
+  isValid,
+  isUserValid,
+  isRequired,
+  isRequirementFulfilled,
+  areRequirementsFulfilled,
   getQuantity,
   getQuantities,
   getSubtotal,
@@ -67,6 +72,13 @@ const state = {
   order: {
     ayam_fillet: 4,
     jahe: 3
+  },
+  user: {
+    name: "Zain Fathoni",
+    email: "zainfathoni@ojekbelanja.id",
+    phone: "081234567890",
+    city: "Bandung",
+    address: "Jalan jalan"
   }
 };
 
@@ -124,6 +136,26 @@ test("getOrder", () => {
 
 test("getOrderCount", () => {
   expect(getOrderCount(state, "jahe")).toEqual(state.order.jahe);
+});
+
+test("isValid", () => {
+  expect(isValid(state, "email")).toBe(true);
+});
+
+test("isUserValid", () => {
+  expect(isUserValid(state)).toBe(true);
+});
+
+test("isRequired", () => {
+  expect(isRequired("name")).toBe(true);
+});
+
+test("isRequirementFulfilled", () => {
+  expect(isRequirementFulfilled(state, "name")).toBeTruthy;
+});
+
+test("areRequirementsFulfilled", () => {
+  expect(areRequirementsFulfilled(state)).toBe(true);
 });
 
 test("getQuantity", () => {
