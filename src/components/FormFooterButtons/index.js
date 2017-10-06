@@ -15,10 +15,11 @@ export default function FormFooterButtons({ buttons }) {
         return (
           <Button
             key={key}
-            className={`FormFooterButtons-${button.category}`}
+            className={`FormFooterButtons-${key}`}
             display="content"
+            action={button.action}
             link={button.link}
-            isSecondary={button.category === "secondary"}
+            isSecondary={key === "reset"}
           />
         );
       })}
@@ -26,7 +27,7 @@ export default function FormFooterButtons({ buttons }) {
         className="FormFooterButtons-secondary"
         type="reset"
         display="content"
-        action={buttons.secondary.action}
+        action={buttons.reset.action}
         icon="times"
         text="Bersihkan"
         disabled={false}
@@ -50,7 +51,6 @@ export default function FormFooterButtons({ buttons }) {
 FormFooterButtons.propTypes = {
   buttons: T.objectOf(
     T.shape({
-      category: T.oneOf(["cta", "secondary"]).isRequired,
       action: T.func,
       link: T.string
     })

@@ -1166,9 +1166,9 @@ exports[`Storyshots FormFields with TextField & TextArea 1`] = `
 exports[`Storyshots FormFooterButtons pemesan 1`] = `
 <div>
   <button
-    className="FormFooterButtons-secondary Button Button-content Button-secondary"
+    className="FormFooterButtons-reset Button Button-content Button-secondary"
     disabled={undefined}
-    onClick={undefined}
+    onClick={[Function]}
     title=""
     type="button">
     <i
@@ -1180,7 +1180,7 @@ exports[`Storyshots FormFooterButtons pemesan 1`] = `
     href="/thankyou/jejen"
     onClick={[Function]}>
     <button
-      className="FormFooterButtons-cta Button Button-content"
+      className="FormFooterButtons-submit Button Button-content"
       disabled={undefined}
       onClick={undefined}
       title=""

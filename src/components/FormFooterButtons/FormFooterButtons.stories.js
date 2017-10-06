@@ -18,12 +18,10 @@ storiesOf("FormFooterButtons", module)
       <Router>
         <FormFooterButtons
           buttons={{
-            secondary: {
-              category: "secondary",
-              action: action("secondary")
+            reset: {
+              action: action("reset")
             },
-            cta: {
-              category: "cta",
+            submit: {
               link: "/thankyou/jejen"
             }
           }}
