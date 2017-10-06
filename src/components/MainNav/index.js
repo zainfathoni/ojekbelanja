@@ -33,13 +33,6 @@ export default function MainNav(props) {
           Tentang Kami
         </NavLink>
         <NavLink
-          to="/styleguide"
-          className="MainNav-item"
-          activeClassName="MainNav-is-active"
-        >
-          Style Guide
-        </NavLink>
-        <NavLink
           to="/login"
           className="MainNav-item MainNav-login"
           activeClassName="MainNav-is-active"
