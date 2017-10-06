@@ -2,121 +2,6 @@
 
 /** Module **/
 
-.Pesanan-item {
-  /* Basic Box */
-  padding-top: .25rem;
-  padding-bottom: .25rem;
-}
-
-.Pesanan-item td {
-  /* Color */
-  color: #616161;
-  /* Basic Box */
-  padding: .125rem;
-  /* Text */
-  line-height: 80%;
-  text-align: left;
-  /* Fonts */
-  font-size: 1rem;
-}
-
-.Pesanan-item-image-wrapper {
-  /* Basic Box */
-  width: 10%;
-}
-
-.Pesanan-item-detail {
-  /* Basic Box */
-  width: 72%;
-}
-
-.Pesanan-item-order-qty {
-  /* Basic Box */
-  width: 10%;
-}
-
-.Pesanan-item-order-qty-action {
-  /* Basic Box */
-  width: 8%;
-}
-
-.Pesanan-item-image {
-  /* Background & Borders */
-  border-radius: .375rem;
-  /* Basic Box */
-  max-width: 4em;
-  max-height: 4rem;
-}
-
-.Pesanan-item-price-per-unit,
-.Pesanan-item-order-quantified {
-  /* Fonts */
-  font-weight: 300;
-}
-
-.Pesanan-item-name {
-  /* Color */
-  color: #000;
-}
-
-.Pesanan-item-price {
-  /* Fonts */
-  font-size: .75rem;
-}
-
-.Pesanan-item-unit {
-  /* Fonts */
-  font-size: .625rem;
-}
-
-.Pesanan-item-order-quantified {
-  /* Basic Box */
-  float: right;
-  /* Fonts */
-  font-size: .75rem;
-}
-
-.Pesanan-item-total-price {
-  /* Color */
-  color: #ff6d00;
-  /* Text */
-  text-align: right;
-  /* Fonts */
-  font-weight: 700;
-}
-
-td.Pesanan-item-order-qty {
-  /* Text */
-  text-align: center;
-}
-
-.Pesanan-item-order-qty-input.TextField {
-  /* Basic Box */
-  padding: 0;
-}
-
-.Pesanan-item-order-qty-input > .TextField-input {
-  /* Color */
-  color: #673ab7;
-  /* Basic Box */
-  width: 3rem;
-  padding: 1px;
-  /* Text */
-  line-height: 2rem;
-  text-align: center;
-  /* Fonts */
-  font-family: 'Lato', sans-serif;
-  font-size: .875rem;
-}
-
-.Pesanan-item-order-qty-unit {
-  /* Color */
-  color: #673ab7;
-  /* Fonts */
-  font-size: .75rem;
-  font-weight: 300;
-}
-
 .Pesanan-heading > .order-action-clear,
 .Pesanan-item-order-qty-action > .order-action-clear {
   /* Basic Box */
@@ -125,13 +10,13 @@ td.Pesanan-item-order-qty {
 
 .Pesanan-item-order-qty-action > .order-action-clear {
   /* Basic Box */
-  padding: .5rem;
+  padding: 0.5rem;
 }
 
 .Pesanan-item-order-qty-action:after {
   /* Basic Box */
   display: block;
-  height: .75rem;
+  height: 0.75rem;
   /* Basic UI */
   content: "\00a0";
 }
@@ -142,7 +27,7 @@ td.Pesanan-item-order-qty {
   display: table;
   clear: both;
   /* Basic UI */
-  content: '';
+  content: "";
 }
 
 .Pesanan-footer-delivery-fee-label,

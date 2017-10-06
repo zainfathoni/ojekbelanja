@@ -1225,6 +1225,109 @@ exports[`Storyshots FormFooterButtons enabled 1`] = `
 </div>
 `;
 
+exports[`Storyshots ListItem default 1`] = `
+<div
+  style={
+    Object {
+      "width": 350,
+    }
+  }>
+  <table
+    className="ListItem">
+    <tbody>
+      <tr>
+        <td
+          className="ListItem-image-wrapper">
+          <img
+            alt="Bawang Putih"
+            className="ListItem-image"
+            src="test-file-stub" />
+        </td>
+        <td
+          className="ListItem-detail">
+          <table
+            width="100%">
+            <tbody>
+              <tr>
+                <td
+                  width="100%">
+                  <div
+                    className="ListItem-name">
+                    Bawang Putih
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td
+                  className="ListItem-price-per-unit">
+                  <span
+                    className="ListItem-price">
+                    Rp 35,000
+                  </span>
+                  <span
+                    className="ListItem-unit">
+                    /kg
+                  </span>
+                  <div
+                    className="ListItem-order-quantified">
+                    100 gram
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div
+                    className="ListItem-total-price">
+                    Rp 15.500
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td
+          className="ListItem-order-qty">
+          <div
+            className="ListItem-order-qty-input TextField">
+            <input
+              className="TextField-input TextField-input-fixed"
+              id="bawang_putih"
+              max={100}
+              min={0}
+              name="bawang_putih"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onFocus={[Function]}
+              placeholder={undefined}
+              required={undefined}
+              step={0.1}
+              type="number"
+              value={0.1} />
+          </div>
+          <span
+            className="ListItem-order-qty-unit">
+            kg
+          </span>
+        </td>
+        <td
+          className="ListItem-order-qty-action">
+          <button
+            className="Button Button-icon Button-small Button-secondary"
+            disabled={undefined}
+            onClick={[Function]}
+            title="Hapus"
+            type="button">
+            <i
+              aria-hidden="true"
+              className="fa fa-trash" />
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
 exports[`Storyshots Section default 1`] = `
 <ul
   style={

@@ -1,0 +1,197 @@
+/*** ListItem.css ***/
+
+/** Module **/
+
+.ListItem {
+  /* Basic Box */
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.ListItem td {
+  /* Color */
+  color: #616161;
+  /* Basic Box */
+  padding: 0.125rem;
+  /* Text */
+  line-height: 80%;
+  text-align: left;
+  /* Fonts */
+  font-size: 1rem;
+}
+
+.ListItem-image-wrapper {
+  /* Basic Box */
+  width: 10%;
+}
+
+.ListItem-detail {
+  /* Basic Box */
+  width: 72%;
+}
+
+.ListItem-order-qty {
+  /* Basic Box */
+  width: 10%;
+}
+
+.ListItem-order-qty-action {
+  /* Basic Box */
+  width: 8%;
+}
+
+.ListItem-image {
+  /* Background & Borders */
+  border-radius: 0.375rem;
+  /* Basic Box */
+  max-width: 4em;
+  max-height: 4rem;
+}
+
+.ListItem-price-per-unit,
+.ListItem-order-quantified {
+  /* Fonts */
+  font-weight: 300;
+}
+
+.ListItem-name {
+  /* Color */
+  color: #000;
+}
+
+.ListItem-price {
+  /* Fonts */
+  font-size: 0.75rem;
+}
+
+.ListItem-unit {
+  /* Fonts */
+  font-size: 0.625rem;
+}
+
+.ListItem-order-quantified {
+  /* Basic Box */
+  float: right;
+  /* Fonts */
+  font-size: 0.75rem;
+}
+
+.ListItem-total-price {
+  /* Color */
+  color: #ff6d00;
+  /* Text */
+  text-align: right;
+  /* Fonts */
+  font-weight: 700;
+}
+
+td.ListItem-order-qty {
+  /* Text */
+  text-align: center;
+}
+
+.ListItem-order-qty-input.TextField {
+  /* Basic Box */
+  padding: 0;
+}
+
+.ListItem-order-qty-input > .TextField-input {
+  /* Color */
+  color: #673ab7;
+  /* Basic Box */
+  width: 3rem;
+  padding: 1px;
+  /* Text */
+  line-height: 2rem;
+  text-align: center;
+  /* Fonts */
+  font-family: "Lato", sans-serif;
+  font-size: 0.875rem;
+}
+
+.ListItem-order-qty-unit {
+  /* Color */
+  color: #673ab7;
+  /* Fonts */
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+.Pesanan-heading > .order-action-clear,
+.ListItem-order-qty-action > .order-action-clear {
+  /* Basic Box */
+  margin-right: 0;
+}
+
+.ListItem-order-qty-action > .order-action-clear {
+  /* Basic Box */
+  padding: 0.5rem;
+}
+
+.ListItem-order-qty-action:after {
+  /* Basic Box */
+  display: block;
+  height: 0.75rem;
+  /* Basic UI */
+  content: "\00a0";
+}
+
+.Pesanan-footer-delivery-fee:after,
+.Pesanan-footer-total-price:after {
+  /* Basic Box */
+  display: table;
+  clear: both;
+  /* Basic UI */
+  content: "";
+}
+
+.Pesanan-footer-delivery-fee-label,
+.Pesanan-footer-total-price-label {
+  /* Basic Box */
+  float: left;
+}
+
+.Pesanan-footer-delivery-fee-amount,
+.Pesanan-footer-total-price-amount {
+  /* Color */
+  color: #ff6d00;
+  /* Basic Box */
+  float: right;
+  /* Fonts */
+  font-weight: 700;
+}
+
+.Pesanan-footer-delivery-fee {
+  /* Fonts */
+  font-style: italic;
+}
+
+.Pesanan-footer-delivery-fee-label {
+  /* Color */
+  color: #673ab7;
+}
+
+.Pesanan-footer-total-price {
+  /* Fonts */
+  font-size: 1.25rem;
+}
+
+.Pesanan-footer-total-price-label {
+  /* Color */
+  color: #ff6d00;
+  /* Fonts */
+  font-weight: 700;
+}
+
+.Pesanan-footer > hr {
+  /* Background & Borders*/
+  border: 1px solid #673ab7;
+  border-bottom: none;
+}
+
+@media (max-width: 22.5em) {
+  .ListItem-image-wrapper {
+    /* Basic Box */
+    display: none;
+  }
+}
