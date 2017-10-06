@@ -13,16 +13,47 @@ setAddon(JSXAddon);
 storiesOf("FormFooterButtons", module)
   .addDecorator(withKnobs)
   .addWithJSX(
-    "pemesan",
-    withNotes("FormFooterButtons for pemesan")(() => (
+    "enabled",
+    withNotes("FormFooterButtons enabled")(() => (
       <Router>
         <FormFooterButtons
           buttons={{
             reset: {
-              action: action("reset")
+              action: action("reset"),
+              icon: "times",
+              text: "Bersihkan",
+              title: "Bersihkan data"
             },
             submit: {
-              link: "/thankyou/jejen"
+              link: "/thankyou/jejen",
+              icon: "cart-arrow-down",
+              text: "Selesai",
+              title: "Konfirmasi Pemesanan"
+            }
+          }}
+        />
+      </Router>
+    ))
+  )
+  .addWithJSX(
+    "disabled",
+    withNotes("FormFooterButtons disabled")(() => (
+      <Router>
+        <FormFooterButtons
+          buttons={{
+            reset: {
+              action: action("reset"),
+              icon: "times",
+              text: "Bersihkan",
+              title: "Data sudah bersih",
+              disabled: true
+            },
+            submit: {
+              link: "/thankyou/jejen",
+              icon: "cart-arrow-down",
+              text: "Selesai",
+              title: "Masih ditemukan data yang tidak valid",
+              disabled: true
             }
           }}
         />

@@ -1163,40 +1163,14 @@ exports[`Storyshots FormFields with TextField & TextArea 1`] = `
 </form>
 `;
 
-exports[`Storyshots FormFooterButtons pemesan 1`] = `
+exports[`Storyshots FormFooterButtons disabled 1`] = `
 <div>
   <button
     className="FormFooterButtons-reset Button Button-content Button-secondary"
-    disabled={undefined}
+    disabled={true}
     onClick={[Function]}
-    title=""
+    title="Data sudah bersih"
     type="button">
-    <i
-      aria-hidden="true"
-      className="fa fa-font-awesome fa-lg" />
-     Button
-  </button>
-  <a
-    href="/thankyou/jejen"
-    onClick={[Function]}>
-    <button
-      className="FormFooterButtons-submit Button Button-content"
-      disabled={undefined}
-      onClick={undefined}
-      title=""
-      type="button">
-      <i
-        aria-hidden="true"
-        className="fa fa-font-awesome fa-lg" />
-       Button
-    </button>
-  </a>
-  <button
-    className="FormFooterButtons-secondary Button Button-content Button-secondary"
-    disabled={false}
-    onClick={[Function]}
-    title="Bersihkan data"
-    type="reset">
     <i
       aria-hidden="true"
       className="fa fa-times fa-lg" />
@@ -1206,11 +1180,42 @@ exports[`Storyshots FormFooterButtons pemesan 1`] = `
     href="/thankyou/jejen"
     onClick={[Function]}>
     <button
-      className="FormFooterButtons-cta Button Button-content"
-      disabled={false}
+      className="FormFooterButtons-submit Button Button-content"
+      disabled={true}
+      onClick={undefined}
+      title="Masih ditemukan data yang tidak valid"
+      type="button">
+      <i
+        aria-hidden="true"
+        className="fa fa-cart-arrow-down fa-lg" />
+       Selesai
+    </button>
+  </a>
+</div>
+`;
+
+exports[`Storyshots FormFooterButtons enabled 1`] = `
+<div>
+  <button
+    className="FormFooterButtons-reset Button Button-content Button-secondary"
+    disabled={undefined}
+    onClick={[Function]}
+    title="Bersihkan data"
+    type="button">
+    <i
+      aria-hidden="true"
+      className="fa fa-times fa-lg" />
+     Bersihkan
+  </button>
+  <a
+    href="/thankyou/jejen"
+    onClick={[Function]}>
+    <button
+      className="FormFooterButtons-submit Button Button-content"
+      disabled={undefined}
       onClick={undefined}
       title="Konfirmasi Pemesanan"
-      type="submit">
+      type="button">
       <i
         aria-hidden="true"
         className="fa fa-cart-arrow-down fa-lg" />

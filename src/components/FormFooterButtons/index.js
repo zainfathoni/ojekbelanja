@@ -19,31 +19,14 @@ export default function FormFooterButtons({ buttons }) {
             display="content"
             action={button.action}
             link={button.link}
+            icon={button.icon}
+            text={button.text}
+            title={button.title}
+            disabled={button.disabled}
             isSecondary={key === "reset"}
           />
         );
       })}
-      <Button
-        className="FormFooterButtons-secondary"
-        type="reset"
-        display="content"
-        action={buttons.reset.action}
-        icon="times"
-        text="Bersihkan"
-        disabled={false}
-        title={"Bersihkan data"}
-        isSecondary
-      />
-      <Button
-        className="FormFooterButtons-cta"
-        type="submit"
-        display="content"
-        link="/thankyou/jejen"
-        icon="cart-arrow-down"
-        text="Selesai"
-        disabled={false}
-        title={"Konfirmasi Pemesanan"}
-      />
     </div>
   );
 }
@@ -52,7 +35,11 @@ FormFooterButtons.propTypes = {
   buttons: T.objectOf(
     T.shape({
       action: T.func,
-      link: T.string
+      link: T.string,
+      icon: T.string,
+      text: T.string,
+      title: T.string,
+      disabled: T.bool
     })
   ).isRequired
 };
