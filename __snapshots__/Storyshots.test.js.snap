@@ -1225,6 +1225,42 @@ exports[`Storyshots FormFooterButtons enabled 1`] = `
 </div>
 `;
 
+exports[`Storyshots FormFooterNumbers default 1`] = `
+<div
+  style={
+    Object {
+      "width": 350,
+    }
+  }>
+  <div
+    className="FormFooterNumbers">
+    <div
+      className="FormFooterNumbers-delivery-fee">
+      <div
+        className="FormFooterNumbers-delivery-fee-label">
+        Ongkos Kirim
+      </div>
+      <div
+        className="FormFooterNumbers-delivery-fee-amount">
+        Rp 5.000
+      </div>
+    </div>
+    <hr />
+    <div
+      className="FormFooterNumbers-total-price">
+      <div
+        className="FormFooterNumbers-total-price-label">
+        Harga Total
+      </div>
+      <div
+        className="FormFooterNumbers-total-price-amount">
+        Rp 55.000
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots ListItem default 1`] = `
 <div
   style={
