@@ -97,7 +97,15 @@ export default function ListItem({
 
 ListItem.propTypes = {
   id: T.string.isRequired,
-  item: T.object.isRequired,
+  item: T.shape({
+    name: T.string.isRequired,
+    desc: T.string.isRequired,
+    image: T.string.isRequired,
+    unit: T.string.isRequired,
+    step: T.number.isRequired,
+    price: T.number.isRequired,
+    category: T.string.isRequired
+  }),
   count: T.number.isRequired,
   quantity: T.string,
   subtotal: T.string,

@@ -21,9 +21,7 @@ describe("ListItem", () => {
           unit: "kg",
           step: 0.1,
           price: 35000,
-          category: "bumbu",
-          promo: "Diskon",
-          promo_desc: "Diskon Akhir Pekan"
+          category: "bumbu"
         }}
         count={1}
         quantity="100 gram"

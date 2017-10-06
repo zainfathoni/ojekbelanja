@@ -150,7 +150,7 @@ ThankYou.propTypes = {
       category: T.string.isRequired
     })
   ),
-  order: T.object.isRequired,
+  order: T.objectOf(T.number).isRequired,
   quantities: T.objectOf(T.string).isRequired,
   subtotals: T.objectOf(T.string).isRequired,
   total: T.number.isRequired

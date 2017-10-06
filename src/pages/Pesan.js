@@ -3,11 +3,11 @@ import { PropTypes as T } from "prop-types";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { getStore, getOrder } from "../../reducers";
-import Page from "../../components/Page";
-import Header from "../../components/Header";
-import Pesanan from "./Pesanan";
-import PemesanForm from "../../containers/PemesanForm";
+import { getStore, getOrder } from "../reducers";
+import Page from "../components/Page";
+import Header from "../components/Header";
+import PesananForm from "../containers/PesananForm";
+import PemesanForm from "../containers/PemesanForm";
 
 let Pesan = ({ id, toko, order }) =>
   !toko || !order || Object.keys(order).length === 0 ? (
@@ -17,7 +17,7 @@ let Pesan = ({ id, toko, order }) =>
     <Page
       header={<Header heading={"Toko " + toko.name} />}
       twoColumns
-      left={<Pesanan name="order" id={id} />}
+      left={<PesananForm name="order" id={id} />}
       right={
         <PemesanForm
           name="user"
