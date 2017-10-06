@@ -41,7 +41,6 @@ storiesOf("FormFields", module)
           empty: {}
         }}
         onChange={action("change")}
-        onReset={action("reset")}
         onSubmit={action("submit")}
       />
     ))
