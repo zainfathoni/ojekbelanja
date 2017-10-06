@@ -1093,7 +1093,7 @@ exports[`Storyshots FormFields with TextField & TextArea 1`] = `
 <form
   className="Form"
   name="pemesan"
-  onSubmit={undefined}>
+  onSubmit={[Function]}>
   <header
     className="Form-header">
     <div

@@ -9,17 +9,28 @@ export default function FormFields({
   name,
   title,
   icon,
-  onSubmit,
   header,
   footer,
   fields,
-  onChange
+  onChange,
+  onSubmit
 }) {
-  const onUpdate = (field, value) => {
+  const change = (field, value) => {
     onChange(field, value);
   };
+  const submit = e => {
+    e.preventDefault();
+    onSubmit();
+  };
   return (
-    <Form name={name} title={title} icon={icon} header={header} footer={footer}>
+    <Form
+      name={name}
+      title={title}
+      icon={icon}
+      header={header}
+      footer={footer}
+      onSubmit={e => submit(e)}
+    >
       {Object.keys(fields).map(key => {
         const f = fields[key];
         switch (f.component) {
@@ -32,7 +43,7 @@ export default function FormFields({
                 label={f.label}
                 placeholder={f.placeholder}
                 value={f.value}
-                onChange={onUpdate}
+                onChange={change}
                 validate={f.validate}
                 message={f.message}
                 required={f.required}
@@ -47,7 +58,7 @@ export default function FormFields({
                 placeholder={f.placeholder}
                 value={f.value}
                 rows={4}
-                onChange={onUpdate}
+                onChange={change}
                 required={f.required}
               />
             );
@@ -63,15 +74,14 @@ FormFields.propTypes = {
   name: T.string.isRequired,
   title: T.string.isRequired,
   icon: T.string.isRequired,
-  onSubmit: T.func,
   header: T.node,
   fields: T.objectOf(
     T.shape({
-      component: T.oneOf(["TextField", "TextArea"]).isRequired,
+      component: T.oneOf(["TextField", "TextArea"]),
       type: T.oneOf(["email", "password"]),
-      label: T.string.isRequired,
-      placeholder: T.string.isRequired,
-      value: T.string.isRequired,
+      label: T.string,
+      placeholder: T.string,
+      value: T.string,
       rows: T.int,
       validate: T.func,
       message: T.string,
@@ -79,6 +89,7 @@ FormFields.propTypes = {
     })
   ).isRequired,
   onChange: T.func.isRequired,
+  onSubmit: T.func.isRequired,
   children: T.node,
   footer: T.node
 };

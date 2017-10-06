@@ -40,7 +40,9 @@ storiesOf("FormFields", module)
           },
           empty: {}
         }}
-        onChange={action("email-change")}
+        onChange={action("change")}
+        onReset={action("reset")}
+        onSubmit={action("submit")}
       />
     ))
   );

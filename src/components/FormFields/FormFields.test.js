@@ -6,9 +6,11 @@ require("../../../.storybook/shim.js");
 require("../../../.storybook/enzyme_setup.js");
 
 describe("FormFields", () => {
-  it("FormFields behaves without error", () => {
-    let field, value;
-    const formFields = mount(
+  const change = jest.fn();
+  const submit = jest.fn();
+  let formFields;
+  beforeEach(() => {
+    formFields = mount(
       <FormFields
         name="with-footer"
         title={"Data Pemesan"}
@@ -25,18 +27,25 @@ describe("FormFields", () => {
             required: true
           }
         }}
-        onChange={(f, v) => {
-          field = f;
-          value = v;
-        }}
+        onChange={change}
+        onSubmit={submit}
       />
     );
-    expect(field).toBeUndefined;
-    expect(value).toBeUndefined;
+  });
 
+  it("calls onChange correctly", () => {
     const email = formFields.find("#email");
     email.simulate("change", { target: { value: "gmail" } });
-    expect(field).toBe("email");
-    expect(value).toBe("gmail");
+
+    expect(change.mock.calls.length).toBe(1);
+    expect(change.mock.calls[0][0]).toBe("email");
+    expect(change.mock.calls[0][1]).toBe("gmail");
+  });
+
+  it("calls onSubmit correctly", () => {
+    const email = formFields.find("#email");
+    email.simulate("submit", { preventDefault: () => {} });
+
+    expect(submit.mock.calls.length).toBe(1);
   });
 });
