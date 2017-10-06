@@ -69,7 +69,7 @@ PemesanForm.propTypes = {
   fields: T.objectOf(
     T.shape({
       component: T.oneOf(["TextField", "TextArea"]),
-      type: T.oneOf(["email", "password"]),
+      type: T.oneOf(["email", "password", "tel"]),
       display: T.string,
       label: T.string,
       placeholder: T.string,
@@ -80,78 +80,33 @@ PemesanForm.propTypes = {
       required: T.bool
     })
   ),
-  isInvalid: T.bool.required,
+  isInvalid: T.bool.isRequired,
   setUser: T.func.isRequired,
   clearUser: T.func.isRequired
 };
 
 const mapStateToProps = (state, ownProps) => ({
   user: state.user,
-  fields: {
-    name: {
-      component: "TextField",
-      label: "Nama",
-      placeholder: "Nama Lengkap",
-      value: state.user.name,
-      required: isRequired("name"),
-      message: !isRequirementFulfilled(state, "name") && "Nama harus diisi"
-    },
-    nickname: {
-      component: "TextField",
-      label: "Panggilan",
-      placeholder: "Nama Panggilan",
-      value: state.user.nickname,
-      required: isRequired("nickname")
-    },
-    email: {
-      component: "TextField",
-      type: "email",
-      label: "Email",
-      placeholder: "Alamat Email",
-      value: state.user.email,
-      required: isRequired("email"),
-      message:
-        (!isRequirementFulfilled(state, "email") &&
-          "Alamat Email harus diisi") ||
-        (!isValid(state, "email") && "Alamat Email tidak valid": null)
-    },
-    phone: {
-      component: "TextField",
-      type: "tel",
-      display: "content",
-      label: "No. HP",
-      placeholder: "081234567890",
-      value: state.user.phone,
-      required: isRequired("phone"),
-      message:
-        (!isRequirementFulfilled(state, "phone") && "No. HP harus diisi") ||
-        (!isValid(state, "phone") && "No. HP tidak valid": null)
-    },
-    city: {
-      component: "TextField",
-      label: "Kota",
-      placeholder: "Kota Domisili",
-      value: state.user.city,
-      required: isRequired("city"),
-      message: !isRequirementFulfilled(state, "city") && "Kota harus diisi"
-    },
-    address: {
-      component: "TextArea",
-      label: "Alamat",
-      placeholder: "Alamat Lengkap",
-      value: state.user.address,
-      rows: 4,
-      required: isRequired("address")
-    },
-    notes: {
-      component: "TextArea",
-      label: "Catatan",
-      placeholder: "Catatan Tambahan",
-      value: state.user.notes,
-      rows: 4,
-      required: isRequired("notes")
-    }
-  },
+  fields: Object.keys(ownProps.fields)
+    .map(key => {
+      const f = ownProps.fields[key];
+      return {
+        ...f,
+        name: key,
+        value: state.user[key],
+        required: isRequired(key),
+        message:
+          (!isRequirementFulfilled(state, key) && `${f.label} harus diisi`) ||
+          (!isValid(state, key) && `${f.label} tidak valid`)
+      };
+    })
+    .reduce(
+      (res, f) => ({
+        ...res,
+        [f.name]: f
+      }),
+      {}
+    ),
   isInvalid: !areRequirementsFulfilled(state) || !isUserValid(state)
 });
 

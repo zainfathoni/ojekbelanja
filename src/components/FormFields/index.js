@@ -80,14 +80,14 @@ FormFields.propTypes = {
   fields: T.objectOf(
     T.shape({
       component: T.oneOf(["TextField", "TextArea"]),
-      type: T.oneOf(["email", "password"]),
+      type: T.oneOf(["email", "password", "tel"]),
       display: T.string,
       label: T.string,
       placeholder: T.string,
       value: T.string,
       rows: T.int,
       validate: T.func,
-      message: T.string,
+      message: T.any,
       required: T.bool
     })
   ).isRequired,

@@ -111,7 +111,7 @@ TextArea.propTypes = {
   value: T.any.isRequired, // Value
   onChange: T.func.isRequired, // onChange Function
   onBlur: T.func, // onBlur Function
-  message: T.string, // Error Message
+  message: T.any, // Error Message
   required: T.bool, // is Required
   rows: T.number // Number of Rows
 };

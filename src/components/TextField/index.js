@@ -135,7 +135,7 @@ TextField.propTypes = {
   value: T.any.isRequired, // Value
   onChange: T.func.isRequired, // onChange Function
   onBlur: T.func, // onBlur Function
-  message: T.string, // Error Message
+  message: T.any, // Error Message
   required: T.bool, // is Required
   min: T.number, // Minimum Value for Number/Range Type
   max: T.number, // Maximum Value for Number/Range Type

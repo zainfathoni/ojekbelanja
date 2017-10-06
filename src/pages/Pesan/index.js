@@ -18,7 +18,52 @@ let Pesan = ({ id, toko, order }) =>
       header={<Header heading={"Toko " + toko.name} />}
       twoColumns
       left={<Pesanan name="order" id={id} />}
-      right={<PemesanForm name="user" storeId={id} />}
+      right={
+        <PemesanForm
+          name="user"
+          storeId={id}
+          fields={{
+            name: {
+              component: "TextField",
+              label: "Nama",
+              placeholder: "Nama Lengkap"
+            },
+            nickname: {
+              component: "TextField",
+              label: "Panggilan",
+              placeholder: "Nama Panggilan"
+            },
+            email: {
+              component: "TextField",
+              type: "email",
+              label: "Email",
+              placeholder: "Alamat Email"
+            },
+            phone: {
+              component: "TextField",
+              type: "tel",
+              display: "content",
+              label: "No. HP",
+              placeholder: "081234567890"
+            },
+            city: {
+              component: "TextField",
+              label: "Kota",
+              placeholder: "Kota Domisili"
+            },
+            address: {
+              component: "TextArea",
+              label: "Alamat",
+              placeholder: "Alamat Lengkap"
+            },
+            notes: {
+              component: "TextArea",
+              label: "Catatan",
+              placeholder: "Catatan Tambahan"
+            }
+          }}
+        />
+      }
     />
   );
 
