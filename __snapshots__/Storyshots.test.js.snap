@@ -1488,6 +1488,122 @@ exports[`Storyshots MainNav default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Order disabled 1`] = `
+<footer
+  className="l-wrapper-footer">
+  <div
+    className="l-Order">
+    <div
+      className="Order-price-wrapper">
+      <div
+        className="Order-product-count"
+        title="Banyaknya Jenis Produk">
+        0
+      </div>
+      <div
+        className="Order-price">
+        Rp 50,000
+      </div>
+      <div
+        className="Order-delivery-fee">
+        <span
+          className="Order-delivery-fee-label">
+          + Ongkos Kirim
+        </span>
+         Rp 5,000
+      </div>
+    </div>
+    <div
+      className="Order-action-wrapper">
+      <button
+        className="Button Button-content Button-secondary"
+        disabled={true}
+        onClick={[Function]}
+        title=""
+        type="button">
+        <i
+          aria-hidden="true"
+          className="fa fa-times fa-lg" />
+         Kosongkan
+      </button>
+      <a
+        href="/pesan/jejen"
+        onClick={[Function]}>
+        <button
+          className="Button Button-content"
+          disabled={true}
+          onClick={undefined}
+          title=""
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart fa-lg" />
+           Pesan
+        </button>
+      </a>
+    </div>
+  </div>
+</footer>
+`;
+
+exports[`Storyshots Order enabled 1`] = `
+<footer
+  className="l-wrapper-footer">
+  <div
+    className="l-Order">
+    <div
+      className="Order-price-wrapper">
+      <div
+        className="Order-product-count"
+        title="Banyaknya Jenis Produk">
+        5
+      </div>
+      <div
+        className="Order-price">
+        Rp 50,000
+      </div>
+      <div
+        className="Order-delivery-fee">
+        <span
+          className="Order-delivery-fee-label">
+          + Ongkos Kirim
+        </span>
+         Rp 5,000
+      </div>
+    </div>
+    <div
+      className="Order-action-wrapper">
+      <button
+        className="Button Button-content Button-secondary"
+        disabled={false}
+        onClick={[Function]}
+        title=""
+        type="button">
+        <i
+          aria-hidden="true"
+          className="fa fa-times fa-lg" />
+         Kosongkan
+      </button>
+      <a
+        href="/pesan/jejen"
+        onClick={[Function]}>
+        <button
+          className="Button Button-content"
+          disabled={false}
+          onClick={undefined}
+          title=""
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart fa-lg" />
+           Pesan
+        </button>
+      </a>
+    </div>
+  </div>
+</footer>
+`;
+
 exports[`Storyshots Section default 1`] = `
 <ul
   style={

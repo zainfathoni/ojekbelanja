@@ -16,6 +16,7 @@ import {
   isProductMatching,
   getOrder,
   getOrderCount,
+  getOrderQty,
   isValid,
   isUserValid,
   isRequired,
@@ -162,7 +163,11 @@ test("getOrder", () => {
 });
 
 test("getOrderCount", () => {
-  expect(getOrderCount(state, "jahe")).toEqual(state.order.jahe);
+  expect(getOrderCount(state)).toEqual(Object.keys(state.order).length);
+});
+
+test("getOrderQty", () => {
+  expect(getOrderQty(state, "jahe")).toEqual(state.order.jahe);
 });
 
 test("isValid", () => {

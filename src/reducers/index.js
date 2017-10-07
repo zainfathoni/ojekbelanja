@@ -39,8 +39,9 @@ export const isProductMatching = (state, id) =>
   fromProducts.isMatching(state.products, id);
 
 export const getOrder = state => fromOrder.getOrder(state.order);
-export const getOrderCount = (state, id) =>
-  fromOrder.getOrderCount(state.order, id);
+export const getOrderCount = state => fromOrder.getOrderCount(state.order);
+export const getOrderQty = (state, id) =>
+  fromOrder.getOrderQty(state.order, id);
 
 export const isValid = (state, field) => fromUser.isValid(state.user, field);
 export const isUserValid = state => fromUser.isUserValid(state.user);
@@ -55,7 +56,7 @@ const escapeFloatingPoint = value => Math.round(value * 100) / 100;
 
 export const getQuantity = (state, id) => {
   const product = getProduct(state, id);
-  const count = getOrderCount(state, id);
+  const count = getOrderQty(state, id);
 
   if (product && count > 0) {
     const { step, unit } = product;
@@ -79,7 +80,7 @@ export const getQuantities = state => {
 
 export const getSubtotal = (state, id) => {
   const products = getProduct(state, id);
-  const count = getOrderCount(state, id);
+  const count = getOrderQty(state, id);
 
   if (products && count > 0) {
     const { step, price } = getProduct(state, id);
