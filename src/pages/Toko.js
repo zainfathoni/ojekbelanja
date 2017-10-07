@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import base from "../services/base";
 
 import * as actions from "../actions";
-import { getStore, getProducts } from "../reducers";
+import { getStore } from "../reducers";
 import Page from "../components/Page";
 import Header from "../components/Header";
 import Products from "../containers/Products";
@@ -21,7 +21,7 @@ class Toko extends Component {
   /*** Render ***/
 
   render() {
-    const { id, toko, products } = this.props;
+    const { id, toko } = this.props;
     // Render Loading Bars
     if (!toko) {
       return (
@@ -40,9 +40,7 @@ class Toko extends Component {
     return (
       <Page
         header={<Header heading={"Toko " + toko.name} />}
-        footer={
-          <FooterOrder products={products} id={id} deliveryFee={toko.cost} />
-        }
+        footer={<FooterOrder id={id} deliveryFee={toko.cost} />}
       >
         <div>
           <p>
@@ -64,17 +62,6 @@ Toko.propTypes = {
     image: T.string.isRequired,
     cost: T.number.isRequired
   }),
-  products: T.objectOf(
-    T.shape({
-      name: T.string.isRequired,
-      desc: T.string.isRequired,
-      image: T.string.isRequired,
-      unit: T.string.isRequired,
-      step: T.number.isRequired,
-      price: T.number.isRequired,
-      category: T.string.isRequired
-    })
-  ),
   fetchStore: T.func.isRequired,
   fetchProducts: T.func.isRequired
 };
@@ -83,8 +70,7 @@ const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.storeId;
   return {
     id,
-    toko: getStore(state, id),
-    products: getProducts(state)
+    toko: getStore(state, id)
   };
 };
 

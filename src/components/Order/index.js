@@ -43,17 +43,6 @@ export default function Order(props) {
 
 Order.propTypes = {
   order: T.objectOf(T.number).isRequired,
-  products: T.objectOf(
-    T.shape({
-      name: T.string.isRequired,
-      desc: T.string.isRequired,
-      image: T.string.isRequired,
-      unit: T.string.isRequired,
-      step: T.number.isRequired,
-      price: T.number.isRequired,
-      category: T.string.isRequired
-    })
-  ).isRequired,
   total: T.number.isRequired,
   deliveryFee: T.number.isRequired,
   clearOrder: T.func.isRequired
