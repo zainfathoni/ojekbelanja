@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import "./MainNav.css";
 
-export default function MainNav(props) {
+export default function MainNav() {
   return (
     <div className="l-MainNav">
       <nav className="MainNav">
