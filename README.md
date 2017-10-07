@@ -1,5 +1,7 @@
 # Ojek Belanja &middot; [![CircleCI](https://img.shields.io/circleci/project/github/zainfathoni/ojekbelanja.svg)](https://circleci.com/gh/zainfathoni/ojekbelanja/) [![Codecov](https://img.shields.io/codecov/c/github/zainfathoni/ojekbelanja.svg)](https://codecov.io/gh/zainfathoni/ojekbelanja) [![Code Climate](https://img.shields.io/codeclimate/github/zainfathoni/ojekbelanja.svg)](https://codeclimate.com/github/zainfathoni/ojekbelanja) [![Code Climate](https://img.shields.io/codeclimate/issues/github/zainfathoni/ojekbelanja.svg)](https://codeclimate.com/github/zainfathoni/ojekbelanja) [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zainfathoni/ojekbelanja.svg)](https://greenkeeper.io/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Related Websites
