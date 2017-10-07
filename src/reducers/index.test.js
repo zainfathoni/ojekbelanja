@@ -7,9 +7,11 @@ import {
   getStoreError,
   getFilteredStores,
   getCategories,
+  getCategory,
   getProducts,
   getProduct,
   getProductKeyword,
+  isProductMatching,
   getProductIsFetching,
   getProductError,
   getOrder,
@@ -21,6 +23,7 @@ import {
   areRequirementsFulfilled,
   getQuantity,
   getQuantities,
+  getFilteredProductCards,
   getSubtotal,
   getSubtotals,
   getTotal
@@ -63,7 +66,9 @@ const state = {
         name: "Jahe",
         price: 16000,
         step: 0.25,
-        unit: "kg"
+        unit: "kg",
+        promo: "100% Original",
+        promo_desc: "Asli jajahan Belanda"
       }
     },
     error: null,
@@ -124,6 +129,10 @@ test("getCategories", () => {
   expect(getCategories(state)).toEqual(state.products.categories);
 });
 
+test("getCategory", () => {
+  expect(getCategory(state, "bumbu")).toEqual(state.products.categories.bumbu);
+});
+
 test("getProducts", () => {
   expect(getProducts(state)).toEqual(state.products.items);
 });
@@ -134,6 +143,10 @@ test("getProduct", () => {
 
 test("getProductKeyword", () => {
   expect(getProductKeyword(state)).toEqual("jah");
+});
+
+test("isProductMatching", () => {
+  expect(isProductMatching(state, "jahe")).toEqual(true);
 });
 
 test("getProductIsFetching", () => {
@@ -182,6 +195,24 @@ test("getQuantities", () => {
   expect(getQuantities(state)).toEqual({
     ayam_fillet: "1 kg",
     jahe: "750 gram"
+  });
+});
+
+test("getFilteredProductCards", () => {
+  expect(getFilteredProductCards(state)).toEqual({
+    jahe: {
+      id: "jahe",
+      section: "bumbu",
+      title: "Jahe",
+      description: "Jahe",
+      image: require(`../css/images/placeholder-224x224.png`),
+      price: 16000,
+      unit: "kg",
+      overlay: "750 gram",
+      disabled: undefined,
+      ribbon: "100% Original",
+      tooltip: "Asli jajahan Belanda"
+    }
   });
 });
 

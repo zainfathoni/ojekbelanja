@@ -25,11 +25,15 @@ export const getFilteredStores = state =>
 
 export const getCategories = state =>
   fromProducts.getCategories(state.products);
+export const getCategory = (state, id) =>
+  fromProducts.getCategory(state.products, id);
 export const getProducts = state => fromProducts.getProducts(state.products);
 export const getProduct = (state, id) =>
   fromProducts.getProduct(state.products, id);
 export const getProductKeyword = state =>
   fromProducts.getKeyword(state.products);
+export const isProductMatching = (state, id) =>
+  fromProducts.isProductMatching(state.products, id);
 export const getProductIsFetching = state =>
   fromProducts.getIsFetching(state.products);
 export const getProductError = state => fromProducts.getError(state.products);
@@ -50,11 +54,11 @@ export const areRequirementsFulfilled = state =>
 const escapeFloatingPoint = value => Math.round(value * 100) / 100;
 
 export const getQuantity = (state, id) => {
-  const products = getProduct(state, id);
+  const product = getProduct(state, id);
   const count = getOrderCount(state, id);
 
-  if (products && count > 0) {
-    const { step, unit } = products;
+  if (product && count > 0) {
+    const { step, unit } = product;
     const steps = escapeFloatingPoint(count * step);
     return steps < 1 && unit === "kg"
       ? `${steps * 1000} gram`
@@ -104,4 +108,32 @@ export const getTotal = state => {
         0
       )
     : 0;
+};
+
+export const getFilteredProductCards = state => {
+  return Object.keys(getProducts(state))
+    .filter(key => isProductMatching(state, key))
+    .map(key => {
+      const product = getProduct(state, key);
+      return {
+        id: key,
+        section: product.category,
+        title: product.name,
+        description: product.desc,
+        image: require(`../css/images/${product.image}`),
+        price: product.price,
+        unit: product.unit,
+        overlay: getQuantity(state, key),
+        disabled: product.empty,
+        ribbon: product.promo,
+        tooltip: product.promo_desc
+      };
+    })
+    .reduce(
+      (res, product) => ({
+        ...res,
+        [product.id]: product
+      }),
+      {}
+    );
 };
