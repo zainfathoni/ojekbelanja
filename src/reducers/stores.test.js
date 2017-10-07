@@ -4,7 +4,8 @@ import stores, {
   getCost,
   getKeyword,
   getIsFetching,
-  getError
+  getError,
+  getFilteredStores
 } from "./stores";
 
 const items = {
@@ -15,6 +16,13 @@ const items = {
     name: "Jejen",
     phone: "081234567890"
   }
+};
+
+const state = {
+  items,
+  error: null,
+  isFetching: false,
+  keyword: "jej"
 };
 
 test("FETCH_STORES_REQUEST", () => {
@@ -81,7 +89,7 @@ test("FETCH_STORE_SUCCESS", () => {
   expect(stores(before, action)).toEqual(after);
 });
 
-test("SET_STERE_KEYWORD", () => {
+test("SET_STORE_KEYWORD", () => {
   const action = {
     type: "SET_STORE_KEYWORD",
     keyword: "jej"
@@ -89,13 +97,6 @@ test("SET_STERE_KEYWORD", () => {
 
   expect(stores({}, action).keyword).toEqual("jej");
 });
-
-const state = {
-  items,
-  error: null,
-  isFetching: false,
-  keyword: "jej"
-};
 
 test("getStores", () => {
   expect(getStores(state)).toEqual(items);
@@ -119,4 +120,36 @@ test("getIsFetching", () => {
 
 test("getError", () => {
   expect(getError(state)).toEqual(null);
+});
+
+describe("getFilteredStores", () => {
+  it("no keyword", () => {
+    expect(getFilteredStores(state)).toEqual({
+      jejen: {
+        id: "jejen",
+        title: "Jejen",
+        description: "Sadang Serang & sekitarnya",
+        image: require(`../css/images/placeholder-224x224.png`),
+        price: 2000,
+        unit: "pengiriman"
+      }
+    });
+  });
+
+  it("matching keyword", () => {
+    expect(getFilteredStores({ ...state, keyword: "je" })).toEqual({
+      jejen: {
+        id: "jejen",
+        title: "Jejen",
+        description: "Sadang Serang & sekitarnya",
+        image: require(`../css/images/placeholder-224x224.png`),
+        price: 2000,
+        unit: "pengiriman"
+      }
+    });
+  });
+
+  it("no matching keyword", () => {
+    expect(getFilteredStores({ ...state, keyword: "as" })).toEqual({});
+  });
 });

@@ -5,6 +5,7 @@ import {
   getStoreKeyword,
   getStoreIsFetching,
   getStoreError,
+  getFilteredStores,
   getCategories,
   getProducts,
   getProduct,
@@ -106,6 +107,19 @@ test("getStoreError", () => {
   expect(getStoreError(state)).toEqual(null);
 });
 
+test("getFilteredStores", () => {
+  expect(getFilteredStores(state)).toEqual({
+    jejen: {
+      id: "jejen",
+      title: "Jejen",
+      description: "Sadang Serang & sekitarnya",
+      image: require(`../css/images/placeholder-224x224.png`),
+      price: 2000,
+      unit: "pengiriman"
+    }
+  });
+});
+
 test("getCategories", () => {
   expect(getCategories(state)).toEqual(state.products.categories);
 });
@@ -122,7 +136,7 @@ test("getProductKeyword", () => {
   expect(getProductKeyword(state)).toEqual("jah");
 });
 
-test("getSProductsFetching", () => {
+test("getProductIsFetching", () => {
   expect(getProductIsFetching(state)).toEqual(false);
 });
 

@@ -68,3 +68,30 @@ export const getCost = (state, id) => state.items[id].cost;
 export const getKeyword = state => state.keyword;
 export const getIsFetching = state => state.isFetching;
 export const getError = state => state.error;
+
+export const getFilteredStores = state =>
+  Object.keys(state.items)
+    .filter(
+      key =>
+        state.items[key].name
+          .toLowerCase()
+          .indexOf(state.keyword.toLowerCase()) !== -1 ||
+        state.items[key].area
+          .toLowerCase()
+          .indexOf(state.keyword.toLowerCase()) !== -1
+    )
+    .map(key => ({
+      id: key,
+      title: state.items[key].name,
+      description: state.items[key].area,
+      image: require(`../css/images/${state.items[key].image}`),
+      price: state.items[key].cost,
+      unit: "pengiriman"
+    }))
+    .reduce(
+      (res, i) => ({
+        ...res,
+        [i.id]: i
+      }),
+      {}
+    );
