@@ -5,15 +5,15 @@ import {
   getStoreKeyword,
   getStoreIsFetching,
   getStoreError,
-  getFilteredStores,
+  getFilteredStoreCards,
   getCategories,
   getCategory,
   getProducts,
   getProduct,
   getProductKeyword,
-  isProductMatching,
   getProductIsFetching,
   getProductError,
+  isProductMatching,
   getOrder,
   getOrderCount,
   isValid,
@@ -112,8 +112,8 @@ test("getStoreError", () => {
   expect(getStoreError(state)).toEqual(null);
 });
 
-test("getFilteredStores", () => {
-  expect(getFilteredStores(state)).toEqual({
+test("getFilteredStoreCards", () => {
+  expect(getFilteredStoreCards(state)).toEqual({
     jejen: {
       id: "jejen",
       title: "Jejen",
@@ -145,16 +145,16 @@ test("getProductKeyword", () => {
   expect(getProductKeyword(state)).toEqual("jah");
 });
 
-test("isProductMatching", () => {
-  expect(isProductMatching(state, "jahe")).toEqual(true);
-});
-
 test("getProductIsFetching", () => {
   expect(getProductIsFetching(state)).toEqual(false);
 });
 
 test("getProductError", () => {
   expect(getProductError(state)).toEqual(null);
+});
+
+test("isProductMatching", () => {
+  expect(isProductMatching(state, "jahe")).toEqual(true);
 });
 
 test("getOrder", () => {

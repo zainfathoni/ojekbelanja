@@ -20,8 +20,8 @@ export const getStoreKeyword = state => fromStores.getKeyword(state.stores);
 export const getStoreIsFetching = state =>
   fromStores.getIsFetching(state.stores);
 export const getStoreError = state => fromStores.getError(state.stores);
-export const getFilteredStores = state =>
-  fromStores.getFilteredStores(state.stores);
+export const getFilteredStoreCards = state =>
+  fromStores.getFilteredStoreCards(state.stores);
 
 export const getCategories = state =>
   fromProducts.getCategories(state.products);
@@ -32,11 +32,11 @@ export const getProduct = (state, id) =>
   fromProducts.getProduct(state.products, id);
 export const getProductKeyword = state =>
   fromProducts.getKeyword(state.products);
-export const isProductMatching = (state, id) =>
-  fromProducts.isProductMatching(state.products, id);
 export const getProductIsFetching = state =>
   fromProducts.getIsFetching(state.products);
 export const getProductError = state => fromProducts.getError(state.products);
+export const isProductMatching = (state, id) =>
+  fromProducts.isMatching(state.products, id);
 
 export const getOrder = state => fromOrder.getOrder(state.order);
 export const getOrderCount = (state, id) =>

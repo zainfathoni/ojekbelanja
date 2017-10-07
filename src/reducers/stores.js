@@ -69,25 +69,29 @@ export const getKeyword = state => state.keyword;
 export const getIsFetching = state => state.isFetching;
 export const getError = state => state.error;
 
-export const getFilteredStores = state =>
+export const isMatching = (state, id) => {
+  const keyword = getKeyword(state);
+  const item = getStore(state, id);
+  return (
+    item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
+    item.area.toLowerCase().indexOf(keyword.toLowerCase()) !== -1
+  );
+};
+
+export const getFilteredStoreCards = state =>
   Object.keys(state.items)
-    .filter(
-      key =>
-        state.items[key].name
-          .toLowerCase()
-          .indexOf(state.keyword.toLowerCase()) !== -1 ||
-        state.items[key].area
-          .toLowerCase()
-          .indexOf(state.keyword.toLowerCase()) !== -1
-    )
-    .map(key => ({
-      id: key,
-      title: state.items[key].name,
-      description: state.items[key].area,
-      image: require(`../css/images/${state.items[key].image}`),
-      price: state.items[key].cost,
-      unit: "pengiriman"
-    }))
+    .filter(key => isMatching(state, key))
+    .map(key => {
+      const store = getStore(state, key);
+      return {
+        id: key,
+        title: store.name,
+        description: store.area,
+        image: require(`../css/images/${store.image}`),
+        price: store.cost,
+        unit: "pengiriman"
+      };
+    })
     .reduce(
       (res, i) => ({
         ...res,

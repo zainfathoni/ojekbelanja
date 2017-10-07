@@ -5,8 +5,8 @@ import products, {
   getProduct,
   getKeyword,
   getIsFetching,
-  isProductMatching,
-  getError
+  getError,
+  isMatching
 } from "./products";
 
 const categories = {
@@ -112,10 +112,18 @@ test("getKeyword", () => {
   expect(getKeyword(state)).toEqual("jah");
 });
 
-describe("isProductMatching", () => {
+test("getIsFetching", () => {
+  expect(getIsFetching(state)).toEqual(false);
+});
+
+test("getError", () => {
+  expect(getError(state)).toEqual(null);
+});
+
+describe("isMatching", () => {
   it("name matches", () => {
     expect(
-      isProductMatching(
+      isMatching(
         {
           keyword: "ket",
           items: {
@@ -131,7 +139,7 @@ describe("isProductMatching", () => {
 
   it("desc matches", () => {
     expect(
-      isProductMatching(
+      isMatching(
         {
           keyword: "bak",
           items: {
@@ -148,7 +156,7 @@ describe("isProductMatching", () => {
 
   it("category matches", () => {
     expect(
-      isProductMatching(
+      isMatching(
         {
           keyword: "jaj",
           items: {
@@ -169,7 +177,7 @@ describe("isProductMatching", () => {
 
   it("no match", () => {
     expect(
-      isProductMatching(
+      isMatching(
         {
           keyword: "kec",
           items: {
@@ -187,12 +195,4 @@ describe("isProductMatching", () => {
       )
     ).toBe(false);
   });
-});
-
-test("getIsFetching", () => {
-  expect(getIsFetching(state)).toEqual(false);
-});
-
-test("getError", () => {
-  expect(getError(state)).toEqual(null);
 });

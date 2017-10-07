@@ -5,7 +5,8 @@ import stores, {
   getKeyword,
   getIsFetching,
   getError,
-  getFilteredStores
+  isMatching,
+  getFilteredStoreCards
 } from "./stores";
 
 const items = {
@@ -122,34 +123,67 @@ test("getError", () => {
   expect(getError(state)).toEqual(null);
 });
 
-describe("getFilteredStores", () => {
-  it("no keyword", () => {
-    expect(getFilteredStores(state)).toEqual({
-      jejen: {
-        id: "jejen",
-        title: "Jejen",
-        description: "Sadang Serang & sekitarnya",
-        image: require(`../css/images/placeholder-224x224.png`),
-        price: 2000,
-        unit: "pengiriman"
-      }
-    });
+describe("isMatching", () => {
+  it("name matches", () => {
+    expect(
+      isMatching(
+        {
+          keyword: "jej",
+          items: {
+            jejen: {
+              name: "Jejen"
+            }
+          }
+        },
+        "jejen"
+      )
+    ).toBe(true);
   });
 
-  it("matching keyword", () => {
-    expect(getFilteredStores({ ...state, keyword: "je" })).toEqual({
-      jejen: {
-        id: "jejen",
-        title: "Jejen",
-        description: "Sadang Serang & sekitarnya",
-        image: require(`../css/images/placeholder-224x224.png`),
-        price: 2000,
-        unit: "pengiriman"
-      }
-    });
+  it("desc matches", () => {
+    expect(
+      isMatching(
+        {
+          keyword: "ada",
+          items: {
+            jejen: {
+              name: "Jejen",
+              area: "Sadang Serang"
+            }
+          }
+        },
+        "jejen"
+      )
+    ).toBe(true);
   });
 
-  it("no matching keyword", () => {
-    expect(getFilteredStores({ ...state, keyword: "as" })).toEqual({});
+  it("no match", () => {
+    expect(
+      isMatching(
+        {
+          keyword: "tiada",
+          items: {
+            jejen: {
+              name: "Jejen",
+              area: "Sadang Serang"
+            }
+          }
+        },
+        "jejen"
+      )
+    ).toBe(false);
+  });
+});
+
+test("getFilteredStoreCards", () => {
+  expect(getFilteredStoreCards(state)).toEqual({
+    jejen: {
+      id: "jejen",
+      title: "Jejen",
+      description: "Sadang Serang & sekitarnya",
+      image: require(`../css/images/placeholder-224x224.png`),
+      price: 2000,
+      unit: "pengiriman"
+    }
   });
 });
