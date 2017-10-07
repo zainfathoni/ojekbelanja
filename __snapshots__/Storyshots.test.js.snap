@@ -1261,6 +1261,73 @@ exports[`Storyshots FormFooterNumbers default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Header default 1`] = `
+<div
+  className="l-wrapper-header">
+  <header
+    className="Header">
+    <h1>
+      Ojek 
+      <i
+        aria-hidden="true"
+        className="fa fa-motorcycle" />
+      <i
+        aria-hidden="true"
+        className="fa fa-shopping-cart" />
+       Belanja
+    </h1>
+    <h3>
+      Asisten Belanja Anda
+    </h3>
+  </header>
+</div>
+`;
+
+exports[`Storyshots Header is 404 1`] = `
+<div
+  className="l-wrapper-header">
+  <header
+    className="Header">
+    <h1>
+      Ojek 
+      <i
+        aria-hidden="true"
+        className="fa fa-motorcycle" />
+      <i
+        aria-hidden="true"
+        className="fa fa-question" />
+       Nyasar
+    </h1>
+    <h3
+      className="Header-is-error">
+      404 | Page Not Found
+    </h3>
+  </header>
+</div>
+`;
+
+exports[`Storyshots Header with Heading 1`] = `
+<div
+  className="l-wrapper-header">
+  <header
+    className="Header">
+    <h1>
+      Ojek 
+      <i
+        aria-hidden="true"
+        className="fa fa-motorcycle" />
+      <i
+        aria-hidden="true"
+        className="fa fa-shopping-cart" />
+       Belanja
+    </h1>
+    <h3>
+      Toko Saya
+    </h3>
+  </header>
+</div>
+`;
+
 exports[`Storyshots ListItem default 1`] = `
 <div
   style={
