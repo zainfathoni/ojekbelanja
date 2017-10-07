@@ -4,6 +4,7 @@ import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
 import { BrowserRouter as Router } from "react-router-dom";
 
+import "../Page/Page.css";
 import MainNav from ".";
 
 setAddon(JSXAddon);
