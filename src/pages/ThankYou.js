@@ -61,7 +61,7 @@ let ThankYou = ({
           <Description>{user.notes}</Description>
         </DescriptionList>
         <Table
-          type={{
+          columns={{
             No: "number",
             Nama: "name",
             Harga: "price",

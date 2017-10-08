@@ -5,41 +5,43 @@ import classnames from "classnames";
 import "./Table.css";
 
 export default function Table(props) {
-  const { type, body, footerColSpan, footerClassName, footer } = props;
+  const { columns, body, footerColSpan, footerClassName, footer } = props;
 
   return (
     <table className="Table">
       <thead>
         <tr>
-          {Object.keys(type).map(column =>
+          {Object.keys(columns).map(column => (
             <th
               key={column}
-              className={`Table-header-${type[column]} Table-${type[column]}`}
+              className={`Table-header-${columns[column]} Table-${columns[
+                column
+              ]}`}
             >
               {column}
             </th>
-          )}
+          ))}
         </tr>
       </thead>
       <tbody>
-        {body.map(row =>
+        {body.map(row => (
           <tr key={row["No"]}>
-            {Object.keys(row).map(data =>
-              <td key={data} className={`Table-${type[data]}`}>
+            {Object.keys(row).map(data => (
+              <td key={data} className={`Table-${columns[data]}`}>
                 {row[data]}
               </td>
-            )}
+            ))}
           </tr>
-        )}
+        ))}
       </tbody>
       <tfoot>
-        {footer.map((row, rowId) =>
+        {footer.map((row, rowId) => (
           <tr key={row["Nama"]}>
-            {Object.keys(row).map(data =>
+            {Object.keys(row).map(data => (
               <td
                 key={data}
                 className={classnames(
-                  `Table-${type[data]}`,
+                  `Table-${columns[data]}`,
                   { "Table-reverse": footerClassName[rowId] === "reverse" },
                   { "Table-italic": footerClassName[rowId] === "italic" },
                   { "Table-total": footerClassName[rowId] === "total" }
@@ -48,16 +50,16 @@ export default function Table(props) {
               >
                 {row[data]}
               </td>
-            )}
+            ))}
           </tr>
-        )}
+        ))}
       </tfoot>
     </table>
   );
 }
 
 Table.propTypes = {
-  type: T.objectOf(T.string).isRequired,
+  columns: T.objectOf(T.string).isRequired,
   body: T.array.isRequired,
   footerColSpan: T.objectOf(T.number),
   footerClassName: T.objectOf(T.string),
