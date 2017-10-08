@@ -1872,7 +1872,7 @@ exports[`Storyshots Table with 5 columns 1`] = `
       </td>
       <td
         className="Table-price">
-        Rp 42000 /kg
+        Rp 42,000 /kg
       </td>
       <td
         className="Table-qty">

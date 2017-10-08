@@ -24,7 +24,7 @@ storiesOf("Table", module)
           {
             number: 1,
             name: "Ayam Fillet",
-            price: "Rp 42000 /kg",
+            price: "Rp 42,000 /kg",
             qty: "1 kg",
             subtotal: "Rp 42,000"
           },
