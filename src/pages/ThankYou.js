@@ -61,32 +61,32 @@ let ThankYou = ({
           <Description>{user.notes}</Description>
         </DescriptionList>
         <Table
-          columns={{
-            No: "number",
-            Nama: "name",
-            Harga: "price",
-            Jumlah: "qty",
-            Subtotal: "price"
-          }}
-          body={Object.keys(order).map((key, id) => {
+          columns={[
+            { id: "number", label: "No" },
+            { id: "name", label: "Nama" },
+            { id: "price", label: "Harga" },
+            { id: "qty", label: "Jumlah" },
+            { id: "subtotal", label: "Subtotal" }
+          ]}
+          rows={Object.keys(order).map((key, id) => {
             const item = products[key];
             const row = {
-              No: id + 1,
-              Nama: item.name,
-              Harga: (
+              number: id + 1,
+              name: item.name,
+              price: (
                 <div>
                   Rp {item.price.toLocaleString("id")}
                   <span className="ThankYou-pesanan-unit"> /{item.unit}</span>
                 </div>
               ),
-              Jumlah: quantities[key],
-              Subtotal: subtotals[key]
+              qty: quantities[key],
+              subtotal: subtotals[key]
             };
             return row;
           })}
           footerColSpan={{
-            Nama: 2,
-            Harga: 3
+            name: 2,
+            price: 3
           }}
           footerClassName={{
             1: "italic",
@@ -94,16 +94,16 @@ let ThankYou = ({
           }}
           footer={[
             {
-              Nama: "Total Belanja",
-              Harga: `Rp ${total.toLocaleString("id")}`
+              name: "Total Belanja",
+              price: `Rp ${total.toLocaleString("id")}`
             },
             {
-              Nama: "Ongkos Kirim",
-              Harga: `Rp ${toko.cost.toLocaleString("id")}`
+              name: "Ongkos Kirim",
+              price: `Rp ${toko.cost.toLocaleString("id")}`
             },
             {
-              Nama: "Total Pembayaran",
-              Harga: `Rp ${(toko.cost + total).toLocaleString("id")}`
+              name: "Total Pembayaran",
+              price: `Rp ${(toko.cost + total).toLocaleString("id")}`
             }
           ]}
         />

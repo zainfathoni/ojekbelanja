@@ -67,16 +67,14 @@ export const getQuantity = (state, id) => {
   }
   return undefined;
 };
-export const getQuantities = state => {
-  const order = getOrder(state);
-  return Object.keys(order).reduce(
+export const getQuantities = state =>
+  Object.keys(getOrder(state)).reduce(
     (res, key) => ({
       ...res,
       [key]: getQuantity(state, key)
     }),
     {}
   );
-};
 
 export const getSubtotal = (state, id) => {
   const products = getProduct(state, id);
@@ -88,16 +86,14 @@ export const getSubtotal = (state, id) => {
   }
   return undefined;
 };
-export const getSubtotals = state => {
-  const order = getOrder(state);
-  return Object.keys(order).reduce(
+export const getSubtotals = state =>
+  Object.keys(getOrder(state)).reduce(
     (res, key) => ({
       ...res,
       [key]: getSubtotal(state, key)
     }),
     {}
   );
-};
 
 export const getTotal = state => {
   const order = getOrder(state);
@@ -111,8 +107,8 @@ export const getTotal = state => {
     : 0;
 };
 
-export const getFilteredProductCards = state => {
-  return Object.keys(getProducts(state))
+export const getFilteredProductCards = state =>
+  Object.keys(getProducts(state))
     .filter(key => isProductMatching(state, key))
     .map(key => {
       const product = getProduct(state, key);
@@ -137,10 +133,9 @@ export const getFilteredProductCards = state => {
       }),
       {}
     );
-};
 
-export const getOrderListItems = state => {
-  return Object.keys(getOrder(state))
+export const getOrderListItems = state =>
+  Object.keys(getOrder(state))
     .map(key => {
       const product = getProduct(state, key);
       return {
@@ -163,4 +158,3 @@ export const getOrderListItems = state => {
       }),
       {}
     );
-};
