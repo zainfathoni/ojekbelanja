@@ -3,11 +3,13 @@ import { setAddon, storiesOf } from "@storybook/react";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import JSXAddon from "storybook-addon-jsx";
 import { withNotes } from "@storybook/addon-notes";
+
 import Table from ".";
 
 setAddon(JSXAddon);
 
 storiesOf("Table", module)
+  .addDecorator(story => <div style={{ textAlign: "center" }}>{story()}</div>)
   .addDecorator(withKnobs)
   .addWithJSX(
     "with 5 columns",
