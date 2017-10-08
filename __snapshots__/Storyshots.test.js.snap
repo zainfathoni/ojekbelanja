@@ -1834,117 +1834,124 @@ exports[`Storyshots Section default 1`] = `
 `;
 
 exports[`Storyshots Table with 5 columns 1`] = `
-<table
-  className="Table">
-  <thead>
-    <tr>
-      <th
-        className="Table-header-number Table-number">
-        No
-      </th>
-      <th
-        className="Table-header-name Table-name">
-        Nama
-      </th>
-      <th
-        className="Table-header-price Table-price">
-        Harga
-      </th>
-      <th
-        className="Table-header-qty Table-qty">
-        Jumlah
-      </th>
-      <th
-        className="Table-header-subtotal Table-subtotal">
-        Subtotal
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td
-        className="Table-number">
-        1
-      </td>
-      <td
-        className="Table-name">
-        Ayam Fillet
-      </td>
-      <td
-        className="Table-price">
-        Rp 42,000 /kg
-      </td>
-      <td
-        className="Table-qty">
-        1 kg
-      </td>
-      <td
-        className="Table-subtotal">
-        Rp 42,000
-      </td>
-    </tr>
-    <tr>
-      <td
-        className="Table-number">
-        2
-      </td>
-      <td
-        className="Table-name">
-        Jahe
-      </td>
-      <td
-        className="Table-price">
-        Rp 16,000 /kg
-      </td>
-      <td
-        className="Table-qty">
-        750 gram
-      </td>
-      <td
-        className="Table-subtotal">
-        Rp 12,000
-      </td>
-    </tr>
-  </tbody>
-  <tfoot>
-    <tr>
-      <td
-        className="Table-name"
-        colSpan={2}>
-        Total Belanja
-      </td>
-      <td
-        className="Table-price"
-        colSpan={3}>
-        Rp 54,000
-      </td>
-    </tr>
-    <tr>
-      <td
-        className="Table-name Table-italic"
-        colSpan={2}>
-        Ongkos Kirim
-      </td>
-      <td
-        className="Table-price Table-italic"
-        colSpan={3}>
-        Rp 5,000
-      </td>
-    </tr>
-    <tr>
-      <td
-        className="Table-name Table-total"
-        colSpan={2}>
-        Total Pembayaran
-      </td>
-      <td
-        className="Table-price Table-total"
-        colSpan={3}>
-        Rp 59,000
-      </td>
-    </tr>
-  </tfoot>
-</table>
+<div
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }>
+  <table
+    className="Table">
+    <thead>
+      <tr>
+        <th
+          className="Table-header-number Table-number">
+          No
+        </th>
+        <th
+          className="Table-header-name Table-name">
+          Nama
+        </th>
+        <th
+          className="Table-header-price Table-price">
+          Harga
+        </th>
+        <th
+          className="Table-header-qty Table-qty">
+          Jumlah
+        </th>
+        <th
+          className="Table-header-subtotal Table-subtotal">
+          Subtotal
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          className="Table-number">
+          1
+        </td>
+        <td
+          className="Table-name">
+          Ayam Fillet
+        </td>
+        <td
+          className="Table-price">
+          Rp 42,000 /kg
+        </td>
+        <td
+          className="Table-qty">
+          1 kg
+        </td>
+        <td
+          className="Table-subtotal">
+          Rp 42,000
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="Table-number">
+          2
+        </td>
+        <td
+          className="Table-name">
+          Jahe
+        </td>
+        <td
+          className="Table-price">
+          Rp 16,000 /kg
+        </td>
+        <td
+          className="Table-qty">
+          750 gram
+        </td>
+        <td
+          className="Table-subtotal">
+          Rp 12,000
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td
+          className="Table-name"
+          colSpan={2}>
+          Total Belanja
+        </td>
+        <td
+          className="Table-price"
+          colSpan={3}>
+          Rp 54,000
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="Table-name Table-italic"
+          colSpan={2}>
+          Ongkos Kirim
+        </td>
+        <td
+          className="Table-price Table-italic"
+          colSpan={3}>
+          Rp 5,000
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="Table-name Table-total"
+          colSpan={2}>
+          Total Pembayaran
+        </td>
+        <td
+          className="Table-price Table-total"
+          colSpan={3}>
+          Rp 59,000
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 `;
 
 exports[`Storyshots TextArea default 1`] = `
