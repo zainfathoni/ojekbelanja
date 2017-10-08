@@ -1,3 +1,4 @@
+import React from "react";
 import {
   getStores,
   getStore,
@@ -28,7 +29,8 @@ import {
   getSubtotals,
   getTotal,
   getFilteredProductCards,
-  getOrderListItems
+  getOrderListItems,
+  getOrderTable
 } from ".";
 
 const state = {
@@ -269,4 +271,33 @@ test("getOrderListItems", () => {
       subtotal: "Rp 12,000"
     }
   });
+});
+
+test("getOrderTable", () => {
+  expect(getOrderTable(state)).toEqual([
+    {
+      number: 1,
+      name: "Ayam Fillet",
+      price: (
+        <div>
+          Rp {"42,000"}
+          <span className="ThankYou-pesanan-unit"> /{"kg"}</span>
+        </div>
+      ),
+      qty: "1 kg",
+      subtotal: "Rp 42,000"
+    },
+    {
+      number: 2,
+      name: "Jahe",
+      price: (
+        <div>
+          Rp {"16,000"}
+          <span className="ThankYou-pesanan-unit"> /{"kg"}</span>
+        </div>
+      ),
+      qty: "750 gram",
+      subtotal: "Rp 12,000"
+    }
+  ]);
 });

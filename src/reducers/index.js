@@ -1,3 +1,4 @@
+import React from "react";
 import { combineReducers } from "redux";
 import order, * as fromOrder from "./order";
 import user, * as fromUser from "./user";
@@ -158,3 +159,21 @@ export const getOrderListItems = state =>
       }),
       {}
     );
+
+export const getOrderTable = state =>
+  Object.keys(getOrder(state)).map((key, id) => {
+    const product = getProduct(state, key);
+    return {
+      number: id + 1,
+      name: product.name,
+      // FIXME: Make price not returning React component anymore
+      price: (
+        <div>
+          Rp {product.price.toLocaleString("id")}
+          <span className="ThankYou-pesanan-unit"> /{product.unit}</span>
+        </div>
+      ),
+      qty: getQuantity(state, key),
+      subtotal: getSubtotal(state, key)
+    };
+  });
