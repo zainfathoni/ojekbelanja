@@ -14,15 +14,13 @@ describe("ListItem", () => {
     listItem = mount(
       <ListItem
         id="bawang_putih"
-        item={{
-          name: "Bawang Putih",
-          desc: "Bawang Putih",
-          image: "placeholder-224x224.png",
-          unit: "kg",
-          step: 0.1,
-          price: 35000,
-          category: "bumbu"
-        }}
+        name="Bawang Putih"
+        desc="Bawang Putih"
+        image={require("../../css/images/placeholder-224x224.png")}
+        unit="kg"
+        step={0.1}
+        price={35000}
+        category="bumbu"
         count={1}
         quantity="100 gram"
         subtotal="Rp 15.500"

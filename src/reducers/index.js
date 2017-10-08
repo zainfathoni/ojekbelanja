@@ -138,3 +138,29 @@ export const getFilteredProductCards = state => {
       {}
     );
 };
+
+export const getOrderListItems = state => {
+  return Object.keys(getOrder(state))
+    .map(key => {
+      const product = getProduct(state, key);
+      return {
+        id: key,
+        name: product.name,
+        desc: product.desc,
+        image: require(`../css/images/${product.image}`),
+        unit: product.unit,
+        step: product.step,
+        price: product.price,
+        count: getOrderQty(state, key),
+        quantity: getQuantity(state, key),
+        subtotal: getSubtotal(state, key)
+      };
+    })
+    .reduce(
+      (res, item) => ({
+        ...res,
+        [item.id]: item
+      }),
+      {}
+    );
+};

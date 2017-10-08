@@ -8,7 +8,12 @@ import "./ListItem.css";
 
 export default function ListItem({
   id,
-  item,
+  name,
+  desc,
+  image,
+  unit,
+  step,
+  price,
   count,
   quantity,
   subtotal,
@@ -34,26 +39,22 @@ export default function ListItem({
       <tbody>
         <tr>
           <td className="ListItem-image-wrapper">
-            <img
-              className="ListItem-image"
-              src={require(`../../css/images/${item.image}`)}
-              alt={item.name}
-            />
+            <img className="ListItem-image" src={image} alt={name} />
           </td>
           <td className="ListItem-detail">
             <table width="100%">
               <tbody>
                 <tr>
                   <td width="100%">
-                    <div className="ListItem-name">{item.name}</div>
+                    <div className="ListItem-name">{name}</div>
                   </td>
                 </tr>
                 <tr>
                   <td className="ListItem-price-per-unit">
                     <span className="ListItem-price">
-                      {`Rp ${item.price.toLocaleString("id")}`}
+                      {`Rp ${price.toLocaleString("id")}`}
                     </span>
-                    <span className="ListItem-unit">{`/${item.unit}`}</span>
+                    <span className="ListItem-unit">{`/${unit}`}</span>
                     <div className="ListItem-order-quantified">{quantity}</div>
                   </td>
                 </tr>
@@ -71,13 +72,13 @@ export default function ListItem({
               name={id}
               type="number"
               display="fixed"
-              value={escapeFloatingPoint(count * item.step)}
-              onChange={(name, value) => onChange(name, value / item.step)}
+              value={escapeFloatingPoint(count * step)}
+              onChange={(name, value) => onChange(name, value / step)}
               onBlur={() => onBlur(id, count)}
               min={0}
-              step={item.step}
+              step={step}
             />
-            <span className="ListItem-order-qty-unit">{item.unit}</span>
+            <span className="ListItem-order-qty-unit">{unit}</span>
           </td>
           <td className="ListItem-order-qty-action">
             <Button
@@ -97,15 +98,12 @@ export default function ListItem({
 
 ListItem.propTypes = {
   id: T.string.isRequired,
-  item: T.shape({
-    name: T.string.isRequired,
-    desc: T.string.isRequired,
-    image: T.string.isRequired,
-    unit: T.string.isRequired,
-    step: T.number.isRequired,
-    price: T.number.isRequired,
-    category: T.string.isRequired
-  }),
+  name: T.string.isRequired,
+  desc: T.string.isRequired,
+  image: T.string.isRequired,
+  unit: T.string.isRequired,
+  step: T.number.isRequired,
+  price: T.number.isRequired,
   count: T.number.isRequired,
   quantity: T.string,
   subtotal: T.string,

@@ -24,10 +24,11 @@ import {
   areRequirementsFulfilled,
   getQuantity,
   getQuantities,
-  getFilteredProductCards,
   getSubtotal,
   getSubtotals,
-  getTotal
+  getTotal,
+  getFilteredProductCards,
+  getOrderListItems
 } from ".";
 
 const state = {
@@ -203,6 +204,26 @@ test("getQuantities", () => {
   });
 });
 
+test("getSubtotal", () => {
+  expect(getSubtotal(state, "ayam_fillet")).toEqual("Rp 42,000");
+  expect(getSubtotal(state, "jahe")).toEqual("Rp 12,000");
+  expect(getSubtotal(state, "kue_bolu")).toEqual(undefined);
+});
+
+test("getSubtotals", () => {
+  expect(getSubtotals(state)).toEqual({
+    ayam_fillet: "Rp 42,000",
+    jahe: "Rp 12,000"
+  });
+});
+
+test("getTotal", () => {
+  expect(getTotal(state)).toEqual(54000);
+  let itemlessProducts = { ...state.products, items: {} };
+  let productlessState = { ...state, products: itemlessProducts };
+  expect(getTotal(productlessState)).toEqual(0);
+});
+
 test("getFilteredProductCards", () => {
   expect(getFilteredProductCards(state)).toEqual({
     jahe: {
@@ -221,22 +242,31 @@ test("getFilteredProductCards", () => {
   });
 });
 
-test("getSubtotal", () => {
-  expect(getSubtotal(state, "ayam_fillet")).toEqual("Rp 42,000");
-  expect(getSubtotal(state, "jahe")).toEqual("Rp 12,000");
-  expect(getSubtotal(state, "kue_bolu")).toEqual(undefined);
-});
-
-test("getSubtotals", () => {
-  expect(getSubtotals(state)).toEqual({
-    ayam_fillet: "Rp 42,000",
-    jahe: "Rp 12,000"
+test("getOrderListItems", () => {
+  expect(getOrderListItems(state)).toEqual({
+    ayam_fillet: {
+      id: "ayam_fillet",
+      name: "Ayam Fillet",
+      desc: "Ayam Fillet",
+      image: require(`../css/images/placeholder-224x224.png`),
+      unit: "kg",
+      step: 0.25,
+      price: 42000,
+      count: 4,
+      quantity: "1 kg",
+      subtotal: "Rp 42,000"
+    },
+    jahe: {
+      id: "jahe",
+      name: "Jahe",
+      desc: "Jahe",
+      image: require(`../css/images/placeholder-224x224.png`),
+      unit: "kg",
+      step: 0.25,
+      price: 16000,
+      count: 3,
+      quantity: "750 gram",
+      subtotal: "Rp 12,000"
+    }
   });
-});
-
-test("getTotal", () => {
-  expect(getTotal(state)).toEqual(54000);
-  let productlessState = { ...state };
-  productlessState.products.items = {};
-  expect(getTotal(productlessState)).toEqual(0);
 });

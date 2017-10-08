@@ -5,8 +5,7 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 import {
   getStore,
-  getProducts,
-  getOrder,
+  getOrderListItems,
   getQuantities,
   getSubtotals,
   getTotal
@@ -51,15 +50,21 @@ let PesananForm = ({
     }
   >
     {Object.keys(order).map(key => {
-      const item = products[key];
+      const item = order[key];
       return (
         <ListItem
           key={key}
-          id={key}
-          item={item}
-          count={order[key]}
-          quantity={quantities[key]}
-          subtotal={subtotals[key]}
+          id={item.id}
+          name={item.name}
+          desc={item.desc}
+          image={item.image}
+          unit={item.unit}
+          step={item.step}
+          price={item.price}
+          category={item.category}
+          count={item.count}
+          quantity={item.quantity}
+          subtotal={item.subtotal}
           setOrder={setOrder}
           removeOrder={removeOrder}
         />
@@ -76,20 +81,19 @@ PesananForm.propTypes = {
     image: T.string.isRequired,
     cost: T.number.isRequired
   }),
-  products: T.objectOf(
+  order: T.objectOf(
     T.shape({
+      id: T.string.isRequired,
       name: T.string.isRequired,
       desc: T.string.isRequired,
       image: T.string.isRequired,
       unit: T.string.isRequired,
       step: T.number.isRequired,
       price: T.number.isRequired,
-      category: T.string.isRequired
+      quantity: T.string,
+      subtotal: T.string
     })
   ),
-  order: T.objectOf(T.number).isRequired,
-  quantities: T.objectOf(T.string).isRequired,
-  subtotals: T.objectOf(T.string).isRequired,
   total: T.number.isRequired,
   setOrder: T.func.isRequired,
   removeOrder: T.func.isRequired
@@ -97,8 +101,7 @@ PesananForm.propTypes = {
 
 const mapStateToProps = (state, ownProps) => ({
   toko: getStore(state, ownProps.id),
-  products: getProducts(state),
-  order: getOrder(state),
+  order: getOrderListItems(state),
   quantities: getQuantities(state),
   subtotals: getSubtotals(state),
   total: getTotal(state)
