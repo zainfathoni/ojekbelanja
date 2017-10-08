@@ -1604,6 +1604,197 @@ exports[`Storyshots Order enabled 1`] = `
 </footer>
 `;
 
+exports[`Storyshots Page single column 1`] = `
+<div
+  className="l-fullwidth">
+  <div
+    className="l-wrapper-MainNav">
+    <div
+      className="l-MainNav">
+      <nav
+        className="MainNav">
+        <a
+          className="MainNav-item MainNav-home"
+          href="/"
+          onClick={[Function]}
+          style={undefined}>
+          Ojek 
+          <i
+            aria-hidden="true"
+            className="fa fa-motorcycle" />
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart" />
+           Belanja
+        </a>
+        <a
+          className="MainNav-item"
+          href="/cara-kerja"
+          onClick={[Function]}
+          style={undefined}>
+          Cara Kerja
+        </a>
+        <a
+          className="MainNav-item"
+          href="/faq"
+          onClick={[Function]}
+          style={undefined}>
+          FAQ
+        </a>
+        <a
+          className="MainNav-item"
+          href="/tentang-kami"
+          onClick={[Function]}
+          style={undefined}>
+          Tentang Kami
+        </a>
+        <a
+          className="MainNav-item MainNav-login"
+          href="/login"
+          onClick={[Function]}
+          style={undefined}>
+          <i
+            aria-hidden="true"
+            className="fa fa-sign-in" />
+           Login
+        </a>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="l-wrapper-header">
+    <div
+      className="l-wrapper-header">
+      <header
+        className="Header">
+        <h1>
+          Ojek 
+          <i
+            aria-hidden="true"
+            className="fa fa-motorcycle" />
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart" />
+           Belanja
+        </h1>
+        <h3>
+          Asisten Belanja Anda
+        </h3>
+      </header>
+    </div>
+  </div>
+  <main
+    className="l-main">
+    <div>
+      Column
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Storyshots Page two columns 1`] = `
+<div
+  className="l-fullwidth">
+  <div
+    className="l-wrapper-MainNav">
+    <div
+      className="l-MainNav">
+      <nav
+        className="MainNav">
+        <a
+          className="MainNav-item MainNav-home"
+          href="/"
+          onClick={[Function]}
+          style={undefined}>
+          Ojek 
+          <i
+            aria-hidden="true"
+            className="fa fa-motorcycle" />
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart" />
+           Belanja
+        </a>
+        <a
+          className="MainNav-item"
+          href="/cara-kerja"
+          onClick={[Function]}
+          style={undefined}>
+          Cara Kerja
+        </a>
+        <a
+          className="MainNav-item"
+          href="/faq"
+          onClick={[Function]}
+          style={undefined}>
+          FAQ
+        </a>
+        <a
+          className="MainNav-item"
+          href="/tentang-kami"
+          onClick={[Function]}
+          style={undefined}>
+          Tentang Kami
+        </a>
+        <a
+          className="MainNav-item MainNav-login"
+          href="/login"
+          onClick={[Function]}
+          style={undefined}>
+          <i
+            aria-hidden="true"
+            className="fa fa-sign-in" />
+           Login
+        </a>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="l-wrapper-header">
+    <div
+      className="l-wrapper-header">
+      <header
+        className="Header">
+        <h1>
+          Ojek 
+          <i
+            aria-hidden="true"
+            className="fa fa-motorcycle" />
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart" />
+           Belanja
+        </h1>
+        <h3>
+          Asisten Belanja Anda
+        </h3>
+      </header>
+    </div>
+  </div>
+  <main
+    className="l-main">
+    <div
+      className="l-main-2">
+      <div>
+        Left Column
+      </div>
+    </div>
+    <div
+      className="l-main-2">
+      <div>
+        Right Column
+      </div>
+    </div>
+  </main>
+  <footer
+    className="l-wrapper-footer">
+    <div>
+      Footer
+    </div>
+  </footer>
+</div>
+`;
+
 exports[`Storyshots Section default 1`] = `
 <ul
   style={

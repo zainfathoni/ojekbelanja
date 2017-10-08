@@ -16,7 +16,6 @@ let Pesan = ({ id, toko, order }) =>
   ) : (
     <Page
       header={<Header heading={"Toko " + toko.name} />}
-      twoColumns
       left={<PesananForm name="order" id={id} />}
       right={
         <PemesanForm
