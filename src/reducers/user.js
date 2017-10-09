@@ -13,6 +13,8 @@ const user = (state = {}, action) => {
 
 export default user;
 
+export const getUser = state => state;
+
 export const isValid = (state, field) => {
   const value = state[field];
   switch (field) {

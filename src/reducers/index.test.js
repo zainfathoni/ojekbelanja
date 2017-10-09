@@ -18,6 +18,7 @@ import {
   getOrder,
   getOrderCount,
   getOrderQty,
+  getUser,
   isValid,
   isUserValid,
   isRequired,
@@ -171,6 +172,10 @@ test("getOrderCount", () => {
 
 test("getOrderQty", () => {
   expect(getOrderQty(state, "jahe")).toEqual(state.order.jahe);
+});
+
+test("getUser", () => {
+  expect(getUser(state)).toBe(state.user);
 });
 
 test("isValid", () => {

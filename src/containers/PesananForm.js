@@ -3,13 +3,7 @@ import { PropTypes as T } from "prop-types";
 import { connect } from "react-redux";
 
 import * as actions from "../actions";
-import {
-  getStore,
-  getOrderListItems,
-  getQuantities,
-  getSubtotals,
-  getTotal
-} from "../reducers";
+import { getStore, getOrderListItems, getTotal } from "../reducers";
 import Form from "../components/Form";
 import Button from "../components/Button";
 import FormFooterNumbers from "../components/FormFooterNumbers";
@@ -102,8 +96,6 @@ PesananForm.propTypes = {
 const mapStateToProps = (state, ownProps) => ({
   toko: getStore(state, ownProps.id),
   order: getOrderListItems(state),
-  quantities: getQuantities(state),
-  subtotals: getSubtotals(state),
   total: getTotal(state)
 });
 

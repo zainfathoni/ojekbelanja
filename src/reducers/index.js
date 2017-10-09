@@ -44,6 +44,7 @@ export const getOrderCount = state => fromOrder.getOrderCount(state.order);
 export const getOrderQty = (state, id) =>
   fromOrder.getOrderQty(state.order, id);
 
+export const getUser = state => fromUser.getUser(state.user);
 export const isValid = (state, field) => fromUser.isValid(state.user, field);
 export const isUserValid = state => fromUser.isUserValid(state.user);
 export const isRequired = field => fromUser.isRequired(field);
