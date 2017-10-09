@@ -22,10 +22,11 @@ export default function Option(props) {
     <div id={name} className="Option">
       <label className="Option-label" htmlFor={name}>
         {children}
-        {!required &&
-          <span className="Option-label-optional"> - Opsional</span>}
+        {!required && (
+          <span className="Option-label-optional"> - Opsional</span>
+        )}
       </label>
-      {Object.keys(values).map(key =>
+      {Object.keys(values).map(key => (
         <div key={key} className={itemClass}>
           <input
             className="Option-input"
@@ -37,10 +38,10 @@ export default function Option(props) {
             onChange={e => onChange(name, e.target.value)}
           />
           <label className={valueClass} htmlFor={`${name}_${key}`}>
-            {key}
+            {values[key]}
           </label>
         </div>
-      )}
+      ))}
     </div>
   );
 }

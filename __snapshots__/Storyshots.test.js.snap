@@ -1488,6 +1488,98 @@ exports[`Storyshots MainNav default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Option default 1`] = `
+<div
+  className="Option"
+  id="option">
+  <label
+    className="Option-label"
+    htmlFor="option">
+    Apakah ini horizontal?
+    <span
+      className="Option-label-optional">
+       - Opsional
+    </span>
+  </label>
+  <div
+    className="Option-item">
+    <input
+      checked={true}
+      className="Option-input"
+      id="option_yes"
+      name="option"
+      onChange={[Function]}
+      type="radio"
+      value="yes" />
+    <label
+      className="Option-value"
+      htmlFor="option_yes">
+      Ya
+    </label>
+  </div>
+  <div
+    className="Option-item">
+    <input
+      checked={false}
+      className="Option-input"
+      id="option_no"
+      name="option"
+      onChange={[Function]}
+      type="radio"
+      value="no" />
+    <label
+      className="Option-value"
+      htmlFor="option_no">
+      Tidak
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Option vertical required 1`] = `
+<div
+  className="Option"
+  id="option">
+  <label
+    className="Option-label"
+    htmlFor="option">
+    Apakah ini horizontal?
+  </label>
+  <div
+    className="Option-item Option-vertical">
+    <input
+      checked={false}
+      className="Option-input"
+      id="option_yes"
+      name="option"
+      onChange={[Function]}
+      type="radio"
+      value="yes" />
+    <label
+      className="Option-value"
+      htmlFor="option_yes">
+      Ya
+    </label>
+  </div>
+  <div
+    className="Option-item Option-vertical">
+    <input
+      checked={true}
+      className="Option-input"
+      id="option_no"
+      name="option"
+      onChange={[Function]}
+      type="radio"
+      value="no" />
+    <label
+      className="Option-value"
+      htmlFor="option_no">
+      Tidak
+    </label>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Order disabled 1`] = `
 <footer
   className="l-wrapper-footer">
