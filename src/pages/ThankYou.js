@@ -53,13 +53,14 @@ let ThankYou = ({ storeId, toko, orderCount, user }) =>
           <li>
             Untuk pertanyaan lebih lanjut, berikut detil informasi toko tempat
             Anda memesan:
-            <DescriptionList
-              list={[
-                { term: "Nama Toko", definition: toko.name },
-                { term: "Area Layanan", definition: toko.area },
-                { term: "No. HP", definition: toko.phone }
-              ]}
-            />
+            <DescriptionList>
+              <Term>Nama Toko</Term>
+              <Description>{toko.name}</Description>
+              <Term>Area Layanan</Term>
+              <Description>{toko.area}</Description>
+              <Term>No. HP</Term>
+              <Description>{toko.phone}</Description>
+            </DescriptionList>
           </li>
           <li>
             Pembayaran dilakukan dengan cara <i>COD (Cash On Delivery)</i>.
