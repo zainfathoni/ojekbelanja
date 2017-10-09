@@ -5,60 +5,65 @@ import classnames from "classnames";
 import "./Table.css";
 
 export default function Table(props) {
-  const { type, body, footerColSpan, footerClassName, footer } = props;
+  const { columns, rows, footerColSpan, footerClassName, footer } = props;
 
   return (
     <table className="Table">
       <thead>
         <tr>
-          {Object.keys(type).map(column =>
+          {columns.map(column => (
             <th
-              key={column}
-              className={`Table-header-${type[column]} Table-${type[column]}`}
+              key={column.id}
+              className={`Table-header-${column.id} Table-${column.id}`}
             >
-              {column}
+              {column.label}
             </th>
-          )}
+          ))}
         </tr>
       </thead>
       <tbody>
-        {body.map(row =>
-          <tr key={row["No"]}>
-            {Object.keys(row).map(data =>
-              <td key={data} className={`Table-${type[data]}`}>
-                {row[data]}
+        {rows.map(row => (
+          <tr key={row.number}>
+            {Object.keys(row).map((key, id) => (
+              <td key={key} className={`Table-${columns[id].id}`}>
+                {row[key]}
               </td>
-            )}
+            ))}
           </tr>
-        )}
+        ))}
       </tbody>
       <tfoot>
-        {footer.map((row, rowId) =>
-          <tr key={row["Nama"]}>
-            {Object.keys(row).map(data =>
+        {footer.map((row, rowId) => (
+          <tr key={row.name}>
+            {Object.keys(row).map(key => (
               <td
-                key={data}
+                key={key}
                 className={classnames(
-                  `Table-${type[data]}`,
+                  `Table-${key}`,
                   { "Table-reverse": footerClassName[rowId] === "reverse" },
                   { "Table-italic": footerClassName[rowId] === "italic" },
                   { "Table-total": footerClassName[rowId] === "total" }
                 )}
-                colSpan={footerColSpan[data]}
+                colSpan={footerColSpan[key]}
               >
-                {row[data]}
+                {row[key]}
               </td>
-            )}
+            ))}
           </tr>
-        )}
+        ))}
       </tfoot>
     </table>
   );
 }
 
 Table.propTypes = {
-  type: T.objectOf(T.string).isRequired,
-  body: T.array.isRequired,
+  columns: T.arrayOf(
+    T.shape({
+      id: T.string.isRequired,
+      label: T.string.isRequired
+    })
+  ),
+  rows: T.arrayOf(T.object.isRequired).isRequired,
   footerColSpan: T.objectOf(T.number),
   footerClassName: T.objectOf(T.string),
   footer: T.array

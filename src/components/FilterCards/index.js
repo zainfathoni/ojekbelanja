@@ -37,26 +37,7 @@ export default function FilterCards({
     );
   }
 
-  const filteredItems = ids
-    .filter(
-      key =>
-        items[key].title.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
-        items[key].description.toLowerCase().indexOf(keyword.toLowerCase()) !==
-          -1 ||
-        (sections &&
-          sections[items[key].section]
-            .toLowerCase()
-            .indexOf(keyword.toLowerCase()) !== -1)
-    )
-    .reduce(
-      (res, key) => ({
-        ...res,
-        [key]: items[key]
-      }),
-      {}
-    );
-
-  const sectionedItems = Object.keys(filteredItems).reduce((res, key) => {
+  const sectionedItems = ids.reduce((res, key) => {
     const section = items[key].section;
     return {
       ...res,
@@ -105,8 +86,8 @@ export default function FilterCards({
         ))
       ) : (
         <ul className="l-FilterCards-grid">
-          {Object.keys(filteredItems).map(key => {
-            const item = filteredItems[key];
+          {Object.keys(items).map(key => {
+            const item = items[key];
             return (
               <Card
                 key={key}

@@ -1,4 +1,5 @@
 import user, {
+  getUser,
   isValid,
   isUserValid,
   isRequired,
@@ -27,6 +28,10 @@ test("CLEAR_USER", () => {
   const after = {};
 
   expect(user(before, action)).toEqual(after);
+});
+
+test("getUser", () => {
+  expect(getUser({ name: "Zain Fathoni" })).toEqual({ name: "Zain Fathoni" });
 });
 
 describe("isValid", () => {

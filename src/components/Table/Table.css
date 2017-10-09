@@ -10,7 +10,7 @@
   /* Text */
   line-height: 1rem;
   /* Fonts */
-  font-size: .875rem;
+  font-size: 0.875rem;
   /* Table Properties */
   border-collapse: collapse;
 }
@@ -22,12 +22,12 @@
   border-style: solid;
   border-color: #673ab7;
   /* Basic Box */
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 .Table td {
   /* Basic Box */
-  padding: .5rem 0;
+  padding: 0.5rem 0;
 }
 
 .Table > tfoot {
@@ -57,6 +57,7 @@
 }
 
 .Table-price,
+.Table-subtotal,
 .Table-qty {
   /* Text */
   text-align: right;
@@ -87,6 +88,6 @@ tfoot td.Table-italic {
 @media (max-width: 36em) {
   .Table {
     /* Fonts */
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
 }

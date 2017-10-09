@@ -1,4 +1,4 @@
-import order, { getOrder, getOrderCount } from "./order";
+import order, { getOrder, getOrderCount, getOrderQty } from "./order";
 import {
   incOrder,
   decOrder,
@@ -118,5 +118,9 @@ test("getOrder", () => {
 });
 
 test("getOrderCount", () => {
-  expect(getOrderCount({ kecap: 1 }, "kecap")).toEqual(1);
+  expect(getOrderCount({ kecap: 1, saos: 2 })).toEqual(2);
+});
+
+test("getOrderQty", () => {
+  expect(getOrderQty({ kecap: 2 }, "kecap")).toEqual(2);
 });

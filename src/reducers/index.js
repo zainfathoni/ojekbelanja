@@ -1,3 +1,4 @@
+import React from "react";
 import { combineReducers } from "redux";
 import order, * as fromOrder from "./order";
 import user, * as fromUser from "./user";
@@ -20,9 +21,13 @@ export const getStoreKeyword = state => fromStores.getKeyword(state.stores);
 export const getStoreIsFetching = state =>
   fromStores.getIsFetching(state.stores);
 export const getStoreError = state => fromStores.getError(state.stores);
+export const getFilteredStoreCards = state =>
+  fromStores.getFilteredStoreCards(state.stores);
 
 export const getCategories = state =>
   fromProducts.getCategories(state.products);
+export const getCategory = (state, id) =>
+  fromProducts.getCategory(state.products, id);
 export const getProducts = state => fromProducts.getProducts(state.products);
 export const getProduct = (state, id) =>
   fromProducts.getProduct(state.products, id);
@@ -31,11 +36,15 @@ export const getProductKeyword = state =>
 export const getProductIsFetching = state =>
   fromProducts.getIsFetching(state.products);
 export const getProductError = state => fromProducts.getError(state.products);
+export const isProductMatching = (state, id) =>
+  fromProducts.isMatching(state.products, id);
 
 export const getOrder = state => fromOrder.getOrder(state.order);
-export const getOrderCount = (state, id) =>
-  fromOrder.getOrderCount(state.order, id);
+export const getOrderCount = state => fromOrder.getOrderCount(state.order);
+export const getOrderQty = (state, id) =>
+  fromOrder.getOrderQty(state.order, id);
 
+export const getUser = state => fromUser.getUser(state.user);
 export const isValid = (state, field) => fromUser.isValid(state.user, field);
 export const isUserValid = state => fromUser.isUserValid(state.user);
 export const isRequired = field => fromUser.isRequired(field);
@@ -48,11 +57,11 @@ export const areRequirementsFulfilled = state =>
 const escapeFloatingPoint = value => Math.round(value * 100) / 100;
 
 export const getQuantity = (state, id) => {
-  const products = getProduct(state, id);
-  const count = getOrderCount(state, id);
+  const product = getProduct(state, id);
+  const count = getOrderQty(state, id);
 
-  if (products && count > 0) {
-    const { step, unit } = products;
+  if (product && count > 0) {
+    const { step, unit } = product;
     const steps = escapeFloatingPoint(count * step);
     return steps < 1 && unit === "kg"
       ? `${steps * 1000} gram`
@@ -60,20 +69,18 @@ export const getQuantity = (state, id) => {
   }
   return undefined;
 };
-export const getQuantities = state => {
-  const order = getOrder(state);
-  return Object.keys(order).reduce(
+export const getQuantities = state =>
+  Object.keys(getOrder(state)).reduce(
     (res, key) => ({
       ...res,
       [key]: getQuantity(state, key)
     }),
     {}
   );
-};
 
 export const getSubtotal = (state, id) => {
   const products = getProduct(state, id);
-  const count = getOrderCount(state, id);
+  const count = getOrderQty(state, id);
 
   if (products && count > 0) {
     const { step, price } = getProduct(state, id);
@@ -81,16 +88,14 @@ export const getSubtotal = (state, id) => {
   }
   return undefined;
 };
-export const getSubtotals = state => {
-  const order = getOrder(state);
-  return Object.keys(order).reduce(
+export const getSubtotals = state =>
+  Object.keys(getOrder(state)).reduce(
     (res, key) => ({
       ...res,
       [key]: getSubtotal(state, key)
     }),
     {}
   );
-};
 
 export const getTotal = state => {
   const order = getOrder(state);
@@ -103,3 +108,73 @@ export const getTotal = state => {
       )
     : 0;
 };
+
+export const getFilteredProductCards = state =>
+  Object.keys(getProducts(state))
+    .filter(key => isProductMatching(state, key))
+    .map(key => {
+      const product = getProduct(state, key);
+      return {
+        id: key,
+        section: product.category,
+        title: product.name,
+        description: product.desc,
+        image: require(`../css/images/${product.image}`),
+        price: product.price,
+        unit: product.unit,
+        overlay: getQuantity(state, key),
+        disabled: product.empty,
+        ribbon: product.promo,
+        tooltip: product.promo_desc
+      };
+    })
+    .reduce(
+      (res, product) => ({
+        ...res,
+        [product.id]: product
+      }),
+      {}
+    );
+
+export const getOrderListItems = state =>
+  Object.keys(getOrder(state))
+    .map(key => {
+      const product = getProduct(state, key);
+      return {
+        id: key,
+        name: product.name,
+        desc: product.desc,
+        image: require(`../css/images/${product.image}`),
+        unit: product.unit,
+        step: product.step,
+        price: product.price,
+        count: getOrderQty(state, key),
+        quantity: getQuantity(state, key),
+        subtotal: getSubtotal(state, key)
+      };
+    })
+    .reduce(
+      (res, item) => ({
+        ...res,
+        [item.id]: item
+      }),
+      {}
+    );
+
+export const getOrderTable = state =>
+  Object.keys(getOrder(state)).map((key, id) => {
+    const product = getProduct(state, key);
+    return {
+      number: id + 1,
+      name: product.name,
+      // FIXME: Make price not returning React component anymore
+      price: (
+        <div>
+          Rp {product.price.toLocaleString("id")}
+          <span className="ThankYou-pesanan-unit"> /{product.unit}</span>
+        </div>
+      ),
+      qty: getQuantity(state, key),
+      subtotal: getSubtotal(state, key)
+    };
+  });

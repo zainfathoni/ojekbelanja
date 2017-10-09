@@ -55,4 +55,5 @@ const order = (state = {}, action) => {
 export default order;
 
 export const getOrder = state => state;
-export const getOrderCount = (state, id) => state[id];
+export const getOrderCount = state => Object.keys(state).length;
+export const getOrderQty = (state, id) => state[id];

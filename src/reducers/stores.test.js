@@ -4,7 +4,9 @@ import stores, {
   getCost,
   getKeyword,
   getIsFetching,
-  getError
+  getError,
+  isMatching,
+  getFilteredStoreCards
 } from "./stores";
 
 const items = {
@@ -15,6 +17,13 @@ const items = {
     name: "Jejen",
     phone: "081234567890"
   }
+};
+
+const state = {
+  items,
+  error: null,
+  isFetching: false,
+  keyword: "jej"
 };
 
 test("FETCH_STORES_REQUEST", () => {
@@ -81,7 +90,7 @@ test("FETCH_STORE_SUCCESS", () => {
   expect(stores(before, action)).toEqual(after);
 });
 
-test("SET_STERE_KEYWORD", () => {
+test("SET_STORE_KEYWORD", () => {
   const action = {
     type: "SET_STORE_KEYWORD",
     keyword: "jej"
@@ -89,13 +98,6 @@ test("SET_STERE_KEYWORD", () => {
 
   expect(stores({}, action).keyword).toEqual("jej");
 });
-
-const state = {
-  items,
-  error: null,
-  isFetching: false,
-  keyword: "jej"
-};
 
 test("getStores", () => {
   expect(getStores(state)).toEqual(items);
@@ -119,4 +121,69 @@ test("getIsFetching", () => {
 
 test("getError", () => {
   expect(getError(state)).toEqual(null);
+});
+
+describe("isMatching", () => {
+  it("name matches", () => {
+    expect(
+      isMatching(
+        {
+          keyword: "jej",
+          items: {
+            jejen: {
+              name: "Jejen"
+            }
+          }
+        },
+        "jejen"
+      )
+    ).toBe(true);
+  });
+
+  it("desc matches", () => {
+    expect(
+      isMatching(
+        {
+          keyword: "ada",
+          items: {
+            jejen: {
+              name: "Jejen",
+              area: "Sadang Serang"
+            }
+          }
+        },
+        "jejen"
+      )
+    ).toBe(true);
+  });
+
+  it("no match", () => {
+    expect(
+      isMatching(
+        {
+          keyword: "tiada",
+          items: {
+            jejen: {
+              name: "Jejen",
+              area: "Sadang Serang"
+            }
+          }
+        },
+        "jejen"
+      )
+    ).toBe(false);
+  });
+});
+
+test("getFilteredStoreCards", () => {
+  expect(getFilteredStoreCards(state)).toEqual({
+    jejen: {
+      id: "jejen",
+      title: "Jejen",
+      description: "Sadang Serang & sekitarnya",
+      image: require(`../css/images/placeholder-224x224.png`),
+      price: 2000,
+      unit: "pengiriman"
+    }
+  });
 });

@@ -1,3 +1,4 @@
+import React from "react";
 import {
   getStores,
   getStore,
@@ -5,14 +6,19 @@ import {
   getStoreKeyword,
   getStoreIsFetching,
   getStoreError,
+  getFilteredStoreCards,
   getCategories,
+  getCategory,
   getProducts,
   getProduct,
   getProductKeyword,
   getProductIsFetching,
   getProductError,
+  isProductMatching,
   getOrder,
   getOrderCount,
+  getOrderQty,
+  getUser,
   isValid,
   isUserValid,
   isRequired,
@@ -22,7 +28,10 @@ import {
   getQuantities,
   getSubtotal,
   getSubtotals,
-  getTotal
+  getTotal,
+  getFilteredProductCards,
+  getOrderListItems,
+  getOrderTable
 } from ".";
 
 const state = {
@@ -62,7 +71,9 @@ const state = {
         name: "Jahe",
         price: 16000,
         step: 0.25,
-        unit: "kg"
+        unit: "kg",
+        promo: "100% Original",
+        promo_desc: "Asli jajahan Belanda"
       }
     },
     error: null,
@@ -106,8 +117,25 @@ test("getStoreError", () => {
   expect(getStoreError(state)).toEqual(null);
 });
 
+test("getFilteredStoreCards", () => {
+  expect(getFilteredStoreCards(state)).toEqual({
+    jejen: {
+      id: "jejen",
+      title: "Jejen",
+      description: "Sadang Serang & sekitarnya",
+      image: require(`../css/images/placeholder-224x224.png`),
+      price: 2000,
+      unit: "pengiriman"
+    }
+  });
+});
+
 test("getCategories", () => {
   expect(getCategories(state)).toEqual(state.products.categories);
+});
+
+test("getCategory", () => {
+  expect(getCategory(state, "bumbu")).toEqual(state.products.categories.bumbu);
 });
 
 test("getProducts", () => {
@@ -122,7 +150,7 @@ test("getProductKeyword", () => {
   expect(getProductKeyword(state)).toEqual("jah");
 });
 
-test("getSProductsFetching", () => {
+test("getProductIsFetching", () => {
   expect(getProductIsFetching(state)).toEqual(false);
 });
 
@@ -130,12 +158,24 @@ test("getProductError", () => {
   expect(getProductError(state)).toEqual(null);
 });
 
+test("isProductMatching", () => {
+  expect(isProductMatching(state, "jahe")).toEqual(true);
+});
+
 test("getOrder", () => {
   expect(getOrder(state)).toEqual(state.order);
 });
 
 test("getOrderCount", () => {
-  expect(getOrderCount(state, "jahe")).toEqual(state.order.jahe);
+  expect(getOrderCount(state)).toEqual(Object.keys(state.order).length);
+});
+
+test("getOrderQty", () => {
+  expect(getOrderQty(state, "jahe")).toEqual(state.order.jahe);
+});
+
+test("getUser", () => {
+  expect(getUser(state)).toBe(state.user);
 });
 
 test("isValid", () => {
@@ -186,7 +226,83 @@ test("getSubtotals", () => {
 
 test("getTotal", () => {
   expect(getTotal(state)).toEqual(54000);
-  let productlessState = { ...state };
-  productlessState.products.items = {};
+  let itemlessProducts = { ...state.products, items: {} };
+  let productlessState = { ...state, products: itemlessProducts };
   expect(getTotal(productlessState)).toEqual(0);
+});
+
+test("getFilteredProductCards", () => {
+  expect(getFilteredProductCards(state)).toEqual({
+    jahe: {
+      id: "jahe",
+      section: "bumbu",
+      title: "Jahe",
+      description: "Jahe",
+      image: require(`../css/images/placeholder-224x224.png`),
+      price: 16000,
+      unit: "kg",
+      overlay: "750 gram",
+      disabled: undefined,
+      ribbon: "100% Original",
+      tooltip: "Asli jajahan Belanda"
+    }
+  });
+});
+
+test("getOrderListItems", () => {
+  expect(getOrderListItems(state)).toEqual({
+    ayam_fillet: {
+      id: "ayam_fillet",
+      name: "Ayam Fillet",
+      desc: "Ayam Fillet",
+      image: require(`../css/images/placeholder-224x224.png`),
+      unit: "kg",
+      step: 0.25,
+      price: 42000,
+      count: 4,
+      quantity: "1 kg",
+      subtotal: "Rp 42,000"
+    },
+    jahe: {
+      id: "jahe",
+      name: "Jahe",
+      desc: "Jahe",
+      image: require(`../css/images/placeholder-224x224.png`),
+      unit: "kg",
+      step: 0.25,
+      price: 16000,
+      count: 3,
+      quantity: "750 gram",
+      subtotal: "Rp 12,000"
+    }
+  });
+});
+
+test("getOrderTable", () => {
+  expect(getOrderTable(state)).toEqual([
+    {
+      number: 1,
+      name: "Ayam Fillet",
+      price: (
+        <div>
+          Rp {"42,000"}
+          <span className="ThankYou-pesanan-unit"> /{"kg"}</span>
+        </div>
+      ),
+      qty: "1 kg",
+      subtotal: "Rp 42,000"
+    },
+    {
+      number: 2,
+      name: "Jahe",
+      price: (
+        <div>
+          Rp {"16,000"}
+          <span className="ThankYou-pesanan-unit"> /{"kg"}</span>
+        </div>
+      ),
+      qty: "750 gram",
+      subtotal: "Rp 12,000"
+    }
+  ]);
 });

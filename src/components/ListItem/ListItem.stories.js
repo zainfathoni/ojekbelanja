@@ -17,15 +17,16 @@ storiesOf("ListItem", module)
     withNotes("ListItem with default props")(() => (
       <ListItem
         id={text("ID", "bawang_putih")}
-        item={object("Item", {
-          name: "Bawang Putih",
-          desc: "Bawang Putih",
-          image: "placeholder-224x224.png",
-          unit: "kg",
-          step: 0.1,
-          price: 35000,
-          category: "bumbu"
-        })}
+        name={text("Name", "Bawang Putih")}
+        desc={text("Desc", "Bawang Putih")}
+        image={text(
+          "Image",
+          require("../../css/images/placeholder-224x224.png")
+        )}
+        unit={text("Unit", "kg")}
+        step={number("Step", 0.1)}
+        price={number("Price", 35000)}
+        category={text("Category", "bumbu")}
         count={number("Count", 1)}
         quantity={text("Quantity", "100 gram")}
         subtotal={text("Subtotal", "Rp 15.500")}

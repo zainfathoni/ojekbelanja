@@ -68,8 +68,21 @@ const products = combineReducers({
 export default products;
 
 export const getCategories = state => state.categories;
+export const getCategory = (state, id) => state.categories[id];
 export const getProducts = state => state.items;
 export const getProduct = (state, id) => state.items[id];
 export const getKeyword = state => state.keyword;
 export const getIsFetching = state => state.isFetching;
 export const getError = state => state.error;
+
+export const isMatching = (state, id) => {
+  const keyword = getKeyword(state);
+  const item = getProduct(state, id);
+  return (
+    item.name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
+    item.desc.toLowerCase().indexOf(keyword.toLowerCase()) !== -1 ||
+    getCategory(state, item.category)
+      .toLowerCase()
+      .indexOf(keyword.toLowerCase()) !== -1
+  );
+};

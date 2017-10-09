@@ -1,10 +1,12 @@
 import products, {
   getCategories,
+  getCategory,
   getProducts,
   getProduct,
   getKeyword,
   getIsFetching,
-  getError
+  getError,
+  isMatching
 } from "./products";
 
 const categories = {
@@ -21,6 +23,13 @@ const items = {
     step: 0.25,
     unit: "kg"
   }
+};
+const state = {
+  categories,
+  items,
+  error: null,
+  isFetching: false,
+  keyword: "jah"
 };
 
 test("FETCH_PRODUCTS_REQUEST", () => {
@@ -83,16 +92,12 @@ test("SET_PRODUCT_KEYWORD", () => {
   expect(products({}, action).keyword).toEqual("kecap");
 });
 
-const state = {
-  categories,
-  items,
-  error: null,
-  isFetching: false,
-  keyword: "jah"
-};
-
 test("getCategories", () => {
   expect(getCategories(state)).toEqual(categories);
+});
+
+test("getCategory", () => {
+  expect(getCategory(state, "bumbu")).toEqual(categories.bumbu);
 });
 
 test("getProducts", () => {
@@ -113,4 +118,81 @@ test("getIsFetching", () => {
 
 test("getError", () => {
   expect(getError(state)).toEqual(null);
+});
+
+describe("isMatching", () => {
+  it("name matches", () => {
+    expect(
+      isMatching(
+        {
+          keyword: "ket",
+          items: {
+            ketan: {
+              name: "Ketan"
+            }
+          }
+        },
+        "ketan"
+      )
+    ).toBe(true);
+  });
+
+  it("desc matches", () => {
+    expect(
+      isMatching(
+        {
+          keyword: "bak",
+          items: {
+            ketan: {
+              name: "Ketan",
+              desc: "Ketan Bakar"
+            }
+          }
+        },
+        "ketan"
+      )
+    ).toBe(true);
+  });
+
+  it("category matches", () => {
+    expect(
+      isMatching(
+        {
+          keyword: "jaj",
+          items: {
+            ketan: {
+              name: "Ketan",
+              desc: "Ketan Bakar",
+              category: "pasar"
+            }
+          },
+          categories: {
+            pasar: "Jajanan Pasar"
+          }
+        },
+        "ketan"
+      )
+    ).toBe(true);
+  });
+
+  it("no match", () => {
+    expect(
+      isMatching(
+        {
+          keyword: "kec",
+          items: {
+            ketan: {
+              name: "Ketan",
+              desc: "Ketan Bakar",
+              category: "pasar"
+            }
+          },
+          categories: {
+            pasar: "Jajanan Pasar"
+          }
+        },
+        "ketan"
+      )
+    ).toBe(false);
+  });
 });

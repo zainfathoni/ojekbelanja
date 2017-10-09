@@ -1261,6 +1261,73 @@ exports[`Storyshots FormFooterNumbers default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Header default 1`] = `
+<div
+  className="l-wrapper-header">
+  <header
+    className="Header">
+    <h1>
+      Ojek 
+      <i
+        aria-hidden="true"
+        className="fa fa-motorcycle" />
+      <i
+        aria-hidden="true"
+        className="fa fa-shopping-cart" />
+       Belanja
+    </h1>
+    <h3>
+      Asisten Belanja Anda
+    </h3>
+  </header>
+</div>
+`;
+
+exports[`Storyshots Header is 404 1`] = `
+<div
+  className="l-wrapper-header">
+  <header
+    className="Header">
+    <h1>
+      Ojek 
+      <i
+        aria-hidden="true"
+        className="fa fa-motorcycle" />
+      <i
+        aria-hidden="true"
+        className="fa fa-question" />
+       Nyasar
+    </h1>
+    <h3
+      className="Header-is-error">
+      404 | Page Not Found
+    </h3>
+  </header>
+</div>
+`;
+
+exports[`Storyshots Header with Heading 1`] = `
+<div
+  className="l-wrapper-header">
+  <header
+    className="Header">
+    <h1>
+      Ojek 
+      <i
+        aria-hidden="true"
+        className="fa fa-motorcycle" />
+      <i
+        aria-hidden="true"
+        className="fa fa-shopping-cart" />
+       Belanja
+    </h1>
+    <h3>
+      Toko Saya
+    </h3>
+  </header>
+</div>
+`;
+
 exports[`Storyshots ListItem default 1`] = `
 <div
   style={
@@ -1364,6 +1431,462 @@ exports[`Storyshots ListItem default 1`] = `
 </div>
 `;
 
+exports[`Storyshots MainNav default 1`] = `
+<div
+  className="l-wrapper-MainNav">
+  <div
+    className="l-MainNav">
+    <nav
+      className="MainNav">
+      <a
+        className="MainNav-item MainNav-home"
+        href="/"
+        onClick={[Function]}
+        style={undefined}>
+        Ojek 
+        <i
+          aria-hidden="true"
+          className="fa fa-motorcycle" />
+        <i
+          aria-hidden="true"
+          className="fa fa-shopping-cart" />
+         Belanja
+      </a>
+      <a
+        className="MainNav-item"
+        href="/cara-kerja"
+        onClick={[Function]}
+        style={undefined}>
+        Cara Kerja
+      </a>
+      <a
+        className="MainNav-item"
+        href="/faq"
+        onClick={[Function]}
+        style={undefined}>
+        FAQ
+      </a>
+      <a
+        className="MainNav-item"
+        href="/tentang-kami"
+        onClick={[Function]}
+        style={undefined}>
+        Tentang Kami
+      </a>
+      <a
+        className="MainNav-item MainNav-login"
+        href="/login"
+        onClick={[Function]}
+        style={undefined}>
+        <i
+          aria-hidden="true"
+          className="fa fa-sign-in" />
+         Login
+      </a>
+    </nav>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Option default 1`] = `
+<div
+  className="Option"
+  id="option">
+  <label
+    className="Option-label"
+    htmlFor="option">
+    Apakah ini horizontal?
+    <span
+      className="Option-label-optional">
+       - Opsional
+    </span>
+  </label>
+  <div
+    className="Option-item">
+    <input
+      checked={true}
+      className="Option-input"
+      id="option_yes"
+      name="option"
+      onChange={[Function]}
+      type="radio"
+      value="yes" />
+    <label
+      className="Option-value"
+      htmlFor="option_yes">
+      Ya
+    </label>
+  </div>
+  <div
+    className="Option-item">
+    <input
+      checked={false}
+      className="Option-input"
+      id="option_no"
+      name="option"
+      onChange={[Function]}
+      type="radio"
+      value="no" />
+    <label
+      className="Option-value"
+      htmlFor="option_no">
+      Tidak
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Option vertical required 1`] = `
+<div
+  className="Option"
+  id="option">
+  <label
+    className="Option-label"
+    htmlFor="option">
+    Apakah ini horizontal?
+  </label>
+  <div
+    className="Option-item Option-vertical">
+    <input
+      checked={false}
+      className="Option-input"
+      id="option_yes"
+      name="option"
+      onChange={[Function]}
+      type="radio"
+      value="yes" />
+    <label
+      className="Option-value"
+      htmlFor="option_yes">
+      Ya
+    </label>
+  </div>
+  <div
+    className="Option-item Option-vertical">
+    <input
+      checked={true}
+      className="Option-input"
+      id="option_no"
+      name="option"
+      onChange={[Function]}
+      type="radio"
+      value="no" />
+    <label
+      className="Option-value"
+      htmlFor="option_no">
+      Tidak
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Order disabled 1`] = `
+<footer
+  className="l-wrapper-footer">
+  <div
+    className="l-Order">
+    <div
+      className="Order-price-wrapper">
+      <div
+        className="Order-product-count"
+        title="Banyaknya Jenis Produk">
+        0
+      </div>
+      <div
+        className="Order-price">
+        Rp 50,000
+      </div>
+      <div
+        className="Order-delivery-fee">
+        <span
+          className="Order-delivery-fee-label">
+          + Ongkos Kirim
+        </span>
+         Rp 5,000
+      </div>
+    </div>
+    <div
+      className="Order-action-wrapper">
+      <button
+        className="Button Button-content Button-secondary"
+        disabled={true}
+        onClick={[Function]}
+        title=""
+        type="button">
+        <i
+          aria-hidden="true"
+          className="fa fa-times fa-lg" />
+         Kosongkan
+      </button>
+      <a
+        href="/pesan/jejen"
+        onClick={[Function]}>
+        <button
+          className="Button Button-content"
+          disabled={true}
+          onClick={undefined}
+          title=""
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart fa-lg" />
+           Pesan
+        </button>
+      </a>
+    </div>
+  </div>
+</footer>
+`;
+
+exports[`Storyshots Order enabled 1`] = `
+<footer
+  className="l-wrapper-footer">
+  <div
+    className="l-Order">
+    <div
+      className="Order-price-wrapper">
+      <div
+        className="Order-product-count"
+        title="Banyaknya Jenis Produk">
+        5
+      </div>
+      <div
+        className="Order-price">
+        Rp 50,000
+      </div>
+      <div
+        className="Order-delivery-fee">
+        <span
+          className="Order-delivery-fee-label">
+          + Ongkos Kirim
+        </span>
+         Rp 5,000
+      </div>
+    </div>
+    <div
+      className="Order-action-wrapper">
+      <button
+        className="Button Button-content Button-secondary"
+        disabled={false}
+        onClick={[Function]}
+        title=""
+        type="button">
+        <i
+          aria-hidden="true"
+          className="fa fa-times fa-lg" />
+         Kosongkan
+      </button>
+      <a
+        href="/pesan/jejen"
+        onClick={[Function]}>
+        <button
+          className="Button Button-content"
+          disabled={false}
+          onClick={undefined}
+          title=""
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart fa-lg" />
+           Pesan
+        </button>
+      </a>
+    </div>
+  </div>
+</footer>
+`;
+
+exports[`Storyshots Page single column 1`] = `
+<div
+  className="l-fullwidth">
+  <div
+    className="l-wrapper-MainNav">
+    <div
+      className="l-MainNav">
+      <nav
+        className="MainNav">
+        <a
+          className="MainNav-item MainNav-home"
+          href="/"
+          onClick={[Function]}
+          style={undefined}>
+          Ojek 
+          <i
+            aria-hidden="true"
+            className="fa fa-motorcycle" />
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart" />
+           Belanja
+        </a>
+        <a
+          className="MainNav-item"
+          href="/cara-kerja"
+          onClick={[Function]}
+          style={undefined}>
+          Cara Kerja
+        </a>
+        <a
+          className="MainNav-item"
+          href="/faq"
+          onClick={[Function]}
+          style={undefined}>
+          FAQ
+        </a>
+        <a
+          className="MainNav-item"
+          href="/tentang-kami"
+          onClick={[Function]}
+          style={undefined}>
+          Tentang Kami
+        </a>
+        <a
+          className="MainNav-item MainNav-login"
+          href="/login"
+          onClick={[Function]}
+          style={undefined}>
+          <i
+            aria-hidden="true"
+            className="fa fa-sign-in" />
+           Login
+        </a>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="l-wrapper-header">
+    <div
+      className="l-wrapper-header">
+      <header
+        className="Header">
+        <h1>
+          Ojek 
+          <i
+            aria-hidden="true"
+            className="fa fa-motorcycle" />
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart" />
+           Belanja
+        </h1>
+        <h3>
+          Asisten Belanja Anda
+        </h3>
+      </header>
+    </div>
+  </div>
+  <main
+    className="l-main">
+    <div>
+      Column
+    </div>
+  </main>
+</div>
+`;
+
+exports[`Storyshots Page two columns 1`] = `
+<div
+  className="l-fullwidth">
+  <div
+    className="l-wrapper-MainNav">
+    <div
+      className="l-MainNav">
+      <nav
+        className="MainNav">
+        <a
+          className="MainNav-item MainNav-home"
+          href="/"
+          onClick={[Function]}
+          style={undefined}>
+          Ojek 
+          <i
+            aria-hidden="true"
+            className="fa fa-motorcycle" />
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart" />
+           Belanja
+        </a>
+        <a
+          className="MainNav-item"
+          href="/cara-kerja"
+          onClick={[Function]}
+          style={undefined}>
+          Cara Kerja
+        </a>
+        <a
+          className="MainNav-item"
+          href="/faq"
+          onClick={[Function]}
+          style={undefined}>
+          FAQ
+        </a>
+        <a
+          className="MainNav-item"
+          href="/tentang-kami"
+          onClick={[Function]}
+          style={undefined}>
+          Tentang Kami
+        </a>
+        <a
+          className="MainNav-item MainNav-login"
+          href="/login"
+          onClick={[Function]}
+          style={undefined}>
+          <i
+            aria-hidden="true"
+            className="fa fa-sign-in" />
+           Login
+        </a>
+      </nav>
+    </div>
+  </div>
+  <div
+    className="l-wrapper-header">
+    <div
+      className="l-wrapper-header">
+      <header
+        className="Header">
+        <h1>
+          Ojek 
+          <i
+            aria-hidden="true"
+            className="fa fa-motorcycle" />
+          <i
+            aria-hidden="true"
+            className="fa fa-shopping-cart" />
+           Belanja
+        </h1>
+        <h3>
+          Asisten Belanja Anda
+        </h3>
+      </header>
+    </div>
+  </div>
+  <main
+    className="l-main">
+    <div
+      className="l-main-2">
+      <div>
+        Left Column
+      </div>
+    </div>
+    <div
+      className="l-main-2">
+      <div>
+        Right Column
+      </div>
+    </div>
+  </main>
+  <footer
+    className="l-wrapper-footer">
+    <div>
+      Footer
+    </div>
+  </footer>
+</div>
+`;
+
 exports[`Storyshots Section default 1`] = `
 <ul
   style={
@@ -1400,6 +1923,127 @@ exports[`Storyshots Section default 1`] = `
     <div />
   </section>
 </ul>
+`;
+
+exports[`Storyshots Table with 5 columns 1`] = `
+<div
+  style={
+    Object {
+      "textAlign": "center",
+    }
+  }>
+  <table
+    className="Table">
+    <thead>
+      <tr>
+        <th
+          className="Table-header-number Table-number">
+          No
+        </th>
+        <th
+          className="Table-header-name Table-name">
+          Nama
+        </th>
+        <th
+          className="Table-header-price Table-price">
+          Harga
+        </th>
+        <th
+          className="Table-header-qty Table-qty">
+          Jumlah
+        </th>
+        <th
+          className="Table-header-subtotal Table-subtotal">
+          Subtotal
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td
+          className="Table-number">
+          1
+        </td>
+        <td
+          className="Table-name">
+          Ayam Fillet
+        </td>
+        <td
+          className="Table-price">
+          Rp 42,000 /kg
+        </td>
+        <td
+          className="Table-qty">
+          1 kg
+        </td>
+        <td
+          className="Table-subtotal">
+          Rp 42,000
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="Table-number">
+          2
+        </td>
+        <td
+          className="Table-name">
+          Jahe
+        </td>
+        <td
+          className="Table-price">
+          Rp 16,000 /kg
+        </td>
+        <td
+          className="Table-qty">
+          750 gram
+        </td>
+        <td
+          className="Table-subtotal">
+          Rp 12,000
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td
+          className="Table-name"
+          colSpan={2}>
+          Total Belanja
+        </td>
+        <td
+          className="Table-price"
+          colSpan={3}>
+          Rp 54,000
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="Table-name Table-italic"
+          colSpan={2}>
+          Ongkos Kirim
+        </td>
+        <td
+          className="Table-price Table-italic"
+          colSpan={3}>
+          Rp 5,000
+        </td>
+      </tr>
+      <tr>
+        <td
+          className="Table-name Table-total"
+          colSpan={2}>
+          Total Pembayaran
+        </td>
+        <td
+          className="Table-price Table-total"
+          colSpan={3}>
+          Rp 59,000
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
 `;
 
 exports[`Storyshots TextArea default 1`] = `

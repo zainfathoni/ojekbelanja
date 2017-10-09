@@ -5,13 +5,13 @@ import Button from "../Button";
 import "./Order.css";
 
 export default function Order(props) {
-  const { id, order, total, deliveryFee, clearOrder } = props;
+  const { id, orderCount, total, deliveryFee, clearOrder } = props;
 
   return (
     <div className="l-Order">
       <div className="Order-price-wrapper">
         <div className="Order-product-count" title="Banyaknya Jenis Produk">
-          {Object.keys(order).length}
+          {orderCount}
         </div>
         <div className="Order-price">{`Rp ${total.toLocaleString("id")}`}</div>
         <div className="Order-delivery-fee">
@@ -26,14 +26,14 @@ export default function Order(props) {
           icon="times"
           text="Kosongkan"
           isSecondary
-          disabled={!Object.keys(order).length}
+          disabled={!orderCount}
         />
         <Button
           display="content"
           link={`/pesan/${id}`}
           icon="shopping-cart"
           text="Pesan"
-          disabled={!Object.keys(order).length}
+          disabled={!orderCount}
         />
         {/**/}
       </div>
@@ -42,18 +42,7 @@ export default function Order(props) {
 }
 
 Order.propTypes = {
-  order: T.objectOf(T.number).isRequired,
-  products: T.objectOf(
-    T.shape({
-      name: T.string.isRequired,
-      desc: T.string.isRequired,
-      image: T.string.isRequired,
-      unit: T.string.isRequired,
-      step: T.number.isRequired,
-      price: T.number.isRequired,
-      category: T.string.isRequired
-    })
-  ).isRequired,
+  orderCount: T.number.isRequired,
   total: T.number.isRequired,
   deliveryFee: T.number.isRequired,
   clearOrder: T.func.isRequired
