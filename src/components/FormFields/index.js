@@ -45,7 +45,6 @@ export default function FormFields({
                 placeholder={f.placeholder}
                 value={f.value}
                 onChange={change}
-                validate={f.validate}
                 message={f.message}
                 required={f.required}
               />
@@ -86,7 +85,6 @@ FormFields.propTypes = {
       placeholder: T.string,
       value: T.string,
       rows: T.int,
-      validate: T.func,
       message: T.any,
       required: T.bool
     })

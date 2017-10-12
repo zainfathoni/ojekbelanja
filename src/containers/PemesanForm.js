@@ -75,7 +75,6 @@ PemesanForm.propTypes = {
       placeholder: T.string,
       value: T.string,
       rows: T.int,
-      validate: T.func,
       message: T.any,
       required: T.bool
     })
