@@ -12,7 +12,8 @@ export default class AuthForm extends Component {
     super(props);
 
     this.state = {
-      isRegister: false
+      isRegister: false,
+      password: ""
     };
   }
 
@@ -22,13 +23,19 @@ export default class AuthForm extends Component {
     });
   };
 
+  changePassword = value => {
+    this.setState({
+      password: value
+    });
+  };
+
   submit = e => {
     e.preventDefault();
     this.props.onSubmit();
   };
 
   render() {
-    const { uid, isInvalid, onChange, onSubmit } = this.props;
+    const { uid, isInvalid, isPasswordValid, onChange, onSubmit } = this.props;
     const { isRegister } = this.state;
     let fields = {
       email: {
@@ -49,9 +56,11 @@ export default class AuthForm extends Component {
         name: "password",
         label: "Password",
         placeholder: "Minimal 6 karakter",
-        value: this.props.fields.password.value,
-        required: this.props.fields.password.required,
-        message: this.props.fields.password.message
+        value: this.state.password,
+        required: true,
+        message:
+          !isPasswordValid(this.state.password) && "Password tidak valid",
+        change: (field, value) => this.changePassword(value)
       }
     };
 
@@ -96,9 +105,13 @@ export default class AuthForm extends Component {
             icon={uid ? "sign-out" : isRegister ? "user-plus" : "sign-in"}
             text={uid ? "Logout" : isRegister ? "Register" : "Login"}
             title={
-              isInvalid ? "Masih ditemukan data yang tidak valid" : "Login"
+              isInvalid || !isPasswordValid(this.state.password)
+                ? "Masih ditemukan data yang tidak valid"
+                : "Login"
             }
-            disabled={!uid && isInvalid}
+            disabled={
+              (!uid && isInvalid) || !isPasswordValid(this.state.password)
+            }
             isSecondary={uid !== null}
           />
         }

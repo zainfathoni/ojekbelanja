@@ -23,8 +23,8 @@ storiesOf("AuthForm", module)
   ))
   .addDecorator(withKnobs)
   .addWithJSX(
-    "login",
-    withNotes("Authentication Form for Signing In")(() => (
+    "is valid",
+    withNotes("Authentication Form is valid")(() => (
       <AuthForm
         uid={null}
         fields={{
@@ -37,14 +37,58 @@ storiesOf("AuthForm", module)
             value: text("Email", "zain@ojekbelanja.id"),
             required: true,
             message: "Alamat palsu"
-          },
-          password: {
-            value: text("Password", "123456"),
-            required: true,
-            message: "Password palsu"
           }
         }}
         isInvalid={boolean("isInvalid", false)}
+        isPasswordValid={value => true}
+        onChange={action("change")}
+        onSubmit={action("submit")}
+      />
+    ))
+  )
+  .addWithJSX(
+    "is invalid",
+    withNotes("Authentication Form is invalid")(() => (
+      <AuthForm
+        uid={null}
+        fields={{
+          name: {
+            value: text("Nama", "Zain Fathoni"),
+            required: true,
+            message: "Nama palsu"
+          },
+          email: {
+            value: text("Email", "zain@ojekbelanja.id"),
+            required: true,
+            message: "Alamat palsu"
+          }
+        }}
+        isInvalid={boolean("isInvalid", true)}
+        isPasswordValid={value => false}
+        onChange={action("change")}
+        onSubmit={action("submit")}
+      />
+    ))
+  )
+  .addWithJSX(
+    "logged in",
+    withNotes("Authentication Form user is logged in")(() => (
+      <AuthForm
+        uid={12345}
+        fields={{
+          name: {
+            value: text("Nama", "Zain Fathoni"),
+            required: true,
+            message: "Nama palsu"
+          },
+          email: {
+            value: text("Email", "zain@ojekbelanja.id"),
+            required: true,
+            message: "Alamat palsu"
+          }
+        }}
+        isInvalid={boolean("isInvalid", false)}
+        isPasswordValid={value => true}
         onChange={action("change")}
         onSubmit={action("submit")}
       />

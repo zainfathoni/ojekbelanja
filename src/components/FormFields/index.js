@@ -44,7 +44,7 @@ export default function FormFields({
                 label={f.label}
                 placeholder={f.placeholder}
                 value={f.value}
-                onChange={change}
+                onChange={f.change || change}
                 message={f.message}
                 required={f.required}
               />
@@ -59,7 +59,7 @@ export default function FormFields({
                 placeholder={f.placeholder}
                 value={f.value}
                 rows={4}
-                onChange={change}
+                onChange={f.change || change}
                 required={f.required}
               />
             );
@@ -86,7 +86,8 @@ FormFields.propTypes = {
       value: T.string,
       rows: T.int,
       message: T.any,
-      required: T.bool
+      required: T.bool,
+      change: T.func
     })
   ).isRequired,
   onChange: T.func.isRequired,
