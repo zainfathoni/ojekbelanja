@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import { PropTypes as T } from "prop-types";
-import { connect } from "react-redux";
 
-import * as actions from "../../actions";
-import {} from "../../reducers";
 import FormFields from "../FormFields";
 import Button from "../Button";
 
