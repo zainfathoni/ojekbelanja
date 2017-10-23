@@ -6,7 +6,7 @@ import * as actions from "../actions";
 import { isValid, isRequired, isRequirementFulfilled } from "../reducers";
 import AuthForm from "../components/AuthForm";
 
-let LoginForm = ({ uid, fields, isInvalid, setUser }) => (
+let LoginForm = ({ uid, fields, isInvalid, setUser, loginUser }) => (
   <AuthForm
     uid={uid}
     fields={fields}
@@ -15,7 +15,7 @@ let LoginForm = ({ uid, fields, isInvalid, setUser }) => (
     onChange={(field, value) => {
       setUser(field, value);
     }}
-    onSubmit={() => {}}
+    onSubmit={loginUser}
   />
 );
 

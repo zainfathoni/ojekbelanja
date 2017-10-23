@@ -1,4 +1,6 @@
 {
   "javascript.validate.enable": false,
-  "vsicons.presets.angular": false
+  "vsicons.presets.angular": false,
+  "prettier.singleQuote": false,
+  "prettier.semi": true
 }

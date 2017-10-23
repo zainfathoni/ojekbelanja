@@ -1,4 +1,5 @@
 import { getStoreIsFetching, getProductIsFetching } from "../reducers";
+import firebase from "../services/firebase";
 
 export const INC_ORDER = "INC_ORDER";
 export const DEC_ORDER = "DEC_ORDER";
@@ -20,6 +21,12 @@ export const SET_PRODUCT_KEYWORD = "SET_PRODUCT_KEYWORD";
 export const FETCH_PRODUCTS_REQUEST = "FETCH_PRODUCTS_REQUEST";
 export const FETCH_PRODUCTS_SUCCESS = "FETCH_PRODUCTS_SUCCESS";
 export const FETCH_PRODUCTS_FAILURE = "FETCH_PRODUCTS_FAILURE";
+
+export const LOGIN_REQUEST = "LOGIN_REQUEST";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const LOGOUT_SUCCESS = "LOGOUT_SUCCESS";
+export const LOGOUT_FAILURE = "LOGOUT_FAILURE";
 
 export const incOrder = id => ({
   type: INC_ORDER,
@@ -142,4 +149,31 @@ export const fetchProducts = (fetch, id) => (dispatch, getState) => {
         message: error.message || "Tetap Tenang Tetap Semangat"
       })
     );
+};
+
+export const loginUser = (email, password) => (dispatch, getState) => {
+  dispatch({
+    type: LOGIN_REQUEST,
+    email,
+    password
+  });
+
+  return firebase
+    .auth()
+    .signInWithEmailAndPassword(email, password)
+    .catch(error =>
+      dispatch({
+        type: LOGIN_FAILURE,
+        code: error.code,
+        message: error.message || "Tetap Tenang Tetap Semangat"
+      })
+    );
+};
+
+export const loginSuccess = user => {
+  type: LOGIN_SUCCESS, user;
+};
+
+export const logoutSuccess = () => {
+  type: LOGOUT_SUCCESS;
 };

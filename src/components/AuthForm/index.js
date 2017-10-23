@@ -28,7 +28,7 @@ export default class AuthForm extends Component {
 
   submit = e => {
     e.preventDefault();
-    this.props.onSubmit();
+    this.props.onSubmit(this.props.fields.email.value, this.state.password);
   };
 
   render() {
