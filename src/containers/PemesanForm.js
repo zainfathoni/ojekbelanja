@@ -21,46 +21,44 @@ let PemesanForm = ({
   isInvalid,
   setUser,
   clearUser
-}) => {
-  return (
-    <FormFields
-      name={name}
-      title="Data Pemesan"
-      icon="address-card"
-      footer={
-        <FormFooterButtons
-          buttons={{
-            reset: {
-              action: () => {
-                clearUser();
-              },
-              icon: "times",
-              text: "Bersihkan",
-              title: !Object.keys(user).length
-                ? "Data sudah bersih"
-                : "Bersihkan data",
-              disabled: !Object.keys(user).length
+}) => (
+  <FormFields
+    name={name}
+    title="Data Pemesan"
+    icon="address-card"
+    footer={
+      <FormFooterButtons
+        buttons={{
+          reset: {
+            action: () => {
+              clearUser();
             },
-            submit: {
-              link: `/thankyou/${storeId}`,
-              icon: "cart-arrow-down",
-              text: "Selesai",
-              title: "Konfirmasi pemesanan",
-              disabled: isInvalid
-            }
-          }}
-        />
-      }
-      fields={fields}
-      onChange={(field, value) => {
-        setUser(field, value);
-      }}
-      onSubmit={e => {
-        e.preventDefault();
-      }}
-    />
-  );
-};
+            icon: "times",
+            text: "Bersihkan",
+            title: !Object.keys(user).length
+              ? "Data sudah bersih"
+              : "Bersihkan data",
+            disabled: !Object.keys(user).length
+          },
+          submit: {
+            link: `/thankyou/${storeId}`,
+            icon: "cart-arrow-down",
+            text: "Selesai",
+            title: "Konfirmasi pemesanan",
+            disabled: isInvalid
+          }
+        }}
+      />
+    }
+    fields={fields}
+    onChange={(field, value) => {
+      setUser(field, value);
+    }}
+    onSubmit={e => {
+      e.preventDefault();
+    }}
+  />
+);
 
 PemesanForm.propTypes = {
   name: T.string.isRequired,
@@ -75,7 +73,6 @@ PemesanForm.propTypes = {
       placeholder: T.string,
       value: T.string,
       rows: T.int,
-      validate: T.func,
       message: T.any,
       required: T.bool
     })

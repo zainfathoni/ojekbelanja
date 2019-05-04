@@ -1,3 +1,309 @@
+exports[`Storyshots AuthForm is invalid 1`] = `
+<main
+  style={
+    Object {
+      "margin": "auto",
+      "maxWidth": "21rem",
+      "width": "90%",
+    }
+  }>
+  <form
+    className="Form"
+    name="login"
+    onSubmit={[Function]}>
+    <header
+      className="Form-header">
+      <div
+        className="Form-header-title">
+        <i
+          aria-hidden="true"
+          className="fa fa-lg fa-sign-in" />
+         Login
+      </div>
+      <div
+        className="Form-header-action">
+        <button
+          className="Login-heading-action Button Button-content Button-small Button-secondary"
+          disabled={false}
+          onClick={[Function]}
+          title=""
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-user-plus" />
+           Register
+        </button>
+      </div>
+    </header>
+    <main
+      className="Form-body">
+      <div
+        className="TextField">
+        <label
+          className="TextField-label"
+          htmlFor="email">
+          Email
+        </label>
+        <input
+          className="TextField-input TextField-input-fullwidth"
+          id="email"
+          max={100}
+          min={0}
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Alamat Email"
+          required={true}
+          step={1}
+          type="email"
+          value="zain@ojekbelanja.id" />
+      </div>
+      <div
+        className="TextField">
+        <label
+          className="TextField-label"
+          htmlFor="password">
+          Password
+        </label>
+        <input
+          className="TextField-input TextField-input-fullwidth"
+          id="password"
+          max={100}
+          min={0}
+          name="password"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Minimal 6 karakter"
+          required={true}
+          step={1}
+          type="password"
+          value="" />
+      </div>
+    </main>
+    <footer
+      className="Form-footer">
+      <button
+        className="Button Button-fullwidth"
+        disabled={true}
+        onClick={[Function]}
+        title="Masih ditemukan data yang tidak valid"
+        type="submit">
+        <i
+          aria-hidden="true"
+          className="fa fa-sign-in fa-lg" />
+         Login
+      </button>
+    </footer>
+  </form>
+</main>
+`;
+
+exports[`Storyshots AuthForm is valid 1`] = `
+<main
+  style={
+    Object {
+      "margin": "auto",
+      "maxWidth": "21rem",
+      "width": "90%",
+    }
+  }>
+  <form
+    className="Form"
+    name="login"
+    onSubmit={[Function]}>
+    <header
+      className="Form-header">
+      <div
+        className="Form-header-title">
+        <i
+          aria-hidden="true"
+          className="fa fa-lg fa-sign-in" />
+         Login
+      </div>
+      <div
+        className="Form-header-action">
+        <button
+          className="Login-heading-action Button Button-content Button-small Button-secondary"
+          disabled={false}
+          onClick={[Function]}
+          title=""
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-user-plus" />
+           Register
+        </button>
+      </div>
+    </header>
+    <main
+      className="Form-body">
+      <div
+        className="TextField">
+        <label
+          className="TextField-label"
+          htmlFor="email">
+          Email
+        </label>
+        <input
+          className="TextField-input TextField-input-fullwidth"
+          id="email"
+          max={100}
+          min={0}
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Alamat Email"
+          required={true}
+          step={1}
+          type="email"
+          value="zain@ojekbelanja.id" />
+      </div>
+      <div
+        className="TextField">
+        <label
+          className="TextField-label"
+          htmlFor="password">
+          Password
+        </label>
+        <input
+          className="TextField-input TextField-input-fullwidth"
+          id="password"
+          max={100}
+          min={0}
+          name="password"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Minimal 6 karakter"
+          required={true}
+          step={1}
+          type="password"
+          value="" />
+      </div>
+    </main>
+    <footer
+      className="Form-footer">
+      <button
+        className="Button Button-fullwidth"
+        disabled={false}
+        onClick={[Function]}
+        title="Login"
+        type="submit">
+        <i
+          aria-hidden="true"
+          className="fa fa-sign-in fa-lg" />
+         Login
+      </button>
+    </footer>
+  </form>
+</main>
+`;
+
+exports[`Storyshots AuthForm logged in 1`] = `
+<main
+  style={
+    Object {
+      "margin": "auto",
+      "maxWidth": "21rem",
+      "width": "90%",
+    }
+  }>
+  <form
+    className="Form"
+    name="login"
+    onSubmit={[Function]}>
+    <header
+      className="Form-header">
+      <div
+        className="Form-header-title">
+        <i
+          aria-hidden="true"
+          className="fa fa-lg fa-sign-in" />
+         Login
+      </div>
+      <div
+        className="Form-header-action">
+        <button
+          className="Login-heading-action Button Button-content Button-small Button-secondary"
+          disabled={true}
+          onClick={[Function]}
+          title=""
+          type="button">
+          <i
+            aria-hidden="true"
+            className="fa fa-user-plus" />
+           Register
+        </button>
+      </div>
+    </header>
+    <main
+      className="Form-body">
+      <div
+        className="TextField">
+        <label
+          className="TextField-label"
+          htmlFor="email">
+          Email
+        </label>
+        <input
+          className="TextField-input TextField-input-fullwidth"
+          id="email"
+          max={100}
+          min={0}
+          name="email"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Alamat Email"
+          required={true}
+          step={1}
+          type="email"
+          value="zain@ojekbelanja.id" />
+      </div>
+      <div
+        className="TextField">
+        <label
+          className="TextField-label"
+          htmlFor="password">
+          Password
+        </label>
+        <input
+          className="TextField-input TextField-input-fullwidth"
+          id="password"
+          max={100}
+          min={0}
+          name="password"
+          onBlur={[Function]}
+          onChange={[Function]}
+          onFocus={[Function]}
+          placeholder="Minimal 6 karakter"
+          required={true}
+          step={1}
+          type="password"
+          value="" />
+      </div>
+    </main>
+    <footer
+      className="Form-footer">
+      <button
+        className="Button Button-fullwidth Button-secondary"
+        disabled={false}
+        onClick={[Function]}
+        title="Login"
+        type="submit">
+        <i
+          aria-hidden="true"
+          className="fa fa-sign-out fa-lg" />
+         Logout
+      </button>
+    </footer>
+  </form>
+</main>
+`;
+
 exports[`Storyshots Brand default 1`] = `
 <span
   className="Brand">
