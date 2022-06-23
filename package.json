@@ -7,7 +7,7 @@
     "@storybook/addon-notes": "^3.2.10",
     "@storybook/addon-storyshots": "^3.2.10",
     "@storybook/react": "^3.2.10",
-    "codecov": "^2.3.0",
+    "codecov": "^3.8.3",
     "enzyme": "^3.0.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "react-scripts": "0.7.0",
